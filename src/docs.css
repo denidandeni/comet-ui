@@ -1,0 +1,156 @@
+/* ==========================================================================
+   PURPOSE: Comet UI Documentation Layout
+   Layout for the component library dashboard (Sidebar + Main Content).
+   ========================================================================== */
+
+:root {
+  --cu-docs-sidebar-w: 280px;
+  --cu-docs-header-h: 64px;
+}
+
+.docs-layout {
+  display: grid;
+  grid-template-columns: var(--cu-docs-sidebar-w) 1fr;
+  min-height: 100vh;
+  background: var(--cu-neutral-500);
+  font-family: var(--cu-font-family-default);
+}
+
+.hidden { display: none !important; }
+
+/* Header */
+.docs-header {
+  grid-column: 1 / -1;
+  height: var(--cu-docs-header-h);
+  border-bottom: 1px solid var(--cu-bdr);
+  background: var(--cu-white);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--cu-space-xl);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.docs-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--cu-neutral-50);
+  text-decoration: none;
+}
+
+.docs-logo-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--cu-brand-600), var(--cu-accent));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* Sidebar */
+.docs-sidebar {
+  border-right: 1px solid var(--cu-bdr);
+  background: var(--cu-neutral-400);
+  padding: var(--cu-space-xl);
+  position: sticky;
+  top: var(--cu-docs-header-h);
+  height: calc(100vh - var(--cu-docs-header-h));
+  overflow-y: auto;
+}
+
+.docs-nav-group {
+  margin-bottom: var(--cu-space-xl);
+}
+
+.docs-nav-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cu-neutral-100);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--cu-space-md);
+}
+
+.docs-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: var(--cu-radius-sm);
+  color: var(--cu-neutral-100);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  margin-bottom: 2px;
+}
+
+.docs-nav-item:hover {
+  background: rgba(15, 23, 42, 0.04);
+  color: var(--cu-neutral-50);
+}
+
+.docs-nav-item.active {
+  background: white;
+  color: var(--cu-brand-600);
+  box-shadow: var(--cu-shd-btn);
+}
+
+.docs-nav-badge {
+  margin-left: auto;
+  font-size: 10px;
+  background: var(--cu-success-50);
+  color: var(--cu-success);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+/* Content Area */
+.docs-main {
+  padding: var(--cu-space-xl) var(--cu-space-xl) 100px;
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.docs-section {
+  margin-bottom: 80px;
+}
+
+.docs-section-header {
+  margin-bottom: var(--cu-space-xl);
+}
+
+.docs-preview-box {
+  border: 1px solid var(--cu-bdr);
+  border-radius: var(--cu-radius-lg);
+  padding: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cu-white);
+  margin-bottom: var(--cu-space-lg);
+}
+
+.docs-code-box {
+  background: #0f172a;
+  border-radius: var(--cu-radius-lg);
+  padding: var(--cu-space-lg);
+  color: #f8fafc;
+  font-family: var(--cu-font-family-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+.docs-code-keyword { color: #c084fc; }
+.docs-code-string { color: #2dd4bf; }
+.docs-code-tag { color: #f472b6; }
+.docs-code-attr { color: #fbbf24; }

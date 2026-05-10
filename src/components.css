@@ -1,0 +1,407 @@
+/* ==========================================================================
+   PURPOSE: Comet UI Components
+   Standard UI elements following the Comet design language.
+   ========================================================================== */
+
+/* Buttons */
+.cu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--cu-h-btn);
+  padding: 0 var(--cu-space-md);
+  border-radius: var(--cu-radius-md);
+  font-family: inherit;
+  font-size: var(--cu-font-size-md);
+  font-weight: var(--cu-font-weight-bold);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  gap: var(--cu-space-sm);
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* Optional Depth */
+.cu-btn-shadow {
+  box-shadow: var(--cu-shd-btn);
+}
+
+.cu-btn-primary {
+  background-color: var(--cu-brand-500);
+  color: var(--cu-white);
+}
+
+.cu-btn-primary:hover {
+  background-color: var(--cu-brand-600);
+  transform: translateY(-1px);
+}
+
+.cu-btn-primary:active {
+  transform: translateY(0);
+}
+
+.cu-btn-shadow.cu-btn-primary:hover {
+  box-shadow: var(--cu-shd-glow);
+}
+
+.cu-btn-shadow.cu-btn-primary:active {
+  box-shadow: var(--cu-shd-active);
+}
+
+.cu-btn-secondary {
+  background-color: var(--cu-white);
+  color: var(--cu-neutral-50);
+  border-color: var(--cu-bdr);
+}
+
+.cu-btn-secondary:hover {
+  background-color: var(--cu-neutral-400);
+  border-color: var(--cu-neutral-300);
+  transform: translateY(-1px);
+}
+
+/* Button Variants */
+.cu-btn-outline {
+  background-color: transparent;
+  color: var(--cu-neutral-50);
+  border-color: var(--cu-bdr);
+}
+
+.cu-btn-outline:hover {
+  background-color: var(--cu-neutral-400);
+  border-color: var(--cu-neutral-300);
+}
+
+.cu-btn-ghost {
+  background-color: transparent;
+  color: var(--cu-neutral-100);
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.cu-btn-ghost:hover {
+  background-color: var(--cu-neutral-400);
+  color: var(--cu-neutral-50);
+  box-shadow: none;
+  transform: none;
+}
+
+.cu-btn-danger {
+  background-color: var(--cu-danger-50);
+  color: var(--cu-danger);
+  border-color: rgba(225, 29, 72, 0.1);
+}
+
+/* Button Sizes */
+.cu-btn-sm {
+  height: 32px;
+  padding: 0 var(--cu-space-sm);
+  font-size: 12px;
+}
+
+.cu-btn-lg {
+  height: 48px;
+  padding: 0 var(--cu-space-lg);
+  font-size: var(--cu-font-size-lg);
+}
+
+/* Cards */
+.cu-card {
+  background-color: var(--cu-white);
+  border: 1px solid var(--cu-bdr);
+  border-radius: var(--cu-radius-lg);
+  padding: var(--cu-space-lg);
+  box-shadow: var(--cu-shd-btn);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: inherit;
+}
+
+.cu-card:hover {
+  box-shadow: var(--cu-shd-pop);
+  transform: translateY(-2px);
+}
+
+/* Inputs & Forms */
+.cu-input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.cu-label {
+  font-size: var(--cu-font-size-sm);
+  color: var(--cu-neutral-100);
+  font-weight: var(--cu-font-weight-bold);
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-sm);
+  font-family: inherit;
+  margin-bottom: var(--cu-space-sm);
+}
+
+.cu-input, .cu-select, .cu-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--cu-radius-md);
+  border: 1px solid var(--cu-bdr);
+  background-color: var(--cu-white);
+  font-family: inherit;
+  font-size: var(--cu-font-size-md);
+  color: var(--cu-neutral-50);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.cu-input, .cu-select {
+  height: var(--cu-h-btn);
+}
+
+.cu-textarea {
+  min-height: 100px;
+  padding: var(--cu-space-md);
+  resize: vertical;
+}
+
+.cu-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-align: left;
+  user-select: none;
+}
+
+.cu-input:focus, .cu-select:focus, .cu-textarea:focus {
+  border-color: var(--cu-brand-400);
+  box-shadow: 0 0 0 3px var(--cu-brand-50);
+}
+
+/* Input Wrapper for Prefix/Suffix */
+.cu-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.cu-input-affix {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cu-neutral-200);
+  font-size: var(--cu-font-size-sm);
+  pointer-events: none;
+  height: 100%;
+  padding: 0 var(--cu-space-md);
+}
+
+.cu-input-suffix { right: 0; }
+.cu-input.cu-has-suffix { padding-right: 40px; }
+
+/* Interactive Affix (like Password Toggle) */
+.cu-password-toggle {
+  pointer-events: auto;
+}
+.cu-password-toggle:hover {
+  color: var(--cu-neutral-100);
+}
+
+/* Dropdown */
+.cu-badge {
+  display: inline-flex;
+  padding: 2px 8px;
+  border-radius: var(--cu-radius-round);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: inherit;
+}
+
+.cu-badge-brand {
+  background-color: var(--cu-brand-50);
+  color: var(--cu-brand-600);
+}
+
+.cu-badge-success {
+  background-color: var(--cu-success-50);
+  color: var(--cu-success);
+}
+
+/* Dropdown */
+.cu-dropdown {
+  position: relative;
+  display: inline-block;
+  font-family: inherit;
+}
+
+.cu-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  background: var(--cu-white);
+  border: 1px solid var(--cu-bdr);
+  border-radius: var(--cu-radius-md);
+  box-shadow: var(--cu-shd-pop);
+  width: 200px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+/* Invisible bridge to prevent hover loss in the gap */
+.cu-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.cu-dropdown-hover:hover .cu-dropdown-menu,
+.cu-dropdown.is-open .cu-dropdown-menu {
+  display: block;
+}
+
+.cu-dropdown-item {
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--cu-neutral-50);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.2s;
+}
+
+.cu-dropdown-item:hover {
+  background: var(--cu-neutral-400);
+}
+
+.cu-dropdown-divider {
+  height: 1px;
+  background-color: var(--cu-bdr);
+  margin: 4px 0;
+}
+
+.cu-dropdown-item-danger {
+  color: var(--cu-danger);
+}
+
+.cu-dropdown-item-danger:hover {
+  background: var(--cu-danger-50);
+  color: var(--cu-danger);
+}
+
+/* Dialog (Modal Style) */
+.cu-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  font-family: var(--cu-font-family-default);
+}
+
+.cu-dialog {
+  background: var(--cu-white);
+  width: 100%;
+  max-width: 448px;
+  border-radius: var(--cu-radius-lg);
+  box-shadow: var(--cu-shd-pop);
+  padding: var(--cu-space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-xl);
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
+  position: relative;
+  font-family: var(--cu-font-family-default);
+}
+
+.cu-dialog-header { display: flex; flex-direction: column; gap: var(--cu-space-sm); }
+.cu-dialog-content { display: flex; flex-direction: column; gap: var(--cu-space-md); }
+.cu-dialog-footer { display: flex; justify-content: flex-end; align-items: center; gap: var(--cu-space-md); }
+
+/* Switch (Toggle) */
+.cu-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cu-switch-input { position: absolute; opacity: 0; width: 0; height: 0; }
+
+.cu-switch-track {
+  width: 40px;
+  height: 22px;
+  background-color: var(--cu-neutral-300);
+  border-radius: 99px;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.cu-switch-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border-radius: 50%;
+  transition: all 0.3s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.cu-switch-input:checked + .cu-switch-track { background-color: var(--cu-brand-500); }
+.cu-switch-input:checked + .cu-switch-track .cu-switch-thumb { transform: translateX(18px); }
+
+/* Tooltip */
+.cu-tooltip { position: relative; display: inline-block; }
+.cu-tooltip-content {
+  visibility: hidden;
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cu-neutral-50);
+  color: var(--cu-white);
+  padding: 8px 12px;
+  border-radius: var(--cu-radius-md);
+  font-size: 11px;
+  z-index: 1001;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  box-shadow: var(--cu-shd-pop);
+  min-width: max-content;
+  font-family: inherit;
+}
+.cu-tooltip:hover .cu-tooltip-content { visibility: visible; opacity: 1; }
+
+/* Pagination */
+.cu-pagination { display: flex; gap: var(--cu-space-xs); font-family: inherit; }
+.cu-pagination-item {
+  height: 32px;
+  min-width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--cu-radius-sm);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--cu-neutral-100);
+}
+.cu-pagination-item:hover { background: var(--cu-neutral-400); color: var(--cu-neutral-50); }
+.cu-pagination-item-active { background: var(--cu-brand-500); color: var(--cu-white); font-weight: 700; }
+
+/* Divider */
+.cu-divider { height: 1px; width: 100%; background-color: var(--cu-bdr); margin: var(--cu-space-md) 0; }
+.cu-divider-vertical { width: 1px; height: 100%; margin: 0 var(--cu-space-md); background-color: var(--cu-bdr); }

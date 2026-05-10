@@ -1,0 +1,66 @@
+/* ==========================================================================
+   PURPOSE: Comet UI Typography System
+   Standardized styles for headings, body text, and paragraphs.
+   Uses tokens from variables.css.
+   ========================================================================== */
+
+/* Text Selection: Global brand highlight */
+::selection {
+  background-color: var(--cu-brand-500);
+  color: var(--cu-white);
+}
+
+.cu-h1 { 
+  font-family: var(--cu-font-family-default); 
+  font-size: var(--cu-font-size-3xl); 
+  font-weight: 800; 
+  line-height: var(--cu-lh-tight); 
+  letter-spacing: var(--cu-tracking-tighter);
+  color: var(--cu-neutral-50); 
+}
+
+.cu-h2 { 
+  font-family: var(--cu-font-family-default); 
+  font-size: var(--cu-font-size-2xl); 
+  font-weight: 700; 
+  line-height: var(--cu-lh-tight); 
+  letter-spacing: var(--cu-tracking-tight);
+  color: var(--cu-neutral-50); 
+}
+
+.cu-h3 { 
+  font-family: var(--cu-font-family-default); 
+  font-size: var(--cu-font-size-lg); 
+  font-weight: 700; 
+  line-height: var(--cu-lh-tight); 
+  letter-spacing: var(--cu-tracking-tight);
+  color: var(--cu-neutral-50); 
+}
+
+.cu-paragraph {
+  font-family: var(--cu-font-family-default);
+  font-size: var(--cu-font-size-md);
+  font-weight: var(--cu-font-weight-regular);
+  line-height: var(--cu-lh-relaxed);
+  letter-spacing: var(--cu-tracking-wide);
+  color: var(--cu-neutral-100);
+}
+
+.cu-body { 
+  font-family: var(--cu-font-family-default); 
+  font-size: var(--cu-font-size-md); 
+  font-weight: var(--cu-font-weight-regular); 
+  line-height: var(--cu-lh-base); 
+  letter-spacing: var(--cu-tracking-normal);
+  color: var(--cu-neutral-100); 
+}
+
+.cu-small { 
+  font-family: var(--cu-font-family-default); 
+  font-size: var(--cu-font-size-xs); 
+  font-weight: var(--cu-font-weight-regular); 
+  line-height: var(--cu-lh-base); 
+  letter-spacing: var(--cu-tracking-wide);
+  color: var(--cu-neutral-200); 
+  margin: 0; 
+}

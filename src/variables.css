@@ -1,0 +1,104 @@
+/* ==========================================================================
+   PURPOSE: Comet UI Design Tokens
+   Global variables for colors, spacing, typography, and depth.
+   Theme: Nebula (Light Mode)
+   ========================================================================== */
+
+:root {
+  /* --------------------------------------------------------------------------
+        COLORS: Nebula Palette (Light Mode)
+        -------------------------------------------------------------------------- */
+  --cu-brand-50: #f5f3ff;
+  --cu-brand-100: #ede9fe;
+  --cu-brand-200: #ddd6fe;
+  --cu-brand-300: #c4b5fd;
+  --cu-brand-400: #a78bfa;
+  --cu-brand-500: #8b5cf6; /* Comet Purple */
+  --cu-brand-600: #7c3aed;
+
+  --cu-accent: #0891b2; /* Solar Cyan (Darkened for contrast) */
+
+  --cu-neutral-50: #020617; /* Darkest Text */
+  --cu-neutral-100: #475569;
+  --cu-neutral-200: #94a3b8;
+  --cu-neutral-300: #cbd5e1;
+  --cu-neutral-400: #f1f5f9;
+  --cu-neutral-500: #ffffff; /* Page Background */
+
+  --cu-white: #ffffff;
+  --cu-black: #000000;
+  --cu-danger: #e11d48;
+  --cu-danger-50: #fff1f2;
+  --cu-success: #059669;
+  --cu-success-50: #ecfdf5;
+  --cu-bdr: rgba(15, 23, 42, 0.08);
+
+  /* --------------------------------------------------------------------------
+        SHADOWS & DEPTH (Optimized for Light Mode)
+        -------------------------------------------------------------------------- */
+  --cu-shd-btn: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --cu-shd-active: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+  --cu-shd-pop: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --cu-shd-glow: 0 0 15px rgba(139, 92, 246, 0.15);
+
+  /* --------------------------------------------------------------------------
+        DIMENSIONS
+        -------------------------------------------------------------------------- */
+  --cu-h-btn: 40px;
+  --cu-h-header: 72px;
+  --cu-w-sidebar: 280px;
+
+  /* --------------------------------------------------------------------------
+        SPACING
+        -------------------------------------------------------------------------- */
+  --cu-space-xs: 4px;
+  --cu-space-sm: 8px;
+  --cu-space-md: 16px;
+  --cu-space-lg: 24px;
+  --cu-space-xl: 32px;
+
+  /* --------------------------------------------------------------------------
+        ICON SIZES
+        -------------------------------------------------------------------------- */
+  --cu-icon-xs: 16px;
+  --cu-icon-sm: 20px;
+  --cu-icon-md: 24px;
+  --cu-icon-lg: 32px;
+
+  /* --------------------------------------------------------------------------
+        RADIUS
+        -------------------------------------------------------------------------- */
+  --cu-radius-sm: 6px;
+  --cu-radius-md: 10px;
+  --cu-radius-lg: 16px;
+  --cu-radius-round: 9999px;
+
+  /* --------------------------------------------------------------------------
+        TYPOGRAPHY
+        -------------------------------------------------------------------------- */
+  --cu-font-family-default: "Plus Jakarta Sans", sans-serif;
+  --cu-font-family-mono: "Ui-Monospace", "SF Mono", monospace;
+  --cu-font-weight-regular: 400;
+  --cu-font-weight-medium: 500;
+  --cu-font-weight-semibold: 600;
+  --cu-font-weight-bold: 700;
+  
+  --cu-font-size-xs: 12px;
+  --cu-font-size-sm: 13px;
+  --cu-font-size-md: 14px;
+  --cu-font-size-lg: 16px;
+  --cu-font-size-xl: 20px;
+  --cu-font-size-2xl: 24px;
+  --cu-font-size-3xl: 32px;
+
+  --cu-lh-tight: 1.2;
+  --cu-lh-base: 1.5;
+  --cu-lh-relaxed: 1.6;
+  --cu-lh-loose: 1.8;
+
+  --cu-tracking-tighter: -0.02em;
+  --cu-tracking-tight: -0.01em;
+  --cu-tracking-normal: 0em;
+  --cu-tracking-wide: 0.01em;
+  --cu-tracking-wider: 0.02em;
+}
