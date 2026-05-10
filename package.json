@@ -1,0 +1,27 @@
+{
+  "name": "comet-ui",
+  "version": "1.0.0",
+  "description": "Comet UI Design System - A modern, high-contrast, lightweight CSS component library.",
+  "main": "comet-ui.css",
+  "style": "comet-ui.css",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/denidandeni/comet-ui.git"
+  },
+  "keywords": [
+    "css",
+    "ui",
+    "components",
+    "design-system",
+    "comet-ui"
+  ],
+  "author": "Deni Dandeni",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/denidandeni/comet-ui/issues"
+  },
+  "homepage": "https://github.com/denidandeni/comet-ui#readme"
+}

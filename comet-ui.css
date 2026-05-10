@@ -1,0 +1,13 @@
+/* Comet UI - Main Entry Point */
+
+/* 1. Design Tokens (CSS Variables) */
+@import url('./src/variables.css');
+
+/* 2. Base Reset and Utilities */
+@import url('./src/base.css');
+
+/* 3. Typography System */
+@import url('./src/typography.css');
+
+/* 4. UI Components */
+@import url('./src/components.css');
