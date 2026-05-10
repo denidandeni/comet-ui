@@ -58,6 +58,11 @@
                     <a href="#pagination" class="docs-nav-item">Pagination</a>
                     <a href="#toggles" class="docs-nav-item">Switch</a>
                     <a href="#badges" class="docs-nav-item">Badge</a>
+                    <a href="#avatars" class="docs-nav-item">Avatar</a>
+                    <a href="#breadcrumbs" class="docs-nav-item">Breadcrumbs</a>
+                    <a href="#combobox" class="docs-nav-item">Combobox</a>
+                    <a href="#accordion" class="docs-nav-item">Accordion</a>
+                    <a href="#radio" class="docs-nav-item">Radio</a>
                     <a href="#cards" class="docs-nav-item">Card</a>
                     <a href="#dividers" class="docs-nav-item">Divider</a>
                     <a href="#tooltips" class="docs-nav-item">Tooltip</a>
@@ -301,12 +306,33 @@
                     
                     <div class="cu-divider"></div>
                     
+                    <div class="cu-divider"></div>
+                    
                     <div class="cu-flex cu-gapMd cu-itemsCenter">
                         <button class="cu-btn cu-btn-primary cu-btn-sm">Small</button>
                         <button class="cu-btn cu-btn-primary">Default</button>
                         <button class="cu-btn cu-btn-primary cu-btn-lg">Large</button>
                     </div>
-                </div>
+
+                    <div class="cu-divider"></div>
+                    <div class="component-label cu-mbSm">Button Groups</div>
+                    <div class="cu-flex cu-gapLg cu-flexWrap">
+                        <div class="cu-btn-group">
+                            <button class="cu-btn cu-btn-outline"><span class="material-symbols-outlined cu-mrXs" style="font-size:18px;">download</span> Download</button>
+                            <button class="cu-btn cu-btn-outline">15k</button>
+                        </div>
+                        <div class="cu-btn-group">
+                            <button class="cu-btn cu-btn-outline"><span class="material-symbols-outlined cu-mrXs" style="font-size:18px; color: var(--cu-danger);">favorite</span> Like</button>
+                            <button class="cu-btn cu-btn-outline">46</button>
+                        </div>
+                        <div class="cu-btn-group">
+                            <button class="cu-btn cu-btn-outline" style="padding: 0 12px;"><span class="material-symbols-outlined" style="font-size:20px;">mouse</span></button>
+                            <button class="cu-btn cu-btn-outline" style="padding: 0 12px;"><span class="material-symbols-outlined" style="font-size:20px;">crop_square</span></button>
+                            <button class="cu-btn cu-btn-outline" style="padding: 0 12px;"><span class="material-symbols-outlined" style="font-size:20px;">crop</span></button>
+                            <button class="cu-btn cu-btn-outline" style="padding: 0 12px;"><span class="material-symbols-outlined" style="font-size:20px;">content_copy</span></button>
+                            <button class="cu-btn cu-btn-outline" style="padding: 0 12px;"><span class="material-symbols-outlined" style="font-size:20px;">more_vert</span></button>
+                        </div>
+                    </div>
 
                 <div class="docs-code-box">
                     <span class="docs-code-tag">&lt;button</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-btn cu-btn-primary"</span><span class="docs-code-tag">&gt;</span>Action<span class="docs-code-tag">&lt;/button&gt;</span><br>
@@ -448,12 +474,18 @@
                     <p class="cu-paragraph cu-mtSm">Centered overlays for critical user interactions.</p>
                 </div>
 
-                <div class="docs-preview-box">
-                    <button class="cu-btn cu-btn-outline" onclick="openDialog('demo-dialog')">Show Dialog</button>
+                <div class="docs-preview-box cu-flex cu-gapMd cu-flexWrap">
+                    <button class="cu-btn cu-btn-outline" onclick="openDialog('demo-dialog')">Standard Dialog</button>
+                    <button class="cu-btn cu-btn-outline" onclick="openDialog('demo-form-dialog')">Form Dialog</button>
+                    <button class="cu-btn cu-btn-outline" onclick="openDialog('demo-sticky-header-dialog')">Sticky Header</button>
+                    <button class="cu-btn cu-btn-outline" onclick="openDialog('demo-sticky-footer-dialog')">Sticky Footer</button>
+                    <button class="cu-btn cu-btn-primary" onclick="openDialog('demo-otp-dialog')">OTP Code</button>
                 </div>
 
                 <div class="docs-code-box">
-                    <span class="docs-code-tag">&lt;div</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-dialog-overlay"</span><span class="docs-code-tag">&gt;</span>...<span class="docs-code-tag">&lt;/div&gt;</span>
+                    <span class="docs-code-tag">&lt;div</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-dialog-overlay"</span><span class="docs-code-tag">&gt;</span><br>
+                    &nbsp;&nbsp;<span class="docs-code-tag">&lt;div</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-dialog"</span><span class="docs-code-tag">&gt;</span>...<span class="docs-code-tag">&lt;/div&gt;</span><br>
+                    <span class="docs-code-tag">&lt;/div&gt;</span>
                 </div>
             </section>
 
@@ -534,9 +566,268 @@
                     <h2 class="cu-h2">Badge</h2>
                     <p class="cu-paragraph cu-mtSm">Small visual indicators for status or categories.</p>
                 </div>
-                <div class="docs-preview-box cu-flex cu-gapMd">
-                    <span class="docs-nav-badge" style="position: static; font-size: 12px; padding: 4px 10px;">Default</span>
-                    <span class="docs-nav-badge" style="position: static; font-size: 12px; padding: 4px 10px; background: var(--cu-brand-50); color: var(--cu-brand-600);">Branded</span>
+                <div class="docs-preview-box cu-flexCol cu-gapLg">
+                    <div class="cu-flex cu-gapMd cu-flexWrap">
+                        <span class="cu-badge cu-badge-default">Default</span>
+                        <span class="cu-badge cu-badge-secondary">Secondary</span>
+                        <span class="cu-badge cu-badge-destructive">Destructive</span>
+                        <span class="cu-badge cu-badge-outline">Outline</span>
+                    </div>
+                    <div class="cu-flex cu-gapMd cu-itemsCenter">
+                        <span class="cu-badge cu-badge-outline cu-badge-dot">Dot Badge</span>
+                        <span class="cu-badge cu-badge-default cu-badge-rounded">Rounded</span>
+                        <span class="cu-badge cu-badge-default cu-badge-lg cu-badge-rounded">8</span>
+                        <span class="cu-badge cu-badge-default cu-badge-lg">Large</span>
+                        <span class="cu-badge cu-badge-default cu-badge-sm">Small</span>
+                    </div>
+                </div>
+                <div class="docs-code-box">
+                    <span class="docs-code-tag">&lt;span</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-badge cu-badge-destructive"</span><span class="docs-code-tag">&gt;</span>Destructive<span class="docs-code-tag">&lt;/span&gt;</span><br>
+                    <span class="docs-code-tag">&lt;span</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-badge cu-badge-outline cu-badge-dot"</span><span class="docs-code-tag">&gt;</span>Status<span class="docs-code-tag">&lt;/span&gt;</span>
+                </div>
+            </section>
+
+            <!-- Avatars Section -->
+            <section id="avatars" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Avatar</h2>
+                    <p class="cu-paragraph cu-mtSm">User representation and status indicators.</p>
+                </div>
+                <div class="docs-preview-box cu-flexCol cu-gapLg">
+                    <div class="cu-flex cu-gapLg cu-flexWrap cu-itemsCenter">
+                        <div class="cu-avatar-container">
+                            <div class="cu-avatar">JD</div>
+                        </div>
+                        <div class="cu-avatar-container">
+                            <div class="cu-avatar"><span class="material-symbols-outlined">person</span></div>
+                            <div class="cu-avatar-indicator cu-avatar-indicator-danger"></div>
+                        </div>
+                        <div class="cu-avatar-container">
+                            <div class="cu-avatar"><span class="material-symbols-outlined">person</span></div>
+                            <div class="cu-avatar-indicator cu-avatar-indicator-success"></div>
+                        </div>
+                        <div class="cu-avatar-container">
+                            <div class="cu-avatar"><span class="material-symbols-outlined">person</span></div>
+                            <div class="cu-avatar-indicator cu-avatar-indicator-warning"></div>
+                        </div>
+                        <div class="cu-avatar-container">
+                            <div class="cu-avatar" style="background: var(--cu-neutral-400); color: var(--cu-neutral-100);"><span class="material-symbols-outlined">home</span></div>
+                        </div>
+                        <div class="cu-avatar-container">
+                            <div class="cu-avatar"><span class="material-symbols-outlined">shopping_cart</span></div>
+                            <div class="cu-avatar-indicator cu-avatar-indicator-brand" style="width:16px; height:16px; display:flex; align-items:center; justify-content:center; font-size:10px; color:white; border:none; top:-4px; right:-4px;">8</div>
+                        </div>
+                        <div class="cu-badge-outline" style="border-radius: 99px; padding: 4px 12px 4px 4px; display:inline-flex; align-items:center; gap:8px;">
+                            <div class="cu-avatar" style="width:24px; height:24px; font-size:10px;">JD</div>
+                            <span class="cu-textSm cu-fontBold">Avatar</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-box">
+                    <span class="docs-code-tag">&lt;div</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-avatar-container"</span><span class="docs-code-tag">&gt;</span><br>
+                    &nbsp;&nbsp;<span class="docs-code-tag">&lt;div</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-avatar"</span><span class="docs-code-tag">&gt;</span>JD<span class="docs-code-tag">&lt;/div&gt;</span><br>
+                    &nbsp;&nbsp;<span class="docs-code-tag">&lt;div</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-avatar-indicator cu-avatar-indicator-success"</span><span class="docs-code-tag">&gt;&lt;/div&gt;</span><br>
+                    <span class="docs-code-tag">&lt;/div&gt;</span>
+                </div>
+            </section>
+
+            <!-- Breadcrumbs Section -->
+            <section id="breadcrumbs" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Breadcrumbs</h2>
+                    <p class="cu-paragraph cu-mtSm">Navigation trail for hierarchical structures.</p>
+                </div>
+                <div class="docs-preview-box">
+                    <nav class="cu-breadcrumb">
+                        <a href="#" class="cu-breadcrumb-link">Home</a>
+                        <span class="cu-breadcrumb-separator"><span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span></span>
+                        <a href="#" class="cu-breadcrumb-link">Components</a>
+                        <span class="cu-breadcrumb-separator"><span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span></span>
+                        <span class="cu-breadcrumb-current">Breadcrumb</span>
+                    </nav>
+                </div>
+                <div class="docs-code-box">
+                    <span class="docs-code-tag">&lt;nav</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-breadcrumb"</span><span class="docs-code-tag">&gt;</span><br>
+                    &nbsp;&nbsp;<span class="docs-code-tag">&lt;a</span> <span class="docs-code-attr">href</span>=<span class="docs-code-string">"#"</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-breadcrumb-link"</span><span class="docs-code-tag">&gt;</span>Home<span class="docs-code-tag">&lt;/a&gt;</span><br>
+                    &nbsp;&nbsp;<span class="docs-code-tag">&lt;span</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-breadcrumb-separator"</span><span class="docs-code-tag">&gt;</span>...<span class="docs-code-tag">&lt;/span&gt;</span><br>
+                    <span class="docs-code-tag">&lt;/nav&gt;</span>
+                </div>
+            </section>
+
+            <!-- Accordion Section -->
+            <section id="accordion" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Accordion</h2>
+                    <p class="cu-paragraph cu-mtSm">Collapsible content sections.</p>
+                </div>
+                <div class="docs-preview-box cu-flexCol cu-gapXl cu-itemsStart">
+                    
+                    <!-- Standard Accordion -->
+                    <div style="width: 100%;">
+                        <div class="component-label cu-mbMd">Standard</div>
+                        <div class="cu-accordion">
+                            <div class="cu-accordion-item">
+                                <button class="cu-accordion-header" onclick="this.parentElement.classList.toggle('is-open')">
+                                    How do I track my order?
+                                    <span class="cu-accordion-icon material-symbols-outlined">expand_more</span>
+                                </button>
+                                <div class="cu-accordion-content">
+                                    You can track your order by logging into your account and visiting the "Orders" section. You'll receive tracking information via email once your order ships.
+                                </div>
+                            </div>
+                            <div class="cu-accordion-item">
+                                <button class="cu-accordion-header" onclick="this.parentElement.classList.toggle('is-open')">
+                                    What is your return policy?
+                                    <span class="cu-accordion-icon material-symbols-outlined">expand_more</span>
+                                </button>
+                                <div class="cu-accordion-content">
+                                    We offer a 30-day money-back guarantee.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Accordion -->
+                    <div style="width: 100%;">
+                        <div class="component-label cu-mbMd">Card Style</div>
+                        <div class="cu-accordion-card is-open">
+                            <button class="cu-accordion-header" onclick="this.parentElement.classList.toggle('is-open')">
+                                How do I track my order?
+                                <span class="cu-accordion-icon material-symbols-outlined">expand_more</span>
+                            </button>
+                            <div class="cu-accordion-content">
+                                You can track your order by logging into your account and visiting the "Orders" section. You'll receive tracking information via email once your order ships. For real-time updates, you can also use the tracking number provided in your shipping confirmation email.
+                            </div>
+                        </div>
+                        <div class="cu-accordion-card">
+                            <button class="cu-accordion-header" onclick="this.parentElement.classList.toggle('is-open')">
+                                What is your return policy?
+                                <span class="cu-accordion-icon material-symbols-outlined">chevron_left</span>
+                            </button>
+                            <div class="cu-accordion-content">
+                                We offer a 30-day money-back guarantee.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-box">
+                    <span class="docs-code-tag">&lt;div</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-accordion"</span><span class="docs-code-tag">&gt;</span><br>
+                    &nbsp;&nbsp;<span class="docs-code-tag">&lt;div</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-accordion-item"</span><span class="docs-code-tag">&gt;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="docs-code-tag">&lt;button</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-accordion-header"</span><span class="docs-code-tag">&gt;</span>Title<span class="docs-code-tag">&lt;/button&gt;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="docs-code-tag">&lt;div</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-accordion-content"</span><span class="docs-code-tag">&gt;</span>...<span class="docs-code-tag">&lt;/div&gt;</span><br>
+                    &nbsp;&nbsp;<span class="docs-code-tag">&lt;/div&gt;</span><br>
+                    <span class="docs-code-tag">&lt;/div&gt;</span>
+                </div>
+            </section>
+
+            <!-- Combobox Section -->
+            <section id="combobox" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Combobox</h2>
+                    <p class="cu-paragraph cu-mtSm">Select options with search capabilities.</p>
+                </div>
+                <div class="docs-preview-box cu-flexCol cu-gapLg">
+                    <div style="width: 320px;">
+                        <div class="component-label cu-mbSm">Combobox option group</div>
+                        <div class="cu-combobox">
+                            <button class="cu-combobox-trigger">
+                                <span>Spinach</span>
+                                <span class="material-symbols-outlined">unfold_more</span>
+                            </button>
+                            <div class="cu-combobox-popover" style="position: static; margin-top: 8px;">
+                                <div class="cu-combobox-search">
+                                    <span class="material-symbols-outlined" style="font-size: 20px;">search</span>
+                                    <input type="text" placeholder="Search item...">
+                                </div>
+                                <div class="cu-combobox-list">
+                                    <div class="cu-combobox-group">Fruits</div>
+                                    <div class="cu-combobox-item">
+                                        <span>Apples</span>
+                                        <span class="material-symbols-outlined check-icon">check</span>
+                                    </div>
+                                    <div class="cu-combobox-item">
+                                        <span>Bananas</span>
+                                        <span class="material-symbols-outlined check-icon">check</span>
+                                    </div>
+                                    <div class="cu-combobox-item">
+                                        <span>Cherries</span>
+                                        <span class="material-symbols-outlined check-icon">check</span>
+                                    </div>
+                                    <div class="cu-combobox-group">Vegetables</div>
+                                    <div class="cu-combobox-item">
+                                        <span>Carrots</span>
+                                        <span class="material-symbols-outlined check-icon">check</span>
+                                    </div>
+                                    <div class="cu-combobox-item">
+                                        <span>Broccoli</span>
+                                        <span class="material-symbols-outlined check-icon">check</span>
+                                    </div>
+                                    <div class="cu-combobox-item is-selected">
+                                        <span>Spinach</span>
+                                        <span class="material-symbols-outlined check-icon">check</span>
+                                    </div>
+                                    <div class="cu-combobox-group">Beverages</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-box">
+                    <span class="docs-code-tag">&lt;div</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-combobox"</span><span class="docs-code-tag">&gt;</span>...<span class="docs-code-tag">&lt;/div&gt;</span>
+                </div>
+            </section>
+
+            <!-- Radio Section -->
+            <section id="radio" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Radio</h2>
+                    <p class="cu-paragraph cu-mtSm">Mutually exclusive selection controls.</p>
+                </div>
+                <div class="docs-preview-box cu-flexCol cu-gapLg">
+                    <div style="width: 100%; max-width: 400px;">
+                        <div class="component-label cu-mbSm">Radio Card</div>
+                        <label class="cu-radio-card">
+                            <input type="radio" name="plan" class="cu-radio-input">
+                            <div class="cu-radio-card-content">
+                                <div class="cu-radio-card-title">
+                                    <span>Basic</span>
+                                    <span class="cu-textSm cu-textSubtle cu-fontNormal">Free</span>
+                                </div>
+                                <div class="cu-radio-card-desc">Get 1 project with 1 teams members.</div>
+                            </div>
+                        </label>
+                        <label class="cu-radio-card is-checked">
+                            <input type="radio" name="plan" class="cu-radio-input" checked>
+                            <div class="cu-radio-card-content">
+                                <div class="cu-radio-card-title">
+                                    <span>Premium</span>
+                                    <span class="cu-textSm cu-textSubtle cu-fontNormal">$5.00</span>
+                                </div>
+                                <div class="cu-radio-card-desc">Get 5 projects with 5 team members.</div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div>
+                        <div class="component-label cu-mbSm">Segmented Control / Tab Selector</div>
+                        <div class="cu-segmented-control">
+                            <label class="cu-segmented-item">
+                                <input type="radio" name="view" checked>
+                                <span class="cu-segmented-label">Map</span>
+                            </label>
+                            <label class="cu-segmented-item">
+                                <input type="radio" name="view">
+                                <span class="cu-segmented-label">List</span>
+                            </label>
+                            <label class="cu-segmented-item">
+                                <input type="radio" name="view">
+                                <span class="cu-segmented-label">Grid</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-box">
+                    <span class="docs-code-tag">&lt;label</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-radio-card"</span><span class="docs-code-tag">&gt;</span>...<span class="docs-code-tag">&lt;/label&gt;</span>
                 </div>
             </section>
 
@@ -609,7 +900,94 @@
             </div>
             <div class="cu-dialog-footer">
                 <button class="cu-btn cu-btn-ghost" onclick="closeDialog('demo-dialog')">Cancel</button>
-                <button class="cu-btn cu-btn-primary" style="background-color: #1a1a1a;" onclick="closeDialog('demo-dialog')">Confirm</button>
+                <button class="cu-btn cu-btn-primary" onclick="closeDialog('demo-dialog')">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden Form Dialog Demo -->
+    <div id="demo-form-dialog" class="cu-dialog-overlay" style="display: none;">
+        <div class="cu-dialog">
+            <div class="cu-dialog-header">
+                <h3 class="cu-h3">Edit Profile</h3>
+                <p class="cu-textSm cu-textSubtle">Update your personal information below.</p>
+            </div>
+            <div class="cu-dialog-content">
+                <form class="cu-flexCol cu-gapMd">
+                    <div class="cu-input-group">
+                        <label class="cu-label">Full Name</label>
+                        <input type="text" class="cu-input" placeholder="John Doe">
+                    </div>
+                    <div class="cu-input-group">
+                        <label class="cu-label">Email</label>
+                        <input type="email" class="cu-input" placeholder="john@company.com">
+                    </div>
+                </form>
+            </div>
+            <div class="cu-dialog-footer">
+                <button class="cu-btn cu-btn-ghost" onclick="closeDialog('demo-form-dialog')">Cancel</button>
+                <button class="cu-btn cu-btn-primary" onclick="closeDialog('demo-form-dialog')">Save Changes</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Hidden Sticky Header Dialog -->
+    <div id="demo-sticky-header-dialog" class="cu-dialog-overlay" style="display: none;">
+        <div class="cu-dialog cu-dialog-scrollable">
+            <div class="cu-dialog-sticky-header">
+                <h3 class="cu-h3">Terms &amp; Conditions</h3>
+            </div>
+            <div class="cu-dialog-content">
+                <p class="cu-paragraph cu-mbMd">Please read these terms and conditions carefully before using our service.</p>
+                <div style="height: 600px; background: var(--cu-neutral-400); border-radius: var(--cu-radius-md); display: flex; align-items: center; justify-content: center; color: var(--cu-neutral-200);">Long content scrolls here...</div>
+                <p class="cu-paragraph cu-mtMd">End of terms.</p>
+            </div>
+            <div class="cu-dialog-footer">
+                <button class="cu-btn cu-btn-ghost" onclick="closeDialog('demo-sticky-header-dialog')">Cancel</button>
+                <button class="cu-btn cu-btn-primary" onclick="closeDialog('demo-sticky-header-dialog')">I Agree</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden Sticky Footer Dialog -->
+    <div id="demo-sticky-footer-dialog" class="cu-dialog-overlay" style="display: none;">
+        <div class="cu-dialog cu-dialog-scrollable">
+            <div class="cu-dialog-header">
+                <h3 class="cu-h3">Create New Project</h3>
+            </div>
+            <div class="cu-dialog-content">
+                <div style="height: 500px; background: var(--cu-neutral-400); border-radius: var(--cu-radius-md); display: flex; align-items: center; justify-content: center; color: var(--cu-neutral-200);">Form fields here...</div>
+            </div>
+            <div class="cu-dialog-sticky-footer">
+                <button class="cu-btn cu-btn-ghost" onclick="closeDialog('demo-sticky-footer-dialog')">Cancel</button>
+                <button class="cu-btn cu-btn-primary" onclick="closeDialog('demo-sticky-footer-dialog')">Create Project</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden OTP Dialog -->
+    <div id="demo-otp-dialog" class="cu-dialog-overlay" style="display: none;">
+        <div class="cu-dialog" style="text-align: center;">
+            <div class="cu-dialog-header" style="position: relative;">
+                <div style="width: 48px; height: 48px; background: #e0f2fe; color: #0284c7; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--cu-space-md);">
+                    <span class="material-symbols-outlined">mail</span>
+                </div>
+                <h2 class="cu-h2 cu-mbSm">Check Your Email</h2>
+                <p class="cu-paragraph cu-textSubtle">We have sent a verification code to <strong>exa**le@gmail.com</strong>.<br>Please check your inbox and input the code below to activate your account. Try 11208</p>
+            </div>
+            <div class="cu-dialog-content">
+                <div class="cu-otp-container">
+                    <input type="text" class="cu-otp-input" maxlength="1" value="">
+                    <input type="text" class="cu-otp-input" maxlength="1" value="">
+                    <input type="text" class="cu-otp-input" maxlength="1" value="">
+                    <input type="text" class="cu-otp-input" maxlength="1" value="">
+                    <input type="text" class="cu-otp-input" maxlength="1" value="">
+                </div>
+                <p class="cu-paragraph">Didn't get a code? <a href="#" style="color: var(--cu-brand-500); text-decoration: none; font-weight: var(--cu-font-weight-medium);">Resend</a></p>
+            </div>
+            <div class="cu-dialog-footer" style="justify-content: center;">
+                <button class="cu-btn cu-btn-ghost" onclick="closeDialog('demo-otp-dialog')">Cancel</button>
             </div>
         </div>
     </div>

@@ -3,6 +3,12 @@
    Layout for the component library dashboard (Sidebar + Main Content).
    ========================================================================== */
 
+/* 1. Design System Bundle */
+@import url('./variables.css');
+@import url('./base.css');
+@import url('./typography.css');
+@import url('./components.css');
+
 :root {
   --cu-docs-sidebar-w: 280px;
   --cu-docs-header-h: 64px;

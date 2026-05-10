@@ -31,7 +31,27 @@
   --cu-danger-50: #fff1f2;
   --cu-success: #059669;
   --cu-success-50: #ecfdf5;
-  --cu-bdr: rgba(15, 23, 42, 0.08);
+  --cu-bdr: var(--cu-neutral-300);
+
+  /* --------------------------------------------------------------------------
+        BORDERS (Thickness & Colors)
+        -------------------------------------------------------------------------- */
+  --cu-bdr-thin: 1px solid var(--cu-neutral-200);
+  --cu-bdr-normal: 2px solid var(--cu-neutral-200);
+  --cu-bdr-bold: 4px solid var(--cu-neutral-200);
+
+  /* --------------------------------------------------------------------------
+        Z-INDEX
+        -------------------------------------------------------------------------- */
+  --cu-z-base: 0;
+  --cu-z-dropdown: 100;
+  --cu-z-sticky: 200;
+  --cu-z-fixed: 300;
+  --cu-z-overlay: 400;
+  --cu-z-modal: 500;
+  --cu-z-popover: 600;
+  --cu-z-toast: 700;
+  --cu-z-tooltip: 800;
 
   /* --------------------------------------------------------------------------
         SHADOWS & DEPTH (Optimized for Light Mode)
