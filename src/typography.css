@@ -12,7 +12,7 @@
 
 .cu-h1 { 
   font-family: var(--cu-font-family-default); 
-  font-size: var(--cu-font-size-3xl); 
+  font-size: var(--cu-text-3xl); 
   font-weight: 800; 
   line-height: var(--cu-lh-tight); 
   letter-spacing: var(--cu-tracking-tighter);
@@ -21,7 +21,7 @@
 
 .cu-h2 { 
   font-family: var(--cu-font-family-default); 
-  font-size: var(--cu-font-size-2xl); 
+  font-size: var(--cu-text-2xl); 
   font-weight: 700; 
   line-height: var(--cu-lh-tight); 
   letter-spacing: var(--cu-tracking-tight);
@@ -30,7 +30,7 @@
 
 .cu-h3 { 
   font-family: var(--cu-font-family-default); 
-  font-size: var(--cu-font-size-lg); 
+  font-size: var(--cu-text-lg); 
   font-weight: 700; 
   line-height: var(--cu-lh-tight); 
   letter-spacing: var(--cu-tracking-tight);
@@ -39,7 +39,7 @@
 
 .cu-paragraph {
   font-family: var(--cu-font-family-default);
-  font-size: var(--cu-font-size-md);
+  font-size: var(--cu-text-base);
   font-weight: var(--cu-font-weight-regular);
   line-height: var(--cu-lh-relaxed);
   letter-spacing: var(--cu-tracking-wide);
@@ -48,7 +48,7 @@
 
 .cu-body { 
   font-family: var(--cu-font-family-default); 
-  font-size: var(--cu-font-size-md); 
+  font-size: var(--cu-text-base); 
   font-weight: var(--cu-font-weight-regular); 
   line-height: var(--cu-lh-base); 
   letter-spacing: var(--cu-tracking-normal);
@@ -57,10 +57,32 @@
 
 .cu-small { 
   font-family: var(--cu-font-family-default); 
-  font-size: var(--cu-font-size-xs); 
+  font-size: var(--cu-text-sm); 
   font-weight: var(--cu-font-weight-regular); 
   line-height: var(--cu-lh-base); 
   letter-spacing: var(--cu-tracking-wide);
   color: var(--cu-neutral-200); 
   margin: 0; 
 }
+
+/* ==========================================================================
+   Typography Utility Classes
+   ========================================================================== */
+.cu-text-xs   { font-size: var(--cu-text-xs); }
+.cu-text-sm   { font-size: var(--cu-text-sm); }
+.cu-text-base { font-size: var(--cu-text-base); }
+.cu-text-lg   { font-size: var(--cu-text-lg); }
+.cu-text-xl   { font-size: var(--cu-text-xl); }
+.cu-text-2xl  { font-size: var(--cu-text-2xl); }
+.cu-text-3xl  { font-size: var(--cu-text-3xl); }
+.cu-text-4xl  { font-size: var(--cu-text-4xl); }
+.cu-text-5xl  { font-size: var(--cu-text-5xl); }
+.cu-text-6xl  { font-size: var(--cu-text-6xl); }
+.cu-text-7xl  { font-size: var(--cu-text-7xl); }
+
+.cu-font-light    { font-weight: 300; }
+.cu-font-normal   { font-weight: 400; }
+.cu-font-medium   { font-weight: 500; }
+.cu-font-semibold { font-weight: 600; }
+.cu-font-bold     { font-weight: 700; }
+.cu-font-extrabold{ font-weight: 800; }

@@ -102,15 +102,19 @@
   --cu-font-weight-medium: 500;
   --cu-font-weight-semibold: 600;
   --cu-font-weight-bold: 700;
+  --cu-font-base: 16px;
   
-  --cu-font-size-xs: 12px;
-  --cu-font-size-sm: 13px;
-  --cu-font-size-md: 14px;
-  --cu-font-size-lg: 16px;
-  --cu-font-size-xl: 20px;
-  --cu-font-size-2xl: 24px;
-  --cu-font-size-3xl: 32px;
-
+  --cu-text-xs: 12px;
+  --cu-text-sm: 14px;
+  --cu-text-base: 16px;
+  --cu-text-lg: 18px;
+  --cu-text-xl: 20px;
+  --cu-text-2xl: 24px;
+  --cu-text-3xl: 32px;
+  --cu-text-4xl: 40px;
+  --cu-text-5xl: 48px;
+  --cu-text-6xl: 64px;
+  --cu-text-7xl: 80px;
   --cu-lh-tight: 1.2;
   --cu-lh-base: 1.5;
   --cu-lh-relaxed: 1.6;

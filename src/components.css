@@ -583,6 +583,7 @@
   align-items: center;
   width: 100%;
   padding: var(--cu-space-md) 0;
+  text-decoration: none;
   background: none;
   border: none;
   font-weight: var(--cu-font-weight-medium);
@@ -595,13 +596,14 @@
 }
 
 .cu-accordion-header:hover {
-  text-decoration: underline;
+  color: var(--cu-neutral-100);
 }
 
 .cu-accordion-icon {
   transition: transform 0.2s ease;
   color: var(--cu-neutral-100);
   display: flex;
+  text-decoration: none !important;
   align-items: center;
   justify-content: center;
 }
@@ -665,14 +667,34 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0 var(--cu-space-md);
-  height: var(--cu-h-btn);
+  padding: var(--cu-space-sm) var(--cu-space-md);
+  min-height: var(--cu-h-btn);
   background-color: var(--cu-white);
   border: 1px solid var(--cu-bdr);
   border-radius: var(--cu-radius-md);
   font-family: inherit;
-  font-size: var(--cu-font-size-md);
+  font-size: var(--cu-text-base, 14px);
   color: var(--cu-neutral-50);
+  cursor: pointer;
+  flex-wrap: wrap;
+  gap: var(--cu-space-xs);
+}
+
+.cu-combobox-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background-color: var(--cu-neutral-400);
+  border: 1px solid var(--cu-bdr);
+  border-radius: var(--cu-radius-sm);
+  font-size: var(--cu-text-sm, 13px);
+  color: var(--cu-neutral-50);
+}
+
+.cu-combobox-tag .material-symbols-outlined {
+  font-size: 14px;
+  color: var(--cu-neutral-100);
   cursor: pointer;
 }
 
@@ -686,8 +708,12 @@
   border-radius: var(--cu-radius-md);
   box-shadow: var(--cu-shd-pop);
   z-index: var(--cu-z-popover);
-  display: flex;
+  display: none;
   flex-direction: column;
+}
+
+.cu-combobox.is-open .cu-combobox-popover {
+  display: flex;
 }
 
 .cu-combobox-search {
@@ -760,8 +786,25 @@
   border-color: var(--cu-brand-300);
 }
 
+.cu-radio-card:has(.cu-radio-input:checked),
 .cu-radio-card.is-checked {
   border-color: var(--cu-brand-500);
+}
+
+/* Standard Radio Variant */
+.cu-radio {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-sm);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--cu-font-size-md);
+  color: var(--cu-neutral-50);
+  margin-bottom: var(--cu-space-xs);
+}
+
+.cu-radio .cu-radio-input {
+  margin-top: 0;
 }
 
 .cu-radio-input {
