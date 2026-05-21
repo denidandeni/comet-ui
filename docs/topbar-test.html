@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comet UI | Topbar Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="../src/variables.css?v=2">
+    <link rel="stylesheet" href="../src/base.css?v=2">
+    <link rel="stylesheet" href="../src/typography.css?v=2">
+    <link rel="stylesheet" href="../src/components.css?v=2">
+    <style>
+        body {
+            margin: 0;
+            background-color: var(--cu-neutral-400);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Topbar Component -->
+    <!-- .cu-wrapper = full-width (stretches to any screen size, holds background/border) -->
+    <!-- .cu-topbar  = content capped at 1440px, auto-centered -->
+    <div class="cu-wrapper" style="background: var(--cu-white);">
+        <div class="cu-topbar">
+            <!-- Left: Brand -->
+            <a href="#" class="cu-topbar-brand">
+                <div class="cu-topbar-brand-icon">KAI</div>
+                <div class="cu-topbar-brand-text">
+                    <span class="cu-topbar-brand-name">PT KAI</span>
+                    <span class="cu-topbar-brand-desc">Fuelguard System</span>
+                </div>
+            </a>
+
+            <!-- Center: Navigation -->
+            <nav class="cu-topbar-nav">
+                <a href="#" class="cu-topbar-nav-link is-active">Dashboard</a>
+                <a href="#" class="cu-topbar-nav-link">Report</a>
+                <a href="#" class="cu-topbar-nav-link">Users</a>
+            </nav>
+
+            <!-- Right: User -->
+            <div class="cu-topbar-actions">
+                <div class="cu-topbar-user">
+                    <div class="cu-topbar-user-info">
+                        <span class="cu-topbar-user-name cu-mbSm">Budi Permana</span>
+                        <span class="cu-topbar-user-role">Administrator</span>
+                    </div>
+                    <div class="cu-topbar-avatar">
+                        <span class="material-symbols-outlined">person</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page content placeholder -->
+    <main class="cu-container" style="padding-top: var(--cu-space-xl);">
+        <h2 class="cu-h2">Topbar Component Test</h2>
+        <p class="cu-paragraph cu-mtSm">This page demonstrates the Comet UI topbar component matching the KAI Fuelguard System design.</p>
+
+        <div style="margin-top: var(--cu-space-xl);">
+            <h3 class="cu-h3">Alignment Utilities Added</h3>
+            <div class="cu-grid cu-grid-cols-3 cu-gap-md" style="margin-top: var(--cu-space-md);">
+                <div class="cu-card cu-text-left">
+                    <p class="cu-body">.cu-text-left</p>
+                </div>
+                <div class="cu-card cu-text-center">
+                    <p class="cu-body">.cu-text-center</p>
+                </div>
+                <div class="cu-card cu-text-right">
+                    <p class="cu-body">.cu-text-right</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

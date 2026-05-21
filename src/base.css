@@ -25,7 +25,18 @@ body {
 .cu-flexShrink0 { flex-shrink: 0; }
 
 .cu-grid { display: grid; }
-.cu-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cu-cols-1 { grid-template-columns: var(--cu-grid-cols-1); }
+.cu-cols-2 { grid-template-columns: var(--cu-grid-cols-2); }
+.cu-cols-3 { grid-template-columns: var(--cu-grid-cols-3); }
+.cu-cols-4 { grid-template-columns: var(--cu-grid-cols-4); }
+.cu-cols-5 { grid-template-columns: var(--cu-grid-cols-5); }
+.cu-cols-6 { grid-template-columns: var(--cu-grid-cols-6); }
+.cu-cols-7 { grid-template-columns: var(--cu-grid-cols-7); }
+.cu-cols-8 { grid-template-columns: var(--cu-grid-cols-8); }
+.cu-cols-9 { grid-template-columns: var(--cu-grid-cols-9); }
+.cu-cols-10 { grid-template-columns: var(--cu-grid-cols-10); }
+.cu-cols-11 { grid-template-columns: var(--cu-grid-cols-11); }
+.cu-cols-12 { grid-template-columns: var(--cu-grid-cols-12); }
 
 /* Alignment Hooks */
 .cu-itemsCenter { align-items: center; }
