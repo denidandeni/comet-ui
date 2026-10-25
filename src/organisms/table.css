@@ -1,0 +1,177 @@
+/* Organism: Data table with sorting, filtering and pagination
+   <div class="cu-table-wrap" data-cu-table data-cu-page-size="5">
+     <div class="cu-table-toolbar">
+       <div class="cu-searchbar" ...><input data-cu-table-filter ...></div>
+       <select class="cu-select" data-cu-table-column="2">...</select>   optional exact-match filter on column 2
+     </div>
+     <div class="cu-table-scroll">
+       <table class="cu-table">
+         <thead><tr>
+           <th aria-sort="none" data-cu-sort="text"><button class="cu-table-sort">Name<span class="cu-table-sort-icon"></span></button></th>
+           <th class="cu-table-num" aria-sort="none" data-cu-sort="number">...</th>
+         </tr></thead>
+         <tbody>...</tbody>
+       </table>
+     </div>
+     <div class="cu-table-footer"><span data-cu-table-summary></span><nav class="cu-pagination" data-cu-table-pagination aria-label="Pagination"></nav></div>
+   </div>
+   Sort types: text, number, date. Put data-sort="..." on a td to sort by a value other than its text. */
+
+.cu-table-wrap {
+  overflow: hidden;
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-lg);
+  background-color: var(--cu-surface);
+  font-family: inherit;
+}
+
+.cu-table-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--cu-space-sm);
+  padding: var(--cu-space-md);
+  border-bottom: 1px solid var(--cu-border);
+}
+
+.cu-table-toolbar .cu-searchbar {
+  flex: 1 1 14rem;
+  max-width: 22rem;
+}
+
+.cu-table-toolbar .cu-select {
+  width: auto;
+  min-width: 9rem;
+}
+
+.cu-table-scroll {
+  overflow-x: auto;
+}
+
+.cu-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--cu-text-sm);
+  color: var(--cu-foreground);
+}
+
+.cu-table th,
+.cu-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--cu-border);
+}
+
+.cu-table th {
+  background-color: var(--cu-muted);
+  color: var(--cu-muted-foreground);
+  font-size: var(--cu-text-xs);
+  font-weight: var(--cu-font-weight-semibold);
+  white-space: nowrap;
+}
+
+.cu-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.cu-table tbody tr:hover {
+  background-color: var(--cu-muted);
+}
+
+.cu-table-striped tbody tr:nth-child(even) {
+  background-color: color-mix(in srgb, var(--cu-muted) 50%, transparent);
+}
+
+.cu-table-compact th,
+.cu-table-compact td {
+  padding: 0.5rem 0.75rem;
+}
+
+.cu-table-sticky thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.cu-table .cu-table-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.cu-table .cu-table-num .cu-table-sort {
+  flex-direction: row-reverse;
+}
+
+/* Sortable header: a real button, so it works with the keyboard */
+.cu-table-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cu-space-xs);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.cu-table-sort:hover {
+  color: var(--cu-foreground);
+}
+
+.cu-table-sort:focus-visible {
+  outline: 2px solid var(--cu-ring);
+  outline-offset: 2px;
+  border-radius: var(--cu-radius-sm);
+}
+
+/* Up and down triangles; the active direction is dark, the other is faint */
+.cu-table-sort-icon {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cu-table-sort-icon::before,
+.cu-table-sort-icon::after {
+  content: '';
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  opacity: 0.35;
+}
+
+.cu-table-sort-icon::before { border-bottom: 5px solid currentColor; }
+.cu-table-sort-icon::after { border-top: 5px solid currentColor; }
+
+.cu-table th[aria-sort="ascending"] .cu-table-sort,
+.cu-table th[aria-sort="descending"] .cu-table-sort {
+  color: var(--cu-foreground);
+}
+
+.cu-table th[aria-sort="ascending"] .cu-table-sort-icon::before,
+.cu-table th[aria-sort="descending"] .cu-table-sort-icon::after {
+  opacity: 1;
+}
+
+.cu-table-empty td {
+  padding: var(--cu-space-xxl) var(--cu-space-md);
+  text-align: center;
+  color: var(--cu-muted-foreground);
+}
+
+.cu-table-empty:hover {
+  background: transparent !important;
+}
+
+.cu-table-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--cu-space-sm);
+  padding: var(--cu-space-sm) var(--cu-space-md);
+  border-top: 1px solid var(--cu-border);
+  font-size: var(--cu-text-xs);
+  color: var(--cu-muted-foreground);
+}

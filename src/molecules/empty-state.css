@@ -1,0 +1,55 @@
+/* Molecule: Empty state
+   <div class="cu-empty-state">
+     <div class="cu-empty-state-icon"><svg class="cu-icon cu-icon-md">...</svg></div>
+     <h3 class="cu-empty-state-title">No projects yet</h3>
+     <p class="cu-empty-state-description">Create your first project to get started.</p>
+     <div class="cu-empty-state-actions"><button class="cu-btn cu-btn-primary">New project</button></div>
+   </div> */
+
+.cu-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--cu-space-sm);
+  padding: var(--cu-space-xxl) var(--cu-space-lg);
+  text-align: center;
+  font-family: inherit;
+}
+
+.cu-empty-state-bordered {
+  border: 1px dashed var(--cu-border-strong);
+  border-radius: var(--cu-radius-lg);
+}
+
+.cu-empty-state-icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: var(--cu-space-xs);
+  border-radius: var(--cu-radius-round);
+  background-color: var(--cu-muted);
+  color: var(--cu-muted-foreground);
+}
+
+.cu-empty-state-title {
+  margin: 0;
+  font-size: var(--cu-text-lg);
+  font-weight: var(--cu-font-weight-bold);
+  color: var(--cu-foreground);
+}
+
+.cu-empty-state-description {
+  max-width: 24rem;
+  margin: 0;
+  font-size: var(--cu-text-sm);
+  color: var(--cu-muted-foreground);
+}
+
+.cu-empty-state-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--cu-space-sm);
+  margin-top: var(--cu-space-md);
+}

@@ -1,0 +1,160 @@
+/* Molecule: Datepicker
+   <div class="cu-datepicker" data-cu-datepicker data-cu-min="2026-01-01" data-cu-max="2026-12-31">
+     <input type="text" class="cu-input" placeholder="YYYY-MM-DD" inputmode="numeric" aria-label="Date">
+     <button type="button" class="cu-datepicker-toggle" aria-label="Choose date">...</button>
+   </div>
+   comet.js builds the calendar. Value format is YYYY-MM-DD. Arrow keys move by day and week,
+   PageUp/PageDown by month, Esc closes. */
+
+.cu-datepicker {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 16rem;
+  font-family: inherit;
+}
+
+.cu-datepicker .cu-input {
+  padding-right: 2.5rem;
+}
+
+.cu-datepicker-toggle {
+  position: absolute;
+  top: 50%;
+  right: 0.375rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 0;
+  border-radius: var(--cu-radius-sm);
+  background: transparent;
+  color: var(--cu-muted-foreground);
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.cu-datepicker-toggle:hover {
+  background: var(--cu-muted);
+  color: var(--cu-foreground);
+}
+
+.cu-datepicker-toggle:focus-visible {
+  outline: 2px solid var(--cu-ring);
+}
+
+.cu-datepicker-popover {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.25rem);
+  left: 0;
+  z-index: var(--cu-z-popover);
+  width: 18rem;
+  padding: var(--cu-space-md);
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-lg);
+  background-color: var(--cu-surface);
+  color: var(--cu-foreground);
+  box-shadow: var(--cu-shd-pop);
+}
+
+.cu-datepicker.is-open .cu-datepicker-popover {
+  display: block;
+}
+
+.cu-datepicker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--cu-space-sm);
+}
+
+.cu-datepicker-title {
+  font-size: var(--cu-text-sm);
+  font-weight: var(--cu-font-weight-semibold);
+}
+
+.cu-datepicker-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-sm);
+  background: transparent;
+  color: var(--cu-foreground);
+  cursor: pointer;
+}
+
+.cu-datepicker-nav:hover {
+  background: var(--cu-muted);
+}
+
+.cu-datepicker-nav:focus-visible {
+  outline: 2px solid var(--cu-ring);
+}
+
+.cu-datepicker-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.cu-datepicker-weekday {
+  padding: var(--cu-space-xs) 0;
+  text-align: center;
+  font-size: var(--cu-text-xs);
+  font-weight: var(--cu-font-weight-medium);
+  color: var(--cu-muted-foreground);
+}
+
+.cu-datepicker-day {
+  aspect-ratio: 1;
+  border: 1px solid transparent;
+  border-radius: var(--cu-radius-sm);
+  background: transparent;
+  color: var(--cu-foreground);
+  font-family: inherit;
+  font-size: var(--cu-text-sm);
+  cursor: pointer;
+}
+
+.cu-datepicker-day:hover {
+  background: var(--cu-muted);
+}
+
+.cu-datepicker-day.is-outside {
+  color: var(--cu-subtle-foreground);
+}
+
+.cu-datepicker-day[aria-current="date"] {
+  border-color: var(--cu-border-strong);
+  font-weight: var(--cu-font-weight-bold);
+}
+
+.cu-datepicker-day[aria-selected="true"] {
+  background: var(--cu-primary);
+  color: var(--cu-primary-foreground);
+  font-weight: var(--cu-font-weight-bold);
+}
+
+.cu-datepicker-day:focus-visible {
+  outline: 2px solid var(--cu-ring);
+  outline-offset: 1px;
+}
+
+.cu-datepicker-day:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  background: transparent;
+}
+
+.cu-datepicker-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--cu-space-sm);
+  padding-top: var(--cu-space-sm);
+  border-top: 1px solid var(--cu-border);
+}

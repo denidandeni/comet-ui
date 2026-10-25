@@ -58,6 +58,29 @@ Comet UI uses a robust set of CSS variables (tokens) that you can override to cu
 
 This project is licensed under the MIT License.
 
+## Components and behaviour
+
+Most components are CSS only. These need `src/comet.js` (no dependencies, no build step) for behaviour:
+
+```html
+<link rel="stylesheet" href="index.css">
+<script src="src/comet.js" defer></script>
+```
+
+| Component | Hook | What comet.js does |
+| --- | --- | --- |
+| Table | `data-cu-table` | Sorting, text and column filter, pagination |
+| Toast | `CometUI.toast({...})` | Popover region, auto-dismiss, pause on hover |
+| Datepicker | `data-cu-datepicker` | Calendar popover, keyboard navigation, min/max |
+| Searchbar | `.cu-searchbar` | Clear button, `cu:search` event |
+| Quantity input | `data-cu-quantity="dec\|inc"` | Clamps to min/max, honours step |
+| File upload | `data-cu-file-upload` | Type, size and count validation, file list |
+| Drawer, Dialog | `data-cu-open`, `data-cu-close` | Open and close native `<dialog>` |
+| Alert, Toast | `data-cu-dismiss` | Dismiss |
+| Checkbox, Spinner, Skeleton, Progress, Empty state, Stats card | none | CSS only |
+
+Call `CometUI.init(container)` after inserting markup dynamically.
+
 ## Themes and brands
 
 Comet UI has two independent switches, set as attributes on any element (usually `<html>`):

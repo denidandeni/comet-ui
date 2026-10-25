@@ -1,0 +1,83 @@
+/* Molecule: Stat card
+   <div class="cu-stat">
+     <div class="cu-stat-header"><span class="cu-stat-label">Revenue</span><span class="cu-stat-icon">...</span></div>
+     <div class="cu-stat-value">Rp 48,2 jt</div>
+     <div class="cu-stat-footer"><span class="cu-stat-delta cu-stat-delta-up">+12%</span><span class="cu-stat-hint">vs last month</span></div>
+   </div> */
+
+.cu-stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-sm);
+  padding: var(--cu-space-lg);
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-lg);
+  background-color: var(--cu-surface);
+  box-shadow: var(--cu-shd-btn);
+  font-family: inherit;
+}
+
+.cu-stat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--cu-space-sm);
+}
+
+.cu-stat-label {
+  font-size: var(--cu-text-sm);
+  font-weight: var(--cu-font-weight-medium);
+  color: var(--cu-muted-foreground);
+}
+
+.cu-stat-icon {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--cu-radius-md);
+  background-color: var(--cu-muted);
+  color: var(--cu-muted-foreground);
+}
+
+.cu-stat-value {
+  font-size: var(--cu-text-3xl);
+  font-weight: var(--cu-font-weight-bold);
+  line-height: var(--cu-lh-tight);
+  letter-spacing: var(--cu-tracking-tighter);
+  font-variant-numeric: tabular-nums;
+  color: var(--cu-foreground);
+}
+
+.cu-stat-footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--cu-space-sm);
+  font-size: var(--cu-text-xs);
+}
+
+.cu-stat-delta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--cu-radius-round);
+  font-weight: var(--cu-font-weight-bold);
+  background-color: var(--cu-muted);
+  color: var(--cu-muted-foreground);
+}
+
+.cu-stat-delta-up {
+  background-color: var(--cu-success-subtle);
+  color: var(--cu-success-subtle-foreground);
+}
+
+.cu-stat-delta-down {
+  background-color: var(--cu-destructive-subtle);
+  color: var(--cu-destructive-subtle-foreground);
+}
+
+.cu-stat-hint {
+  color: var(--cu-muted-foreground);
+}

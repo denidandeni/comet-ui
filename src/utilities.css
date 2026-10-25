@@ -7,6 +7,8 @@
 
 .cu-flex { display: flex; }
 .cu-hidden { display: none; }
+.cu-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.cu-truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .cu-block { display: block; }
 .cu-flex-col { display: flex; flex-direction: column; }
 .cu-flex-1 { flex: 1; }

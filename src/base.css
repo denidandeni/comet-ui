@@ -21,9 +21,13 @@ body {
   color: var(--cu-primary-foreground);
 }
 
-/* Respect the user's motion setting: no animation or smooth scrolling. */
+/* Respect the user's motion setting: no animation or smooth scrolling.
+   Spinners are the exception: they keep turning (slower, see spinner.css)
+   because a frozen spinner no longer says "loading". */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *:not(.cu-spinner):not([aria-busy="true"]),
+  *:not(.cu-spinner):not([aria-busy="true"])::before,
+  *:not(.cu-spinner):not([aria-busy="true"])::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

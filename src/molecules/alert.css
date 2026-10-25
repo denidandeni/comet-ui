@@ -1,0 +1,111 @@
+/* Molecule: Alert / Callout
+   <div class="cu-alert cu-alert-success" role="status">
+     <svg class="cu-icon cu-alert-icon">...</svg>
+     <div class="cu-alert-body">
+       <p class="cu-alert-title">Saved</p>
+       <p class="cu-alert-description">Your changes are live.</p>
+     </div>
+     <button type="button" class="cu-alert-close" data-cu-dismiss aria-label="Dismiss">...</button>
+   </div>
+   Use role="alert" for errors that need attention now, role="status" for the rest.
+   Add .cu-alert-callout for a thick left accent. */
+
+.cu-alert {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--cu-space-md);
+  padding: var(--cu-space-md);
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-md);
+  background-color: var(--cu-surface);
+  color: var(--cu-foreground);
+  font-family: inherit;
+  font-size: var(--cu-text-sm);
+  line-height: var(--cu-lh-base);
+}
+
+.cu-alert-icon {
+  margin-top: 0.0625rem;
+}
+
+.cu-alert-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.cu-alert-title {
+  margin: 0;
+  font-weight: var(--cu-font-weight-semibold);
+}
+
+.cu-alert-description {
+  margin: var(--cu-space-xs) 0 0;
+  color: var(--cu-muted-foreground);
+}
+
+.cu-alert-title:only-child {
+  font-weight: var(--cu-font-weight-medium);
+}
+
+.cu-alert-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: -0.125rem -0.25rem 0 0;
+  border: 0;
+  border-radius: var(--cu-radius-sm);
+  background: transparent;
+  color: inherit;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.cu-alert-close:hover { opacity: 1; background: color-mix(in srgb, currentColor 10%, transparent); }
+.cu-alert-close:focus-visible { outline: 2px solid var(--cu-ring); opacity: 1; }
+
+/* Variants */
+.cu-alert-info {
+  background-color: var(--cu-brand-subtle);
+  border-color: var(--cu-brand-border);
+  color: var(--cu-brand-subtle-foreground);
+}
+
+.cu-alert-success {
+  background-color: var(--cu-success-subtle);
+  border-color: color-mix(in srgb, var(--cu-success) 35%, transparent);
+  color: var(--cu-success-subtle-foreground);
+}
+
+.cu-alert-warning {
+  background-color: var(--cu-warning-subtle);
+  border-color: color-mix(in srgb, var(--cu-warning) 45%, transparent);
+  color: var(--cu-warning-subtle-foreground);
+}
+
+.cu-alert-destructive {
+  background-color: var(--cu-destructive-subtle);
+  border-color: color-mix(in srgb, var(--cu-destructive) 35%, transparent);
+  color: var(--cu-destructive-subtle-foreground);
+}
+
+.cu-alert-info .cu-alert-description,
+.cu-alert-success .cu-alert-description,
+.cu-alert-warning .cu-alert-description,
+.cu-alert-destructive .cu-alert-description {
+  color: inherit;
+  opacity: 0.9;
+}
+
+/* Callout: thick accent on the start edge */
+.cu-alert-callout {
+  border-left-width: 4px;
+  border-radius: var(--cu-radius-sm);
+}
+
+.cu-alert.is-leaving {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}

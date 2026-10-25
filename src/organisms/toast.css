@@ -1,0 +1,131 @@
+/* Organism: Toast
+   Create toasts from JavaScript:
+     CometUI.toast({ title: 'Saved', description: 'Changes are live.', variant: 'success', duration: 5000 })
+   comet.js adds a .cu-toast-region (a popover, so it sits above open dialogs) and removes
+   toasts after `duration` ms. Hovering or focusing a toast pauses its timer.
+   Variants: default, success, warning, destructive, info. Position with
+   CometUI.toast.position('top-right' | 'top-center' | 'bottom-right' | 'bottom-center'). */
+
+@keyframes cu-toast-in {
+  from { opacity: 0; transform: translateY(0.5rem) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+.cu-toast-region {
+  position: fixed;
+  inset: auto 1rem 1rem auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+  flex-direction: column;
+  gap: var(--cu-space-sm);
+  width: min(24rem, calc(100vw - 2rem));
+  pointer-events: none;
+}
+
+.cu-toast-region:popover-open,
+.cu-toast-region.is-fallback {
+  display: flex;
+}
+
+.cu-toast-region.is-fallback {
+  z-index: var(--cu-z-toast);
+}
+
+.cu-toast-region[data-position="top-right"] { inset: 1rem 1rem auto auto; flex-direction: column-reverse; }
+.cu-toast-region[data-position="top-center"] { inset: 1rem auto auto 50%; transform: translateX(-50%); flex-direction: column-reverse; }
+.cu-toast-region[data-position="bottom-center"] { inset: auto auto 1rem 50%; transform: translateX(-50%); }
+
+.cu-toast {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--cu-space-md);
+  padding: var(--cu-space-md);
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-md);
+  background-color: var(--cu-surface);
+  color: var(--cu-foreground);
+  box-shadow: var(--cu-shd-pop);
+  font-family: var(--cu-font-family-default);
+  font-size: var(--cu-text-sm);
+  line-height: var(--cu-lh-base);
+  pointer-events: auto;
+  animation: cu-toast-in 0.2s ease;
+}
+
+.cu-toast.is-leaving {
+  opacity: 0;
+  transform: translateY(0.25rem);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.cu-toast-icon {
+  margin-top: 0.0625rem;
+}
+
+.cu-toast-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.cu-toast-title {
+  margin: 0;
+  font-weight: var(--cu-font-weight-semibold);
+}
+
+.cu-toast-description {
+  margin: var(--cu-space-xs) 0 0;
+  color: var(--cu-muted-foreground);
+}
+
+.cu-toast-action {
+  align-self: center;
+  flex-shrink: 0;
+  height: 2rem;
+  padding: 0 0.75rem;
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-sm);
+  background: transparent;
+  color: var(--cu-foreground);
+  font-family: inherit;
+  font-size: var(--cu-text-xs);
+  font-weight: var(--cu-font-weight-bold);
+  cursor: pointer;
+}
+
+.cu-toast-action:hover { background: var(--cu-muted); }
+.cu-toast-action:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: 1px; }
+
+.cu-toast-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: -0.125rem -0.25rem 0 0;
+  border: 0;
+  border-radius: var(--cu-radius-sm);
+  background: transparent;
+  color: var(--cu-muted-foreground);
+  cursor: pointer;
+}
+
+.cu-toast-close:hover { background: var(--cu-muted); color: var(--cu-foreground); }
+.cu-toast-close:focus-visible { outline: 2px solid var(--cu-ring); }
+
+/* Variants: a colored icon and a thin accent on the start edge */
+.cu-toast-success { box-shadow: inset 3px 0 0 var(--cu-success), var(--cu-shd-pop); }
+.cu-toast-success .cu-toast-icon { color: var(--cu-success-subtle-foreground); }
+
+.cu-toast-warning { box-shadow: inset 3px 0 0 var(--cu-warning), var(--cu-shd-pop); }
+.cu-toast-warning .cu-toast-icon { color: var(--cu-warning-subtle-foreground); }
+
+.cu-toast-destructive { box-shadow: inset 3px 0 0 var(--cu-destructive), var(--cu-shd-pop); }
+.cu-toast-destructive .cu-toast-icon { color: var(--cu-destructive-subtle-foreground); }
+
+.cu-toast-info { box-shadow: inset 3px 0 0 var(--cu-ring), var(--cu-shd-pop); }
+.cu-toast-info .cu-toast-icon { color: var(--cu-foreground); }

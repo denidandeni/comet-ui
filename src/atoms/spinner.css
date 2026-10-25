@@ -1,0 +1,42 @@
+/* Atom: Spinner
+   <span class="cu-spinner" role="status"><span class="cu-sr-only">Loading</span></span>
+   Buttons: <button class="cu-btn cu-btn-primary" aria-busy="true">Saving</button>
+   shows a spinner before the label and ignores clicks. Spinners use currentColor. */
+
+@keyframes cu-spin {
+  to { transform: rotate(360deg); }
+}
+
+.cu-spinner,
+.cu-btn[aria-busy="true"]::before {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid color-mix(in srgb, currentColor 25%, transparent);
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: cu-spin 0.7s linear infinite;
+}
+
+.cu-btn[aria-busy="true"]::before {
+  content: '';
+  width: 1em;
+  height: 1em;
+}
+
+.cu-btn[aria-busy="true"] {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.cu-spinner-sm { width: 1rem; height: 1rem; }
+.cu-spinner-lg { width: 2rem; height: 2rem; border-width: 3px; }
+
+/* With reduced motion the spinner turns slowly instead of stopping */
+@media (prefers-reduced-motion: reduce) {
+  .cu-spinner,
+  .cu-btn[aria-busy="true"]::before {
+    animation-duration: 1.6s;
+  }
+}
