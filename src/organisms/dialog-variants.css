@@ -1,0 +1,36 @@
+/* Organism: Dialog variants */
+
+/* Dialog Variants */
+.cu-dialog.cu-dialog-scrollable {
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 0;
+  gap: 0;
+}
+
+.cu-dialog.cu-dialog-scrollable > .cu-dialog-header,
+.cu-dialog.cu-dialog-scrollable > .cu-dialog-content,
+.cu-dialog.cu-dialog-scrollable > .cu-dialog-footer {
+  padding: var(--cu-space-xl);
+}
+
+.cu-dialog-sticky-header {
+  position: sticky;
+  top: 0;
+  background: var(--cu-surface);
+  z-index: var(--cu-z-sticky);
+  border-bottom: 1px solid var(--cu-border);
+  padding: var(--cu-space-lg) var(--cu-space-xl);
+}
+
+.cu-dialog-sticky-footer {
+  position: sticky;
+  bottom: 0;
+  background: var(--cu-surface);
+  z-index: var(--cu-z-sticky);
+  border-top: 1px solid var(--cu-border);
+  padding: var(--cu-space-lg) var(--cu-space-xl);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--cu-space-sm);
+}

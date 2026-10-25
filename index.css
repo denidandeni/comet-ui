@@ -1,20 +1,22 @@
-/* Comet UI - Main Entry Point */
+/* Comet UI - Main Entry Point
+   Layers (lowest to highest priority). Your own unlayered CSS always wins,
+   so overriding Comet UI never needs !important or extra specificity. */
+@layer cu.tokens, cu.base, cu.components, cu.utilities;
 
-/* 1. Design Tokens (CSS Variables) */
-@import url('./src/variables.css');
+/* 1. Design tokens: primitives, semantic (light/dark) and brands */
+@import url('./src/variables.css') layer(cu.tokens);
+@import url('./src/brands/index.css') layer(cu.tokens);
 
-/* 1b. Brands (default brand first; add yours in tokens/brands/) */
-@import url('./src/brands/index.css');
+/* 2. Reset and body defaults */
+@import url('./src/base.css') layer(cu.base);
 
-/* 2. Base Reset and Utilities */
-@import url('./src/base.css');
+/* 3. Typography styles and components (atoms, molecules, organisms) */
+@import url('./src/typography.css') layer(cu.components);
+@import url('./src/components.css') layer(cu.components);
 
-/* 3. Typography System */
-@import url('./src/typography.css');
-
-/* 4. UI Components */
-@import url('./src/components.css');
-
-/* 5. Deprecated aliases for v1.0.0 class names. Remove once your project uses
-      the current names (see the table at the top of src/legacy.css). */
-@import url('./src/legacy.css');
+/* 4. Utilities (always beat components) and deprecated v1.0.0 class names.
+      Remove legacy.css once your project uses the current names. */
+@import url('./src/layout.css') layer(cu.utilities);
+@import url('./src/utilities.css') layer(cu.utilities);
+@import url('./src/responsive.css') layer(cu.utilities);
+@import url('./src/legacy.css') layer(cu.utilities);

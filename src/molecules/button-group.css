@@ -1,0 +1,28 @@
+/* Molecule: Button group */
+
+/* Button Group */
+.cu-btn-group {
+  display: inline-flex;
+  border-radius: var(--cu-radius-md);
+}
+
+.cu-btn-group .cu-btn {
+  border-radius: 0;
+  margin-left: -1px;
+}
+
+.cu-btn-group .cu-btn:first-child {
+  border-top-left-radius: var(--cu-radius-md);
+  border-bottom-left-radius: var(--cu-radius-md);
+  margin-left: 0;
+}
+
+.cu-btn-group .cu-btn:last-child {
+  border-top-right-radius: var(--cu-radius-md);
+  border-bottom-right-radius: var(--cu-radius-md);
+}
+
+.cu-btn-group .cu-btn:focus,
+.cu-btn-group .cu-btn:hover {
+  z-index: 1;
+}

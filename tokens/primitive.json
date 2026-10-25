@@ -310,5 +310,20 @@
     "12": {
       "$value": "repeat(12, minmax(0, 1fr))"
     }
+  },
+  "breakpoint": {
+    "sm": {
+      "$value": "40rem"
+    },
+    "md": {
+      "$value": "48rem"
+    },
+    "lg": {
+      "$value": "64rem"
+    },
+    "xl": {
+      "$value": "80rem"
+    },
+    "$description": "Informational: CSS custom properties cannot be used inside @media, so responsive.css repeats these values."
   }
 }

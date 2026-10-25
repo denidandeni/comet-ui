@@ -8,10 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="../src/variables.css?v=2">
-    <link rel="stylesheet" href="../src/base.css?v=2">
-    <link rel="stylesheet" href="../src/typography.css?v=2">
-    <link rel="stylesheet" href="../src/components.css?v=2">
+    <link rel="stylesheet" href="../index.css">
     <style>
         body {
             margin: 0;
@@ -25,7 +22,7 @@
     <!-- .cu-wrapper = full-width (stretches to any screen size, holds background/border) -->
     <!-- .cu-topbar  = content capped at 1440px, auto-centered -->
     <div class="cu-wrapper" style="background: var(--cu-white);">
-        <div class="cu-topbar">
+        <div class="cu-topbar" id="topbar">
             <!-- Left: Brand -->
             <a href="#" class="cu-topbar-brand">
                 <div class="cu-topbar-brand-icon">KAI</div>
@@ -36,7 +33,7 @@
             </a>
 
             <!-- Center: Navigation -->
-            <nav class="cu-topbar-nav">
+            <nav class="cu-topbar-nav" id="topbar-nav">
                 <a href="#" class="cu-topbar-nav-link is-active">Dashboard</a>
                 <a href="#" class="cu-topbar-nav-link">Report</a>
                 <a href="#" class="cu-topbar-nav-link">Users</a>
@@ -44,6 +41,10 @@
 
             <!-- Right: User -->
             <div class="cu-topbar-actions">
+                <!-- Mobile menu button (visible below 768px) -->
+                <button class="cu-topbar-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="topbar-nav" id="topbar-toggle">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
                 <div class="cu-topbar-user">
                     <div class="cu-topbar-user-info">
                         <span class="cu-topbar-user-name cu-mb-sm">Budi Permana</span>
@@ -78,5 +79,12 @@
         </div>
     </main>
 
+<script>
+    var bar = document.getElementById('topbar'), btn = document.getElementById('topbar-toggle');
+    btn.addEventListener('click', function () {
+        var open = bar.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open);
+    });
+</script>
 </body>
 </html>

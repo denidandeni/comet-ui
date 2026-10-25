@@ -1,0 +1,82 @@
+/* Atom: Badge */
+
+/* ==========================================================================
+   BADGE
+   One base (.cu-badge), one set of color variants, and optional modifiers.
+   Usage: <span class="cu-badge cu-badge-brand cu-badge-sm">New</span>
+   ========================================================================== */
+
+.cu-badge {
+  display: inline-flex;
+  padding: 2px 8px;
+  border-radius: var(--cu-radius-round);
+  font-size: var(--cu-text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: inherit;
+}
+
+/* Variants */
+.cu-badge-default {
+  background-color: var(--cu-inverse);
+  color: var(--cu-inverse-foreground);
+  border: 1px solid transparent;
+}
+
+.cu-badge-secondary {
+  background-color: var(--cu-muted);
+  color: var(--cu-foreground);
+  border: 1px solid transparent;
+}
+
+.cu-badge-brand {
+  background-color: var(--cu-brand-subtle);
+  color: var(--cu-brand-subtle-foreground);
+}
+
+.cu-badge-success {
+  background-color: var(--cu-success-subtle);
+  color: var(--cu-success-subtle-foreground);
+}
+
+.cu-badge-destructive {
+  background-color: var(--cu-destructive);
+  color: var(--cu-destructive-foreground);
+  border: 1px solid transparent;
+}
+
+.cu-badge-outline {
+  background-color: transparent;
+  color: var(--cu-foreground);
+  border: 1px solid var(--cu-border);
+}
+
+/* Modifiers */
+.cu-badge-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.cu-badge-dot::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--cu-radius-round);
+  background-color: currentColor;
+}
+
+.cu-badge-rounded {
+  border-radius: var(--cu-radius-round);
+}
+
+.cu-badge-lg {
+  padding: 4px 10px;
+  font-size: var(--cu-text-sm);
+}
+
+.cu-badge-sm {
+  padding: 0px 6px;
+  font-size: var(--cu-text-2xs);
+}

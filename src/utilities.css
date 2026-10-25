@@ -1,0 +1,171 @@
+/* Utility classes: flex, spacing, text, appearance (layer: cu.utilities) */
+
+/* ==========================================================================
+   PURPOSE: Comet UI Layout Primitives (Light Mode)
+   Core flexbox and grid helpers for structural arrangement.
+   ========================================================================== */
+
+.cu-flex { display: flex; }
+.cu-hidden { display: none; }
+.cu-block { display: block; }
+.cu-flex-col { display: flex; flex-direction: column; }
+.cu-flex-1 { flex: 1; }
+.cu-flex-shrink-0 { flex-shrink: 0; }
+.cu-flex-wrap { flex-wrap: wrap; }
+.cu-flex-nowrap { flex-wrap: nowrap; }
+
+/* Grid (.cu-grid, .cu-grid-cols-*) and alignment (.cu-items-*, .cu-justify-*)
+   utilities live in components.css. */
+
+/* ==========================================================================
+   PURPOSE: Positioning & Layers
+   Layer values come from the --cu-z-* tokens in variables.css.
+   ========================================================================== */
+
+.cu-relative { position: relative; }
+.cu-absolute { position: absolute; }
+.cu-fixed { position: fixed; }
+
+.cu-z-sticky { z-index: var(--cu-z-sticky); }
+.cu-z-overlay { z-index: var(--cu-z-overlay); }
+
+/* ==========================================================================
+   PURPOSE: Spacing Utilities
+   Gap utilities (.cu-gap-*) live in components.css.
+   ========================================================================== */
+
+/* Padding */
+.cu-p-xs { padding: var(--cu-space-xs); }
+.cu-p-sm { padding: var(--cu-space-sm); }
+.cu-p-md { padding: var(--cu-space-md); }
+.cu-p-lg { padding: var(--cu-space-lg); }
+
+.cu-pt-xs { padding-top: var(--cu-space-xs); }
+.cu-pt-sm { padding-top: var(--cu-space-sm); }
+.cu-pt-md { padding-top: var(--cu-space-md); }
+.cu-pt-lg { padding-top: var(--cu-space-lg); }
+
+.cu-pb-xs { padding-bottom: var(--cu-space-xs); }
+.cu-pb-sm { padding-bottom: var(--cu-space-sm); }
+.cu-pb-md { padding-bottom: var(--cu-space-md); }
+.cu-pb-lg { padding-bottom: var(--cu-space-lg); }
+
+.cu-pl-xs { padding-left: var(--cu-space-xs); }
+.cu-pl-sm { padding-left: var(--cu-space-sm); }
+.cu-pl-md { padding-left: var(--cu-space-md); }
+.cu-pl-lg { padding-left: var(--cu-space-lg); }
+
+.cu-pr-xs { padding-right: var(--cu-space-xs); }
+.cu-pr-sm { padding-right: var(--cu-space-sm); }
+.cu-pr-md { padding-right: var(--cu-space-md); }
+.cu-pr-lg { padding-right: var(--cu-space-lg); }
+
+.cu-px-xs { padding-left: var(--cu-space-xs); padding-right: var(--cu-space-xs); }
+.cu-px-sm { padding-left: var(--cu-space-sm); padding-right: var(--cu-space-sm); }
+.cu-px-md { padding-left: var(--cu-space-md); padding-right: var(--cu-space-md); }
+.cu-px-lg { padding-left: var(--cu-space-lg); padding-right: var(--cu-space-lg); }
+
+.cu-py-xs { padding-top: var(--cu-space-xs); padding-bottom: var(--cu-space-xs); }
+.cu-py-sm { padding-top: var(--cu-space-sm); padding-bottom: var(--cu-space-sm); }
+.cu-py-md { padding-top: var(--cu-space-md); padding-bottom: var(--cu-space-md); }
+.cu-py-lg { padding-top: var(--cu-space-lg); padding-bottom: var(--cu-space-lg); }
+
+/* Margin */
+.cu-m-xs { margin: var(--cu-space-xs); }
+.cu-m-sm { margin: var(--cu-space-sm); }
+.cu-m-md { margin: var(--cu-space-md); }
+.cu-m-lg { margin: var(--cu-space-lg); }
+
+.cu-mt-xs { margin-top: var(--cu-space-xs); }
+.cu-mt-sm { margin-top: var(--cu-space-sm); }
+.cu-mt-md { margin-top: var(--cu-space-md); }
+.cu-mt-lg { margin-top: var(--cu-space-lg); }
+
+.cu-mb-xs { margin-bottom: var(--cu-space-xs); }
+.cu-mb-sm { margin-bottom: var(--cu-space-sm); }
+.cu-mb-md { margin-bottom: var(--cu-space-md); }
+.cu-mb-lg { margin-bottom: var(--cu-space-lg); }
+
+.cu-ml-xs { margin-left: var(--cu-space-xs); }
+.cu-ml-sm { margin-left: var(--cu-space-sm); }
+.cu-ml-md { margin-left: var(--cu-space-md); }
+.cu-ml-lg { margin-left: var(--cu-space-lg); }
+
+.cu-mr-xs { margin-right: var(--cu-space-xs); }
+.cu-mr-sm { margin-right: var(--cu-space-sm); }
+.cu-mr-md { margin-right: var(--cu-space-md); }
+.cu-mr-lg { margin-right: var(--cu-space-lg); }
+
+.cu-mx-xs { margin-left: var(--cu-space-xs); margin-right: var(--cu-space-xs); }
+.cu-mx-sm { margin-left: var(--cu-space-sm); margin-right: var(--cu-space-sm); }
+.cu-mx-md { margin-left: var(--cu-space-md); margin-right: var(--cu-space-md); }
+.cu-mx-lg { margin-left: var(--cu-space-lg); margin-right: var(--cu-space-lg); }
+
+.cu-my-xs { margin-top: var(--cu-space-xs); margin-bottom: var(--cu-space-xs); }
+.cu-my-sm { margin-top: var(--cu-space-sm); margin-bottom: var(--cu-space-sm); }
+.cu-my-md { margin-top: var(--cu-space-md); margin-bottom: var(--cu-space-md); }
+.cu-my-lg { margin-top: var(--cu-space-lg); margin-bottom: var(--cu-space-lg); }
+
+.cu-m-auto { margin: auto; }
+.cu-mx-auto { margin-left: auto; margin-right: auto; }
+.cu-ml-auto { margin-left: auto; }
+.cu-mr-auto { margin-right: auto; }
+
+/* ==========================================================================
+   PURPOSE: Typography & Color
+   ========================================================================== */
+
+
+/* Text color. Font sizes are .cu-text-xs ... .cu-text-7xl (typography.css);
+   text alignment is .cu-align-left/center/right/justify (components.css). */
+.cu-text-default { color: var(--cu-foreground); line-height: var(--cu-lh-base); }
+.cu-text-subtle { color: var(--cu-muted-foreground); line-height: var(--cu-lh-base); }
+.cu-text-brand { color: var(--cu-primary); }
+.cu-text-accent { color: var(--cu-accent); }
+
+/* ==========================================================================
+   PURPOSE: Appearance
+   ========================================================================== */
+
+.cu-radius-md { border-radius: var(--cu-radius-md); }
+.cu-radius-round { border-radius: var(--cu-radius-round); }
+
+.cu-shadow-md { box-shadow: var(--cu-shd-btn); }
+.cu-shadow-glow { box-shadow: var(--cu-shd-glow); }
+
+/* Aspect Ratios */
+.cu-ratio1-1 { aspect-ratio: 1 / 1; }
+.cu-ratio3-4 { aspect-ratio: 3 / 4; }
+.cu-ratio4-3 { aspect-ratio: 4 / 3; }
+.cu-ratio16-9 { aspect-ratio: 16 / 9; }
+.cu-ratio9-16 { aspect-ratio: 9 / 16; }
+.cu-ratio4-5 { aspect-ratio: 4 / 5; }
+.cu-ratio5-4 { aspect-ratio: 5 / 4; }
+
+.cu-object-cover { object-fit: cover; }
+.cu-bg-cover { background-size: cover; background-position: center; }
+
+/* ==========================================================================
+   Typography Utility Classes
+   ========================================================================== */
+.cu-text-2xs  { font-size: var(--cu-text-2xs); }
+.cu-text-xs   { font-size: var(--cu-text-xs); }
+.cu-text-sm   { font-size: var(--cu-text-sm); }
+.cu-text-base { font-size: var(--cu-text-base); }
+.cu-text-lg   { font-size: var(--cu-text-lg); }
+.cu-text-xl   { font-size: var(--cu-text-xl); }
+.cu-text-2xl  { font-size: var(--cu-text-2xl); }
+.cu-text-3xl  { font-size: var(--cu-text-3xl); }
+.cu-text-4xl  { font-size: var(--cu-text-4xl); }
+.cu-text-5xl  { font-size: var(--cu-text-5xl); }
+.cu-text-6xl  { font-size: var(--cu-text-6xl); }
+.cu-text-7xl  { font-size: var(--cu-text-7xl); }
+
+.cu-font-light    { font-weight: 300; }
+.cu-font-normal   { font-weight: 400; }
+.cu-font-medium   { font-weight: 500; }
+.cu-font-semibold { font-weight: 600; }
+.cu-font-bold     { font-weight: 700; }
+.cu-font-extrabold{ font-weight: 800; }
+
+.cu-font-mono { font-family: var(--cu-font-family-mono); }

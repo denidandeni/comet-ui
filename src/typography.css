@@ -60,28 +60,3 @@
   color: var(--cu-subtle-foreground); 
   margin: 0; 
 }
-
-/* ==========================================================================
-   Typography Utility Classes
-   ========================================================================== */
-.cu-text-2xs  { font-size: var(--cu-text-2xs); }
-.cu-text-xs   { font-size: var(--cu-text-xs); }
-.cu-text-sm   { font-size: var(--cu-text-sm); }
-.cu-text-base { font-size: var(--cu-text-base); }
-.cu-text-lg   { font-size: var(--cu-text-lg); }
-.cu-text-xl   { font-size: var(--cu-text-xl); }
-.cu-text-2xl  { font-size: var(--cu-text-2xl); }
-.cu-text-3xl  { font-size: var(--cu-text-3xl); }
-.cu-text-4xl  { font-size: var(--cu-text-4xl); }
-.cu-text-5xl  { font-size: var(--cu-text-5xl); }
-.cu-text-6xl  { font-size: var(--cu-text-6xl); }
-.cu-text-7xl  { font-size: var(--cu-text-7xl); }
-
-.cu-font-light    { font-weight: 300; }
-.cu-font-normal   { font-weight: 400; }
-.cu-font-medium   { font-weight: 500; }
-.cu-font-semibold { font-weight: 600; }
-.cu-font-bold     { font-weight: 700; }
-.cu-font-extrabold{ font-weight: 800; }
-
-.cu-font-mono { font-family: var(--cu-font-family-mono); }

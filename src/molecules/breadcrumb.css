@@ -1,0 +1,40 @@
+/* Molecule: Breadcrumb */
+
+/* Breadcrumbs */
+.cu-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--cu-space-xs);
+  font-size: var(--cu-text-sm);
+  color: var(--cu-muted-foreground);
+  font-family: inherit;
+}
+
+.cu-breadcrumb-link {
+  color: var(--cu-muted-foreground);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.cu-breadcrumb-link:hover {
+  color: var(--cu-foreground);
+}
+
+.cu-breadcrumb-separator {
+  color: var(--cu-subtle-foreground);
+  margin: 0 var(--cu-space-xs);
+  display: flex;
+  align-items: center;
+}
+
+.cu-breadcrumb-current {
+  color: var(--cu-foreground);
+  font-weight: var(--cu-font-weight-medium);
+}
+
+.cu-breadcrumb-link:focus-visible {
+  outline: 2px solid var(--cu-ring);
+  outline-offset: 2px;
+  border-radius: var(--cu-radius-sm);
+}

@@ -1,0 +1,91 @@
+/* Molecule: Accordion */
+
+/* Accordion */
+.cu-accordion {
+  width: 100%;
+  border-bottom: 1px solid var(--cu-border);
+}
+
+.cu-accordion-item {
+  border-top: 1px solid var(--cu-border);
+}
+
+.cu-accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: var(--cu-space-md) 0;
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-weight: var(--cu-font-weight-medium);
+  cursor: pointer;
+  color: var(--cu-foreground);
+  font-family: inherit;
+  font-size: var(--cu-text-base);
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.cu-accordion-header:hover {
+  color: var(--cu-muted-foreground);
+}
+
+.cu-accordion-icon {
+  transition: transform 0.2s ease;
+  color: var(--cu-muted-foreground);
+  display: flex;
+  text-decoration: none !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.cu-accordion-content {
+  padding-bottom: var(--cu-space-md);
+  color: var(--cu-muted-foreground);
+  display: none;
+  font-size: var(--cu-text-base);
+  line-height: var(--cu-lh-relaxed);
+}
+
+.cu-accordion-item.is-open .cu-accordion-content {
+  display: block;
+}
+
+.cu-accordion-item.is-open .cu-accordion-icon {
+  transform: rotate(180deg);
+}
+
+/* Accordion (Card Style like Image 4 right side) */
+.cu-accordion-card {
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-md);
+  margin-bottom: var(--cu-space-sm);
+  background: var(--cu-surface);
+  box-shadow: var(--cu-shd-btn);
+  overflow: hidden;
+}
+
+.cu-accordion-card .cu-accordion-header {
+  padding: var(--cu-space-md);
+  border-bottom: 1px solid transparent;
+}
+
+.cu-accordion-card .cu-accordion-header:hover {
+  text-decoration: none;
+  background: var(--cu-muted);
+}
+
+.cu-accordion-card.is-open .cu-accordion-header {
+  border-bottom-color: var(--cu-border);
+}
+
+.cu-accordion-card .cu-accordion-content {
+  padding: var(--cu-space-md);
+}
+
+.cu-accordion-header:focus-visible {
+  outline: 2px solid var(--cu-ring);
+  outline-offset: -2px;
+}

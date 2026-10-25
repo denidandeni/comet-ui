@@ -1,0 +1,89 @@
+/* Molecule: Dropdown */
+
+/* Dropdown */
+.cu-dropdown {
+  position: relative;
+  display: inline-block;
+  font-family: inherit;
+}
+
+.cu-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  background: var(--cu-surface);
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-md);
+  box-shadow: var(--cu-shd-pop);
+  width: 200px;
+  overflow: hidden;
+  z-index: var(--cu-z-dropdown);
+}
+
+/* Invisible bridge to prevent hover loss in the gap */
+.cu-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.cu-dropdown-hover:hover .cu-dropdown-menu,
+.cu-dropdown.is-open .cu-dropdown-menu {
+  display: block;
+}
+
+.cu-dropdown-item {
+  padding: 10px 14px;
+  font-size: var(--cu-text-sm);
+  color: var(--cu-foreground);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.2s;
+}
+
+.cu-dropdown-item:hover {
+  background: var(--cu-muted);
+}
+
+.cu-dropdown-divider {
+  height: 1px;
+  background-color: var(--cu-border);
+  margin: 4px 0;
+}
+
+.cu-dropdown-item-danger {
+  color: var(--cu-destructive-subtle-foreground);
+}
+
+.cu-dropdown-item-danger:hover {
+  background: var(--cu-destructive-subtle);
+  color: var(--cu-destructive-subtle-foreground);
+}
+
+/* Items are real <button role="menuitem"> elements (a <div> still works, without keyboard support). */
+button.cu-dropdown-item {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  text-align: left;
+}
+
+.cu-dropdown-item:focus-visible {
+  background: var(--cu-muted);
+  outline: 2px solid var(--cu-ring);
+  outline-offset: -2px;
+}
+
+.cu-dropdown-item:disabled,
+.cu-dropdown-item[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

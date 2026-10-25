@@ -1,0 +1,24 @@
+/* Atom: Tooltip */
+
+/* Tooltip */
+.cu-tooltip { position: relative; display: inline-block; }
+.cu-tooltip-content {
+  visibility: hidden;
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cu-inverse);
+  color: var(--cu-inverse-foreground);
+  padding: 8px 12px;
+  border-radius: var(--cu-radius-md);
+  font-size: var(--cu-text-xs);
+  z-index: var(--cu-z-tooltip);
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  box-shadow: var(--cu-shd-pop);
+  min-width: max-content;
+  font-family: inherit;
+}
+.cu-tooltip:hover .cu-tooltip-content { visibility: visible; opacity: 1; }

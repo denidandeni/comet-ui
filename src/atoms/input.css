@@ -1,0 +1,93 @@
+/* Atom: Input, Select, Textarea, Label (+ input group) */
+
+/* Inputs & Forms */
+.cu-input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.cu-label {
+  font-size: var(--cu-text-sm);
+  color: var(--cu-muted-foreground);
+  font-weight: var(--cu-font-weight-bold);
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-sm);
+  font-family: inherit;
+  margin-bottom: var(--cu-space-sm);
+}
+
+.cu-input, .cu-select, .cu-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--cu-radius-md);
+  border: 1px solid var(--cu-border);
+  background-color: var(--cu-surface);
+  font-family: inherit;
+  font-size: var(--cu-text-base);
+  color: var(--cu-foreground);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.cu-input, .cu-select {
+  height: var(--cu-h-btn);
+}
+
+.cu-textarea {
+  min-height: 100px;
+  padding: var(--cu-space-md);
+  resize: vertical;
+}
+
+.cu-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-align: left;
+  user-select: none;
+}
+
+.cu-input:focus, .cu-select:focus, .cu-textarea:focus {
+  border-color: var(--cu-focus-border);
+  box-shadow: 0 0 0 3px var(--cu-focus-halo);
+}
+
+.cu-input::placeholder, .cu-textarea::placeholder {
+  color: var(--cu-subtle-foreground);
+}
+
+/* States */
+.cu-input:disabled, .cu-select:disabled, .cu-textarea:disabled,
+.cu-select[aria-disabled="true"] {
+  background-color: var(--cu-muted);
+  color: var(--cu-muted-foreground);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Invalid: set aria-invalid="true" (preferred) or add .is-invalid */
+.cu-input[aria-invalid="true"], .cu-select[aria-invalid="true"], .cu-textarea[aria-invalid="true"],
+.cu-input.is-invalid, .cu-select.is-invalid, .cu-textarea.is-invalid {
+  border-color: var(--cu-destructive);
+}
+
+.cu-input[aria-invalid="true"]:focus, .cu-select[aria-invalid="true"]:focus, .cu-textarea[aria-invalid="true"]:focus,
+.cu-input.is-invalid:focus, .cu-select.is-invalid:focus, .cu-textarea.is-invalid:focus {
+  border-color: var(--cu-destructive);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--cu-destructive) 20%, transparent);
+}
+
+/* Helper and error text under a field */
+.cu-input-hint {
+  margin-top: var(--cu-space-xs);
+  font-size: var(--cu-text-xs);
+  color: var(--cu-muted-foreground);
+}
+
+.cu-input-error {
+  margin-top: var(--cu-space-xs);
+  font-size: var(--cu-text-xs);
+  color: var(--cu-destructive-subtle-foreground);
+}

@@ -1,0 +1,75 @@
+/* Atom: Radio */
+
+/* Standard Radio Variant */
+.cu-radio {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-sm);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--cu-text-base);
+  color: var(--cu-foreground);
+  margin-bottom: var(--cu-space-xs);
+}
+
+.cu-radio .cu-radio-input {
+  margin-top: 0;
+}
+
+.cu-radio-input {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--cu-border);
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.cu-radio-input:checked {
+  border-color: var(--cu-inverse);
+  background-color: var(--cu-inverse);
+}
+
+.cu-radio-input:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--cu-inverse-foreground);
+}
+
+.cu-radio-card-content {
+  flex: 1;
+}
+
+.cu-radio-card-title {
+  font-weight: var(--cu-font-weight-medium);
+  color: var(--cu-foreground);
+  margin-bottom: var(--cu-space-xs);
+  display: flex;
+  justify-content: space-between;
+}
+
+.cu-radio-card-desc {
+  font-size: var(--cu-text-sm);
+  color: var(--cu-muted-foreground);
+}
+
+/* States */
+.cu-radio-input:focus-visible {
+  outline: 2px solid var(--cu-ring);
+  outline-offset: 2px;
+}
+
+.cu-radio-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

@@ -1,0 +1,32 @@
+/* Molecule: Input with prefix / suffix */
+
+/* Input Wrapper for Prefix/Suffix */
+.cu-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.cu-input-affix {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cu-subtle-foreground);
+  font-size: var(--cu-text-sm);
+  pointer-events: none;
+  height: 100%;
+  padding: 0 var(--cu-space-md);
+}
+
+.cu-input-suffix { right: 0; }
+.cu-input.cu-has-suffix { padding-right: 40px; }
+
+/* Interactive Affix (like Password Toggle) */
+.cu-password-toggle {
+  pointer-events: auto;
+}
+.cu-password-toggle:hover {
+  color: var(--cu-muted-foreground);
+}

@@ -1,0 +1,24 @@
+/* Molecule: Radio card */
+
+/* Radio Card */
+.cu-radio-card {
+  display: flex;
+  align-items: flex-start;
+  padding: var(--cu-space-md);
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-md);
+  cursor: pointer;
+  background: var(--cu-surface);
+  transition: border-color 0.2s;
+  gap: var(--cu-space-md);
+  margin-bottom: var(--cu-space-sm);
+}
+
+.cu-radio-card:hover {
+  border-color: var(--cu-brand-border);
+}
+
+.cu-radio-card:has(.cu-radio-input:checked),
+.cu-radio-card.is-checked {
+  border-color: var(--cu-ring);
+}

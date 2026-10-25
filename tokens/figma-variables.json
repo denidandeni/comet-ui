@@ -714,6 +714,38 @@
           }
         },
         {
+          "name": "breakpoint/sm",
+          "values": {
+            "neutral": "40rem",
+            "comet": "40rem",
+            "ocean": "40rem"
+          }
+        },
+        {
+          "name": "breakpoint/md",
+          "values": {
+            "neutral": "48rem",
+            "comet": "48rem",
+            "ocean": "48rem"
+          }
+        },
+        {
+          "name": "breakpoint/lg",
+          "values": {
+            "neutral": "64rem",
+            "comet": "64rem",
+            "ocean": "64rem"
+          }
+        },
+        {
+          "name": "breakpoint/xl",
+          "values": {
+            "neutral": "80rem",
+            "comet": "80rem",
+            "ocean": "80rem"
+          }
+        },
+        {
           "name": "color/brand/50",
           "values": {
             "neutral": "#fafafa",

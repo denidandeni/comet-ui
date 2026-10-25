@@ -17,11 +17,11 @@ import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (p) => readFileSync(p, 'utf8');
 const list = (dir, ext) =>
-  readdirSync(join(root, dir))
-    .filter((f) => f.endsWith(ext))
-    .map((f) => join(dir, f));
+  readdirSync(join(root, dir), { withFileTypes: true }).flatMap((e) =>
+    e.isDirectory() ? list(join(dir, e.name), ext) : e.name.endsWith(ext) ? [join(dir, e.name)] : []
+  );
 
-const cssFiles = list('src', '.css').concat(list('src/brands', '.css'), ['index.css', 'tailwind.css']);
+const cssFiles = list('src', '.css').concat(['index.css', 'tailwind.css']);
 const htmlFiles = list('docs', '.html');
 const stripComments = (t) => t.replace(/\/\*[\s\S]*?\*\//g, '');
 
