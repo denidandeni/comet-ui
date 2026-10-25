@@ -13,6 +13,10 @@
   cursor: pointer;
   transition: all 0.2s;
   color: var(--cu-muted-foreground);
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  text-decoration: none;
 }
 .cu-pagination-item:hover { background: var(--cu-muted); color: var(--cu-foreground); }
 .cu-pagination-item-active { background: var(--cu-primary); color: var(--cu-primary-foreground); font-weight: 700; }

@@ -30,8 +30,9 @@
   "homepage": "https://github.com/denidandeni/comet-ui#readme",
   "files": [
     "index.css",
-    "tailwind.css",
     "src",
+    "src/comet.js",
+    "tailwind.css",
     "tokens"
   ]
 }

@@ -74,6 +74,16 @@
       "fg": "ring",
       "bg": "background",
       "min": 3
+    },
+    {
+      "fg": "warning-subtle-foreground",
+      "bg": "warning-subtle",
+      "min": 4.5
+    },
+    {
+      "fg": "warning-subtle-foreground",
+      "bg": "surface",
+      "min": 4.5
     }
   ]
 }

@@ -180,6 +180,19 @@
     },
     "$description": "Indicator / fill only. Too light for text on white"
   },
+  "warning-subtle": {
+    "$value": {
+      "light": "{color.amber.50}",
+      "dark": "{color.amber.950}"
+    }
+  },
+  "warning-subtle-foreground": {
+    "$value": {
+      "light": "{color.amber.700}",
+      "dark": "{color.amber.400}"
+    },
+    "$description": "Warning text on warning-subtle or surface"
+  },
   "overlay": {
     "$value": {
       "light": "rgba(2, 6, 23, 0.4)",

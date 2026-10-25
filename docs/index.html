@@ -105,6 +105,20 @@
                     <a href="#cards" class="docs-nav-item">Card</a>
                     <a href="#dividers" class="docs-nav-item">Divider</a>
                     <a href="#tooltips" class="docs-nav-item">Tooltip</a>
+                    <a href="#checkbox" class="docs-nav-item">Checkbox</a>
+                    <a href="#spinner" class="docs-nav-item">Spinner</a>
+                    <a href="#searchbar" class="docs-nav-item">Searchbar</a>
+                    <a href="#quantity" class="docs-nav-item">Quantity input</a>
+                    <a href="#file-upload" class="docs-nav-item">File upload</a>
+                    <a href="#datepicker" class="docs-nav-item">Datepicker <span class="docs-nav-badge">New</span></a>
+                    <a href="#alert" class="docs-nav-item">Alert</a>
+                    <a href="#skeleton" class="docs-nav-item">Skeleton</a>
+                    <a href="#progress" class="docs-nav-item">Progress bar</a>
+                    <a href="#empty-state" class="docs-nav-item">Empty state</a>
+                    <a href="#stat-card" class="docs-nav-item">Stats card</a>
+                    <a href="#toast" class="docs-nav-item">Toast <span class="docs-nav-badge">New</span></a>
+                    <a href="#drawer" class="docs-nav-item">Drawer</a>
+                    <a href="#table" class="docs-nav-item">Table <span class="docs-nav-badge">New</span></a>
                 </div>
 
                 <div class="docs-nav-group">
@@ -616,7 +630,7 @@
                         <label class="cu-label">Password</label>
                         <div class="cu-input-container">
                             <input type="password" class="cu-input cu-has-suffix" value="123456">
-                            <span class="cu-input-affix cu-input-suffix cu-password-toggle" style="cursor: pointer;" onclick="togglePasswordVisibility(this)">
+                            <span class="cu-input-affix cu-input-suffix cu-password-toggle" style="cursor: pointer;">
                                 <span class="material-symbols-outlined" style="font-size: 20px;">visibility</span>
                             </span>
                         </div>
@@ -671,7 +685,7 @@
                     <div class="cu-flex-col cu-gap-md">
                         <div class="component-label">Click Trigger</div>
                         <div class="cu-dropdown" id="dropdownClickDemo">
-                            <button class="cu-btn cu-btn-primary cu-btn-shadow" onclick="document.getElementById('dropdownClickDemo').classList.toggle('is-open')">
+                            <button class="cu-btn cu-btn-primary cu-btn-shadow">
                                 Click Me <span class="material-symbols-outlined cu-text-sm">expand_more</span>
                             </button>
                             <div class="cu-dropdown-menu" role="menu">
@@ -750,11 +764,11 @@
                 </div>
 
                 <div class="docs-preview-box cu-flex cu-gap-md cu-flex-wrap">
-                    <button class="cu-btn cu-btn-outline" onclick="openDialog('demo-dialog')">Standard Dialog</button>
-                    <button class="cu-btn cu-btn-outline" onclick="openDialog('demo-form-dialog')">Form Dialog</button>
-                    <button class="cu-btn cu-btn-outline" onclick="openDialog('demo-sticky-header-dialog')">Sticky Header</button>
-                    <button class="cu-btn cu-btn-outline" onclick="openDialog('demo-sticky-footer-dialog')">Sticky Footer</button>
-                    <button class="cu-btn cu-btn-primary" onclick="openDialog('demo-otp-dialog')">OTP Code</button>
+                    <button class="cu-btn cu-btn-outline" data-cu-open="demo-dialog">Standard Dialog</button>
+                    <button class="cu-btn cu-btn-outline" data-cu-open="demo-form-dialog">Form Dialog</button>
+                    <button class="cu-btn cu-btn-outline" data-cu-open="demo-sticky-header-dialog">Sticky Header</button>
+                    <button class="cu-btn cu-btn-outline" data-cu-open="demo-sticky-footer-dialog">Sticky Footer</button>
+                    <button class="cu-btn cu-btn-primary" data-cu-open="demo-otp-dialog">OTP Code</button>
                 </div>
 
                 <div class="docs-code-box">
@@ -815,6 +829,330 @@
                     </div>
                 </div>
             </section>
+
+            <section id="checkbox" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Checkbox</h2>
+                    <p class="cu-paragraph cu-mt-sm">Native checkbox with a themed box. Supports checked, indeterminate, disabled and invalid.</p>
+                </div>
+                <div class="docs-preview-box ">
+<div class="cu-flex-col cu-gap-md">
+<label class="cu-checkbox"><input type="checkbox" class="cu-checkbox-input"><span>Unchecked</span></label>
+<label class="cu-checkbox"><input type="checkbox" class="cu-checkbox-input" checked><span>Checked</span></label>
+<label class="cu-checkbox"><input type="checkbox" class="cu-checkbox-input" id="demo-indeterminate"><span>Indeterminate</span></label>
+<label class="cu-checkbox"><input type="checkbox" class="cu-checkbox-input" disabled><span>Disabled</span></label>
+<label class="cu-checkbox"><input type="checkbox" class="cu-checkbox-input" checked disabled><span>Disabled checked</span></label>
+<label class="cu-checkbox"><input type="checkbox" class="cu-checkbox-input" aria-invalid="true"><span>Invalid</span></label>
+</div>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;label class=&quot;cu-checkbox&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; class=&quot;cu-checkbox-input&quot;&gt;
+  &lt;span&gt;Accept terms&lt;/span&gt;
+&lt;/label&gt;
+
+&lt;!-- Mixed state: set it from script --&gt;
+input.indeterminate = true;</pre></div>
+            </section>
+
+            <section id="spinner" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Spinner</h2>
+                    <p class="cu-paragraph cu-mt-sm">Loading indicators. Spinners use currentColor, so they follow the text colour of any brand.</p>
+                </div>
+                <div class="docs-preview-box ">
+<div class="cu-flex cu-gap-lg" style="align-items:center;flex-wrap:wrap">
+<span class="cu-spinner" role="status"><span class="cu-sr-only">Loading</span></span>
+<span class="cu-spinner cu-spinner-lg" role="status"><span class="cu-sr-only">Loading</span></span>
+<button class="cu-btn cu-btn-primary" aria-busy="true">Saving</button>
+<button class="cu-btn cu-btn-outline" aria-busy="true">Loading</button>
+</div>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;span class=&quot;cu-spinner&quot; role=&quot;status&quot;&gt;
+  &lt;span class=&quot;cu-sr-only&quot;&gt;Loading&lt;/span&gt;
+&lt;/span&gt;
+
+&lt;!-- Button loading state: shows a spinner and ignores clicks --&gt;
+&lt;button class=&quot;cu-btn cu-btn-primary&quot; aria-busy=&quot;true&quot;&gt;Saving&lt;/button&gt;</pre></div>
+            </section>
+
+            <section id="searchbar" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Searchbar</h2>
+                    <p class="cu-paragraph cu-mt-sm">Search field with a leading icon and a clear button that appears once there is text. Fires a <code>cu:search</code> event on Enter and on clear.</p>
+                </div>
+                <div class="docs-preview-box ">
+<div class="cu-flex-col cu-gap-md"><div class="component-label">Default</div><div class="cu-searchbar" style="max-width:360px"><svg class="cu-icon cu-searchbar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input type="search" class="cu-input cu-searchbar-input" placeholder="Search components" aria-label="Search"><button type="button" class="cu-searchbar-clear" aria-label="Clear search"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div></div><div class="cu-flex-col cu-gap-md"><div class="component-label">With value</div><div class="cu-searchbar" style="max-width:360px"><svg class="cu-icon cu-searchbar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input type="search" class="cu-input cu-searchbar-input" value="Button" aria-label="Search"><button type="button" class="cu-searchbar-clear" aria-label="Clear search"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div></div>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-searchbar&quot;&gt;
+  &lt;svg class=&quot;cu-icon cu-searchbar-icon&quot;&gt;...&lt;/svg&gt;
+  &lt;input type=&quot;search&quot; class=&quot;cu-input cu-searchbar-input&quot; placeholder=&quot;Search&quot; aria-label=&quot;Search&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;cu-searchbar-clear&quot; aria-label=&quot;Clear search&quot;&gt;...&lt;/button&gt;
+&lt;/div&gt;
+
+el.addEventListener(&#x27;cu:search&#x27;, e =&gt; console.log(e.detail.value));</pre></div>
+            </section>
+
+            <section id="quantity" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Quantity input</h2>
+                    <p class="cu-paragraph cu-mt-sm">Number stepper that respects min, max and step. Buttons disable at the limits.</p>
+                </div>
+                <div class="docs-preview-box cu-flex cu-gap-xl">
+<div class="cu-flex-col cu-gap-md"><div class="component-label">Default (1 to 5)</div><div class="cu-quantity"><button type="button" class="cu-quantity-btn" data-cu-quantity="dec" aria-label="Decrease quantity">&minus;</button><input class="cu-quantity-input" type="number" value="1" min="1" max="5" step="1" aria-label="Quantity"><button type="button" class="cu-quantity-btn" data-cu-quantity="inc" aria-label="Increase quantity">+</button></div></div><div class="cu-flex-col cu-gap-md"><div class="component-label">Step 0.5</div><div class="cu-quantity"><button type="button" class="cu-quantity-btn" data-cu-quantity="dec" aria-label="Decrease quantity">&minus;</button><input class="cu-quantity-input" type="number" value="2" min="0" max="10" step="0.5" aria-label="Quantity"><button type="button" class="cu-quantity-btn" data-cu-quantity="inc" aria-label="Increase quantity">+</button></div></div><div class="cu-flex-col cu-gap-md"><div class="component-label">Disabled</div><div class="cu-quantity"><button type="button" class="cu-quantity-btn" data-cu-quantity="dec" aria-label="Decrease quantity">&minus;</button><input class="cu-quantity-input" type="number" value="3" min="1" max="5" disabled aria-label="Quantity"><button type="button" class="cu-quantity-btn" data-cu-quantity="inc" aria-label="Increase quantity">+</button></div></div>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-quantity&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;cu-quantity-btn&quot; data-cu-quantity=&quot;dec&quot; aria-label=&quot;Decrease quantity&quot;&gt;-&lt;/button&gt;
+  &lt;input class=&quot;cu-quantity-input&quot; type=&quot;number&quot; value=&quot;1&quot; min=&quot;1&quot; max=&quot;10&quot; step=&quot;1&quot; aria-label=&quot;Quantity&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;cu-quantity-btn&quot; data-cu-quantity=&quot;inc&quot; aria-label=&quot;Increase quantity&quot;&gt;+&lt;/button&gt;
+&lt;/div&gt;</pre></div>
+            </section>
+
+            <section id="file-upload" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">File upload</h2>
+                    <p class="cu-paragraph cu-mt-sm">Drag and drop zone. comet.js checks type, size and file count, lists the files and keeps <code>input.files</code> in sync.</p>
+                </div>
+                <div class="docs-preview-box ">
+<div class="cu-file-upload" data-cu-file-upload data-cu-max-size="1048576" data-cu-max-files="3" style="max-width:480px;width:100%">
+<label class="cu-file-dropzone">
+<input type="file" class="cu-sr-only" multiple accept=".pdf,.png,.jpg">
+<svg class="cu-icon cu-icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7-7 7 7"/></svg>
+<span class="cu-file-dropzone-title"><strong>Click to upload</strong> or drag and drop</span>
+<span class="cu-file-dropzone-hint">PDF, PNG or JPG, up to 1 MB, max 3 files</span>
+</label>
+<ul class="cu-file-list" aria-live="polite"></ul>
+</div>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-file-upload&quot; data-cu-file-upload data-cu-max-size=&quot;1048576&quot; data-cu-max-files=&quot;3&quot;&gt;
+  &lt;label class=&quot;cu-file-dropzone&quot;&gt;
+    &lt;input type=&quot;file&quot; class=&quot;cu-sr-only&quot; multiple accept=&quot;.pdf,.png,.jpg&quot;&gt;
+    &lt;svg class=&quot;cu-icon cu-icon-lg&quot;&gt;...&lt;/svg&gt;
+    &lt;span class=&quot;cu-file-dropzone-title&quot;&gt;&lt;strong&gt;Click to upload&lt;/strong&gt; or drag and drop&lt;/span&gt;
+    &lt;span class=&quot;cu-file-dropzone-hint&quot;&gt;PDF, PNG or JPG, up to 1 MB&lt;/span&gt;
+  &lt;/label&gt;
+  &lt;ul class=&quot;cu-file-list&quot; aria-live=&quot;polite&quot;&gt;&lt;/ul&gt;
+&lt;/div&gt;
+
+el.addEventListener(&#x27;cu:files&#x27;, e =&gt; console.log(e.detail.files, e.detail.errors));</pre></div>
+            </section>
+
+            <section id="datepicker" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Datepicker</h2>
+                    <p class="cu-paragraph cu-mt-sm">Calendar popover on a text input. Value is <code>YYYY-MM-DD</code>. Arrow keys move by day and week, PageUp and PageDown by month, Esc closes.</p>
+                </div>
+                <div class="docs-preview-box cu-flex cu-gap-xl">
+<div class="cu-flex-col cu-gap-md"><div class="component-label">Default</div><div class="cu-datepicker" data-cu-datepicker style="width:260px"><input type="text" class="cu-input" placeholder="YYYY-MM-DD" inputmode="numeric" aria-label="Date"></div></div><div class="cu-flex-col cu-gap-md"><div class="component-label">With range limit (2026)</div><div class="cu-datepicker" data-cu-datepicker data-cu-min="2026-01-01" data-cu-max="2026-12-31" style="width:260px"><input type="text" class="cu-input" value="2026-10-25" aria-label="Date"></div></div>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-datepicker&quot; data-cu-datepicker data-cu-min=&quot;2026-01-01&quot; data-cu-max=&quot;2026-12-31&quot;&gt;
+  &lt;input type=&quot;text&quot; class=&quot;cu-input&quot; placeholder=&quot;YYYY-MM-DD&quot; inputmode=&quot;numeric&quot; aria-label=&quot;Date&quot;&gt;
+&lt;/div&gt;
+
+el.addEventListener(&#x27;cu:date&#x27;, e =&gt; console.log(e.detail.value));</pre></div>
+            </section>
+
+            <section id="alert" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Alert</h2>
+                    <p class="cu-paragraph cu-mt-sm">Inline callout for messages that belong to the page. Dismiss with <code>data-cu-dismiss</code>.</p>
+                </div>
+                <div class="docs-preview-box ">
+<div class="cu-flex-col cu-gap-md" style="width:100%;max-width:560px"><div class="cu-alert" role="status"><svg class="cu-icon cu-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><div class="cu-alert-body"><p class="cu-alert-title">Heads up</p><p class="cu-alert-description">A new version of the design tokens is available.</p></div></div><div class="cu-alert cu-alert-success" role="status"><svg class="cu-icon cu-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><div class="cu-alert-body"><p class="cu-alert-title">Saved</p><p class="cu-alert-description">Your changes are live.</p></div><button type="button" class="cu-alert-close" data-cu-dismiss aria-label="Dismiss"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div><div class="cu-alert cu-alert-warning" role="status"><svg class="cu-icon cu-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4M12 17h.01"/></svg><div class="cu-alert-body"><p class="cu-alert-title">Storage almost full</p><p class="cu-alert-description">You have used 92% of your plan.</p></div></div><div class="cu-alert cu-alert-destructive cu-alert-callout" role="alert"><svg class="cu-icon cu-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></svg><div class="cu-alert-body"><p class="cu-alert-title">Payment failed</p><p class="cu-alert-description">Check your card details and try again.</p></div><button type="button" class="cu-alert-close" data-cu-dismiss aria-label="Dismiss"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div></div>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-alert cu-alert-success&quot; role=&quot;status&quot;&gt;
+  &lt;svg class=&quot;cu-icon cu-alert-icon&quot;&gt;...&lt;/svg&gt;
+  &lt;div class=&quot;cu-alert-body&quot;&gt;
+    &lt;p class=&quot;cu-alert-title&quot;&gt;Saved&lt;/p&gt;
+    &lt;p class=&quot;cu-alert-description&quot;&gt;Your changes are live.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;button type=&quot;button&quot; class=&quot;cu-alert-close&quot; data-cu-dismiss aria-label=&quot;Dismiss&quot;&gt;...&lt;/button&gt;
+&lt;/div&gt;
+&lt;!-- Variants: cu-alert-success | warning | destructive | info. Add cu-alert-callout for a thick accent. --&gt;</pre></div>
+            </section>
+
+            <section id="skeleton" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Skeleton</h2>
+                    <p class="cu-paragraph cu-mt-sm">Placeholder shapes while content loads. Mark the region <code>aria-busy="true"</code>.</p>
+                </div>
+                <div class="docs-preview-box ">
+<div class="cu-flex cu-gap-md" style="align-items:center;width:100%;max-width:420px" aria-busy="true">
+<div class="cu-skeleton cu-skeleton-circle" style="width:48px;height:48px"></div>
+<div class="cu-flex-col cu-gap-sm" style="flex:1">
+<div class="cu-skeleton cu-skeleton-text" style="width:60%"></div>
+<div class="cu-skeleton cu-skeleton-text"></div>
+<div class="cu-skeleton cu-skeleton-text" style="width:80%"></div>
+</div>
+</div>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div aria-busy=&quot;true&quot;&gt;
+  &lt;div class=&quot;cu-skeleton cu-skeleton-circle&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;cu-skeleton cu-skeleton-text&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</pre></div>
+            </section>
+
+            <section id="progress" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Progress bar</h2>
+                    <p class="cu-paragraph cu-mt-sm">Determinate and indeterminate. Set the fill with the <code>--cu-value</code> custom property (0 to 100).</p>
+                </div>
+                <div class="docs-preview-box ">
+<div class="cu-flex-col cu-gap-lg" style="width:100%;max-width:420px">
+<div class="cu-progress" role="progressbar" aria-label="Upload" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="--cu-value: 30"><div class="cu-progress-bar"></div></div>
+<div class="cu-progress" role="progressbar" aria-label="Storage" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="--cu-value: 75"><div class="cu-progress-bar"></div></div>
+<div class="cu-progress cu-progress-indeterminate" role="progressbar" aria-label="Loading"><div class="cu-progress-bar"></div></div>
+</div>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-progress&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;60&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;--cu-value: 60&quot;&gt;
+  &lt;div class=&quot;cu-progress-bar&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Indeterminate: add .cu-progress-indeterminate and drop aria-valuenow --&gt;</pre></div>
+            </section>
+
+            <section id="empty-state" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Empty state</h2>
+                    <p class="cu-paragraph cu-mt-sm">Shown when a list, table or search has nothing to display. Always offer a next step.</p>
+                </div>
+                <div class="docs-preview-box ">
+<div class="cu-empty-state">
+<div class="cu-empty-state-icon"><svg class="cu-icon cu-icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></div>
+<h3 class="cu-empty-state-title">No projects yet</h3>
+<p class="cu-empty-state-description">Create your first project to get started.</p>
+<div class="cu-empty-state-actions"><button class="cu-btn cu-btn-primary">New project</button></div>
+</div>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-empty-state&quot;&gt;
+  &lt;div class=&quot;cu-empty-state-icon&quot;&gt;&lt;svg class=&quot;cu-icon cu-icon-md&quot;&gt;...&lt;/svg&gt;&lt;/div&gt;
+  &lt;h3 class=&quot;cu-empty-state-title&quot;&gt;No projects yet&lt;/h3&gt;
+  &lt;p class=&quot;cu-empty-state-description&quot;&gt;Create your first project to get started.&lt;/p&gt;
+  &lt;div class=&quot;cu-empty-state-actions&quot;&gt;&lt;button class=&quot;cu-btn cu-btn-primary&quot;&gt;New project&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;</pre></div>
+            </section>
+
+            <section id="stat-card" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Stats card</h2>
+                    <p class="cu-paragraph cu-mt-sm">Single metric with a trend. Delta colours are semantic, so they follow the theme.</p>
+                </div>
+                <div class="docs-preview-box ">
+<div class="cu-grid cu-grid-cols-3 cu-gap-md" style="width:100%"><div class="cu-stat"><div class="cu-stat-header"><span class="cu-stat-label">Revenue</span><span class="cu-stat-icon"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span></div><div class="cu-stat-value">Rp 48,2 jt</div><div class="cu-stat-footer"><span class="cu-stat-delta cu-stat-delta-up">+12%</span><span class="cu-stat-hint">vs last month</span></div></div><div class="cu-stat"><div class="cu-stat-header"><span class="cu-stat-label">Active users</span><span class="cu-stat-icon"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span></div><div class="cu-stat-value">2.841</div><div class="cu-stat-footer"><span class="cu-stat-delta cu-stat-delta-up">+4,1%</span><span class="cu-stat-hint">vs last month</span></div></div><div class="cu-stat"><div class="cu-stat-header"><span class="cu-stat-label">Churn</span><span class="cu-stat-icon"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span></div><div class="cu-stat-value">1,8%</div><div class="cu-stat-footer"><span class="cu-stat-delta cu-stat-delta-down">-0,6%</span><span class="cu-stat-hint">vs last month</span></div></div></div>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-stat&quot;&gt;
+  &lt;div class=&quot;cu-stat-header&quot;&gt;&lt;span class=&quot;cu-stat-label&quot;&gt;Revenue&lt;/span&gt;&lt;span class=&quot;cu-stat-icon&quot;&gt;...&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;cu-stat-value&quot;&gt;Rp 48,2 jt&lt;/div&gt;
+  &lt;div class=&quot;cu-stat-footer&quot;&gt;
+    &lt;span class=&quot;cu-stat-delta cu-stat-delta-up&quot;&gt;+12%&lt;/span&gt;
+    &lt;span class=&quot;cu-stat-hint&quot;&gt;vs last month&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre></div>
+            </section>
+
+            <section id="toast" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Toast</h2>
+                    <p class="cu-paragraph cu-mt-sm">Transient notifications from JavaScript. The region is a popover, so toasts appear above open dialogs. Hover or focus pauses the timer.</p>
+                </div>
+                <div class="docs-preview-box ">
+<div class="cu-flex cu-gap-md" style="flex-wrap:wrap"><button class="cu-btn cu-btn-outline" data-demo-toast="default">Default</button><button class="cu-btn cu-btn-outline" data-demo-toast="success">Success</button><button class="cu-btn cu-btn-outline" data-demo-toast="warning">Warning</button><button class="cu-btn cu-btn-outline" data-demo-toast="destructive">Error</button><button class="cu-btn cu-btn-outline" data-demo-toast="action">With action</button></div>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">CometUI.toast({
+  title: &#x27;Saved&#x27;,
+  description: &#x27;Changes are live.&#x27;,
+  variant: &#x27;success&#x27;,      // default | success | warning | destructive | info
+  duration: 5000,          // ms, 0 keeps it open
+  action: { label: &#x27;Undo&#x27;, onClick: () =&gt; {} }
+});
+
+CometUI.toast.position(&#x27;top-right&#x27;); // top-right | top-center | bottom-right | bottom-center</pre></div>
+            </section>
+
+            <section id="drawer" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Drawer</h2>
+                    <p class="cu-paragraph cu-mt-sm">Slide-in panel built on native <code>&lt;dialog&gt;</code>: focus is trapped, Esc closes and the page behind is inert.</p>
+                </div>
+                <div class="docs-preview-box ">
+<div class="cu-flex cu-gap-md" style="flex-wrap:wrap"><button class="cu-btn cu-btn-outline" data-cu-open="demo-drawer-right">Right</button><button class="cu-btn cu-btn-outline" data-cu-open="demo-drawer-left">Left</button><button class="cu-btn cu-btn-outline" data-cu-open="demo-drawer-bottom">Bottom</button></div>
+                </div>
+<dialog class="cu-drawer " id="demo-drawer-right" aria-labelledby="demo-drawer-right-title">
+<div class="cu-drawer-header"><h2 class="cu-drawer-title" id="demo-drawer-right-title">Filters</h2><button type="button" class="cu-drawer-close" data-cu-close aria-label="Close"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+<div class="cu-drawer-body"><div class="cu-flex-col cu-gap-md"><div class="cu-input-group"><label class="cu-label" for="demo-drawer-right-f">Name</label><input class="cu-input" id="demo-drawer-right-f" placeholder="Search by name"></div><label class="cu-checkbox"><input type="checkbox" class="cu-checkbox-input"><span>Only active</span></label></div></div>
+<div class="cu-drawer-footer"><button type="button" class="cu-btn cu-btn-ghost" data-cu-close>Cancel</button><button type="button" class="cu-btn cu-btn-primary" data-cu-close>Apply</button></div>
+</dialog><dialog class="cu-drawer cu-drawer-left" id="demo-drawer-left" aria-labelledby="demo-drawer-left-title">
+<div class="cu-drawer-header"><h2 class="cu-drawer-title" id="demo-drawer-left-title">Navigation</h2><button type="button" class="cu-drawer-close" data-cu-close aria-label="Close"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+<div class="cu-drawer-body"><div class="cu-flex-col cu-gap-md"><div class="cu-input-group"><label class="cu-label" for="demo-drawer-left-f">Name</label><input class="cu-input" id="demo-drawer-left-f" placeholder="Search by name"></div><label class="cu-checkbox"><input type="checkbox" class="cu-checkbox-input"><span>Only active</span></label></div></div>
+<div class="cu-drawer-footer"><button type="button" class="cu-btn cu-btn-ghost" data-cu-close>Cancel</button><button type="button" class="cu-btn cu-btn-primary" data-cu-close>Apply</button></div>
+</dialog><dialog class="cu-drawer cu-drawer-bottom" id="demo-drawer-bottom" aria-labelledby="demo-drawer-bottom-title">
+<div class="cu-drawer-header"><h2 class="cu-drawer-title" id="demo-drawer-bottom-title">Actions</h2><button type="button" class="cu-drawer-close" data-cu-close aria-label="Close"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+<div class="cu-drawer-body"><div class="cu-flex-col cu-gap-md"><div class="cu-input-group"><label class="cu-label" for="demo-drawer-bottom-f">Name</label><input class="cu-input" id="demo-drawer-bottom-f" placeholder="Search by name"></div><label class="cu-checkbox"><input type="checkbox" class="cu-checkbox-input"><span>Only active</span></label></div></div>
+<div class="cu-drawer-footer"><button type="button" class="cu-btn cu-btn-ghost" data-cu-close>Cancel</button><button type="button" class="cu-btn cu-btn-primary" data-cu-close>Apply</button></div>
+</dialog>
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;button data-cu-open=&quot;filters&quot;&gt;Open&lt;/button&gt;
+
+&lt;dialog class=&quot;cu-drawer&quot; id=&quot;filters&quot; aria-labelledby=&quot;filters-title&quot;&gt;
+  &lt;div class=&quot;cu-drawer-header&quot;&gt;
+    &lt;h2 class=&quot;cu-drawer-title&quot; id=&quot;filters-title&quot;&gt;Filters&lt;/h2&gt;
+    &lt;button class=&quot;cu-drawer-close&quot; data-cu-close aria-label=&quot;Close&quot;&gt;...&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cu-drawer-body&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;cu-drawer-footer&quot;&gt;...&lt;/div&gt;
+&lt;/dialog&gt;
+&lt;!-- Sides: default right, .cu-drawer-left, .cu-drawer-bottom --&gt;</pre></div>
+            </section>
+
+            <section id="table" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Table</h2>
+                    <p class="cu-paragraph cu-mt-sm">Data table with sortable columns, text filter, exact-match column filter and pagination. Sorting cycles ascending, descending, none.</p>
+                </div>
+                <div class="docs-preview-box ">
+<div class="cu-table-wrap" data-cu-table data-cu-page-size="5" style="width:100%">
+<div class="cu-table-toolbar">
+<div class="cu-searchbar" style="max-width:280px"><svg class="cu-icon cu-searchbar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input type="search" class="cu-input cu-searchbar-input" placeholder="Filter rows" aria-label="Filter rows" data-cu-table-filter><button type="button" class="cu-searchbar-clear" aria-label="Clear search"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+<select class="cu-select" data-cu-table-column="2" aria-label="Status" style="width:160px"><option value="">All statuses</option><option>Active</option><option>Away</option><option>Inactive</option></select>
+</div>
+<div class="cu-table-scroll"><table class="cu-table">
+<thead><tr><th aria-sort="none" data-cu-sort="text"><button type="button" class="cu-table-sort">Name<span class="cu-table-sort-icon"></span></button></th><th aria-sort="none" data-cu-sort="text"><button type="button" class="cu-table-sort">Role<span class="cu-table-sort-icon"></span></button></th><th aria-sort="none" data-cu-sort="text"><button type="button" class="cu-table-sort">Status<span class="cu-table-sort-icon"></span></button></th><th aria-sort="none" data-cu-sort="date"><button type="button" class="cu-table-sort">Joined<span class="cu-table-sort-icon"></span></button></th><th class="cu-table-num" aria-sort="none" data-cu-sort="number"><button type="button" class="cu-table-sort">Commits<span class="cu-table-sort-icon"></span></button></th></tr></thead>
+<tbody><tr><td>Ayu Lestari</td><td>Designer</td><td><span class="cu-badge">Active</span></td><td>2024-03-12</td><td class="cu-table-num">42</td></tr><tr><td>Budi Permana</td><td>Engineer</td><td><span class="cu-badge">Active</span></td><td>2023-11-02</td><td class="cu-table-num">87</td></tr><tr><td>Citra Dewi</td><td>PM</td><td><span class="cu-badge">Away</span></td><td>2025-01-20</td><td class="cu-table-num">15</td></tr><tr><td>Dimas Prakoso</td><td>Engineer</td><td><span class="cu-badge">Active</span></td><td>2022-08-30</td><td class="cu-table-num">120</td></tr><tr><td>Eka Saputra</td><td>Designer</td><td><span class="cu-badge">Inactive</span></td><td>2024-07-05</td><td class="cu-table-num">8</td></tr><tr><td>Fajar Nugroho</td><td>Analyst</td><td><span class="cu-badge">Active</span></td><td>2023-05-17</td><td class="cu-table-num">64</td></tr><tr><td>Gita Maharani</td><td>PM</td><td><span class="cu-badge">Away</span></td><td>2025-04-09</td><td class="cu-table-num">23</td></tr><tr><td>Hadi Wijaya</td><td>Engineer</td><td><span class="cu-badge">Active</span></td><td>2021-12-01</td><td class="cu-table-num">150</td></tr><tr><td>Indah Permata</td><td>Analyst</td><td><span class="cu-badge">Inactive</span></td><td>2024-10-14</td><td class="cu-table-num">5</td></tr><tr><td>Joko Santoso</td><td>Designer</td><td><span class="cu-badge">Active</span></td><td>2023-02-28</td><td class="cu-table-num">71</td></tr><tr><td>Kartika Sari</td><td>Engineer</td><td><span class="cu-badge">Active</span></td><td>2022-06-19</td><td class="cu-table-num">98</td></tr><tr><td>Lukman Hakim</td><td>PM</td><td><span class="cu-badge">Active</span></td><td>2025-02-11</td><td class="cu-table-num">31</td></tr></tbody></table></div>
+<div class="cu-table-footer"><span data-cu-table-summary></span><nav class="cu-pagination" data-cu-table-pagination aria-label="Pagination"></nav></div>
+</div>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-table-wrap&quot; data-cu-table data-cu-page-size=&quot;5&quot;&gt;
+  &lt;div class=&quot;cu-table-toolbar&quot;&gt;
+    &lt;div class=&quot;cu-searchbar&quot;&gt;... &lt;input data-cu-table-filter&gt; ...&lt;/div&gt;
+    &lt;select class=&quot;cu-select&quot; data-cu-table-column=&quot;2&quot;&gt;...&lt;/select&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cu-table-scroll&quot;&gt;
+    &lt;table class=&quot;cu-table&quot;&gt;
+      &lt;thead&gt;&lt;tr&gt;
+        &lt;th aria-sort=&quot;none&quot; data-cu-sort=&quot;text&quot;&gt;&lt;button class=&quot;cu-table-sort&quot;&gt;Name&lt;span class=&quot;cu-table-sort-icon&quot;&gt;&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
+        &lt;th class=&quot;cu-table-num&quot; aria-sort=&quot;none&quot; data-cu-sort=&quot;number&quot;&gt;...&lt;/th&gt;
+      &lt;/tr&gt;&lt;/thead&gt;
+      &lt;tbody&gt;...&lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cu-table-footer&quot;&gt;
+    &lt;span data-cu-table-summary&gt;&lt;/span&gt;
+    &lt;nav class=&quot;cu-pagination&quot; data-cu-table-pagination aria-label=&quot;Pagination&quot;&gt;&lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Sort types: text | number | date. A td can carry data-sort=&quot;...&quot; to sort by another value. --&gt;</pre></div>
+            </section>
+
 
             <!-- Textarea Section -->
             <section id="textareas" class="docs-section">
@@ -916,7 +1254,7 @@
                         <div class="component-label cu-mb-md">Standard</div>
                         <div class="cu-accordion">
                             <div class="cu-accordion-item">
-                                <button class="cu-accordion-header" onclick="this.parentElement.classList.toggle('is-open')">
+                                <button class="cu-accordion-header">
                                     How do I track my order?
                                     <span class="cu-accordion-icon material-symbols-outlined">expand_more</span>
                                 </button>
@@ -925,7 +1263,7 @@
                                 </div>
                             </div>
                             <div class="cu-accordion-item">
-                                <button class="cu-accordion-header" onclick="this.parentElement.classList.toggle('is-open')">
+                                <button class="cu-accordion-header">
                                     What is your return policy?
                                     <span class="cu-accordion-icon material-symbols-outlined">expand_more</span>
                                 </button>
@@ -940,7 +1278,7 @@
                     <div style="width: 100%;">
                         <div class="component-label cu-mb-md cu-mt-lg">Card Style</div>
                         <div class="cu-accordion-card is-open">
-                            <button class="cu-accordion-header" onclick="this.parentElement.classList.toggle('is-open')">
+                            <button class="cu-accordion-header">
                                 How do I track my order?
                                 <span class="cu-accordion-icon material-symbols-outlined">expand_more</span>
                             </button>
@@ -949,7 +1287,7 @@
                             </div>
                         </div>
                         <div class="cu-accordion-card">
-                            <button class="cu-accordion-header" onclick="this.parentElement.classList.toggle('is-open')">
+                            <button class="cu-accordion-header">
                                 What is your return policy?
                                 <span class="cu-accordion-icon material-symbols-outlined">chevron_left</span>
                             </button>
@@ -992,7 +1330,7 @@ document.querySelectorAll(<span class="docs-code-string">'.cu-accordion-header'<
                     <div style="width: 320px;">
                         <div class="component-label cu-mb-sm">Combobox option group</div>
                         <div class="cu-combobox">
-                            <button class="cu-combobox-trigger" onclick="this.parentElement.classList.toggle('is-open')">
+                            <button class="cu-combobox-trigger">
                                 <span>Spinach</span>
                                 <span class="material-symbols-outlined">unfold_more</span>
                             </button>
@@ -1037,7 +1375,7 @@ document.querySelectorAll(<span class="docs-code-string">'.cu-accordion-header'<
                     <div style="width: 320px;">
                         <div class="component-label cu-mb-sm">Multiple combobox expandable</div>
                         <div class="cu-combobox">
-                            <button class="cu-combobox-trigger" onclick="this.parentElement.classList.toggle('is-open')">
+                            <button class="cu-combobox-trigger">
                                 <div class="cu-flex cu-gap-xs cu-items-center cu-flex-wrap">
                                     <span class="cu-combobox-tag">React <span class="material-symbols-outlined">close</span></span>
                                     <span class="cu-combobox-tag">Qwik <span class="material-symbols-outlined">close</span></span>
@@ -1088,7 +1426,7 @@ document.querySelectorAll(<span class="docs-code-string">'.cu-accordion-header'<
                     <div style="width: 320px;">
                         <div class="component-label cu-mb-sm">Combobox option with icon</div>
                         <div class="cu-combobox">
-                            <button class="cu-combobox-trigger" onclick="this.parentElement.classList.toggle('is-open')">
+                            <button class="cu-combobox-trigger">
                                 <div class="cu-flex cu-gap-sm cu-items-center">
                                     <span class="material-symbols-outlined" style="color: var(--cu-neutral-200); font-size: 18px;">corporate_fare</span>
                                     <span>Hospitality</span>
@@ -1285,7 +1623,7 @@ searchInput.addEventListener(<span class="docs-code-string">'input'</span>, (e) 
                             <label class="cu-label">Password</label>
                             <div class="cu-input-container">
                                 <input type="password" class="cu-input cu-has-suffix" value="12345678">
-                                <span class="cu-input-affix cu-input-suffix cu-password-toggle" style="cursor: pointer;" onclick="togglePasswordVisibility(this)">
+                                <span class="cu-input-affix cu-input-suffix cu-password-toggle" style="cursor: pointer;">
                                     <span class="material-symbols-outlined" style="font-size: 20px;">visibility</span>
                                 </span>
                             </div>
@@ -1304,8 +1642,8 @@ searchInput.addEventListener(<span class="docs-code-string">'input'</span>, (e) 
                 <p class="cu-text-sm cu-text-subtle">This action is permanent and cannot be undone.</p>
             </div>
             <div class="cu-dialog-footer">
-                <button class="cu-btn cu-btn-ghost" onclick="closeDialog('demo-dialog')">Cancel</button>
-                <button class="cu-btn cu-btn-primary" onclick="closeDialog('demo-dialog')">Confirm</button>
+                <button class="cu-btn cu-btn-ghost" data-cu-close>Cancel</button>
+                <button class="cu-btn cu-btn-primary" data-cu-close>Confirm</button>
             </div>
     </dialog>
 
@@ -1328,8 +1666,8 @@ searchInput.addEventListener(<span class="docs-code-string">'input'</span>, (e) 
                 </form>
             </div>
             <div class="cu-dialog-footer">
-                <button class="cu-btn cu-btn-ghost" onclick="closeDialog('demo-form-dialog')">Cancel</button>
-                <button class="cu-btn cu-btn-primary" onclick="closeDialog('demo-form-dialog')">Save Changes</button>
+                <button class="cu-btn cu-btn-ghost" data-cu-close>Cancel</button>
+                <button class="cu-btn cu-btn-primary" data-cu-close>Save Changes</button>
             </div>
     </dialog>
 
@@ -1344,8 +1682,8 @@ searchInput.addEventListener(<span class="docs-code-string">'input'</span>, (e) 
                 <p class="cu-paragraph cu-mt-md">End of terms.</p>
             </div>
             <div class="cu-dialog-footer">
-                <button class="cu-btn cu-btn-ghost" onclick="closeDialog('demo-sticky-header-dialog')">Cancel</button>
-                <button class="cu-btn cu-btn-primary" onclick="closeDialog('demo-sticky-header-dialog')">I Agree</button>
+                <button class="cu-btn cu-btn-ghost" data-cu-close>Cancel</button>
+                <button class="cu-btn cu-btn-primary" data-cu-close>I Agree</button>
             </div>
     </dialog>
 
@@ -1358,8 +1696,8 @@ searchInput.addEventListener(<span class="docs-code-string">'input'</span>, (e) 
                 <div style="height: 500px; background: var(--cu-neutral-400); border-radius: var(--cu-radius-md); display: flex; align-items: center; justify-content: center; color: var(--cu-neutral-200);">Form fields here...</div>
             </div>
             <div class="cu-dialog-sticky-footer">
-                <button class="cu-btn cu-btn-ghost" onclick="closeDialog('demo-sticky-footer-dialog')">Cancel</button>
-                <button class="cu-btn cu-btn-primary" onclick="closeDialog('demo-sticky-footer-dialog')">Create Project</button>
+                <button class="cu-btn cu-btn-ghost" data-cu-close>Cancel</button>
+                <button class="cu-btn cu-btn-primary" data-cu-close>Create Project</button>
             </div>
     </dialog>
 
@@ -1383,7 +1721,7 @@ searchInput.addEventListener(<span class="docs-code-string">'input'</span>, (e) 
                 <p class="cu-paragraph">Didn't get a code? <a href="#" style="color: var(--cu-foreground); text-decoration: underline; font-weight: var(--cu-font-weight-medium);">Resend</a></p>
             </div>
             <div class="cu-dialog-footer" style="justify-content: center;">
-                <button class="cu-btn cu-btn-ghost" onclick="closeDialog('demo-otp-dialog')">Cancel</button>
+                <button class="cu-btn cu-btn-ghost" data-cu-close>Cancel</button>
             </div>
     </dialog>
 
@@ -1436,101 +1774,7 @@ searchInput.addEventListener(<span class="docs-code-string">'input'</span>, (e) 
             }
         });
 
-        // Password Visibility Toggle
-        function togglePasswordVisibility(element) {
-            const input = element.parentElement.querySelector('input');
-            const icon = element.querySelector('.material-symbols-outlined');
-            if (input.type === 'password') {
-                input.type = 'text';
-                icon.textContent = 'visibility_off';
-            } else {
-                input.type = 'password';
-                icon.textContent = 'visibility';
-            }
-        }
-
-        // Native <dialog>: showModal() gives the backdrop, focus trap and Esc to close.
-        function openDialog(id) {
-            document.getElementById(id).showModal();
-        }
-        function closeDialog(id) {
-            document.getElementById(id).close();
-        }
-        // Click on the backdrop closes the dialog
-        document.querySelectorAll('dialog.cu-dialog').forEach(d => {
-            d.addEventListener('click', e => { if (e.target === d) d.close(); });
-        });
-
-        // Combobox Logic
-        document.addEventListener('click', function(e) {
-            // Handle clicking outside to close
-            if (!e.target.closest('.cu-combobox')) {
-                document.querySelectorAll('.cu-combobox.is-open').forEach(cb => cb.classList.remove('is-open'));
-            }
-
-            // Handle combobox item selection
-            const item = e.target.closest('.cu-combobox-item');
-            if (item) {
-                const combobox = item.closest('.cu-combobox');
-                const isMultiple = combobox.querySelector('.cu-combobox-tag') !== null;
-                
-                if (isMultiple) {
-                    item.classList.toggle('is-selected');
-                } else {
-                    // Single select
-                    const allItems = combobox.querySelectorAll('.cu-combobox-item');
-                    allItems.forEach(i => i.classList.remove('is-selected'));
-                    item.classList.add('is-selected');
-                    
-                    // Update trigger text/icon
-                    const trigger = combobox.querySelector('.cu-combobox-trigger');
-                    const itemContent = item.querySelector('.cu-flex') ? item.querySelector('.cu-flex').cloneNode(true) : item.querySelector('span:not(.check-icon)').cloneNode(true);
-                    
-                    trigger.innerHTML = '';
-                    trigger.appendChild(itemContent);
-                    const unfoldIcon = document.createElement('span');
-                    unfoldIcon.className = 'material-symbols-outlined';
-                    unfoldIcon.textContent = 'unfold_more';
-                    trigger.appendChild(unfoldIcon);
-                    
-                    combobox.classList.remove('is-open');
-                }
-            }
-        });
-
-        // Combobox Search Logic
-        document.addEventListener('input', function(e) {
-            if (e.target.matches('.cu-combobox-search input')) {
-                const term = e.target.value.toLowerCase().trim();
-                const list = e.target.closest('.cu-combobox-popover').querySelector('.cu-combobox-list');
-                const items = list.querySelectorAll('.cu-combobox-item');
-                const groups = list.querySelectorAll('.cu-combobox-group');
-                
-                items.forEach(item => {
-                    // Clone item to remove the check-icon text from search
-                    const clone = item.cloneNode(true);
-                    const checkIcon = clone.querySelector('.check-icon');
-                    if (checkIcon) checkIcon.remove();
-                    
-                    const text = clone.textContent.toLowerCase();
-                    item.style.display = text.includes(term) ? 'flex' : 'none';
-                });
-                
-                // Hide empty groups
-                groups.forEach(group => {
-                    let sibling = group.nextElementSibling;
-                    let hasVisibleItem = false;
-                    while(sibling && !sibling.classList.contains('cu-combobox-group')) {
-                        if (sibling.style.display !== 'none') {
-                            hasVisibleItem = true;
-                            break;
-                        }
-                        sibling = sibling.nextElementSibling;
-                    }
-                    group.style.display = hasVisibleItem ? 'block' : 'none';
-                });
-            }
-        });
+        // Dialogs, dropdowns, accordions, comboboxes, password toggle: see src/comet.js
     </script>
 <script>
     (function () {
@@ -1547,6 +1791,19 @@ searchInput.addEventListener(<span class="docs-code-string">'input'</span>, (e) 
         bind('brand-switch', 'data-cu-brand', 'cu-brand', 'neutral');
         bind('theme-switch', 'data-cu-theme', 'cu-theme', 'light');
     })();
+</script>
+<script src="../src/comet.js"></script>
+<script>
+    document.getElementById('demo-indeterminate').indeterminate = true;
+    document.querySelectorAll('[data-demo-toast]').forEach(function (b) {
+        b.addEventListener('click', function () {
+            var v = b.getAttribute('data-demo-toast');
+            var o = { title: v === 'default' ? 'Notification' : v.charAt(0).toUpperCase() + v.slice(1), description: 'This is a ' + v + ' toast.' };
+            if (v === 'action') { o.title = 'Message archived'; o.description = 'You can undo this.'; o.action = { label: 'Undo', onClick: function () {} }; }
+            else if (v !== 'default') o.variant = v;
+            CometUI.toast(o);
+        });
+    });
 </script>
 </body>
 </html>

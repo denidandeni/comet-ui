@@ -1,0 +1,79 @@
+/* Molecule: Quantity input (- 1 +)
+   <div class="cu-quantity">
+     <button type="button" class="cu-quantity-btn" data-cu-quantity="dec" aria-label="Decrease quantity">-</button>
+     <input class="cu-quantity-input" type="number" value="1" min="1" max="10" step="1" aria-label="Quantity">
+     <button type="button" class="cu-quantity-btn" data-cu-quantity="inc" aria-label="Increase quantity">+</button>
+   </div>
+   comet.js clamps to min/max, honours step and disables the buttons at the limits. */
+
+.cu-quantity {
+  display: inline-flex;
+  align-items: stretch;
+  height: var(--cu-h-btn);
+  overflow: hidden;
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-md);
+  background-color: var(--cu-surface);
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cu-quantity:focus-within {
+  border-color: var(--cu-focus-border);
+  box-shadow: 0 0 0 3px var(--cu-focus-halo);
+}
+
+.cu-quantity-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  border: 0;
+  background: transparent;
+  color: var(--cu-foreground);
+  font-size: var(--cu-text-lg);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.cu-quantity-btn:hover {
+  background-color: var(--cu-muted);
+}
+
+.cu-quantity-btn:focus-visible {
+  outline: 2px solid var(--cu-ring);
+  outline-offset: -2px;
+}
+
+.cu-quantity-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  background: transparent;
+}
+
+.cu-quantity-input {
+  width: 3.5rem;
+  border: 0;
+  background: transparent;
+  color: var(--cu-foreground);
+  font-family: inherit;
+  font-size: var(--cu-text-base);
+  font-weight: var(--cu-font-weight-semibold);
+  text-align: center;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.cu-quantity-input::-webkit-inner-spin-button,
+.cu-quantity-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.cu-quantity-input:focus {
+  outline: none;
+}
+
+.cu-quantity-sm { height: 2rem; }
+.cu-quantity-sm .cu-quantity-btn { width: 2rem; }
+.cu-quantity-sm .cu-quantity-input { width: 2.75rem; font-size: var(--cu-text-sm); }

@@ -35,7 +35,11 @@
   --cu-green-600: #059669;
   --cu-green-700: #047857;
   --cu-green-950: #022c22;
+  --cu-amber-50: #fffbeb;
+  --cu-amber-400: #fbbf24;
   --cu-amber-500: #f59e0b;
+  --cu-amber-700: #b45309;
+  --cu-amber-950: #451a03;
   --cu-space-xs: 0.25rem;
   --cu-space-sm: 0.5rem;
   --cu-space-md: 1rem;
@@ -137,6 +141,8 @@
   --cu-success-subtle: var(--cu-green-50);
   --cu-success-subtle-foreground: var(--cu-green-700);
   --cu-warning: var(--cu-amber-500);
+  --cu-warning-subtle: var(--cu-amber-50);
+  --cu-warning-subtle-foreground: var(--cu-amber-700);
   --cu-overlay: rgba(2, 6, 23, 0.4);
   --cu-shd-xs: 0 1px 3px rgba(0, 0, 0, 0.1);
   --cu-shd-btn: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
@@ -193,6 +199,8 @@
   --cu-success-subtle: var(--cu-green-950);
   --cu-success-subtle-foreground: var(--cu-green-400);
   --cu-warning: var(--cu-amber-500);
+  --cu-warning-subtle: var(--cu-amber-950);
+  --cu-warning-subtle-foreground: var(--cu-amber-400);
   --cu-overlay: rgba(0, 0, 0, 0.6);
   --cu-shd-xs: 0 1px 3px rgba(0, 0, 0, 0.4);
   --cu-shd-btn: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.4);
@@ -249,6 +257,8 @@
   --cu-success-subtle: var(--cu-green-50);
   --cu-success-subtle-foreground: var(--cu-green-700);
   --cu-warning: var(--cu-amber-500);
+  --cu-warning-subtle: var(--cu-amber-50);
+  --cu-warning-subtle-foreground: var(--cu-amber-700);
   --cu-overlay: rgba(2, 6, 23, 0.4);
   --cu-shd-xs: 0 1px 3px rgba(0, 0, 0, 0.1);
   --cu-shd-btn: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);

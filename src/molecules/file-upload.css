@@ -1,0 +1,143 @@
+/* Molecule: File upload
+   <div class="cu-file-upload" data-cu-file-upload data-cu-max-size="5242880" data-cu-max-files="5">
+     <label class="cu-file-dropzone">
+       <input type="file" class="cu-sr-only" multiple accept=".pdf,.png,.jpg">
+       <svg class="cu-icon cu-icon-lg">...</svg>
+       <span class="cu-file-dropzone-title"><strong>Click to upload</strong> or drag and drop</span>
+       <span class="cu-file-dropzone-hint">PDF, PNG or JPG up to 5 MB</span>
+     </label>
+     <ul class="cu-file-list" aria-live="polite"></ul>
+   </div>
+   comet.js validates type, size and count, renders the list and keeps input.files in sync. */
+
+.cu-file-upload {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-md);
+  width: 100%;
+  font-family: inherit;
+}
+
+.cu-file-dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--cu-space-xs);
+  padding: var(--cu-space-xl) var(--cu-space-lg);
+  border: 1.5px dashed var(--cu-border-strong);
+  border-radius: var(--cu-radius-lg);
+  background-color: var(--cu-surface);
+  color: var(--cu-muted-foreground);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.cu-file-dropzone:hover,
+.cu-file-dropzone.is-dragover {
+  border-color: var(--cu-primary);
+  background-color: var(--cu-muted);
+}
+
+.cu-file-dropzone:focus-within {
+  outline: 2px solid var(--cu-ring);
+  outline-offset: 2px;
+}
+
+.cu-file-dropzone .cu-icon {
+  color: var(--cu-subtle-foreground);
+  margin-bottom: var(--cu-space-xs);
+}
+
+.cu-file-dropzone-title {
+  font-size: var(--cu-text-sm);
+  color: var(--cu-foreground);
+}
+
+.cu-file-dropzone-hint {
+  font-size: var(--cu-text-xs);
+}
+
+.cu-file-upload.is-disabled .cu-file-dropzone {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.cu-file-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-sm);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cu-file-list:empty {
+  display: none;
+}
+
+.cu-file-item {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-md);
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-md);
+  background-color: var(--cu-surface);
+  font-size: var(--cu-text-sm);
+}
+
+.cu-file-item > .cu-icon {
+  color: var(--cu-muted-foreground);
+}
+
+.cu-file-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.cu-file-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--cu-foreground);
+  font-weight: var(--cu-font-weight-medium);
+}
+
+.cu-file-meta {
+  font-size: var(--cu-text-xs);
+  color: var(--cu-muted-foreground);
+}
+
+.cu-file-item.is-error {
+  border-color: var(--cu-destructive);
+}
+
+.cu-file-item.is-error .cu-file-meta {
+  color: var(--cu-destructive-subtle-foreground);
+}
+
+.cu-file-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 0;
+  border-radius: var(--cu-radius-sm);
+  background: transparent;
+  color: var(--cu-muted-foreground);
+  cursor: pointer;
+}
+
+.cu-file-remove:hover {
+  background: var(--cu-muted);
+  color: var(--cu-foreground);
+}
+
+.cu-file-remove:focus-visible {
+  outline: 2px solid var(--cu-ring);
+}

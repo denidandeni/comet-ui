@@ -30,6 +30,8 @@
   --color-success-subtle: var(--cu-success-subtle);
   --color-success-subtle-foreground: var(--cu-success-subtle-foreground);
   --color-warning: var(--cu-warning);
+  --color-warning-subtle: var(--cu-warning-subtle);
+  --color-warning-subtle-foreground: var(--cu-warning-subtle-foreground);
   --color-brand-50: var(--cu-brand-50);
   --color-brand-100: var(--cu-brand-100);
   --color-brand-200: var(--cu-brand-200);

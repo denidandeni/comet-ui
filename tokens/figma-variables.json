@@ -202,11 +202,43 @@
           }
         },
         {
+          "name": "color/amber/50",
+          "values": {
+            "neutral": "#fffbeb",
+            "comet": "#fffbeb",
+            "ocean": "#fffbeb"
+          }
+        },
+        {
+          "name": "color/amber/400",
+          "values": {
+            "neutral": "#fbbf24",
+            "comet": "#fbbf24",
+            "ocean": "#fbbf24"
+          }
+        },
+        {
           "name": "color/amber/500",
           "values": {
             "neutral": "#f59e0b",
             "comet": "#f59e0b",
             "ocean": "#f59e0b"
+          }
+        },
+        {
+          "name": "color/amber/700",
+          "values": {
+            "neutral": "#b45309",
+            "comet": "#b45309",
+            "ocean": "#b45309"
+          }
+        },
+        {
+          "name": "color/amber/950",
+          "values": {
+            "neutral": "#451a03",
+            "comet": "#451a03",
+            "ocean": "#451a03"
           }
         },
         {
@@ -1152,6 +1184,21 @@
             "Dark": "{color.amber.500}"
           },
           "description": "Indicator / fill only. Too light for text on white"
+        },
+        {
+          "name": "warning-subtle",
+          "values": {
+            "Light": "{color.amber.50}",
+            "Dark": "{color.amber.950}"
+          }
+        },
+        {
+          "name": "warning-subtle-foreground",
+          "values": {
+            "Light": "{color.amber.700}",
+            "Dark": "{color.amber.400}"
+          },
+          "description": "Warning text on warning-subtle or surface"
         },
         {
           "name": "overlay",

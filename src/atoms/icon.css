@@ -1,0 +1,14 @@
+/* Atom: Icon
+   Inline SVG icons that follow the text color. Markup:
+   <svg class="cu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">...</svg> */
+
+.cu-icon {
+  width: var(--cu-icon-sm);
+  height: var(--cu-icon-sm);
+  flex-shrink: 0;
+}
+
+.cu-icon-xs { width: var(--cu-icon-xs); height: var(--cu-icon-xs); }
+.cu-icon-md { width: var(--cu-icon-md); height: var(--cu-icon-md); }
+.cu-icon-lg { width: var(--cu-icon-lg); height: var(--cu-icon-lg); }
