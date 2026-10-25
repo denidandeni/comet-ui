@@ -12,25 +12,30 @@ Comet UI is a modern, high-contrast, and lightweight CSS component library desig
 
 ## Installation
 
-You can install Comet UI directly from GitHub using npm:
-
 ```bash
 npm install git+https://github.com/denidandeni/comet-ui.git
 ```
 
 ## Usage
 
-After installation, simply import the library into your main JavaScript entry point (e.g., `index.js`, `main.js`, or `_app.js` in Next.js):
-
-```javascript
-import 'comet-ui';
-```
-
-Alternatively, you can link the CSS file directly in your HTML:
-
 ```html
-<link rel="stylesheet" href="node_modules/comet-ui/index.css">
+<link rel="stylesheet" href="node_modules/comet-ui/dist/comet.min.css">
+<script src="node_modules/comet-ui/dist/comet.min.js" defer></script>
 ```
+
+With a bundler: `import 'comet-ui/comet.min.css'; import 'comet-ui/comet.min.js';`
+
+| File | What it is | Size (min / gzip) |
+| --- | --- | --- |
+| `comet.min.css` | Everything: tokens, components, utilities | 88 kB / 13 kB |
+| `core.min.css` | Foundation only: tokens, reset, typography, layout, utilities. Budget 30 kB | 24 kB / 4 kB |
+| `components.min.css` | Components and templates only | 53 kB / 8 kB |
+| `brands/<name>.css` | One brand each (already inside `comet.min.css`) | 1 kB |
+| `comet.min.js` | Behaviour (table, toast, datepicker, tabs...) | 26 kB |
+| `tailwind.css` | Tailwind v4 preset: `@import "comet-ui/tailwind.css"` | 3 kB |
+| `llms.txt` | Guide for AI agents, generated from the tokens | 16 kB |
+
+`npm run build` creates `dist/`. Source files are plain CSS, so `index.css` also works with no build step.
 
 ## Local Development & Documentation
 
@@ -53,10 +58,6 @@ Comet UI uses a robust set of CSS variables (tokens) that you can override to cu
 - `--cu-brand-500`: Primary brand color.
 - `--cu-radius-md`: Standard corner radius.
 - `--cu-shd-pop`: Elevation shadow for modals and dropdowns.
-
-## License
-
-This project is licensed under the MIT License.
 
 ## Components and behaviour
 
@@ -96,9 +97,24 @@ Components only use semantic tokens, so no component code changes per brand or t
 
 ### Add a brand
 
+Fastest way, from any project that has `comet-ui` installed:
+
+```bash
+npx comet-ui brand create acme --primary "#0f766e" --font '"Inter", sans-serif' --radius 0.5rem
+npx comet-ui brand build comet-brands/acme.json   # checks contrast, writes comet-brands/acme.css
+```
+
+Load `acme.css` after Comet UI and set `data-cu-brand="acme"`. Contrast problems are shown before anything is written.
+
+Inside this repository (so the brand ships with the package):
+
 1. Copy `tokens/brands/_template.json` to `tokens/brands/<name>.json` and change the values. Keep every key.
 2. Run `npm run build:tokens`. It writes `src/brands/<name>.css`, `tailwind.css` and `tokens/figma-variables.json`.
 3. Run `npm test`. It checks that every brand has the same keys and that text/surface pairs meet WCAG contrast.
 4. Use it with `data-cu-brand="<name>"`.
 
 Token sources live in `tokens/*.json`. Never edit the generated files (`src/variables.css`, `src/brands/*.css`, `tailwind.css`).
+
+## License
+
+This project is licensed under the MIT License.

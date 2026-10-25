@@ -30,3 +30,14 @@
 .cu-password-toggle:hover {
   color: var(--cu-muted-foreground);
 }
+
+/* An affix can be a real <button> (password toggle): strip the native button look. */
+button.cu-input-affix {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+button.cu-input-affix:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: 2px; border-radius: var(--cu-radius-sm); }

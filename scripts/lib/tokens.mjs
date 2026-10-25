@@ -8,7 +8,7 @@ export const DEFAULT_BRAND = 'neutral';
 
 const readJson = (p) => JSON.parse(readFileSync(join(root, p), 'utf8'));
 
-function flatten(obj, path = [], out = []) {
+export function flatten(obj, path = [], out = []) {
   for (const [key, val] of Object.entries(obj)) {
     if (key.startsWith('$') || key === 'name') continue;
     if (val && typeof val === 'object' && '$value' in val) {
@@ -82,3 +82,64 @@ export const ratio = (a, b) => {
   const [hi, lo] = [lum(a), lum(b)].sort((x, y) => y - x);
   return (hi + 0.05) / (lo + 0.05);
 };
+
+// ---- shared by build-tokens, check-brands and the comet-ui CLI ----
+
+// Reads one brand file into the same shape load() uses.
+export function readBrandFile(path) {
+  const json = JSON.parse(readFileSync(path, 'utf8'));
+  return { file: path, name: json.name, description: json.$description ?? '', leaves: flatten(json) };
+}
+
+// CSS for one brand: [data-cu-brand="name"] { ... }. The default brand also sets :root.
+export function renderBrandCss(t, brand, { isDefault = false, source = brand.file } = {}) {
+  const derived = t.primitive.filter((l) => l.scope === 'brand');
+  const sel = isDefault ? `:root,\n[data-cu-brand="${brand.name}"]` : `[data-cu-brand="${brand.name}"]`;
+  const lines = [
+    ...brand.leaves.map((l) => `  ${cssName(l)}: ${toCss(l.value, t.index, `${brand.name}:${l.key}`)};`),
+    '',
+    '  /* derived from the radius knob */',
+    ...derived.map((l) => `  ${cssName(l)}: ${l.value};`),
+  ];
+  return `/* GENERATED from ${source}. Do not edit by hand. */\n/* ${brand.description} */\n${sel} {\n${lines.join('\n')}\n}\n`;
+}
+
+// Every contrast pair for one brand in both themes. Returns counts and messages.
+export function contrastReport(t, brand) {
+  const out = { checked: 0, errors: [], warnings: [] };
+  for (const mode of ['light', 'dark']) {
+    for (const p of t.contrast.pairs) {
+      const fg = resolveHex(p.fg, mode, t, brand);
+      const bg = resolveHex(p.bg, mode, t, brand);
+      if (!fg || !bg) { out.errors.push(`contrast pair ${p.fg}/${p.bg} cannot be resolved to hex (${brand.name}, ${mode})`); continue; }
+      out.checked++;
+      const r = ratio(fg, bg);
+      if (r < p.min) (p.strict ? out.errors : out.warnings).push(`${brand.name}/${mode}: ${p.fg} on ${p.bg} is ${r.toFixed(2)}:1, needs ${p.min}:1`);
+    }
+  }
+  return out;
+}
+
+// Same key set as the template: a brand may not miss or add keys.
+export function keyParity(t, brand) {
+  const want = new Set(t.template.leaves.map((l) => l.key));
+  const have = new Set(brand.leaves.map((l) => l.key));
+  return [
+    ...[...want].filter((k) => !have.has(k)).map((k) => `brand "${brand.name}" is missing ${k}`),
+    ...[...have].filter((k) => !want.has(k)).map((k) => `brand "${brand.name}" has unknown key ${k}`),
+  ];
+}
+
+// ---- seed colour -> brand scale (used by `comet-ui brand create`) ----
+const toRgb = (hex) => { const n = parseInt(hex.slice(1), 16); return [n >> 16, (n >> 8) & 255, n & 255]; };
+const toHex = (rgb) => '#' + rgb.map((v) => Math.round(v).toString(16).padStart(2, '0')).join('');
+const mix = (hex, other, amount) => { const a = toRgb(hex), b = toRgb(other); return toHex(a.map((v, i) => v + (b[i] - v) * amount)); };
+export function scaleFromSeed(seed) {
+  const white = { 50: 0.95, 100: 0.9, 200: 0.8, 300: 0.65, 400: 0.4, 500: 0.2 };
+  const black = { 700: 0.18, 800: 0.34, 900: 0.5, 950: 0.65 };
+  const out = {};
+  for (const [k, v] of Object.entries(white)) out[k] = mix(seed, '#ffffff', v);
+  out[600] = seed.toLowerCase();
+  for (const [k, v] of Object.entries(black)) out[k] = mix(seed, '#000000', v);
+  return out;
+}

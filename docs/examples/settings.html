@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | Comet UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../index.css">
+    <script>
+        try {
+            var r = document.documentElement, t = localStorage.getItem('cu-theme'), b = localStorage.getItem('cu-brand');
+            if (t) r.setAttribute('data-cu-theme', t);
+            if (b) r.setAttribute('data-cu-brand', b);
+        } catch (e) {}
+    </script>
+</head>
+<body>
+<main class="cu-container" style="padding-top:var(--cu-space-xl);padding-bottom:var(--cu-space-xl)">
+  <h1 class="cu-h2 cu-mb-lg">Settings</h1>
+  <div class="cu-settings">
+    <nav class="cu-settings-nav" aria-label="Settings">
+      <a class="cu-sidebar-link is-active" href="#profile" aria-current="page">Profile</a>
+      <a class="cu-sidebar-link" href="#notifications">Notifications</a>
+      <a class="cu-sidebar-link" href="#danger">Danger zone</a>
+    </nav>
+    <div class="cu-settings-body">
+      <section class="cu-settings-section" id="profile">
+        <header class="cu-settings-header"><h2>Profile</h2><p>How others see you.</p></header>
+        <div class="cu-settings-fields">
+          <div class="cu-field"><label class="cu-label" for="name">Name <span class="cu-field-required" aria-hidden="true">*</span></label><input class="cu-input" id="name" value="Budi Permana"></div>
+          <div class="cu-field"><label class="cu-label" for="mail">Email</label><input class="cu-input" id="mail" type="email" value="budi@example.com" aria-describedby="mail-hint"><p class="cu-input-hint" id="mail-hint">Used for sign in and receipts.</p></div>
+          <div class="cu-field"><label class="cu-label" for="bio">Bio</label><textarea class="cu-textarea" id="bio"></textarea></div>
+        </div>
+        <footer class="cu-settings-footer"><button class="cu-btn cu-btn-ghost">Cancel</button><button class="cu-btn cu-btn-primary">Save changes</button></footer>
+      </section>
+      <section class="cu-settings-section" id="notifications">
+        <header class="cu-settings-header"><h2>Notifications</h2><p>Choose what we email you about.</p></header>
+        <div class="cu-settings-fields">
+          <div class="cu-field-row"><span class="cu-label" style="margin:0">Low fuel alerts</span><label class="cu-switch"><input type="checkbox" class="cu-switch-input" checked aria-label="Low fuel alerts"><span class="cu-switch-track"><span class="cu-switch-thumb"></span></span></label></div>
+          <div class="cu-field-row"><span class="cu-label" style="margin:0">Weekly report</span><label class="cu-switch"><input type="checkbox" class="cu-switch-input" aria-label="Weekly report"><span class="cu-switch-track"><span class="cu-switch-thumb"></span></span></label></div>
+        </div>
+      </section>
+      <section class="cu-settings-section" id="danger">
+        <header class="cu-settings-header"><h2>Danger zone</h2><p>These actions cannot be undone.</p></header>
+        <footer class="cu-settings-footer"><button class="cu-btn cu-btn-danger">Delete account</button></footer>
+      </section>
+    </div>
+  </div>
+</main>
+<script src="../../src/comet.js"></script>
+</body>
+</html>

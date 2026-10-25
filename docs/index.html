@@ -119,11 +119,17 @@
                     <a href="#toast" class="docs-nav-item">Toast <span class="docs-nav-badge">New</span></a>
                     <a href="#drawer" class="docs-nav-item">Drawer</a>
                     <a href="#table" class="docs-nav-item">Table <span class="docs-nav-badge">New</span></a>
+                    <a href="#kbd" class="docs-nav-item">Kbd</a>
+                    <a href="#field" class="docs-nav-item">Field</a>
+                    <a href="#tabs" class="docs-nav-item">Tabs <span class="docs-nav-badge">New</span></a>
+                    <a href="#sidebar" class="docs-nav-item">Sidebar <span class="docs-nav-badge">New</span></a>
                 </div>
 
                 <div class="docs-nav-group">
-                    <div class="docs-nav-title">Examples</div>
-                    <a href="#registration" class="docs-nav-item">Auth layout</a>
+                    <div class="docs-nav-title">Templates</div>
+                    <a href="examples/dashboard.html" class="docs-nav-item">App shell: KAI dashboard</a>
+                    <a href="examples/auth.html" class="docs-nav-item">Auth</a>
+                    <a href="examples/settings.html" class="docs-nav-item">Settings</a>
                 </div>
             </nav>
         </aside>
@@ -1153,6 +1159,110 @@ CometUI.toast.position(&#x27;top-right&#x27;); // top-right | top-center | botto
 &lt;!-- Sort types: text | number | date. A td can carry data-sort=&quot;...&quot; to sort by another value. --&gt;</pre></div>
             </section>
 
+            <section id="kbd" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Kbd</h2>
+                    <p class="cu-paragraph cu-mt-sm">Keyboard shortcut hint.</p>
+                </div>
+                <div class="docs-preview-box">
+<div class="cu-flex cu-gap-sm" style="align-items:center"><kbd class="cu-kbd">Ctrl</kbd><kbd class="cu-kbd">K</kbd><span class="cu-text-sm cu-text-subtle">to search</span></div>
+                </div>
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;kbd class=&quot;cu-kbd&quot;&gt;Ctrl&lt;/kbd&gt; &lt;kbd class=&quot;cu-kbd&quot;&gt;K&lt;/kbd&gt;</pre></div>
+            </section>
+
+            <section id="field" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Field</h2>
+                    <p class="cu-paragraph cu-mt-sm">Label, control, hint and error as one unit. Link hint and error with <code>aria-describedby</code>.</p>
+                </div>
+                <div class="docs-preview-box">
+<div class="cu-flex cu-gap-xl" style="flex-wrap:wrap;width:100%;justify-content:center">
+<div class="cu-field" style="width:260px"><label class="cu-label" for="f1">Email <span class="cu-field-required" aria-hidden="true">*</span></label><input class="cu-input" id="f1" aria-describedby="f1-hint" placeholder="name@company.com"><p class="cu-input-hint" id="f1-hint">We never share it.</p></div>
+<div class="cu-field" style="width:260px"><label class="cu-label" for="f2">Username</label><input class="cu-input" id="f2" aria-invalid="true" aria-describedby="f2-err" value="deni"><p class="cu-input-error" id="f2-err" role="alert">That username is taken.</p></div>
+</div>
+                </div>
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-field&quot;&gt;
+  &lt;label class=&quot;cu-label&quot; for=&quot;email&quot;&gt;Email&lt;/label&gt;
+  &lt;input class=&quot;cu-input&quot; id=&quot;email&quot; aria-describedby=&quot;email-hint&quot;&gt;
+  &lt;p class=&quot;cu-input-hint&quot; id=&quot;email-hint&quot;&gt;We never share it.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Error: aria-invalid=&quot;true&quot; on the control, plus --&gt;
+&lt;p class=&quot;cu-input-error&quot; id=&quot;email-error&quot; role=&quot;alert&quot;&gt;Enter a valid email.&lt;/p&gt;</pre></div>
+            </section>
+
+            <section id="tabs" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Tabs</h2>
+                    <p class="cu-paragraph cu-mt-sm">Arrow keys move between tabs, Home and End jump to the ends. Only the selected tab is in the tab order.</p>
+                </div>
+                <div class="docs-preview-box">
+<div style="width:100%;max-width:520px;display:flex;flex-direction:column;gap:var(--cu-space-xl)">
+<div class="cu-tabs" data-cu-tabs>
+<div class="cu-tabs-list" role="tablist" aria-label="Account">
+<button class="cu-tab" role="tab" id="dt1" aria-controls="dp1" aria-selected="true">Profile</button>
+<button class="cu-tab" role="tab" id="dt2" aria-controls="dp2" aria-selected="false">Billing</button>
+<button class="cu-tab" role="tab" id="dt3" aria-controls="dp3" aria-selected="false" disabled>Team</button>
+</div>
+<div class="cu-tab-panel" role="tabpanel" id="dp1" aria-labelledby="dt1"><p class="cu-paragraph">Profile settings.</p></div>
+<div class="cu-tab-panel" role="tabpanel" id="dp2" aria-labelledby="dt2" hidden><p class="cu-paragraph">Billing details.</p></div>
+<div class="cu-tab-panel" role="tabpanel" id="dp3" aria-labelledby="dt3" hidden></div>
+</div>
+<div class="cu-tabs cu-tabs-pill" data-cu-tabs>
+<div class="cu-tabs-list" role="tablist" aria-label="View">
+<button class="cu-tab" role="tab" id="pt1" aria-controls="pp1" aria-selected="true">Day</button>
+<button class="cu-tab" role="tab" id="pt2" aria-controls="pp2" aria-selected="false">Week</button>
+</div>
+<div class="cu-tab-panel" role="tabpanel" id="pp1" aria-labelledby="pt1"><p class="cu-paragraph">Daily view.</p></div>
+<div class="cu-tab-panel" role="tabpanel" id="pp2" aria-labelledby="pt2" hidden><p class="cu-paragraph">Weekly view.</p></div>
+</div>
+</div>
+                </div>
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-tabs&quot; data-cu-tabs&gt;
+  &lt;div class=&quot;cu-tabs-list&quot; role=&quot;tablist&quot; aria-label=&quot;Account&quot;&gt;
+    &lt;button class=&quot;cu-tab&quot; role=&quot;tab&quot; id=&quot;t1&quot; aria-controls=&quot;p1&quot; aria-selected=&quot;true&quot;&gt;Profile&lt;/button&gt;
+    &lt;button class=&quot;cu-tab&quot; role=&quot;tab&quot; id=&quot;t2&quot; aria-controls=&quot;p2&quot; aria-selected=&quot;false&quot;&gt;Billing&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cu-tab-panel&quot; role=&quot;tabpanel&quot; id=&quot;p1&quot; aria-labelledby=&quot;t1&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;cu-tab-panel&quot; role=&quot;tabpanel&quot; id=&quot;p2&quot; aria-labelledby=&quot;t2&quot; hidden&gt;...&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Pill style: add .cu-tabs-pill to the wrapper --&gt;
+el.addEventListener(&#x27;cu:tab&#x27;, e =&gt; console.log(e.detail.id));</pre></div>
+            </section>
+
+            <section id="sidebar" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Sidebar</h2>
+                    <p class="cu-paragraph cu-mt-sm">Vertical navigation. Inside <code>.cu-app-shell</code> it becomes an off-canvas panel on small screens.</p>
+                </div>
+                <div class="docs-preview-box">
+<div style="height:360px;border:1px solid var(--cu-border);border-radius:var(--cu-radius-lg);overflow:hidden;display:flex">
+<aside class="cu-sidebar" aria-label="Preview" style="width:240px;height:100%">
+<div class="cu-sidebar-header"><strong>Comet</strong></div>
+<nav class="cu-sidebar-nav">
+<p class="cu-sidebar-group">Overview</p>
+<a class="cu-sidebar-link is-active" href="#sidebar" aria-current="page">Dashboard</a>
+<a class="cu-sidebar-link" href="#sidebar">Reports <span class="cu-sidebar-badge">3</span></a>
+<p class="cu-sidebar-group">Manage</p>
+<a class="cu-sidebar-link" href="#sidebar">Users</a>
+<a class="cu-sidebar-link" href="#sidebar">Settings</a>
+</nav>
+<div class="cu-sidebar-footer cu-text-sm">Budi Permana</div>
+</aside>
+</div>
+                </div>
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;aside class=&quot;cu-sidebar&quot; aria-label=&quot;Main&quot;&gt;
+  &lt;div class=&quot;cu-sidebar-header&quot;&gt;...brand...&lt;/div&gt;
+  &lt;nav class=&quot;cu-sidebar-nav&quot;&gt;
+    &lt;p class=&quot;cu-sidebar-group&quot;&gt;Overview&lt;/p&gt;
+    &lt;a class=&quot;cu-sidebar-link is-active&quot; href=&quot;#&quot; aria-current=&quot;page&quot;&gt;Dashboard&lt;/a&gt;
+    &lt;a class=&quot;cu-sidebar-link&quot; href=&quot;#&quot;&gt;Reports &lt;span class=&quot;cu-sidebar-badge&quot;&gt;3&lt;/span&gt;&lt;/a&gt;
+  &lt;/nav&gt;
+  &lt;div class=&quot;cu-sidebar-footer&quot;&gt;...user...&lt;/div&gt;
+&lt;/aside&gt;</pre></div>
+            </section>
+
+
 
             <!-- Textarea Section -->
             <section id="textareas" class="docs-section">
@@ -1606,32 +1716,7 @@ searchInput.addEventListener(<span class="docs-code-string">'input'</span>, (e) 
             </section>
 
             <!-- Registration Example -->
-            <section id="registration" class="docs-section">
-                <div class="docs-section-header">
-                    <h2 class="cu-h2">Auth Layout</h2>
-                    <p class="cu-paragraph cu-mt-sm">A focused authentication example using Comet UI.</p>
-                </div>
 
-                <div class="cu-card cu-mx-auto" style="max-width: 440px; width: 100%; border: 1px solid var(--cu-bdr); background: var(--cu-white); padding: var(--cu-space-xl); border-radius: var(--cu-radius-lg); box-shadow: var(--cu-shd-pop);">
-                    <h3 class="cu-h3 cu-mb-md">Create account</h3>
-                    <form class="cu-flex-col cu-gap-md">
-                        <div class="cu-input-group">
-                            <label class="cu-label">Email</label>
-                            <input type="email" class="cu-input" placeholder="name@company.com">
-                        </div>
-                        <div class="cu-input-group">
-                            <label class="cu-label">Password</label>
-                            <div class="cu-input-container">
-                                <input type="password" class="cu-input cu-has-suffix" value="12345678">
-                                <span class="cu-input-affix cu-input-suffix cu-password-toggle" style="cursor: pointer;">
-                                    <span class="material-symbols-outlined" style="font-size: 20px;">visibility</span>
-                                </span>
-                            </div>
-                        </div>
-                        <button type="button" class="cu-btn cu-btn-primary cu-btn-lg cu-mt-md" style="width: 100%;">Create Account</button>
-                    </form>
-                </div>
-            </section>
         </main>
     </div>
 
@@ -1793,6 +1878,36 @@ searchInput.addEventListener(<span class="docs-code-string">'input'</span>, (e) 
     })();
 </script>
 <script src="../src/comet.js"></script>
+<script>
+    // Preview / Code frame around every example, with a copy button.
+    document.querySelectorAll('.docs-code-box').forEach(function (code, n) {
+        var preview = code.previousElementSibling;
+        if (!preview || !preview.classList.contains('docs-preview-box')) return;
+        var frame = document.createElement('div');
+        frame.className = 'docs-example';
+        var bar = document.createElement('div');
+        bar.className = 'docs-example-bar';
+        bar.innerHTML = '<div class="docs-example-tabs" role="tablist">' +
+            '<button type="button" class="docs-example-tab" role="tab" aria-selected="true">Preview</button>' +
+            '<button type="button" class="docs-example-tab" role="tab" aria-selected="false">Code</button></div>' +
+            '<button type="button" class="docs-example-copy" hidden>Copy</button>';
+        preview.parentNode.insertBefore(frame, preview);
+        frame.appendChild(bar); frame.appendChild(preview); frame.appendChild(code);
+        code.hidden = true;
+        var tabs = bar.querySelectorAll('.docs-example-tab'), copy = bar.querySelector('.docs-example-copy');
+        function show(i) {
+            tabs.forEach(function (t, j) { t.setAttribute('aria-selected', j === i ? 'true' : 'false'); });
+            preview.hidden = i === 1; code.hidden = i === 0; copy.hidden = i === 0;
+        }
+        tabs[0].addEventListener('click', function () { show(0); });
+        tabs[1].addEventListener('click', function () { show(1); });
+        copy.addEventListener('click', function () {
+            var text = code.innerText.replace(/\u00a0/g, ' ');
+            (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(function () { copy.textContent = 'Copied'; }, function () { copy.textContent = 'Press Ctrl+C'; });
+            setTimeout(function () { copy.textContent = 'Copy'; }, 1500);
+        });
+    });
+</script>
 <script>
     document.getElementById('demo-indeterminate').indeterminate = true;
     document.querySelectorAll('[data-demo-toast]').forEach(function (b) {

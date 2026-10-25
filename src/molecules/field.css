@@ -1,0 +1,29 @@
+/* Molecule: Field = label + control + hint + error, wired for screen readers.
+   <div class="cu-field">
+     <label class="cu-label" for="email">Email</label>
+     <input class="cu-input" id="email" aria-describedby="email-hint">
+     <p class="cu-input-hint" id="email-hint">We never share it.</p>
+   </div>
+   Invalid: put aria-invalid="true" on the control and add <p class="cu-input-error" id="email-error" role="alert">.
+   Required: add <span class="cu-field-required" aria-hidden="true">*</span> inside the label.
+   Horizontal: .cu-field-row puts label and control on one line (checkbox, switch). */
+
+.cu-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-xs);
+}
+
+.cu-field > .cu-label { margin-bottom: 0; }
+
+.cu-field-required { color: var(--cu-destructive-subtle-foreground); }
+
+.cu-field-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--cu-space-md);
+}
+
+.cu-field .cu-input-hint,
+.cu-field .cu-input-error { margin-top: 0; }

@@ -4,19 +4,14 @@
 //   2. a semantic token lacks a light or dark value,
 //   3. a strict text/surface pair is below its WCAG ratio in any brand x theme.
 // Non-strict pairs below their ratio are reported as warnings.
-import { load, resolveHex, ratio, modeValue } from './lib/tokens.mjs';
+import { load, contrastReport, keyParity } from './lib/tokens.mjs';
 
 const t = load();
 const errors = [];
 const warnings = [];
 
 // 1. Brand key parity
-const want = new Set(t.template.leaves.map((l) => l.key));
-for (const [name, b] of Object.entries(t.brands)) {
-  const have = new Set(b.leaves.map((l) => l.key));
-  for (const k of want) if (!have.has(k)) errors.push(`brand "${name}" is missing ${k}`);
-  for (const k of have) if (!want.has(k)) errors.push(`brand "${name}" has unknown key ${k}`);
-}
+for (const b of Object.values(t.brands)) errors.push(...keyParity(t, b));
 
 // 2. Semantic tokens need both modes
 for (const l of t.semantic) {
@@ -25,20 +20,11 @@ for (const l of t.semantic) {
 
 // 3. Contrast
 let checked = 0;
-for (const [name, b] of Object.entries(t.brands)) {
-  for (const mode of ['light', 'dark']) {
-    for (const p of t.contrast.pairs) {
-      const fg = resolveHex(p.fg, mode, t, b);
-      const bg = resolveHex(p.bg, mode, t, b);
-      if (!fg || !bg) { errors.push(`contrast pair ${p.fg}/${p.bg} cannot be resolved to hex (${name}, ${mode})`); continue; }
-      checked++;
-      const r = ratio(fg, bg);
-      if (r < p.min) {
-        const msg = `${name}/${mode}: ${p.fg} on ${p.bg} is ${r.toFixed(2)}:1, needs ${p.min}:1`;
-        (p.strict ? errors : warnings).push(msg);
-      }
-    }
-  }
+for (const b of Object.values(t.brands)) {
+  const r = contrastReport(t, b);
+  checked += r.checked;
+  errors.push(...r.errors);
+  warnings.push(...r.warnings);
 }
 
 for (const w of warnings) console.warn(`warn  ${w}`);

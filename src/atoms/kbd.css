@@ -1,0 +1,19 @@
+/* Atom: Kbd
+   <kbd class="cu-kbd">Ctrl</kbd> <kbd class="cu-kbd">K</kbd> */
+
+.cu-kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding: 0 var(--cu-space-xs);
+  border: 1px solid var(--cu-border);
+  border-bottom-width: 2px;
+  border-radius: var(--cu-radius-sm);
+  background: var(--cu-muted);
+  color: var(--cu-muted-foreground);
+  font-family: var(--cu-font-family-mono);
+  font-size: var(--cu-text-xs);
+  line-height: 1;
+}

@@ -1,0 +1,41 @@
+/* Template: Auth = centered card on a muted page, for sign in, sign up and reset.
+   <main class="cu-auth">
+     <div class="cu-auth-card">
+       <div class="cu-auth-brand">...</div>
+       <h1 class="cu-auth-title">Create account</h1>
+       <p class="cu-auth-subtitle">Start in under a minute.</p>
+       <form class="cu-auth-form">...fields...</form>
+       <p class="cu-auth-footer">Already have an account? <a href="#">Sign in</a></p>
+     </div>
+   </main> */
+
+.cu-auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--cu-space-md);
+  background: var(--cu-muted);
+  font-family: var(--cu-font-family-default);
+  color: var(--cu-foreground);
+}
+
+.cu-auth-card {
+  width: 100%;
+  max-width: 26rem;
+  padding: var(--cu-space-xl);
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-lg);
+  background: var(--cu-surface);
+  box-shadow: var(--cu-shd-pop);
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-md);
+}
+
+.cu-auth-brand { display: flex; justify-content: center; }
+.cu-auth-title { margin: 0; font-size: var(--cu-text-2xl); text-align: center; }
+.cu-auth-subtitle { margin: 0; text-align: center; color: var(--cu-muted-foreground); font-size: var(--cu-text-sm); }
+.cu-auth-form { display: flex; flex-direction: column; gap: var(--cu-space-md); }
+.cu-auth-footer { margin: 0; text-align: center; font-size: var(--cu-text-sm); color: var(--cu-muted-foreground); }
+.cu-auth-footer a { color: var(--cu-foreground); font-weight: var(--cu-font-weight-bold); }
