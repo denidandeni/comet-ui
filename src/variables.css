@@ -31,7 +31,11 @@
   --cu-danger-50: #fff1f2;
   --cu-success: #059669;
   --cu-success-50: #ecfdf5;
+  --cu-warning: #f59e0b; /* indicator/fill color only; too light for text on white */
   --cu-bdr: var(--cu-neutral-300);
+
+  /* Scrim behind dialogs and other modal surfaces */
+  --cu-bg-overlay: rgba(2, 6, 23, 0.4);
 
   /* --------------------------------------------------------------------------
         BORDERS (Thickness & Colors)
@@ -123,6 +127,7 @@
   --cu-font-weight-bold: 700;
   --cu-font-base: 16px;
   
+  --cu-text-2xs: 10px;
   --cu-text-xs: 12px;
   --cu-text-sm: 14px;
   --cu-text-base: 16px;
@@ -144,4 +149,13 @@
   --cu-tracking-normal: 0em;
   --cu-tracking-wide: 0.01em;
   --cu-tracking-wider: 0.02em;
+
+  /* --------------------------------------------------------------------------
+        DEPRECATED ALIASES (removed in the next major version)
+        These names were used by components but never defined, so text silently
+        fell back to the inherited size. Use --cu-text-* instead.
+        -------------------------------------------------------------------------- */
+  --cu-font-size-sm: var(--cu-text-sm);
+  --cu-font-size-md: var(--cu-text-base);
+  --cu-font-size-lg: var(--cu-text-lg);
 }

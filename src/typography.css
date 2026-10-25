@@ -4,13 +4,9 @@
    Uses tokens from variables.css.
    ========================================================================== */
 
-/* Text Selection: Global brand highlight */
-::selection {
-  background-color: var(--cu-brand-500);
-  color: var(--cu-white);
-}
+/* Text selection highlight is defined once, in base.css. */
 
-.cu-h1 { 
+.cu-h1 {
   font-family: var(--cu-font-family-default); 
   font-size: var(--cu-text-3xl); 
   font-weight: 800; 
@@ -68,6 +64,7 @@
 /* ==========================================================================
    Typography Utility Classes
    ========================================================================== */
+.cu-text-2xs  { font-size: var(--cu-text-2xs); }
 .cu-text-xs   { font-size: var(--cu-text-xs); }
 .cu-text-sm   { font-size: var(--cu-text-sm); }
 .cu-text-base { font-size: var(--cu-text-base); }
@@ -86,3 +83,5 @@
 .cu-font-semibold { font-weight: 600; }
 .cu-font-bold     { font-weight: 700; }
 .cu-font-extrabold{ font-weight: 800; }
+
+.cu-font-mono { font-family: var(--cu-font-family-mono); }
