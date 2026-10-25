@@ -14,7 +14,7 @@
   display: grid;
   grid-template-columns: var(--cu-docs-sidebar-w) 1fr;
   min-height: 100vh;
-  background: var(--cu-neutral-500);
+  background: var(--cu-background);
   font-family: var(--cu-font-family-default);
 }
 
@@ -24,8 +24,8 @@
 .docs-header {
   grid-column: 1 / -1;
   height: var(--cu-docs-header-h);
-  border-bottom: 1px solid var(--cu-bdr);
-  background: var(--cu-white);
+  border-bottom: 1px solid var(--cu-border);
+  background: var(--cu-surface);
   display: flex;
   align-items: center;
   padding: 0 var(--cu-space-xl);
@@ -40,14 +40,14 @@
   gap: 12px;
   font-weight: 800;
   font-size: 20px;
-  color: var(--cu-neutral-50);
+  color: var(--cu-foreground);
   text-decoration: none;
 }
 
 .docs-logo-icon {
   width: 32px;
   height: 32px;
-  background: linear-gradient(135deg, var(--cu-brand-600), var(--cu-accent));
+  background: linear-gradient(135deg, var(--cu-primary-hover), var(--cu-accent));
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -55,10 +55,24 @@
   color: white;
 }
 
+.docs-switchers {
+  margin-left: auto;
+  display: flex;
+  gap: var(--cu-space-md);
+}
+
+.docs-switcher {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-sm);
+}
+
+.docs-switcher .cu-select { width: auto; }
+
 /* Sidebar */
 .docs-sidebar {
-  border-right: 1px solid var(--cu-bdr);
-  background: var(--cu-neutral-400);
+  border-right: 1px solid var(--cu-border);
+  background: var(--cu-muted);
   padding: var(--cu-space-xl);
   position: sticky;
   top: var(--cu-docs-header-h);
@@ -73,7 +87,7 @@
 .docs-nav-title {
   font-size: 13px;
   font-weight: 700;
-  color: var(--cu-neutral-100);
+  color: var(--cu-muted-foreground);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: var(--cu-space-md);
@@ -85,7 +99,7 @@
   gap: 10px;
   padding: 8px 12px;
   border-radius: var(--cu-radius-sm);
-  color: var(--cu-neutral-100);
+  color: var(--cu-muted-foreground);
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -95,20 +109,20 @@
 
 .docs-nav-item:hover {
   background: rgba(15, 23, 42, 0.04);
-  color: var(--cu-neutral-50);
+  color: var(--cu-foreground);
 }
 
 .docs-nav-item.active {
   background: white;
-  color: var(--cu-brand-600);
+  color: var(--cu-brand-subtle-foreground);
   box-shadow: var(--cu-shd-btn);
 }
 
 .docs-nav-badge {
   margin-left: auto;
   font-size: 10px;
-  background: var(--cu-success-50);
-  color: var(--cu-success);
+  background: var(--cu-success-subtle);
+  color: var(--cu-success-subtle-foreground);
   padding: 2px 6px;
   border-radius: 4px;
   font-weight: 700;
@@ -131,13 +145,13 @@
 }
 
 .docs-preview-box {
-  border: 1px solid var(--cu-bdr);
+  border: 1px solid var(--cu-border);
   border-radius: var(--cu-radius-lg);
   padding: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--cu-white);
+  background: var(--cu-surface);
   margin-bottom: var(--cu-space-lg);
 }
 
@@ -165,5 +179,5 @@
   font-weight: var(--cu-font-weight-bold);
   letter-spacing: var(--cu-tracking-wider);
   text-transform: uppercase;
-  color: var(--cu-neutral-100);
+  color: var(--cu-muted-foreground);
 }

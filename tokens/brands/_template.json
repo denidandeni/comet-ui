@@ -1,0 +1,94 @@
+{
+  "$description": "Copy this file to tokens/brands/<name>.json, change name and values, run npm run build:tokens. Keep every key. For each role, give a light and a dark value (a black/white brand flips primary between themes).",
+  "name": "your-brand",
+  "color": {
+    "brand": {
+      "50": {
+        "$value": "#f5f3ff"
+      },
+      "100": {
+        "$value": "#ede9fe"
+      },
+      "200": {
+        "$value": "#ddd6fe"
+      },
+      "300": {
+        "$value": "#c4b5fd"
+      },
+      "400": {
+        "$value": "#a78bfa"
+      },
+      "500": {
+        "$value": "#8b5cf6"
+      },
+      "600": {
+        "$value": "#7c3aed"
+      },
+      "700": {
+        "$value": "#6d28d9"
+      },
+      "800": {
+        "$value": "#5b21b6"
+      },
+      "900": {
+        "$value": "#4c1d95"
+      },
+      "950": {
+        "$value": "#2e1065"
+      }
+    },
+    "accent": {
+      "$value": "#0891b2"
+    },
+    "primary": {
+      "light": {
+        "$value": "#7c3aed"
+      },
+      "dark": {
+        "$value": "#7c3aed"
+      }
+    },
+    "primary-hover": {
+      "light": {
+        "$value": "#6d28d9"
+      },
+      "dark": {
+        "$value": "#6d28d9"
+      }
+    },
+    "primary-foreground": {
+      "light": {
+        "$value": "#ffffff"
+      },
+      "dark": {
+        "$value": "#ffffff"
+      }
+    },
+    "ring": {
+      "light": {
+        "$value": "#8b5cf6"
+      },
+      "dark": {
+        "$value": "#a78bfa"
+      }
+    }
+  },
+  "font-family": {
+    "default": {
+      "$value": "\"Plus Jakarta Sans\", sans-serif"
+    },
+    "heading": {
+      "$value": "\"Plus Jakarta Sans\", sans-serif"
+    },
+    "mono": {
+      "$value": "\"Ui-Monospace\", \"SF Mono\", monospace"
+    }
+  },
+  "radius": {
+    "base": {
+      "$value": "0.625rem",
+      "$name": "radius",
+      "$description": "The one radius knob. sm, md and lg derive from it"
+    }
+  }
+}

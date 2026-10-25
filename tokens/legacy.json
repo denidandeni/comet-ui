@@ -1,0 +1,63 @@
+{
+  "$description": "Deprecated v1.0.0 names. They follow the theme, so old projects get dark mode too. Removed in the next major.",
+  "neutral": {
+    "50": {
+      "$value": "{foreground}",
+      "$deprecated": true
+    },
+    "100": {
+      "$value": "{muted-foreground}",
+      "$deprecated": true
+    },
+    "200": {
+      "$value": "{subtle-foreground}",
+      "$deprecated": true
+    },
+    "300": {
+      "$value": "{border}",
+      "$deprecated": true
+    },
+    "400": {
+      "$value": "{muted}",
+      "$deprecated": true
+    },
+    "500": {
+      "$value": "{background}",
+      "$deprecated": true
+    }
+  },
+  "bdr": {
+    "$value": "{border}",
+    "$deprecated": true
+  },
+  "danger": {
+    "$value": "{destructive}",
+    "$deprecated": true
+  },
+  "danger-50": {
+    "$value": "{destructive-subtle}",
+    "$deprecated": true
+  },
+  "success-50": {
+    "$value": "{success-subtle}",
+    "$deprecated": true
+  },
+  "bg-overlay": {
+    "$value": "{overlay}",
+    "$deprecated": true
+  },
+  "font-size": {
+    "sm": {
+      "$value": "{text.sm}",
+      "$deprecated": true
+    },
+    "md": {
+      "$value": "{text.base}",
+      "$deprecated": true
+    },
+    "lg": {
+      "$value": "{text.lg}",
+      "$deprecated": true
+    }
+  }
+}

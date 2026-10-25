@@ -1,0 +1,79 @@
+{
+  "$description": "Pairs checked for every brand x theme. strict pairs fail the build; the rest warn. min is the WCAG ratio (4.5 text, 3 large text / UI).",
+  "pairs": [
+    {
+      "fg": "foreground",
+      "bg": "background",
+      "min": 4.5,
+      "strict": true
+    },
+    {
+      "fg": "foreground",
+      "bg": "surface",
+      "min": 4.5,
+      "strict": true
+    },
+    {
+      "fg": "muted-foreground",
+      "bg": "background",
+      "min": 4.5,
+      "strict": true
+    },
+    {
+      "fg": "muted-foreground",
+      "bg": "muted",
+      "min": 4.5
+    },
+    {
+      "fg": "subtle-foreground",
+      "bg": "surface",
+      "min": 3
+    },
+    {
+      "fg": "inverse-foreground",
+      "bg": "inverse",
+      "min": 4.5,
+      "strict": true
+    },
+    {
+      "fg": "primary-foreground",
+      "bg": "primary",
+      "min": 4.5
+    },
+    {
+      "fg": "primary-foreground",
+      "bg": "primary-hover",
+      "min": 4.5
+    },
+    {
+      "fg": "brand-subtle-foreground",
+      "bg": "brand-subtle",
+      "min": 4.5
+    },
+    {
+      "fg": "destructive-foreground",
+      "bg": "destructive",
+      "min": 4.5
+    },
+    {
+      "fg": "destructive-subtle-foreground",
+      "bg": "destructive-subtle",
+      "min": 4.5
+    },
+    {
+      "fg": "destructive-subtle-foreground",
+      "bg": "surface",
+      "min": 4.5
+    },
+    {
+      "fg": "success-subtle-foreground",
+      "bg": "success-subtle",
+      "min": 4.5
+    },
+    {
+      "fg": "ring",
+      "bg": "background",
+      "min": 3
+    }
+  ]
+}

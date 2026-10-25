@@ -21,7 +21,7 @@ const list = (dir, ext) =>
     .filter((f) => f.endsWith(ext))
     .map((f) => join(dir, f));
 
-const cssFiles = list('src', '.css').concat(['index.css']);
+const cssFiles = list('src', '.css').concat(list('src/brands', '.css'), ['index.css', 'tailwind.css']);
 const htmlFiles = list('docs', '.html');
 const stripComments = (t) => t.replace(/\/\*[\s\S]*?\*\//g, '');
 

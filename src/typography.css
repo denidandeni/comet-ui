@@ -7,30 +7,30 @@
 /* Text selection highlight is defined once, in base.css. */
 
 .cu-h1 {
-  font-family: var(--cu-font-family-default); 
+  font-family: var(--cu-font-family-heading); 
   font-size: var(--cu-text-3xl); 
   font-weight: 800; 
   line-height: var(--cu-lh-tight); 
   letter-spacing: var(--cu-tracking-tighter);
-  color: var(--cu-neutral-50); 
+  color: var(--cu-foreground); 
 }
 
 .cu-h2 { 
-  font-family: var(--cu-font-family-default); 
+  font-family: var(--cu-font-family-heading); 
   font-size: var(--cu-text-2xl); 
   font-weight: 700; 
   line-height: var(--cu-lh-tight); 
   letter-spacing: var(--cu-tracking-tight);
-  color: var(--cu-neutral-50); 
+  color: var(--cu-foreground); 
 }
 
 .cu-h3 { 
-  font-family: var(--cu-font-family-default); 
+  font-family: var(--cu-font-family-heading); 
   font-size: var(--cu-text-lg); 
   font-weight: 700; 
   line-height: var(--cu-lh-tight); 
   letter-spacing: var(--cu-tracking-tight);
-  color: var(--cu-neutral-50); 
+  color: var(--cu-foreground); 
 }
 
 .cu-paragraph {
@@ -39,7 +39,7 @@
   font-weight: var(--cu-font-weight-regular);
   line-height: var(--cu-lh-relaxed);
   letter-spacing: var(--cu-tracking-wide);
-  color: var(--cu-neutral-100);
+  color: var(--cu-muted-foreground);
 }
 
 .cu-body { 
@@ -48,7 +48,7 @@
   font-weight: var(--cu-font-weight-regular); 
   line-height: var(--cu-lh-base); 
   letter-spacing: var(--cu-tracking-normal);
-  color: var(--cu-neutral-100); 
+  color: var(--cu-muted-foreground); 
 }
 
 .cu-small { 
@@ -57,7 +57,7 @@
   font-weight: var(--cu-font-weight-regular); 
   line-height: var(--cu-lh-base); 
   letter-spacing: var(--cu-tracking-wide);
-  color: var(--cu-neutral-200); 
+  color: var(--cu-subtle-foreground); 
   margin: 0; 
 }
 
