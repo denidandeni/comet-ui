@@ -1,0 +1,233 @@
+{
+  "$description": "Tier 2: meaning. Components use only these. Each entry has a light and a dark value.",
+  "background": {
+    "$value": {
+      "light": "{color.white}",
+      "dark": "{color.slate.950}"
+    },
+    "$description": "Page background"
+  },
+  "foreground": {
+    "$value": {
+      "light": "{color.slate.950}",
+      "dark": "{color.slate.50}"
+    },
+    "$description": "Default text"
+  },
+  "surface": {
+    "$value": {
+      "light": "{color.white}",
+      "dark": "{color.slate.900}"
+    },
+    "$description": "Cards, inputs, popovers, dialogs"
+  },
+  "muted": {
+    "$value": {
+      "light": "{color.slate.100}",
+      "dark": "{color.slate.800}"
+    },
+    "$description": "Quiet fills: hover rows, segmented track, avatar"
+  },
+  "muted-foreground": {
+    "$value": {
+      "light": "{color.slate.600}",
+      "dark": "{color.slate.400}"
+    },
+    "$description": "Secondary text"
+  },
+  "subtle-foreground": {
+    "$value": {
+      "light": "{color.slate.400}",
+      "dark": "{color.slate.500}"
+    },
+    "$description": "Placeholders, icons, hints"
+  },
+  "border": {
+    "$value": {
+      "light": "{color.slate.300}",
+      "dark": "{color.slate.700}"
+    },
+    "$description": "Default borders and dividers"
+  },
+  "border-strong": {
+    "$value": {
+      "light": "{color.slate.400}",
+      "dark": "{color.slate.600}"
+    },
+    "$description": "Emphasised borders"
+  },
+  "primary": {
+    "$value": {
+      "light": "{color.brand.500}",
+      "dark": "{color.brand.500}"
+    },
+    "$description": "Main action fill"
+  },
+  "primary-hover": {
+    "$value": {
+      "light": "{color.brand.600}",
+      "dark": "{color.brand.600}"
+    }
+  },
+  "primary-foreground": {
+    "$value": {
+      "light": "{color.white}",
+      "dark": "{color.white}"
+    },
+    "$description": "Text on primary"
+  },
+  "brand-subtle": {
+    "$value": {
+      "light": "{color.brand.50}",
+      "dark": "{color.brand.950}"
+    },
+    "$description": "Tinted brand fill"
+  },
+  "brand-subtle-foreground": {
+    "$value": {
+      "light": "{color.brand.600}",
+      "dark": "{color.brand.300}"
+    },
+    "$description": "Text on brand-subtle"
+  },
+  "brand-border": {
+    "$value": {
+      "light": "{color.brand.300}",
+      "dark": "{color.brand.700}"
+    }
+  },
+  "ring": {
+    "$value": {
+      "light": "{color.brand.500}",
+      "dark": "{color.brand.400}"
+    },
+    "$description": "Selected / focused outline"
+  },
+  "focus-border": {
+    "$value": {
+      "light": "{color.brand.400}",
+      "dark": "{color.brand.500}"
+    }
+  },
+  "focus-halo": {
+    "$value": {
+      "light": "{color.brand.100}",
+      "dark": "{color.brand.900}"
+    }
+  },
+  "inverse": {
+    "$value": {
+      "light": "{color.slate.950}",
+      "dark": "{color.slate.50}"
+    },
+    "$description": "Opposite surface: tooltip, default badge, checked radio"
+  },
+  "inverse-foreground": {
+    "$value": {
+      "light": "{color.white}",
+      "dark": "{color.slate.950}"
+    }
+  },
+  "destructive": {
+    "$value": {
+      "light": "{color.red.600}",
+      "dark": "{color.red.600}"
+    },
+    "$description": "Danger fill"
+  },
+  "destructive-foreground": {
+    "$value": {
+      "light": "{color.white}",
+      "dark": "{color.white}"
+    }
+  },
+  "destructive-subtle": {
+    "$value": {
+      "light": "{color.red.50}",
+      "dark": "{color.red.950}"
+    }
+  },
+  "destructive-subtle-foreground": {
+    "$value": {
+      "light": "{color.red.600}",
+      "dark": "{color.red.400}"
+    },
+    "$description": "Danger text on surface or destructive-subtle"
+  },
+  "success": {
+    "$value": {
+      "light": "{color.green.600}",
+      "dark": "{color.green.600}"
+    },
+    "$description": "Success fill / dot"
+  },
+  "success-subtle": {
+    "$value": {
+      "light": "{color.green.50}",
+      "dark": "{color.green.950}"
+    }
+  },
+  "success-subtle-foreground": {
+    "$value": {
+      "light": "{color.green.600}",
+      "dark": "{color.green.400}"
+    }
+  },
+  "warning": {
+    "$value": {
+      "light": "{color.amber.500}",
+      "dark": "{color.amber.500}"
+    },
+    "$description": "Indicator / fill only. Too light for text on white"
+  },
+  "overlay": {
+    "$value": {
+      "light": "rgba(2, 6, 23, 0.4)",
+      "dark": "rgba(0, 0, 0, 0.6)"
+    },
+    "$description": "Scrim behind modal surfaces"
+  },
+  "shd": {
+    "xs": {
+      "$value": {
+        "light": "0 1px 3px rgba(0, 0, 0, 0.1)",
+        "dark": "0 1px 3px rgba(0, 0, 0, 0.4)"
+      }
+    },
+    "btn": {
+      "$value": {
+        "light": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)",
+        "dark": "0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.4)"
+      }
+    },
+    "active": {
+      "$value": {
+        "light": "inset 0 2px 4px rgba(0, 0, 0, 0.06)",
+        "dark": "inset 0 2px 4px rgba(0, 0, 0, 0.3)"
+      }
+    },
+    "pop": {
+      "$value": {
+        "light": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)",
+        "dark": "0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.5)"
+      }
+    },
+    "glow": {
+      "$value": {
+        "light": "0 0 15px color-mix(in srgb, var(--cu-brand-500) 15%, transparent)",
+        "dark": "0 0 15px color-mix(in srgb, var(--cu-brand-500) 35%, transparent)"
+      }
+    }
+  },
+  "bdr": {
+    "thin": {
+      "$value": "1px solid var(--cu-border-strong)"
+    },
+    "normal": {
+      "$value": "2px solid var(--cu-border-strong)"
+    },
+    "bold": {
+      "$value": "4px solid var(--cu-border-strong)"
+    }
+  }
+}

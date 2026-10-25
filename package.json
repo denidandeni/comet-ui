@@ -5,8 +5,11 @@
   "main": "index.css",
   "style": "index.css",
   "scripts": {
+    "build:tokens": "node scripts/build-tokens.mjs",
     "lint:tokens": "node scripts/check-tokens.mjs",
-    "test": "npm run lint:tokens"
+    "lint:brands": "node scripts/check-brands.mjs",
+    "check:generated": "node scripts/build-tokens.mjs --check",
+    "test": "npm run check:generated && npm run lint:tokens && npm run lint:brands"
   },
   "repository": {
     "type": "git",
@@ -24,5 +27,11 @@
   "bugs": {
     "url": "https://github.com/denidandeni/comet-ui/issues"
   },
-  "homepage": "https://github.com/denidandeni/comet-ui#readme"
+  "homepage": "https://github.com/denidandeni/comet-ui#readme",
+  "files": [
+    "index.css",
+    "tailwind.css",
+    "src",
+    "tokens"
+  ]
 }

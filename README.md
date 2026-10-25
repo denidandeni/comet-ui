@@ -57,3 +57,25 @@ Comet UI uses a robust set of CSS variables (tokens) that you can override to cu
 ## License
 
 This project is licensed under the MIT License.
+
+## Themes and brands
+
+Comet UI has two independent switches, set as attributes on any element (usually `<html>`):
+
+```html
+<html data-cu-theme="dark" data-cu-brand="ocean">
+```
+
+- **Theme** (`light` default, `dark`) swaps the semantic tokens such as `--cu-background` and `--cu-primary`.
+- **Brand** swaps the color scale, fonts and corner radius. The default brand is `comet`.
+
+Components only use semantic tokens, so no component code changes per brand or theme. Scopes can be nested (a dark card inside a light page).
+
+### Add a brand
+
+1. Copy `tokens/brands/_template.json` to `tokens/brands/<name>.json` and change the values. Keep every key.
+2. Run `npm run build:tokens`. It writes `src/brands/<name>.css`, `tailwind.css` and `tokens/figma-variables.json`.
+3. Run `npm test`. It checks that every brand has the same keys and that text/surface pairs meet WCAG contrast.
+4. Use it with `data-cu-brand="<name>"`.
+
+Token sources live in `tokens/*.json`. Never edit the generated files (`src/variables.css`, `src/brands/*.css`, `tailwind.css`).

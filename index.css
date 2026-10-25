@@ -3,6 +3,9 @@
 /* 1. Design Tokens (CSS Variables) */
 @import url('./src/variables.css');
 
+/* 1b. Brands (default brand first; add yours in tokens/brands/) */
+@import url('./src/brands/index.css');
+
 /* 2. Base Reset and Utilities */
 @import url('./src/base.css');
 

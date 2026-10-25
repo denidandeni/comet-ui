@@ -1,0 +1,62 @@
+{
+  "$description": "Example second brand. Blue, squarer corners, serif headings.",
+  "name": "ocean",
+  "color": {
+    "brand": {
+      "50": {
+        "$value": "#f0f9ff"
+      },
+      "100": {
+        "$value": "#e0f2fe"
+      },
+      "200": {
+        "$value": "#bae6fd"
+      },
+      "300": {
+        "$value": "#7dd3fc"
+      },
+      "400": {
+        "$value": "#38bdf8"
+      },
+      "500": {
+        "$value": "#0369a1"
+      },
+      "600": {
+        "$value": "#075985"
+      },
+      "700": {
+        "$value": "#0c4a6e"
+      },
+      "800": {
+        "$value": "#0a3d5c"
+      },
+      "900": {
+        "$value": "#082f49"
+      },
+      "950": {
+        "$value": "#04202f"
+      }
+    },
+    "accent": {
+      "$value": "#b45309"
+    }
+  },
+  "font-family": {
+    "default": {
+      "$value": "\"DM Sans\", sans-serif"
+    },
+    "heading": {
+      "$value": "\"Fraunces\", serif"
+    },
+    "mono": {
+      "$value": "\"Ui-Monospace\", \"SF Mono\", monospace"
+    }
+  },
+  "radius": {
+    "base": {
+      "$value": "0.375rem",
+      "$name": "radius",
+      "$description": "The one radius knob. sm, md and lg derive from it"
+    }
+  }
+}

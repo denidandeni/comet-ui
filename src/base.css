@@ -8,7 +8,7 @@
 body {
   font-family: var(--cu-font-family-default);
   font-size: var(--cu-text-base);
-  color: var(--cu-neutral-50);
+  color: var(--cu-foreground);
   line-height: var(--cu-lh-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -129,15 +129,15 @@ body {
 
 /* Text Selection */
 ::selection {
-  background-color: var(--cu-brand-500);
-  color: var(--cu-white);
+  background-color: var(--cu-primary);
+  color: var(--cu-primary-foreground);
 }
 
 /* Text color. Font sizes are .cu-text-xs ... .cu-text-7xl (typography.css);
    text alignment is .cu-align-left/center/right/justify (components.css). */
-.cu-text-default { color: var(--cu-neutral-50); line-height: var(--cu-lh-base); }
-.cu-text-subtle { color: var(--cu-neutral-100); line-height: var(--cu-lh-base); }
-.cu-text-brand { color: var(--cu-brand-500); }
+.cu-text-default { color: var(--cu-foreground); line-height: var(--cu-lh-base); }
+.cu-text-subtle { color: var(--cu-muted-foreground); line-height: var(--cu-lh-base); }
+.cu-text-brand { color: var(--cu-primary); }
 .cu-text-accent { color: var(--cu-accent); }
 
 /* ==========================================================================
