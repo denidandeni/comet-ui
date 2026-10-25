@@ -1,0 +1,30 @@
+/* Molecule: Pagination */
+
+/* Pagination */
+.cu-pagination { display: flex; gap: var(--cu-space-xs); font-family: inherit; }
+.cu-pagination-item {
+  height: 32px;
+  min-width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--cu-radius-sm);
+  font-size: var(--cu-text-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--cu-muted-foreground);
+}
+.cu-pagination-item:hover { background: var(--cu-muted); color: var(--cu-foreground); }
+.cu-pagination-item-active { background: var(--cu-primary); color: var(--cu-primary-foreground); font-weight: 700; }
+
+.cu-pagination-item:focus-visible {
+  outline: 2px solid var(--cu-ring);
+  outline-offset: 2px;
+}
+
+.cu-pagination-item:disabled,
+.cu-pagination-item[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

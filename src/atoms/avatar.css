@@ -1,0 +1,45 @@
+/* Atom: Avatar */
+
+/* Avatars */
+.cu-avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--cu-radius-round);
+  overflow: hidden;
+  background: var(--cu-muted);
+  color: var(--cu-muted-foreground);
+  font-size: var(--cu-text-base);
+  font-weight: var(--cu-font-weight-medium);
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.cu-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cu-avatar-indicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: var(--cu-radius-round);
+  border: 2px solid var(--cu-surface);
+  z-index: 1;
+}
+
+.cu-avatar-indicator-success { background: var(--cu-success); }
+.cu-avatar-indicator-danger { background: var(--cu-destructive); }
+.cu-avatar-indicator-warning { background: var(--cu-warning); }
+.cu-avatar-indicator-brand { background: var(--cu-primary); }
+
+.cu-avatar-container {
+  position: relative;
+  display: inline-flex;
+}

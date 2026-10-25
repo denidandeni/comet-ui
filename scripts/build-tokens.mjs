@@ -106,6 +106,32 @@ const figma = {
 };
 files.set('tokens/figma-variables.json', JSON.stringify(figma, null, 2) + '\n');
 
+
+// ---- src/responsive.css (mobile-first utilities from the breakpoint tokens)
+const bps = t.primitive.filter((l) => l.path[0] === 'breakpoint');
+const gaps = ['xs', 'sm', 'md', 'lg', 'xl'];
+const respBlocks = bps.map((bp) => {
+  const n = bp.path[1];
+  const rules = [
+    `.cu-${n}-hidden { display: none; }`,
+    `.cu-${n}-block { display: block; }`,
+    `.cu-${n}-flex { display: flex; }`,
+    `.cu-${n}-grid { display: grid; }`,
+    `.cu-${n}-flex-row { flex-direction: row; }`,
+    `.cu-${n}-flex-col { flex-direction: column; }`,
+    ...Array.from({ length: 12 }, (_, i) => `.cu-${n}-grid-cols-${i + 1} { grid-template-columns: var(--cu-grid-cols-${i + 1}); }`),
+    ...Array.from({ length: 12 }, (_, i) => `.cu-${n}-col-span-${i + 1} { grid-column: span ${i + 1} / span ${i + 1}; }`),
+    ...gaps.map((g) => `.cu-${n}-gap-${g} { gap: var(--cu-space-${g}); }`),
+  ];
+  return `/* ${n}: ${bp.value} and up */\n@media (min-width: ${bp.value}) {\n${rules.map((r) => '  ' + r).join('\n')}\n}\n`;
+});
+files.set(
+  'src/responsive.css',
+  `${HEADER('tokens/primitive.json (breakpoint)')}/* Mobile-first. Use cu-md-grid-cols-2 to apply grid-cols-2 from 48rem (768px) and up.
+   Combine with a base class: class="cu-grid cu-grid-cols-1 cu-md-grid-cols-2 cu-lg-grid-cols-4" */
+${respBlocks.join('\n')}`
+);
+
 // ---- write or check ------------------------------------------------------
 const check = process.argv.includes('--check');
 let stale = 0;

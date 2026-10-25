@@ -1,0 +1,5 @@
+/* Atom: Divider */
+
+/* Divider */
+.cu-divider { height: 1px; width: 100%; background-color: var(--cu-border); margin: var(--cu-space-md) 0; }
+.cu-divider-vertical { width: 1px; height: 100%; margin: 0 var(--cu-space-md); background-color: var(--cu-border); }

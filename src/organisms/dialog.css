@@ -1,0 +1,61 @@
+/* Organism: Dialog */
+
+/* Dialog (Modal Style) */
+.cu-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--cu-overlay);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--cu-z-modal);
+  font-family: var(--cu-font-family-default);
+}
+
+.cu-dialog {
+  background: var(--cu-surface);
+  width: 100%;
+  max-width: 448px;
+  border-radius: var(--cu-radius-lg);
+  box-shadow: var(--cu-shd-pop);
+  padding: var(--cu-space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-xl);
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
+  position: relative;
+  font-family: var(--cu-font-family-default);
+}
+
+.cu-dialog-header { display: flex; flex-direction: column; gap: var(--cu-space-sm); }
+.cu-dialog-content { display: flex; flex-direction: column; gap: var(--cu-space-md); }
+.cu-dialog-footer { display: flex; justify-content: flex-end; align-items: center; gap: var(--cu-space-md); }
+
+/* Native <dialog class="cu-dialog">: open with dialog.showModal(), close with dialog.close().
+   The browser provides the backdrop, focus trapping, Esc to close and inert page behind it.
+   The .cu-dialog-overlay wrapper above still works but is deprecated. */
+dialog.cu-dialog {
+  border: 0;
+  margin: auto;
+  width: calc(100% - var(--cu-space-xl));
+  color: var(--cu-foreground);
+}
+
+dialog.cu-dialog:not([open]) {
+  display: none;
+}
+
+dialog.cu-dialog[open] {
+  display: flex;
+}
+
+dialog.cu-dialog::backdrop {
+  background: var(--cu-overlay);
+  backdrop-filter: blur(4px);
+}
+
+@media (min-width: 30rem) {
+  dialog.cu-dialog { width: 100%; }
+}

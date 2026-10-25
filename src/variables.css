@@ -99,6 +99,10 @@
   --cu-grid-cols-10: repeat(10, minmax(0, 1fr));
   --cu-grid-cols-11: repeat(11, minmax(0, 1fr));
   --cu-grid-cols-12: repeat(12, minmax(0, 1fr));
+  --cu-breakpoint-sm: 40rem;
+  --cu-breakpoint-md: 48rem;
+  --cu-breakpoint-lg: 64rem;
+  --cu-breakpoint-xl: 80rem;
 }
 
 /* ---------- 2. Semantic: light (default) ---------- */

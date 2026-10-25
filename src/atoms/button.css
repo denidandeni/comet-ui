@@ -1,0 +1,119 @@
+/* Atom: Button */
+
+/* Buttons */
+.cu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--cu-h-btn);
+  padding: 0 var(--cu-space-md);
+  border-radius: var(--cu-radius-md);
+  font-family: inherit;
+  font-size: var(--cu-text-base);
+  font-weight: var(--cu-font-weight-bold);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  gap: var(--cu-space-sm);
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* Optional Depth */
+.cu-btn-shadow {
+  box-shadow: var(--cu-shd-btn);
+}
+
+.cu-btn-primary {
+  background-color: var(--cu-primary);
+  color: var(--cu-primary-foreground);
+}
+
+.cu-btn-primary:hover {
+  background-color: var(--cu-primary-hover);
+  transform: translateY(-1px);
+}
+
+.cu-btn-primary:active {
+  transform: translateY(0);
+}
+
+.cu-btn-shadow.cu-btn-primary:hover {
+  box-shadow: var(--cu-shd-glow);
+}
+
+.cu-btn-shadow.cu-btn-primary:active {
+  box-shadow: var(--cu-shd-active);
+}
+
+.cu-btn-secondary {
+  background-color: var(--cu-surface);
+  color: var(--cu-foreground);
+  border-color: var(--cu-border);
+}
+
+.cu-btn-secondary:hover {
+  background-color: var(--cu-muted);
+  border-color: var(--cu-border);
+  transform: translateY(-1px);
+}
+
+/* Button Variants */
+.cu-btn-outline {
+  background-color: transparent;
+  color: var(--cu-foreground);
+  border-color: var(--cu-border);
+}
+
+.cu-btn-outline:hover {
+  background-color: var(--cu-muted);
+  border-color: var(--cu-border);
+}
+
+.cu-btn-ghost {
+  background-color: transparent;
+  color: var(--cu-muted-foreground);
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.cu-btn-ghost:hover {
+  background-color: var(--cu-muted);
+  color: var(--cu-foreground);
+  box-shadow: none;
+  transform: none;
+}
+
+.cu-btn-danger {
+  background-color: var(--cu-destructive-subtle);
+  color: var(--cu-destructive-subtle-foreground);
+  border-color: color-mix(in srgb, var(--cu-destructive) 10%, transparent);
+}
+
+/* Button Sizes */
+.cu-btn-sm {
+  height: 32px;
+  padding: 0 var(--cu-space-sm);
+  font-size: var(--cu-text-xs);
+}
+
+.cu-btn-lg {
+  height: 48px;
+  padding: 0 var(--cu-space-lg);
+  font-size: var(--cu-text-lg);
+}
+
+/* States */
+.cu-btn:focus-visible {
+  outline: 2px solid var(--cu-ring);
+  outline-offset: 2px;
+}
+
+.cu-btn:disabled,
+.cu-btn[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+  box-shadow: none;
+}

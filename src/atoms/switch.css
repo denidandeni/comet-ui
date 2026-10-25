@@ -1,0 +1,46 @@
+/* Atom: Switch */
+
+/* Switch (Toggle) */
+.cu-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cu-switch-input { position: absolute; opacity: 0; width: 0; height: 0; }
+
+.cu-switch-track {
+  width: 40px;
+  height: 22px;
+  background-color: var(--cu-border);
+  border-radius: 99px;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.cu-switch-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--cu-white);
+  border-radius: 50%;
+  transition: all 0.3s;
+  box-shadow: var(--cu-shd-xs);
+}
+
+.cu-switch-input:checked + .cu-switch-track { background-color: var(--cu-primary); }
+.cu-switch-input:checked + .cu-switch-track .cu-switch-thumb { transform: translateX(18px); }
+
+/* States */
+.cu-switch-input:focus-visible + .cu-switch-track {
+  outline: 2px solid var(--cu-ring);
+  outline-offset: 2px;
+}
+
+.cu-switch-input:disabled + .cu-switch-track {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

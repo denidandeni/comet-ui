@@ -1,0 +1,45 @@
+/* Molecule: Segmented control */
+
+/* Segmented Control / Tab Selector */
+.cu-segmented-control {
+  display: inline-flex;
+  background-color: var(--cu-muted);
+  padding: 4px;
+  border-radius: var(--cu-radius-md);
+}
+
+.cu-segmented-item {
+  position: relative;
+}
+
+.cu-segmented-item input {
+  position: absolute;
+  opacity: 0;
+}
+
+.cu-segmented-label {
+  display: inline-block;
+  padding: 6px 16px;
+  cursor: pointer;
+  border-radius: calc(var(--cu-radius-md) - 4px);
+  font-size: var(--cu-text-sm);
+  font-weight: var(--cu-font-weight-medium);
+  color: var(--cu-muted-foreground);
+  transition: all 0.2s ease;
+}
+
+.cu-segmented-item input:checked + .cu-segmented-label {
+  background-color: var(--cu-surface);
+  color: var(--cu-foreground);
+  box-shadow: var(--cu-shd-btn);
+}
+
+.cu-segmented-item input:focus-visible + .cu-segmented-label {
+  outline: 2px solid var(--cu-ring);
+  outline-offset: 2px;
+}
+
+.cu-segmented-item input:disabled + .cu-segmented-label {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

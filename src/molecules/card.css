@@ -1,0 +1,27 @@
+/* Molecule: Card */
+
+/* Cards */
+.cu-card {
+  background-color: var(--cu-surface);
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-lg);
+  padding: var(--cu-space-lg);
+  box-shadow: var(--cu-shd-btn);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: inherit;
+}
+
+/* Hover lift is opt-in: add .cu-card-interactive to clickable cards. */
+.cu-card-interactive {
+  cursor: pointer;
+}
+
+.cu-card-interactive:hover {
+  box-shadow: var(--cu-shd-pop);
+  transform: translateY(-2px);
+}
+
+.cu-card-interactive:focus-visible {
+  outline: 2px solid var(--cu-ring);
+  outline-offset: 2px;
+}
