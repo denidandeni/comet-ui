@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth | Comet UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../index.css">
+    <script>
+        try {
+            var r = document.documentElement, t = localStorage.getItem('cu-theme'), b = localStorage.getItem('cu-brand');
+            if (t) r.setAttribute('data-cu-theme', t);
+            if (b) r.setAttribute('data-cu-brand', b);
+        } catch (e) {}
+    </script>
+</head>
+<body>
+<main class="cu-auth">
+  <div class="cu-auth-card">
+    <div class="cu-auth-brand"><div class="cu-topbar-brand-icon">CU</div></div>
+    <h1 class="cu-auth-title">Create account</h1>
+    <p class="cu-auth-subtitle">Start in under a minute.</p>
+    <form class="cu-auth-form" onsubmit="return false">
+      <div class="cu-field"><label class="cu-label" for="email">Email</label><input type="email" class="cu-input" id="email" placeholder="name@company.com" autocomplete="email"></div>
+      <div class="cu-field"><label class="cu-label" for="password">Password</label>
+        <div class="cu-input-container"><input type="password" class="cu-input cu-has-suffix" id="password" autocomplete="new-password" aria-describedby="password-hint">
+        <button type="button" class="cu-input-affix cu-input-suffix cu-password-toggle" aria-label="Show password"><span class="material-symbols-outlined" style="font-size:20px">visibility</span></button></div>
+        <p class="cu-input-hint" id="password-hint">At least 8 characters.</p></div>
+      <label class="cu-checkbox"><input type="checkbox" class="cu-checkbox-input"><span>I agree to the terms</span></label>
+      <button type="submit" class="cu-btn cu-btn-primary cu-btn-lg" style="width:100%">Create account</button>
+    </form>
+    <p class="cu-auth-footer">Already have an account? <a href="#">Sign in</a></p>
+  </div>
+</main>
+<script src="../../src/comet.js"></script>
+</body>
+</html>

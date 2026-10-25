@@ -1,0 +1,63 @@
+/* Organism: Tabs
+   <div class="cu-tabs" data-cu-tabs>
+     <div class="cu-tabs-list" role="tablist" aria-label="Account">
+       <button class="cu-tab" role="tab" id="t1" aria-controls="p1" aria-selected="true">Profile</button>
+       <button class="cu-tab" role="tab" id="t2" aria-controls="p2" aria-selected="false">Billing</button>
+     </div>
+     <div class="cu-tab-panel" role="tabpanel" id="p1" aria-labelledby="t1">...</div>
+     <div class="cu-tab-panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>...</div>
+   </div>
+   comet.js handles click, Arrow keys, Home and End, and roving tabindex. Pill style: .cu-tabs-pill. */
+
+.cu-tabs { font-family: var(--cu-font-family-default); }
+
+.cu-tabs-list {
+  display: flex;
+  gap: var(--cu-space-xs);
+  border-bottom: 1px solid var(--cu-border);
+  overflow-x: auto;
+  font-family: inherit;
+}
+
+.cu-tab {
+  position: relative;
+  padding: var(--cu-space-sm) var(--cu-space-md);
+  border: 0;
+  background: transparent;
+  color: var(--cu-muted-foreground);
+  font: inherit;
+  font-size: var(--cu-text-sm);
+  font-weight: var(--cu-font-weight-bold);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.cu-tab::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 -1px 0;
+  height: 2px;
+  background: transparent;
+}
+
+.cu-tab:hover { color: var(--cu-foreground); }
+.cu-tab[aria-selected="true"] { color: var(--cu-foreground); }
+.cu-tab[aria-selected="true"]::after { background: var(--cu-primary); }
+.cu-tab:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: -2px; border-radius: var(--cu-radius-sm); }
+.cu-tab:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.cu-tab-panel { padding-top: var(--cu-space-lg); }
+.cu-tab-panel[hidden] { display: none; }
+
+/* Pill style */
+.cu-tabs-pill .cu-tabs-list {
+  display: inline-flex;
+  padding: var(--cu-space-xs);
+  border: 0;
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-muted);
+}
+.cu-tabs-pill .cu-tab { border-radius: var(--cu-radius-sm); }
+.cu-tabs-pill .cu-tab::after { display: none; }
+.cu-tabs-pill .cu-tab[aria-selected="true"] { background: var(--cu-surface); box-shadow: var(--cu-shd-xs); }

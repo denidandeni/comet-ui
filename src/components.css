@@ -14,7 +14,9 @@
 @import url('./atoms/spinner.css');
 @import url('./atoms/skeleton.css');
 @import url('./atoms/progress.css');
+@import url('./atoms/kbd.css');
 @import url('./molecules/card.css');
+@import url('./molecules/field.css');
 @import url('./molecules/input-affix.css');
 @import url('./molecules/button-group.css');
 @import url('./molecules/dropdown.css');
@@ -38,3 +40,10 @@
 @import url('./organisms/drawer.css');
 @import url('./organisms/toast.css');
 @import url('./organisms/table.css');
+@import url('./organisms/tabs.css');
+@import url('./organisms/sidebar.css');
+
+/* Templates: page-level layouts built from the pieces above. */
+@import url('./templates/app-shell.css');
+@import url('./templates/auth.css');
+@import url('./templates/settings.css');

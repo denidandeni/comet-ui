@@ -1,15 +1,18 @@
 {
   "name": "comet-ui",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Comet UI Design System - A modern, high-contrast, lightweight CSS component library.",
-  "main": "index.css",
-  "style": "index.css",
+  "main": "./dist/comet.min.js",
+  "style": "./dist/comet.min.css",
   "scripts": {
     "build:tokens": "node scripts/build-tokens.mjs",
     "lint:tokens": "node scripts/check-tokens.mjs",
     "lint:brands": "node scripts/check-brands.mjs",
     "check:generated": "node scripts/build-tokens.mjs --check",
-    "test": "npm run check:generated && npm run lint:tokens && npm run lint:brands"
+    "test": "npm run check:generated && npm run lint:tokens && npm run lint:brands && npm run build:dist",
+    "build:dist": "node scripts/build-dist.mjs",
+    "build": "npm run build:tokens && npm run build:dist",
+    "prepublishOnly": "npm test"
   },
   "repository": {
     "type": "git",
@@ -29,10 +32,45 @@
   },
   "homepage": "https://github.com/denidandeni/comet-ui#readme",
   "files": [
-    "index.css",
+    "dist",
     "src",
-    "src/comet.js",
+    "tokens",
+    "bin",
+    "scripts/lib",
+    "index.css",
     "tailwind.css",
-    "tokens"
-  ]
+    "llms.txt",
+    "CHANGELOG.md"
+  ],
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "lightningcss": "^1.33.0"
+  },
+  "type": "commonjs",
+  "bin": {
+    "comet-ui": "./bin/comet-ui.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "sideEffects": true,
+  "exports": {
+    ".": {
+      "style": "./dist/comet.min.css",
+      "default": "./dist/comet.min.js"
+    },
+    "./comet.css": "./dist/comet.css",
+    "./comet.min.css": "./dist/comet.min.css",
+    "./core.min.css": "./dist/core.min.css",
+    "./components.min.css": "./dist/components.min.css",
+    "./comet.js": "./dist/comet.js",
+    "./comet.min.js": "./dist/comet.min.js",
+    "./brands/*.css": "./dist/brands/*.css",
+    "./tailwind.css": "./tailwind.css",
+    "./index.css": "./index.css",
+    "./llms.txt": "./llms.txt",
+    "./tokens/*": "./tokens/*",
+    "./src/*": "./src/*",
+    "./package.json": "./package.json"
+  }
 }

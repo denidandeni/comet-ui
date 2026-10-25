@@ -1,0 +1,76 @@
+/* Template: App shell = topbar + sidebar + content.
+   <div class="cu-app-shell" data-cu-shell>
+     <aside class="cu-sidebar" id="shell-sidebar">...</aside>
+     <div class="cu-app-shell-main">
+       <header class="cu-app-shell-header">
+         <button class="cu-app-shell-toggle" data-cu-shell-toggle aria-controls="shell-sidebar" aria-expanded="false" aria-label="Menu">...</button>
+         ...
+       </header>
+       <main class="cu-app-shell-content">...</main>
+     </div>
+   </div>
+   Below 48rem the sidebar slides in; comet.js toggles .is-open on the shell. */
+
+.cu-app-shell {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+  background: var(--cu-background);
+  color: var(--cu-foreground);
+  font-family: var(--cu-font-family-default);
+}
+
+.cu-app-shell > .cu-sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: var(--cu-z-fixed);
+  transform: translateX(-100%);
+  transition: transform 0.25s ease;
+  box-shadow: var(--cu-shd-pop);
+}
+.cu-app-shell.is-open > .cu-sidebar { transform: none; }
+
+.cu-app-shell-main { display: flex; flex-direction: column; min-width: 0; }
+
+.cu-app-shell-header {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-md);
+  height: var(--cu-h-header);
+  padding: 0 var(--cu-space-md);
+  background: var(--cu-surface);
+  border-bottom: 1px solid var(--cu-border);
+  position: sticky;
+  top: 0;
+  z-index: var(--cu-z-sticky);
+}
+
+.cu-app-shell-toggle {
+  display: inline-flex;
+  padding: var(--cu-space-sm);
+  border: 0;
+  border-radius: var(--cu-radius-md);
+  background: transparent;
+  color: var(--cu-foreground);
+  cursor: pointer;
+}
+.cu-app-shell-toggle:focus-visible { outline: 2px solid var(--cu-ring); }
+
+.cu-app-shell-content {
+  flex: 1;
+  padding: var(--cu-space-lg) var(--cu-space-md);
+  width: 100%;
+  max-width: var(--cu-grid-max);
+  margin: 0 auto;
+}
+
+@media (min-width: 48rem) {
+  .cu-app-shell { grid-template-columns: var(--cu-w-sidebar) 1fr; }
+  .cu-app-shell > .cu-sidebar { position: sticky; top: 0; height: 100vh; transform: none; box-shadow: none; z-index: auto; }
+  .cu-app-shell-toggle { display: none; }
+  .cu-app-shell-content { padding: var(--cu-space-xl); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cu-app-shell > .cu-sidebar { transition: none; }
+}

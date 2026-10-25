@@ -6,14 +6,23 @@
  * Content added later: call CometUI.init(container). Toasts: CometUI.toast({...}).
  *
  * Covers: dialog + drawer (open/close), dropdown, accordion, combobox, password toggle,
- * topbar menu, dismissible alerts, searchbar, quantity input, file upload, datepicker,
- * toast and data table (sort, filter, paginate).
+ * topbar menu, app shell sidebar, dismissible alerts, searchbar, quantity input, file upload,
+ * datepicker, toast, tabs, OTP input and data table (sort, filter, paginate).
  */
 (function () {
   'use strict';
 
+  var VERSION = '1.2.0';
+
+  // Server-side rendering (Next.js, Node): export no-ops so importing the package never throws.
+  if (typeof document === 'undefined') {
+    var noop = function () {};
+    var stub = { version: VERSION, init: noop, toast: Object.assign(function () { return { dismiss: noop }; }, { position: noop, clear: noop }) };
+    if (typeof module !== 'undefined' && module.exports) module.exports = stub;
+    return;
+  }
+
   var doc = document;
-  var VERSION = '1.1.0';
 
   // ---------- helpers ----------
   function q(sel, root) { return (root || doc).querySelector(sel); }
@@ -742,6 +751,95 @@
     });
   }
 
+  // ---------- tabs ----------
+  function tabsInit(root) {
+    qa('[data-cu-tabs]', root).forEach(function (wrap) {
+      var tabs = qa('[role="tab"]', wrap);
+      var sel = tabs.filter(function (t) { return t.getAttribute('aria-selected') === 'true'; })[0] || tabs[0];
+      if (sel) tabSelect(wrap, sel, false);
+    });
+  }
+  function tabSelect(wrap, tab, focus) {
+    qa('[role="tab"]', wrap).forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      var panel = resolveTarget(t.getAttribute('aria-controls'));
+      if (panel) panel.hidden = !on;
+    });
+    if (focus) tab.focus();
+    emit(wrap, 'cu:tab', { id: tab.id });
+  }
+  function onTabClick(e) {
+    var tab = e.target.closest('[data-cu-tabs] [role="tab"]');
+    if (!tab || tab.disabled) return false;
+    tabSelect(tab.closest('[data-cu-tabs]'), tab, false);
+    return true;
+  }
+  function onTabKey(e) {
+    var tab = e.target.closest && e.target.closest('[data-cu-tabs] [role="tab"]');
+    if (!tab) return;
+    var wrap = tab.closest('[data-cu-tabs]');
+    var tabs = qa('[role="tab"]:not(:disabled)', wrap), i = tabs.indexOf(tab), n = null;
+    if (e.key === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+    else if (e.key === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+    else if (e.key === 'Home') n = tabs[0];
+    else if (e.key === 'End') n = tabs[tabs.length - 1];
+    if (n) { e.preventDefault(); tabSelect(wrap, n, true); }
+  }
+
+  // ---------- OTP input ----------
+  function otpBoxes(e) { return qa('.cu-otp-input', e.target.closest('.cu-otp-container')); }
+  function otpDone(box) {
+    var boxes = qa('.cu-otp-input', box.closest('.cu-otp-container'));
+    var value = boxes.map(function (b) { return b.value; }).join('');
+    if (value.length === boxes.length) emit(box.closest('.cu-otp-container'), 'cu:otp', { value: value });
+  }
+  function onOtpInput(e) {
+    if (!e.target.matches || !e.target.matches('.cu-otp-input')) return;
+    var boxes = otpBoxes(e), i = boxes.indexOf(e.target);
+    var v = e.target.value.replace(/\s/g, '');
+    if (v.length > 1) { // paste or autofill into one box: spread it
+      v.split('').slice(0, boxes.length - i).forEach(function (ch, k) { boxes[i + k].value = ch; });
+      i = Math.min(boxes.length - 1, i + v.length - 1);
+      boxes[i].focus();
+    } else {
+      e.target.value = v;
+      if (v && boxes[i + 1]) boxes[i + 1].focus();
+    }
+    otpDone(e.target);
+  }
+  function onOtpPaste(e) {
+    if (!e.target.matches || !e.target.matches('.cu-otp-input')) return;
+    var text = ((e.clipboardData || window.clipboardData).getData('text') || '').replace(/\s/g, '');
+    if (!text) return;
+    e.preventDefault(); // maxlength="1" would otherwise cut the pasted code to one digit
+    var boxes = otpBoxes(e), i = boxes.indexOf(e.target);
+    text.split('').slice(0, boxes.length - i).forEach(function (ch, k) { boxes[i + k].value = ch; });
+    boxes[Math.min(boxes.length - 1, i + text.length - 1)].focus();
+    otpDone(e.target);
+  }
+  function onOtpKey(e) {
+    if (!e.target.matches || !e.target.matches('.cu-otp-input')) return;
+    var boxes = otpBoxes(e), i = boxes.indexOf(e.target);
+    if (e.key === 'Backspace' && !e.target.value && boxes[i - 1]) { e.preventDefault(); boxes[i - 1].value = ''; boxes[i - 1].focus(); }
+    else if (e.key === 'ArrowLeft' && boxes[i - 1]) { e.preventDefault(); boxes[i - 1].focus(); }
+    else if (e.key === 'ArrowRight' && boxes[i + 1]) { e.preventDefault(); boxes[i + 1].focus(); }
+  }
+
+  // ---------- app shell ----------
+  function setShell(shell, open) {
+    shell.classList.toggle('is-open', open);
+    var t = q('[data-cu-shell-toggle]', shell);
+    if (t) t.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  function onShellClick(e) {
+    var t = e.target.closest('[data-cu-shell-toggle]');
+    if (t) { var shell = t.closest('[data-cu-shell]'); setShell(shell, !shell.classList.contains('is-open')); return true; }
+    qa('[data-cu-shell].is-open').forEach(function (s) { if (!e.target.closest('.cu-sidebar')) setShell(s, false); });
+    return false;
+  }
+
   // ---------- init + event wiring ----------
   function init(root) {
     root = root || doc;
@@ -756,6 +854,7 @@
     });
     dpInit(root);
     tableInit(root);
+    tabsInit(root);
   }
 
   doc.addEventListener('click', function (e) {
@@ -766,14 +865,20 @@
     if (onFileRemove(e)) return;
     if (onPasswordToggle(e)) return;
     if (onTopbarToggle(e)) return;
+    if (onTabClick(e)) return;
+    if (onShellClick(e)) return;
     onAccordionClick(e);
     onDropdownClick(e);
     onComboboxClick(e);
     if (!e.target.closest('[data-cu-datepicker]')) closeDatepickers(null);
   });
-  doc.addEventListener('input', function (e) { onSearchbarInput(e); onComboboxInput(e); });
+  doc.addEventListener('input', function (e) { onSearchbarInput(e); onComboboxInput(e); onOtpInput(e); });
   doc.addEventListener('change', function (e) { onQuantityChange(e); onFileChange(e); });
-  doc.addEventListener('keydown', function (e) { onDropdownKey(e); onSearchbarKey(e); });
+  doc.addEventListener('keydown', function (e) {
+    onDropdownKey(e); onSearchbarKey(e); onTabKey(e); onOtpKey(e);
+    if (e.key === 'Escape') qa('[data-cu-shell].is-open').forEach(function (s) { setShell(s, false); });
+  });
+  doc.addEventListener('paste', onOtpPaste);
   ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(function (t) { doc.addEventListener(t, onFileDrag); });
 
   if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', function () { init(doc); });

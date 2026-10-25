@@ -1,0 +1,47 @@
+/* Template: Settings page = section list on the left, stacked setting cards on the right.
+   <div class="cu-settings">
+     <nav class="cu-settings-nav" aria-label="Settings">
+       <a class="cu-sidebar-link is-active" href="#profile">Profile</a>
+     </nav>
+     <div class="cu-settings-body">
+       <section class="cu-settings-section" id="profile">
+         <header class="cu-settings-header"><h2>Profile</h2><p>How others see you.</p></header>
+         <div class="cu-settings-fields">...cu-field...</div>
+         <footer class="cu-settings-footer"><button class="cu-btn cu-btn-primary">Save</button></footer>
+       </section>
+     </div>
+   </div> */
+
+.cu-settings {
+  display: grid;
+  gap: var(--cu-space-lg);
+  grid-template-columns: 1fr;
+  font-family: var(--cu-font-family-default);
+}
+
+.cu-settings-nav { display: flex; gap: var(--cu-space-xs); overflow-x: auto; }
+.cu-settings-body { display: flex; flex-direction: column; gap: var(--cu-space-lg); min-width: 0; }
+
+.cu-settings-section {
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-lg);
+  background: var(--cu-surface);
+  overflow: hidden;
+}
+.cu-settings-header { padding: var(--cu-space-lg) var(--cu-space-lg) 0; }
+.cu-settings-header h2 { margin: 0; font-size: var(--cu-text-lg); }
+.cu-settings-header p { margin: var(--cu-space-xs) 0 0; font-size: var(--cu-text-sm); color: var(--cu-muted-foreground); }
+.cu-settings-fields { display: flex; flex-direction: column; gap: var(--cu-space-md); padding: var(--cu-space-lg); }
+.cu-settings-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--cu-space-md);
+  padding: var(--cu-space-md) var(--cu-space-lg);
+  border-top: 1px solid var(--cu-border);
+  background: var(--cu-muted);
+}
+
+@media (min-width: 48rem) {
+  .cu-settings { grid-template-columns: 12rem 1fr; }
+  .cu-settings-nav { flex-direction: column; position: sticky; top: var(--cu-space-lg); align-self: start; }
+}

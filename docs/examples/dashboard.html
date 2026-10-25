@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Comet UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../index.css">
+    <script>
+        try {
+            var r = document.documentElement, t = localStorage.getItem('cu-theme'), b = localStorage.getItem('cu-brand');
+            if (t) r.setAttribute('data-cu-theme', t);
+            if (b) r.setAttribute('data-cu-brand', b);
+        } catch (e) {}
+    </script>
+</head>
+<body>
+<div class="cu-app-shell" data-cu-shell>
+  <aside class="cu-sidebar" id="shell-sidebar" aria-label="Main">
+    <div class="cu-sidebar-header">
+      <a href="#" class="cu-topbar-brand"><div class="cu-topbar-brand-icon">KAI</div><div class="cu-topbar-brand-text"><span class="cu-topbar-brand-name">PT KAI</span><span class="cu-topbar-brand-desc">Fuelguard System</span></div></a>
+    </div>
+    <nav class="cu-sidebar-nav">
+      <p class="cu-sidebar-group">Overview</p>
+      <a class="cu-sidebar-link is-active" href="#" aria-current="page"><svg class="cu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>Dashboard</a>
+      <a class="cu-sidebar-link" href="#"><svg class="cu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>Reports <span class="cu-sidebar-badge">3</span></a>
+      <p class="cu-sidebar-group">Manage</p>
+      <a class="cu-sidebar-link" href="#"><svg class="cu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Users</a>
+      <a class="cu-sidebar-link" href="settings.html"><svg class="cu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>Settings</a>
+    </nav>
+    <div class="cu-sidebar-footer"><span class="cu-text-sm">Budi Permana</span></div>
+  </aside>
+  <div class="cu-app-shell-main">
+    <header class="cu-app-shell-header">
+      <button type="button" class="cu-app-shell-toggle" data-cu-shell-toggle aria-controls="shell-sidebar" aria-expanded="false" aria-label="Menu"><svg class="cu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      <div class="cu-searchbar" style="max-width:320px;flex:1"><svg class="cu-icon cu-searchbar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input type="search" class="cu-input cu-searchbar-input" placeholder="Search locomotives" aria-label="Search"><button type="button" class="cu-searchbar-clear" aria-label="Clear search"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+      <span style="margin-left:auto"><kbd class="cu-kbd">Ctrl</kbd> <kbd class="cu-kbd">K</kbd></span>
+    </header>
+    <main class="cu-app-shell-content">
+      <h1 class="cu-h2">Fuel monitoring</h1>
+      <p class="cu-paragraph cu-mt-sm">Live fuel levels across all depots.</p>
+      <div class="cu-alert cu-alert-warning cu-mt-lg" role="status"><svg class="cu-icon cu-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4M12 17h.01"/></svg><div class="cu-alert-body"><p class="cu-alert-title">2 locomotives below the safe level</p><p class="cu-alert-description">KA-2766 and KA-3302 need refuelling today.</p></div></div>
+      <div class="cu-grid cu-grid-cols-1 cu-gap-md cu-mt-lg" style="grid-template-columns:repeat(auto-fit,minmax(12rem,1fr))">
+        <div class="cu-stat"><div class="cu-stat-header"><span class="cu-stat-label">Fuel used today</span><span class="cu-stat-icon"><svg class="cu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M15 10h2a2 2 0 0 1 2 2v3a2 2 0 0 0 4 0V8l-3-3"/><path d="M3 22h12"/></svg></span></div><div class="cu-stat-value">48.250 L</div><div class="cu-stat-footer"><span class="cu-stat-delta cu-stat-delta-up">-3,2%</span><span class="cu-stat-hint">vs yesterday</span></div></div>
+        <div class="cu-stat"><div class="cu-stat-header"><span class="cu-stat-label">Active locomotives</span><span class="cu-stat-icon"><svg class="cu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M15 10h2a2 2 0 0 1 2 2v3a2 2 0 0 0 4 0V8l-3-3"/><path d="M3 22h12"/></svg></span></div><div class="cu-stat-value">128</div><div class="cu-stat-footer"><span class="cu-stat-delta cu-stat-delta-up">+4</span><span class="cu-stat-hint">vs last week</span></div></div>
+        <div class="cu-stat"><div class="cu-stat-header"><span class="cu-stat-label">Low fuel alerts</span><span class="cu-stat-icon"><svg class="cu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M15 10h2a2 2 0 0 1 2 2v3a2 2 0 0 0 4 0V8l-3-3"/><path d="M3 22h12"/></svg></span></div><div class="cu-stat-value">2</div><div class="cu-stat-footer"><span class="cu-stat-delta cu-stat-delta-down">+1</span><span class="cu-stat-hint">vs yesterday</span></div></div>
+        <div class="cu-stat"><div class="cu-stat-header"><span class="cu-stat-label">Efficiency</span><span class="cu-stat-icon"><svg class="cu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M15 10h2a2 2 0 0 1 2 2v3a2 2 0 0 0 4 0V8l-3-3"/><path d="M3 22h12"/></svg></span></div><div class="cu-stat-value">94%</div><div class="cu-stat-footer"><span class="cu-stat-delta cu-stat-delta-up">+1,1%</span><span class="cu-stat-hint">vs last month</span></div></div>
+      </div>
+      <div class="cu-tabs cu-mt-lg" data-cu-tabs>
+        <div class="cu-tabs-list" role="tablist" aria-label="Fuel views">
+          <button class="cu-tab" role="tab" id="tab-levels" aria-controls="panel-levels" aria-selected="true">Levels</button>
+          <button class="cu-tab" role="tab" id="tab-capacity" aria-controls="panel-capacity" aria-selected="false">Capacity</button>
+        </div>
+        <div class="cu-tab-panel" role="tabpanel" id="panel-levels" aria-labelledby="tab-levels">
+          <div class="cu-table-wrap" data-cu-table data-cu-page-size="5">
+            <div class="cu-table-toolbar"><select class="cu-select" data-cu-table-column="2" aria-label="Status" style="width:180px"><option value="">All statuses</option><option>Normal</option><option>Low</option><option>Critical</option></select></div>
+            <div class="cu-table-scroll"><table class="cu-table"><thead><tr><th aria-sort="none" data-cu-sort="text"><button type="button" class="cu-table-sort">Unit<span class="cu-table-sort-icon"></span></button></th><th aria-sort="none" data-cu-sort="text"><button type="button" class="cu-table-sort">Depot<span class="cu-table-sort-icon"></span></button></th><th aria-sort="none" data-cu-sort="text"><button type="button" class="cu-table-sort">Status<span class="cu-table-sort-icon"></span></button></th><th class="cu-table-num" aria-sort="none" data-cu-sort="number"><button type="button" class="cu-table-sort">Litres<span class="cu-table-sort-icon"></span></button></th><th aria-sort="none" data-cu-sort="date"><button type="button" class="cu-table-sort">Updated<span class="cu-table-sort-icon"></span></button></th></tr></thead><tbody><tr><td>KA-2041</td><td>Depot Bandung</td><td><span class="cu-badge">Normal</span></td><td class="cu-table-num" data-sort="12480">12.480</td><td>2026-10-24</td></tr><tr><td>KA-1187</td><td>Depot Cirebon</td><td><span class="cu-badge">Normal</span></td><td class="cu-table-num" data-sort="9120">9.120</td><td>2026-10-24</td></tr><tr><td>KA-3302</td><td>Depot Yogyakarta</td><td><span class="cu-badge">Low</span></td><td class="cu-table-num" data-sort="2040">2.040</td><td>2026-10-23</td></tr><tr><td>KA-0915</td><td>Depot Surabaya</td><td><span class="cu-badge">Normal</span></td><td class="cu-table-num" data-sort="14300">14.300</td><td>2026-10-23</td></tr><tr><td>KA-2766</td><td>Depot Semarang</td><td><span class="cu-badge">Critical</span></td><td class="cu-table-num" data-sort="880">880</td><td>2026-10-22</td></tr><tr><td>KA-1450</td><td>Depot Jakarta</td><td><span class="cu-badge">Normal</span></td><td class="cu-table-num" data-sort="11760">11.760</td><td>2026-10-22</td></tr><tr><td>KA-3019</td><td>Depot Medan</td><td><span class="cu-badge">Low</span></td><td class="cu-table-num" data-sort="3150">3.150</td><td>2026-10-21</td></tr></tbody></table></div>
+            <div class="cu-table-footer"><span data-cu-table-summary></span><nav class="cu-pagination" data-cu-table-pagination aria-label="Pagination"></nav></div>
+          </div>
+        </div>
+        <div class="cu-tab-panel" role="tabpanel" id="panel-capacity" aria-labelledby="tab-capacity" hidden>
+          <div class="cu-flex-col cu-gap-lg" style="max-width:32rem">
+            <div class="cu-field"><span class="cu-label">Depot Bandung, 78%</span><div class="cu-progress" role="progressbar" aria-label="Bandung" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" style="--cu-value: 78"><div class="cu-progress-bar"></div></div></div>
+            <div class="cu-field"><span class="cu-label">Depot Surabaya, 54%</span><div class="cu-progress" role="progressbar" aria-label="Surabaya" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100" style="--cu-value: 54"><div class="cu-progress-bar"></div></div></div>
+            <div class="cu-field"><span class="cu-label">Depot Semarang, 12%</span><div class="cu-progress" role="progressbar" aria-label="Semarang" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100" style="--cu-value: 12"><div class="cu-progress-bar"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="../../src/comet.js"></script>
+</body>
+</html>
