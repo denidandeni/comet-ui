@@ -37,7 +37,7 @@
   },
   "subtle-foreground": {
     "$value": {
-      "light": "{color.slate.400}",
+      "light": "{color.slate.500}",
       "dark": "{color.slate.500}"
     },
     "$description": "Placeholders, icons, hints"
@@ -58,21 +58,21 @@
   },
   "primary": {
     "$value": {
-      "light": "{color.brand.500}",
-      "dark": "{color.brand.500}"
+      "light": "{color.primary.light}",
+      "dark": "{color.primary.dark}"
     },
-    "$description": "Main action fill"
+    "$description": "Main action fill. Chosen by the brand for each theme"
   },
   "primary-hover": {
     "$value": {
-      "light": "{color.brand.600}",
-      "dark": "{color.brand.600}"
+      "light": "{color.primary-hover.light}",
+      "dark": "{color.primary-hover.dark}"
     }
   },
   "primary-foreground": {
     "$value": {
-      "light": "{color.white}",
-      "dark": "{color.white}"
+      "light": "{color.primary-foreground.light}",
+      "dark": "{color.primary-foreground.dark}"
     },
     "$description": "Text on primary"
   },
@@ -98,8 +98,8 @@
   },
   "ring": {
     "$value": {
-      "light": "{color.brand.500}",
-      "dark": "{color.brand.400}"
+      "light": "{color.ring.light}",
+      "dark": "{color.ring.dark}"
     },
     "$description": "Selected / focused outline"
   },
@@ -149,7 +149,7 @@
   },
   "destructive-subtle-foreground": {
     "$value": {
-      "light": "{color.red.600}",
+      "light": "{color.red.700}",
       "dark": "{color.red.400}"
     },
     "$description": "Danger text on surface or destructive-subtle"
@@ -169,7 +169,7 @@
   },
   "success-subtle-foreground": {
     "$value": {
-      "light": "{color.green.600}",
+      "light": "{color.green.700}",
       "dark": "{color.green.400}"
     }
   },
@@ -214,8 +214,8 @@
     },
     "glow": {
       "$value": {
-        "light": "0 0 15px color-mix(in srgb, var(--cu-brand-500) 15%, transparent)",
-        "dark": "0 0 15px color-mix(in srgb, var(--cu-brand-500) 35%, transparent)"
+        "light": "0 0 15px color-mix(in srgb, var(--cu-primary) 15%, transparent)",
+        "dark": "0 0 15px color-mix(in srgb, var(--cu-primary) 35%, transparent)"
       }
     }
   },

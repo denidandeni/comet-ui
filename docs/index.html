@@ -38,6 +38,7 @@
                 <label class="docs-switcher">
                     <span class="component-label">Brand</span>
                     <select class="cu-select" id="brand-switch" aria-label="Brand">
+                        <option value="neutral">Neutral</option>
                         <option value="comet">Comet</option>
                         <option value="ocean">Ocean</option>
                     </select>
@@ -301,6 +302,10 @@
                         <span class="cu-badge cu-badge-default">Default</span>
                     </div>
                     <div class="component-label">A different brand inside the same page</div>
+                    <div data-cu-brand="comet" class="cu-card cu-flex cu-gap-md cu-items-center" style="width: 100%;">
+                        <button class="cu-btn cu-btn-primary">Comet primary</button>
+                        <span class="cu-badge cu-badge-brand">Comet</span>
+                    </div>
                     <div data-cu-brand="ocean" class="cu-card cu-flex cu-gap-md cu-items-center" style="width: 100%;">
                         <button class="cu-btn cu-btn-primary">Ocean primary</button>
                         <span class="cu-badge cu-badge-brand">Ocean</span>
@@ -309,7 +314,7 @@
 
                 <div class="docs-code-box" style="width: 100%;">
                     <span class="docs-code-comment">&lt;!-- Switch the whole page --&gt;</span><br>
-                    <span class="docs-code-tag">&lt;html</span> <span class="docs-code-attr">data-cu-theme</span>=<span class="docs-code-string">"dark"</span> <span class="docs-code-attr">data-cu-brand</span>=<span class="docs-code-string">"ocean"</span><span class="docs-code-tag">&gt;</span><br><br>
+                    <span class="docs-code-tag">&lt;html</span> <span class="docs-code-attr">data-cu-theme</span>=<span class="docs-code-string">"dark"</span> <span class="docs-code-attr">data-cu-brand</span>=<span class="docs-code-string">"comet"</span><span class="docs-code-tag">&gt;</span><br><br>
                     <span class="docs-code-comment">&lt;!-- Add a brand: copy tokens/brands/_template.json, then --&gt;</span><br>
                     <span class="docs-code-comment">npm run build:tokens &amp;&amp; npm test</span>
                 </div>
@@ -1475,7 +1480,7 @@ searchInput.addEventListener(<span class="docs-code-string">'input'</span>, (e) 
                 try { localStorage.setItem(key, el.value); } catch (e) {}
             });
         }
-        bind('brand-switch', 'data-cu-brand', 'cu-brand', 'comet');
+        bind('brand-switch', 'data-cu-brand', 'cu-brand', 'neutral');
         bind('theme-switch', 'data-cu-theme', 'cu-theme', 'light');
     })();
 </script>

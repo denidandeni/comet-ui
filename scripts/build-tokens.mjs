@@ -61,7 +61,7 @@ files.set(
 const colorLeaves = [...t.semantic.filter((l) => !['shd', 'bdr'].includes(l.path[0]) && l.key !== 'overlay')];
 const twLines = [
   ...colorLeaves.map((l) => `  --color-${l.path.join('-')}: var(${cssName(l)});`),
-  ...Object.values(t.brands[DEFAULT_BRAND].leaves).filter((l) => l.path[0] === 'color').map((l) => `  --color-${l.path.slice(1).join('-')}: var(${cssName(l)});`),
+  ...Object.values(t.brands[DEFAULT_BRAND].leaves).filter((l) => l.path[0] === 'color' && ['brand', 'accent'].includes(l.path[1])).map((l) => `  --color-${l.path.slice(1).join('-')}: var(${cssName(l)});`),
   '  --color-white: var(--cu-white);',
   '  --color-black: var(--cu-black);',
   '  --radius-sm: var(--cu-radius-sm);',

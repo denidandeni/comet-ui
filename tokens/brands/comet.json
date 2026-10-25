@@ -1,5 +1,5 @@
 {
-  "$description": "Default brand. Purple, rounded, Plus Jakarta Sans.",
+  "$description": "Purple, rounded, Plus Jakarta Sans. The original Comet UI look.",
   "name": "comet",
   "color": {
     "brand": {
@@ -39,6 +39,38 @@
     },
     "accent": {
       "$value": "#0891b2"
+    },
+    "primary": {
+      "light": {
+        "$value": "#7c3aed"
+      },
+      "dark": {
+        "$value": "#7c3aed"
+      }
+    },
+    "primary-hover": {
+      "light": {
+        "$value": "#6d28d9"
+      },
+      "dark": {
+        "$value": "#6d28d9"
+      }
+    },
+    "primary-foreground": {
+      "light": {
+        "$value": "#ffffff"
+      },
+      "dark": {
+        "$value": "#ffffff"
+      }
+    },
+    "ring": {
+      "light": {
+        "$value": "#8b5cf6"
+      },
+      "dark": {
+        "$value": "#a78bfa"
+      }
     }
   },
   "font-family": {

@@ -63,11 +63,11 @@ This project is licensed under the MIT License.
 Comet UI has two independent switches, set as attributes on any element (usually `<html>`):
 
 ```html
-<html data-cu-theme="dark" data-cu-brand="ocean">
+<html data-cu-theme="dark" data-cu-brand="comet">
 ```
 
 - **Theme** (`light` default, `dark`) swaps the semantic tokens such as `--cu-background` and `--cu-primary`.
-- **Brand** swaps the color scale, fonts and corner radius. The default brand is `comet`.
+- **Brand** swaps the color scale, fonts and corner radius. The default brand is `neutral` (black and white, like shadcn/ui). `comet` (purple) and `ocean` (blue) are included as examples.
 
 Components only use semantic tokens, so no component code changes per brand or theme. Scopes can be nested (a dark card inside a light page).
 

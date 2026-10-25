@@ -4,7 +4,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-export const DEFAULT_BRAND = 'comet';
+export const DEFAULT_BRAND = 'neutral';
 
 const readJson = (p) => JSON.parse(readFileSync(join(root, p), 'utf8'));
 

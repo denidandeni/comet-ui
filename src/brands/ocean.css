@@ -13,6 +13,14 @@
   --cu-brand-900: #082f49;
   --cu-brand-950: #04202f;
   --cu-accent: #b45309;
+  --cu-primary-light: #0369a1;
+  --cu-primary-dark: #0369a1;
+  --cu-primary-hover-light: #075985;
+  --cu-primary-hover-dark: #075985;
+  --cu-primary-foreground-light: #ffffff;
+  --cu-primary-foreground-dark: #ffffff;
+  --cu-ring-light: #0369a1;
+  --cu-ring-dark: #38bdf8;
   --cu-font-family-default: "DM Sans", sans-serif;
   --cu-font-family-heading: "Fraunces", serif;
   --cu-font-family-mono: "Ui-Monospace", "SF Mono", monospace;

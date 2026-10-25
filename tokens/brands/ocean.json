@@ -39,6 +39,38 @@
     },
     "accent": {
       "$value": "#b45309"
+    },
+    "primary": {
+      "light": {
+        "$value": "#0369a1"
+      },
+      "dark": {
+        "$value": "#0369a1"
+      }
+    },
+    "primary-hover": {
+      "light": {
+        "$value": "#075985"
+      },
+      "dark": {
+        "$value": "#075985"
+      }
+    },
+    "primary-foreground": {
+      "light": {
+        "$value": "#ffffff"
+      },
+      "dark": {
+        "$value": "#ffffff"
+      }
+    },
+    "ring": {
+      "light": {
+        "$value": "#0369a1"
+      },
+      "dark": {
+        "$value": "#38bdf8"
+      }
     }
   },
   "font-family": {
