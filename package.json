@@ -5,7 +5,8 @@
   "main": "index.css",
   "style": "index.css",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint:tokens": "node scripts/check-tokens.mjs",
+    "test": "npm run lint:tokens"
   },
   "repository": {
     "type": "git",

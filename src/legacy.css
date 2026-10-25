@@ -1,0 +1,128 @@
+/* ==========================================================================
+   PURPOSE: Comet UI Legacy Aliases  (DEPRECATED, removed in the next major)
+
+   Old class names kept so existing projects do not break while they move to
+   the current names. New code and the docs must NOT use anything in this file;
+   `npm run lint:tokens` fails if a docs page does.
+
+   Old name                         Use instead
+   .cu-flexCol, .cu-itemsCenter ... .cu-flex-col, .cu-items-center ...
+   .cu-gapMd, .cu-mtSm, .cu-pxLg    .cu-gap-md, .cu-mt-sm, .cu-px-lg
+   .cu-textSm / .cu-textMd / .cu-textLg   .cu-text-sm / .cu-text-base / .cu-text-lg
+   .cu-textSubtle ...               .cu-text-subtle ...
+   .cu-zSticky / .cu-zOverlay       .cu-z-sticky / .cu-z-overlay
+   .cu-cols-N                       .cu-grid-cols-N
+   .cu-text-left|center|right|justify   .cu-align-left|center|right|justify
+
+   Values are frozen exactly as they were in v1.0.0 (for example .cu-zSticky is
+   still 100), so nothing shifts for existing users.
+   ========================================================================== */
+
+/* camelCase utilities (v1.0.0) */
+.cu-flexCol { display: flex; flex-direction: column; }
+.cu-flex1 { flex: 1; }
+.cu-flexShrink0 { flex-shrink: 0; }
+.cu-itemsCenter { align-items: center; }
+.cu-itemsStart { align-items: flex-start; }
+.cu-justifyCenter { justify-content: center; }
+.cu-justifyBetween { justify-content: space-between; }
+.cu-zSticky { z-index: 100; }
+.cu-zOverlay { z-index: 1000; }
+.cu-gapXs { gap: var(--cu-space-xs); }
+.cu-gapSm { gap: var(--cu-space-sm); }
+.cu-gapMd { gap: var(--cu-space-md); }
+.cu-gapLg { gap: var(--cu-space-lg); }
+.cu-pXs { padding: var(--cu-space-xs); }
+.cu-pSm { padding: var(--cu-space-sm); }
+.cu-pMd { padding: var(--cu-space-md); }
+.cu-pLg { padding: var(--cu-space-lg); }
+.cu-ptXs { padding-top: var(--cu-space-xs); }
+.cu-ptSm { padding-top: var(--cu-space-sm); }
+.cu-ptMd { padding-top: var(--cu-space-md); }
+.cu-ptLg { padding-top: var(--cu-space-lg); }
+.cu-pbXs { padding-bottom: var(--cu-space-xs); }
+.cu-pbSm { padding-bottom: var(--cu-space-sm); }
+.cu-pbMd { padding-bottom: var(--cu-space-md); }
+.cu-pbLg { padding-bottom: var(--cu-space-lg); }
+.cu-plXs { padding-left: var(--cu-space-xs); }
+.cu-plSm { padding-left: var(--cu-space-sm); }
+.cu-plMd { padding-left: var(--cu-space-md); }
+.cu-plLg { padding-left: var(--cu-space-lg); }
+.cu-prXs { padding-right: var(--cu-space-xs); }
+.cu-prSm { padding-right: var(--cu-space-sm); }
+.cu-prMd { padding-right: var(--cu-space-md); }
+.cu-prLg { padding-right: var(--cu-space-lg); }
+.cu-pxXs { padding-left: var(--cu-space-xs); padding-right: var(--cu-space-xs); }
+.cu-pxSm { padding-left: var(--cu-space-sm); padding-right: var(--cu-space-sm); }
+.cu-pxMd { padding-left: var(--cu-space-md); padding-right: var(--cu-space-md); }
+.cu-pxLg { padding-left: var(--cu-space-lg); padding-right: var(--cu-space-lg); }
+.cu-pyXs { padding-top: var(--cu-space-xs); padding-bottom: var(--cu-space-xs); }
+.cu-pySm { padding-top: var(--cu-space-sm); padding-bottom: var(--cu-space-sm); }
+.cu-pyMd { padding-top: var(--cu-space-md); padding-bottom: var(--cu-space-md); }
+.cu-pyLg { padding-top: var(--cu-space-lg); padding-bottom: var(--cu-space-lg); }
+.cu-mXs { margin: var(--cu-space-xs); }
+.cu-mSm { margin: var(--cu-space-sm); }
+.cu-mMd { margin: var(--cu-space-md); }
+.cu-mLg { margin: var(--cu-space-lg); }
+.cu-mtXs { margin-top: var(--cu-space-xs); }
+.cu-mtSm { margin-top: var(--cu-space-sm); }
+.cu-mtMd { margin-top: var(--cu-space-md); }
+.cu-mtLg { margin-top: var(--cu-space-lg); }
+.cu-mbXs { margin-bottom: var(--cu-space-xs); }
+.cu-mbSm { margin-bottom: var(--cu-space-sm); }
+.cu-mbMd { margin-bottom: var(--cu-space-md); }
+.cu-mbLg { margin-bottom: var(--cu-space-lg); }
+.cu-mlXs { margin-left: var(--cu-space-xs); }
+.cu-mlSm { margin-left: var(--cu-space-sm); }
+.cu-mlMd { margin-left: var(--cu-space-md); }
+.cu-mlLg { margin-left: var(--cu-space-lg); }
+.cu-mrXs { margin-right: var(--cu-space-xs); }
+.cu-mrSm { margin-right: var(--cu-space-sm); }
+.cu-mrMd { margin-right: var(--cu-space-md); }
+.cu-mrLg { margin-right: var(--cu-space-lg); }
+.cu-mxXs { margin-left: var(--cu-space-xs); margin-right: var(--cu-space-xs); }
+.cu-mxSm { margin-left: var(--cu-space-sm); margin-right: var(--cu-space-sm); }
+.cu-mxMd { margin-left: var(--cu-space-md); margin-right: var(--cu-space-md); }
+.cu-mxLg { margin-left: var(--cu-space-lg); margin-right: var(--cu-space-lg); }
+.cu-myXs { margin-top: var(--cu-space-xs); margin-bottom: var(--cu-space-xs); }
+.cu-mySm { margin-top: var(--cu-space-sm); margin-bottom: var(--cu-space-sm); }
+.cu-myMd { margin-top: var(--cu-space-md); margin-bottom: var(--cu-space-md); }
+.cu-myLg { margin-top: var(--cu-space-lg); margin-bottom: var(--cu-space-lg); }
+.cu-mAuto { margin: auto; }
+.cu-mxAuto { margin-left: auto; margin-right: auto; }
+.cu-mlAuto { margin-left: auto; }
+.cu-mrAuto { margin-right: auto; }
+.cu-textSm { font-size: var(--cu-font-size-sm); line-height: var(--cu-lh-base); }
+.cu-textMd { font-size: var(--cu-font-size-md); line-height: var(--cu-lh-base); }
+.cu-textLg { font-size: var(--cu-font-size-lg); line-height: var(--cu-lh-tight); }
+.cu-textDefault { color: var(--cu-neutral-50); line-height: var(--cu-lh-base); }
+.cu-textSubtle { color: var(--cu-neutral-100); line-height: var(--cu-lh-base); }
+.cu-textBrand { color: var(--cu-brand-500); }
+.cu-textAccent { color: var(--cu-accent); }
+.cu-fontBold { font-weight: var(--cu-font-weight-bold); }
+.cu-radiusMd { border-radius: var(--cu-radius-md); }
+.cu-radiusRound { border-radius: var(--cu-radius-round); }
+.cu-shadowMd { box-shadow: var(--cu-shd-btn); }
+.cu-shadowGlow { box-shadow: var(--cu-shd-glow); }
+.cu-objectCover { object-fit: cover; }
+.cu-bgCover { background-size: cover; background-position: center; }
+
+/* Grid columns: renamed to .cu-grid-cols-N */
+.cu-cols-1 { grid-template-columns: var(--cu-grid-cols-1); }
+.cu-cols-2 { grid-template-columns: var(--cu-grid-cols-2); }
+.cu-cols-3 { grid-template-columns: var(--cu-grid-cols-3); }
+.cu-cols-4 { grid-template-columns: var(--cu-grid-cols-4); }
+.cu-cols-5 { grid-template-columns: var(--cu-grid-cols-5); }
+.cu-cols-6 { grid-template-columns: var(--cu-grid-cols-6); }
+.cu-cols-7 { grid-template-columns: var(--cu-grid-cols-7); }
+.cu-cols-8 { grid-template-columns: var(--cu-grid-cols-8); }
+.cu-cols-9 { grid-template-columns: var(--cu-grid-cols-9); }
+.cu-cols-10 { grid-template-columns: var(--cu-grid-cols-10); }
+.cu-cols-11 { grid-template-columns: var(--cu-grid-cols-11); }
+.cu-cols-12 { grid-template-columns: var(--cu-grid-cols-12); }
+
+/* Text alignment: renamed to .cu-align-* so .cu-text-* only means size or color */
+.cu-text-left { text-align: left; }
+.cu-text-center { text-align: center; }
+.cu-text-right { text-align: right; }
+.cu-text-justify { text-align: justify; }

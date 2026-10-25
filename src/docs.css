@@ -3,11 +3,7 @@
    Layout for the component library dashboard (Sidebar + Main Content).
    ========================================================================== */
 
-/* 1. Design System Bundle */
-@import url('./variables.css');
-@import url('./base.css');
-@import url('./typography.css');
-@import url('./components.css');
+/* The design system files are linked by each docs page, not imported here. */
 
 :root {
   --cu-docs-sidebar-w: 280px;
@@ -160,3 +156,14 @@
 .docs-code-string { color: #2dd4bf; }
 .docs-code-tag { color: #f472b6; }
 .docs-code-attr { color: #fbbf24; }
+.docs-code-comment { color: #94a3b8; }
+
+/* Small caption above a demo row, e.g. "Variants" */
+.component-label {
+  align-self: flex-start;
+  font-size: var(--cu-text-xs);
+  font-weight: var(--cu-font-weight-bold);
+  letter-spacing: var(--cu-tracking-wider);
+  text-transform: uppercase;
+  color: var(--cu-neutral-100);
+}

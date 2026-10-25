@@ -11,3 +11,7 @@
 
 /* 4. UI Components */
 @import url('./src/components.css');
+
+/* 5. Deprecated aliases for v1.0.0 class names. Remove once your project uses
+      the current names (see the table at the top of src/legacy.css). */
+@import url('./src/legacy.css');
