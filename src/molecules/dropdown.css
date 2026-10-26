@@ -81,6 +81,13 @@ button.cu-dropdown-item {
   outline-offset: -2px;
 }
 
+/* Selected option when the dropdown acts as a select */
+.cu-dropdown-item[aria-checked="true"] {
+  background: var(--cu-brand-subtle);
+  color: var(--cu-brand-subtle-foreground);
+  font-weight: var(--cu-font-weight-semibold);
+}
+
 .cu-dropdown-item:disabled,
 .cu-dropdown-item[aria-disabled="true"] {
   opacity: 0.5;

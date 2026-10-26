@@ -26,7 +26,8 @@
   height: var(--cu-docs-header-h);
   border-bottom: 1px solid var(--cu-border);
   background: var(--cu-surface);
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   padding: 0 var(--cu-space-xl);
   position: sticky;
@@ -55,8 +56,12 @@
   color: white;
 }
 
+.docs-logo { justify-self: start; }
+
 .docs-switchers {
-  margin-left: auto;
+  grid-column: 2;
+  justify-self: center;
+  align-items: center;
   display: flex;
   gap: var(--cu-space-md);
 }
@@ -65,9 +70,11 @@
   display: flex;
   align-items: center;
   gap: var(--cu-space-sm);
+  margin: 0;
 }
 
-.docs-switcher .cu-select { width: auto; }
+.docs-switcher .component-label { align-self: center; line-height: 1; }
+.docs-switcher .cu-select { width: auto; padding-block: 0; line-height: 1.2; }
 
 /* Sidebar */
 .docs-sidebar {
@@ -153,7 +160,17 @@
   justify-content: center;
   background: var(--cu-surface);
   margin-bottom: var(--cu-space-lg);
+  transition: padding-bottom 0.2s ease;
 }
+
+/* Hug open popovers: the box grows to fit the menu or calendar instead of cropping it. */
+.docs-preview-box:has(.cu-datepicker.is-open) { padding-bottom: calc(60px + 20rem); }
+.docs-preview-box:has(.cu-dropdown.is-open):not(:has(.cu-table-wrap)),
+.docs-preview-box:has(.cu-dropdown-hover:hover) { padding-bottom: calc(60px + 13rem); }
+.docs-preview-box:has(.cu-combobox.is-open) { padding-bottom: calc(60px + 14rem); }
+.docs-preview-box:has(.cu-datepicker.is-open),
+.docs-preview-box:has(.cu-dropdown.is-open):not(:has(.cu-table-wrap)),
+.docs-preview-box:has(.cu-combobox.is-open) { align-items: flex-start; }
 
 .docs-code-box {
   background: #0f172a;

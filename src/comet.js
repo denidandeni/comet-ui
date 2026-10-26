@@ -52,6 +52,18 @@
     return '<svg class="cu-icon ' + (cls || '') + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
       'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICONS[name] + '</svg>';
   }
+  // Small glyphs drawn inside the filled toast badge.
+  var TOAST_GLYPHS = {
+    default: '<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>',
+    success: '<path d="M20 6 9 17l-5-5"/>',
+    warning: '<path d="M12 8v5M12 17h.01"/>',
+    destructive: '<path d="M18 6 6 18M6 6l12 12"/>',
+    info: '<path d="M12 16v-5M12 8h.01"/>'
+  };
+  function toastGlyph(name) {
+    return '<svg class="cu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+      'stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (TOAST_GLYPHS[name] || TOAST_GLYPHS.default) + '</svg>';
+  }
 
   // ---------- dialog + drawer ----------
   function resolveTarget(v) { return v ? doc.getElementById(v.replace(/^#/, '')) : null; }
@@ -102,7 +114,7 @@
     if (!menu.contains(e.target)) {
       var open = !dd.classList.contains('is-open');
       setDropdown(dd, open);
-      if (open) { var first = q('[role="menuitem"]:not(:disabled)', menu); if (first && e.detail === 0) first.focus(); }
+      if (open) { var first = q('[role^="menuitem"]:not(:disabled)', menu); if (first && e.detail === 0) first.focus(); }
     } else if (e.target.closest('.cu-dropdown-item')) {
       setDropdown(dd, false);
     }
@@ -115,7 +127,7 @@
       return;
     }
     if (!dd || (e.key !== 'ArrowDown' && e.key !== 'ArrowUp')) return;
-    var items = qa('[role="menuitem"]:not(:disabled)', dd);
+    var items = qa('[role^="menuitem"]:not(:disabled)', dd);
     if (!items.length) return;
     if (!dd.classList.contains('is-open') && !dd.classList.contains('cu-dropdown-hover')) { setDropdown(dd, true); }
     e.preventDefault();
@@ -582,9 +594,9 @@
     var region = getRegion();
     var node = el('div', 'cu-toast' + (variant !== 'default' ? ' cu-toast-' + variant : ''));
     node.setAttribute('role', variant === 'destructive' ? 'alert' : 'status');
-    if (ICONS[variant] && opts.icon !== false) {
+    if (opts.icon !== false) {
       var ic = el('span', 'cu-toast-icon');
-      ic.innerHTML = icon(variant);
+      ic.innerHTML = toastGlyph(variant);
       node.appendChild(ic);
     }
     var body = el('div', 'cu-toast-body');
@@ -740,7 +752,18 @@
       var filterInput = q('[data-cu-table-filter]', wrap);
       if (filterInput) filterInput.addEventListener('input', function () { st.query = filterInput.value.trim(); st.page = 1; apply(); });
       var colSelect = q('[data-cu-table-column]', wrap);
-      if (colSelect) {
+      if (colSelect && colSelect.classList.contains('cu-dropdown')) {
+        // Dropdown component: items carry data-value, the trigger shows the chosen label.
+        st.filterCol = num(colSelect.getAttribute('data-cu-table-column'), -1);
+        colSelect.addEventListener('click', function (e) {
+          var item = e.target.closest('.cu-dropdown-item[data-value]');
+          if (!item || !colSelect.contains(item)) return;
+          qa('.cu-dropdown-item[data-value]', colSelect).forEach(function (i) { i.setAttribute('aria-checked', i === item ? 'true' : 'false'); });
+          var label = q('[data-cu-dropdown-label]', colSelect);
+          if (label) label.textContent = item.textContent.trim();
+          st.filter = item.getAttribute('data-value'); st.page = 1; apply();
+        });
+      } else if (colSelect) {
         st.filterCol = num(colSelect.getAttribute('data-cu-table-column'), -1);
         colSelect.addEventListener('change', function () { st.filter = colSelect.value; st.page = 1; apply(); });
       }

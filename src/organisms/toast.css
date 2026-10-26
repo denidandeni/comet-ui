@@ -39,13 +39,17 @@
 .cu-toast-region[data-position="bottom-center"] { inset: auto auto 1rem 50%; transform: translateX(-50%); }
 
 .cu-toast {
+  /* Tone: set per variant below. Brand-aware by default. */
+  --cu-toast-tone: var(--cu-brand-500);
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--cu-space-md);
-  padding: var(--cu-space-md);
-  border: 1px solid var(--cu-border);
-  border-radius: var(--cu-radius-md);
+  padding: var(--cu-space-md) var(--cu-space-md) var(--cu-space-md) 0.875rem;
+  border: 1px solid color-mix(in srgb, var(--cu-toast-tone) 22%, var(--cu-border));
+  border-radius: var(--cu-radius-lg);
   background-color: var(--cu-surface);
   color: var(--cu-foreground);
   box-shadow: var(--cu-shd-pop);
@@ -56,6 +60,24 @@
   animation: cu-toast-in 0.2s ease;
 }
 
+/* Right-side gradient: a soft tone wash with diagonal stripes, fading in from the middle. */
+.cu-toast::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--cu-toast-tone) 16%, transparent) 0 0.5rem,
+      transparent 0.5rem 1rem
+    ),
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--cu-toast-tone) 14%, transparent));
+  -webkit-mask-image: linear-gradient(90deg, transparent 25%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 25%, #000 100%);
+}
+
 .cu-toast.is-leaving {
   opacity: 0;
   transform: translateY(0.25rem);
@@ -63,7 +85,21 @@
 }
 
 .cu-toast-icon {
-  margin-top: 0.0625rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: var(--cu-radius-round, 9999px);
+  background: var(--cu-toast-tone);
+  color: var(--cu-white, #fff);
+}
+
+.cu-toast-icon .cu-icon {
+  width: 0.75rem;
+  height: 0.75rem;
+  stroke-width: 3;
 }
 
 .cu-toast-body {
@@ -88,8 +124,9 @@
   padding: 0 0.75rem;
   border: 1px solid var(--cu-border);
   border-radius: var(--cu-radius-sm);
-  background: transparent;
+  background: var(--cu-surface);
   color: var(--cu-foreground);
+  box-shadow: var(--cu-shd-btn);
   font-family: inherit;
   font-size: var(--cu-text-xs);
   font-weight: var(--cu-font-weight-bold);
@@ -117,15 +154,8 @@
 .cu-toast-close:hover { background: var(--cu-muted); color: var(--cu-foreground); }
 .cu-toast-close:focus-visible { outline: 2px solid var(--cu-ring); }
 
-/* Variants: a colored icon and a thin accent on the start edge */
-.cu-toast-success { box-shadow: inset 3px 0 0 var(--cu-success), var(--cu-shd-pop); }
-.cu-toast-success .cu-toast-icon { color: var(--cu-success-subtle-foreground); }
-
-.cu-toast-warning { box-shadow: inset 3px 0 0 var(--cu-warning), var(--cu-shd-pop); }
-.cu-toast-warning .cu-toast-icon { color: var(--cu-warning-subtle-foreground); }
-
-.cu-toast-destructive { box-shadow: inset 3px 0 0 var(--cu-destructive), var(--cu-shd-pop); }
-.cu-toast-destructive .cu-toast-icon { color: var(--cu-destructive-subtle-foreground); }
-
-.cu-toast-info { box-shadow: inset 3px 0 0 var(--cu-ring), var(--cu-shd-pop); }
-.cu-toast-info .cu-toast-icon { color: var(--cu-foreground); }
+/* Variants only change the tone; default uses the brand color. */
+.cu-toast-success { --cu-toast-tone: var(--cu-success); }
+.cu-toast-warning { --cu-toast-tone: var(--cu-warning); }
+.cu-toast-destructive { --cu-toast-tone: var(--cu-destructive); }
+.cu-toast-info { --cu-toast-tone: var(--cu-accent); }
