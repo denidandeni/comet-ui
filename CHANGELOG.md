@@ -2,6 +2,11 @@
 
 Versions follow semantic versioning. A deprecated name stays as an alias for at least one minor release before it is removed, and every release gets an entry here.
 
+## Unreleased
+
+### Added
+- **Docs:** optional example `docs/examples/tanstack-table.html` showing `@tanstack/table-core` (sorting, global filter, pagination) rendered with Comet table markup. The package stays out of the core, which keeps no dependencies.
+
 ## 1.2.0
 
 ### Added

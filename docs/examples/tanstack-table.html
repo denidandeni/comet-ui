@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TanStack Table | Comet UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../index.css">
+    <script>
+        try {
+            var r = document.documentElement, t = localStorage.getItem('cu-theme'), b = localStorage.getItem('cu-brand');
+            if (t) r.setAttribute('data-cu-theme', t);
+            if (b) r.setAttribute('data-cu-brand', b);
+        } catch (e) {}
+    </script>
+</head>
+<body>
+<main class="cu-flex-col cu-gap-lg" style="max-width:960px;margin:0 auto;padding:var(--cu-space-xl) var(--cu-space-md)">
+  <header class="cu-flex-col cu-gap-sm">
+    <h1 class="cu-h2">Data table with TanStack Table</h1>
+    <p class="cu-paragraph">
+      Optional example. <code>@tanstack/table-core</code> handles sorting, global filtering and pagination.
+      Comet UI supplies the markup and styles. The core library has no dependency on TanStack.
+    </p>
+  </header>
+
+  <div class="cu-table-wrap" id="table-root" style="width:100%">
+    <div class="cu-table-toolbar">
+      <div class="cu-searchbar" style="max-width:280px">
+        <svg class="cu-icon cu-searchbar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="search" class="cu-input cu-searchbar-input" placeholder="Filter rows" aria-label="Filter rows" id="table-filter">
+      </div>
+    </div>
+    <div class="cu-table-scroll">
+      <table class="cu-table">
+        <thead id="table-head"></thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+    <div class="cu-table-footer">
+      <span id="table-summary"></span>
+      <nav class="cu-pagination" id="table-pager" aria-label="Pagination"></nav>
+    </div>
+  </div>
+
+  <p class="cu-paragraph">
+    This page loads <code>@tanstack/table-core@9.3.1</code> from jsDelivr. In a bundled project, run
+    <code>npm install @tanstack/table-core</code> and import the same names from <code>'@tanstack/table-core'</code>.
+  </p>
+</main>
+
+<script>
+  // table-core checks process.env.NODE_ENV; browsers have no process object.
+  window.process = { env: { NODE_ENV: 'production' } };
+</script>
+<script type="importmap">
+  { "imports": { "@tanstack/store": "https://cdn.jsdelivr.net/npm/@tanstack/store@0.11.2/dist/index.js" } }
+</script>
+<script type="module">
+  import {
+    constructTable, tableFeatures, rowSortingFeature, createSortedRowModel, sortFns,
+    globalFilteringFeature, createFilteredRowModel, filterFn_includesString,
+    rowPaginationFeature, createPaginatedRowModel
+  } from 'https://cdn.jsdelivr.net/npm/@tanstack/table-core@9.3.1/dist/index.js';
+  import { storeReactivityBindings } from 'https://cdn.jsdelivr.net/npm/@tanstack/table-core@9.3.1/dist/store-reactivity-bindings.js';
+
+  const data = [
+    { name: 'Ayu Lestari', role: 'Designer', status: 'Active', joined: '2024-03-12', commits: 42 },
+    { name: 'Budi Permana', role: 'Engineer', status: 'Active', joined: '2023-11-02', commits: 87 },
+    { name: 'Citra Dewi', role: 'PM', status: 'Away', joined: '2025-01-20', commits: 15 },
+    { name: 'Dimas Prakoso', role: 'Engineer', status: 'Active', joined: '2022-08-30', commits: 120 },
+    { name: 'Eka Saputra', role: 'Designer', status: 'Inactive', joined: '2024-07-05', commits: 8 },
+    { name: 'Fajar Nugroho', role: 'Analyst', status: 'Active', joined: '2023-05-17', commits: 64 },
+    { name: 'Gita Maharani', role: 'PM', status: 'Away', joined: '2025-04-09', commits: 23 },
+    { name: 'Hadi Wijaya', role: 'Engineer', status: 'Active', joined: '2021-12-01', commits: 150 },
+    { name: 'Indah Permata', role: 'Analyst', status: 'Inactive', joined: '2024-10-14', commits: 5 },
+    { name: 'Joko Santoso', role: 'Designer', status: 'Active', joined: '2023-02-28', commits: 71 },
+    { name: 'Kartika Sari', role: 'Engineer', status: 'Active', joined: '2022-06-19', commits: 98 },
+    { name: 'Lukman Hakim', role: 'PM', status: 'Active', joined: '2025-02-11', commits: 31 }
+  ];
+
+  const features = tableFeatures({
+    coreReactivityFeature: storeReactivityBindings(),
+    rowSortingFeature,
+    sortedRowModel: createSortedRowModel(),
+    sortFns,
+    globalFilteringFeature,
+    filteredRowModel: createFilteredRowModel(),
+    filterFns: { includesString: filterFn_includesString },
+    rowPaginationFeature,
+    paginatedRowModel: createPaginatedRowModel()
+  });
+
+  const columns = [
+    { accessorKey: 'name', header: 'Name' },
+    { accessorKey: 'role', header: 'Role' },
+    { accessorKey: 'status', header: 'Status', enableSorting: true, cell: (info) => info.getValue() },
+    { accessorKey: 'joined', header: 'Joined' },
+    { accessorKey: 'commits', header: 'Commits', meta: { numeric: true } }
+  ];
+
+  const table = constructTable({
+    features,
+    columns,
+    data,
+    globalFilterFn: 'includesString',
+    initialState: { pagination: { pageIndex: 0, pageSize: 5 } }
+  });
+
+  const root = document.getElementById('table-root');
+  const head = document.getElementById('table-head');
+  const body = document.getElementById('table-body');
+  const summary = document.getElementById('table-summary');
+  const pager = document.getElementById('table-pager');
+  const filter = document.getElementById('table-filter');
+
+  function el(tag, cls, text) {
+    const node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (text != null) node.textContent = text;
+    return node;
+  }
+
+  function renderHead() {
+    head.replaceChildren();
+    table.getHeaderGroups().forEach((group) => {
+      const tr = el('tr');
+      group.headers.forEach((header) => {
+        const column = header.column;
+        const numeric = column.columnDef.meta?.numeric;
+        const sorted = column.getIsSorted();
+        const th = el('th', numeric ? 'cu-table-num' : '');
+        th.setAttribute('aria-sort', sorted === 'asc' ? 'ascending' : sorted === 'desc' ? 'descending' : 'none');
+        if (column.getCanSort()) {
+          const btn = el('button', 'cu-table-sort', String(column.columnDef.header));
+          btn.type = 'button';
+          btn.appendChild(el('span', 'cu-table-sort-icon'));
+          btn.addEventListener('click', column.getToggleSortingHandler());
+          th.appendChild(btn);
+        } else {
+          th.textContent = String(column.columnDef.header);
+        }
+        tr.appendChild(th);
+      });
+      head.appendChild(tr);
+    });
+  }
+
+  function renderBody(rows) {
+    body.replaceChildren();
+    if (rows.length === 0) {
+      const tr = el('tr', 'cu-table-empty');
+      const td = el('td', '', 'No results found');
+      td.colSpan = columns.length;
+      tr.appendChild(td);
+      body.appendChild(tr);
+      return;
+    }
+    rows.forEach((row) => {
+      const tr = el('tr');
+      row.getAllCells().forEach((cell) => {
+        const numeric = cell.column.columnDef.meta?.numeric;
+        const value = cell.getValue();
+        const td = el('td', numeric ? 'cu-table-num' : '');
+        if (cell.column.id === 'status') td.appendChild(el('span', 'cu-badge', String(value)));
+        else td.textContent = String(value);
+        tr.appendChild(td);
+      });
+      body.appendChild(tr);
+    });
+  }
+
+  function renderPager() {
+    const { pageIndex } = table.store.state.pagination;
+    const pages = table.getPageCount();
+    pager.replaceChildren();
+    pager.hidden = pages <= 1;
+    if (pages <= 1) return;
+
+    function btn(label, index, opts = {}) {
+      const b = el('button', 'cu-pagination-item' + (opts.active ? ' cu-pagination-item-active' : ''), label);
+      b.type = 'button';
+      if (opts.aria) b.setAttribute('aria-label', opts.aria);
+      if (opts.active) b.setAttribute('aria-current', 'page');
+      b.disabled = !!opts.disabled;
+      b.addEventListener('click', () => table.setPageIndex(index));
+      pager.appendChild(b);
+    }
+
+    btn('‹', pageIndex - 1, { aria: 'Previous page', disabled: !table.getCanPreviousPage() });
+    for (let p = 0; p < pages; p++) btn(String(p + 1), p, { active: p === pageIndex, aria: 'Page ' + (p + 1) });
+    btn('›', pageIndex + 1, { aria: 'Next page', disabled: !table.getCanNextPage() });
+  }
+
+  function render() {
+    const { pageIndex, pageSize } = table.store.state.pagination;
+    const total = table.getFilteredRowModel().rows.length;
+    const from = total === 0 ? 0 : pageIndex * pageSize + 1;
+    const to = Math.min(total, (pageIndex + 1) * pageSize);
+    summary.textContent = total === 0 ? '0 results' :
+      'Showing ' + from + '-' + to + ' of ' + total + (total !== data.length ? ' (filtered from ' + data.length + ')' : '');
+    renderHead();
+    renderBody(table.getRowModel().rows);
+    renderPager();
+  }
+
+  filter.addEventListener('input', () => {
+    table.setGlobalFilter(filter.value.trim());
+    table.setPageIndex(0);
+  });
+
+  // Re-render whenever table state changes (sorting, paging, filtering).
+  table.store.subscribe(render);
+  render();
+</script>
+</body>
+</html>
