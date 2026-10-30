@@ -1,0 +1,79 @@
+/* Organism: Pill navbar (floating)
+   Meant to sit on a .cu-brand-band, but works on any background.
+   <nav class="cu-pill-navbar" aria-label="Utama">
+     <a class="cu-topbar-brand" href="#">...logo...</a>
+     <div class="cu-pill-navbar-nav">
+       <a class="cu-pill-navbar-link is-active" href="#" aria-current="page">Overview</a>
+       <a class="cu-pill-navbar-link" href="#">Warehouse</a>
+       <a class="cu-pill-navbar-link" href="#">Fleet</a>
+     </div>
+     <div class="cu-pill-navbar-search"><div class="cu-searchbar">...</div></div>
+     <div class="cu-pill-navbar-actions">
+       <button class="cu-icon-btn" aria-label="Notifikasi, 3 belum dibaca">...<span class="cu-count-badge" aria-hidden="true">3</span></button>
+       <div class="cu-avatar">BP</div>
+     </div>
+   </nav> */
+
+.cu-pill-navbar {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-lg);
+  height: 3.5rem;
+  padding: 0 var(--cu-space-sm) 0 var(--cu-space-md);
+  border-radius: var(--cu-radius-round);
+  background-color: var(--cu-surface);
+  box-shadow: var(--cu-shd-pop);
+  font-family: inherit;
+}
+
+.cu-pill-navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-xs);
+}
+
+.cu-pill-navbar-link {
+  padding: var(--cu-space-sm) var(--cu-space-md);
+  border-radius: var(--cu-radius-round);
+  font-size: var(--cu-text-sm);
+  font-weight: var(--cu-font-weight-medium);
+  line-height: 1.2;
+  color: var(--cu-muted-foreground);
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.cu-pill-navbar-link:hover {
+  background-color: var(--cu-muted);
+  color: var(--cu-foreground);
+}
+
+.cu-pill-navbar-link.is-active,
+.cu-pill-navbar-link[aria-current="page"] {
+  background-color: var(--cu-brand-subtle);
+  color: var(--cu-brand-subtle-foreground);
+  font-weight: var(--cu-font-weight-bold);
+}
+
+.cu-pill-navbar-link:focus-visible {
+  outline: 2px solid var(--cu-ring);
+  outline-offset: 2px;
+}
+
+.cu-pill-navbar-search {
+  flex: 0 1 16rem;
+  min-width: 0;
+  margin-left: auto;
+}
+
+.cu-pill-navbar-search .cu-input {
+  border-color: transparent;
+  border-radius: var(--cu-radius-round);
+  background-color: var(--cu-muted);
+}
+
+.cu-pill-navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-sm);
+}

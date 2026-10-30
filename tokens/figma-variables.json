@@ -5,6 +5,7 @@
       "name": "Primitives",
       "modes": [
         "neutral",
+        "amanimile",
         "comet",
         "ocean"
       ],
@@ -13,6 +14,7 @@
           "name": "color/white",
           "values": {
             "neutral": "#ffffff",
+            "amanimile": "#ffffff",
             "comet": "#ffffff",
             "ocean": "#ffffff"
           }
@@ -21,6 +23,7 @@
           "name": "color/black",
           "values": {
             "neutral": "#000000",
+            "amanimile": "#000000",
             "comet": "#000000",
             "ocean": "#000000"
           }
@@ -29,6 +32,7 @@
           "name": "color/slate/50",
           "values": {
             "neutral": "#f8fafc",
+            "amanimile": "#f8fafc",
             "comet": "#f8fafc",
             "ocean": "#f8fafc"
           }
@@ -37,6 +41,7 @@
           "name": "color/slate/100",
           "values": {
             "neutral": "#f1f5f9",
+            "amanimile": "#f1f5f9",
             "comet": "#f1f5f9",
             "ocean": "#f1f5f9"
           }
@@ -45,6 +50,7 @@
           "name": "color/slate/200",
           "values": {
             "neutral": "#e2e8f0",
+            "amanimile": "#e2e8f0",
             "comet": "#e2e8f0",
             "ocean": "#e2e8f0"
           }
@@ -53,6 +59,7 @@
           "name": "color/slate/300",
           "values": {
             "neutral": "#cbd5e1",
+            "amanimile": "#cbd5e1",
             "comet": "#cbd5e1",
             "ocean": "#cbd5e1"
           }
@@ -61,6 +68,7 @@
           "name": "color/slate/400",
           "values": {
             "neutral": "#94a3b8",
+            "amanimile": "#94a3b8",
             "comet": "#94a3b8",
             "ocean": "#94a3b8"
           }
@@ -69,6 +77,7 @@
           "name": "color/slate/500",
           "values": {
             "neutral": "#64748b",
+            "amanimile": "#64748b",
             "comet": "#64748b",
             "ocean": "#64748b"
           }
@@ -77,6 +86,7 @@
           "name": "color/slate/600",
           "values": {
             "neutral": "#475569",
+            "amanimile": "#475569",
             "comet": "#475569",
             "ocean": "#475569"
           }
@@ -85,6 +95,7 @@
           "name": "color/slate/700",
           "values": {
             "neutral": "#334155",
+            "amanimile": "#334155",
             "comet": "#334155",
             "ocean": "#334155"
           }
@@ -93,6 +104,7 @@
           "name": "color/slate/800",
           "values": {
             "neutral": "#1e293b",
+            "amanimile": "#1e293b",
             "comet": "#1e293b",
             "ocean": "#1e293b"
           }
@@ -101,6 +113,7 @@
           "name": "color/slate/900",
           "values": {
             "neutral": "#0f172a",
+            "amanimile": "#0f172a",
             "comet": "#0f172a",
             "ocean": "#0f172a"
           }
@@ -109,6 +122,7 @@
           "name": "color/slate/950",
           "values": {
             "neutral": "#020617",
+            "amanimile": "#020617",
             "comet": "#020617",
             "ocean": "#020617"
           }
@@ -117,6 +131,7 @@
           "name": "color/red/50",
           "values": {
             "neutral": "#fff1f2",
+            "amanimile": "#fff1f2",
             "comet": "#fff1f2",
             "ocean": "#fff1f2"
           }
@@ -125,6 +140,7 @@
           "name": "color/red/400",
           "values": {
             "neutral": "#fb7185",
+            "amanimile": "#fb7185",
             "comet": "#fb7185",
             "ocean": "#fb7185"
           }
@@ -133,6 +149,7 @@
           "name": "color/red/500",
           "values": {
             "neutral": "#f43f5e",
+            "amanimile": "#f43f5e",
             "comet": "#f43f5e",
             "ocean": "#f43f5e"
           }
@@ -141,6 +158,7 @@
           "name": "color/red/600",
           "values": {
             "neutral": "#e11d48",
+            "amanimile": "#e11d48",
             "comet": "#e11d48",
             "ocean": "#e11d48"
           }
@@ -149,6 +167,7 @@
           "name": "color/red/700",
           "values": {
             "neutral": "#be123c",
+            "amanimile": "#be123c",
             "comet": "#be123c",
             "ocean": "#be123c"
           }
@@ -157,6 +176,7 @@
           "name": "color/red/950",
           "values": {
             "neutral": "#4c0519",
+            "amanimile": "#4c0519",
             "comet": "#4c0519",
             "ocean": "#4c0519"
           }
@@ -165,6 +185,7 @@
           "name": "color/green/50",
           "values": {
             "neutral": "#ecfdf5",
+            "amanimile": "#ecfdf5",
             "comet": "#ecfdf5",
             "ocean": "#ecfdf5"
           }
@@ -173,6 +194,7 @@
           "name": "color/green/400",
           "values": {
             "neutral": "#34d399",
+            "amanimile": "#34d399",
             "comet": "#34d399",
             "ocean": "#34d399"
           }
@@ -181,6 +203,7 @@
           "name": "color/green/600",
           "values": {
             "neutral": "#059669",
+            "amanimile": "#059669",
             "comet": "#059669",
             "ocean": "#059669"
           }
@@ -189,6 +212,7 @@
           "name": "color/green/700",
           "values": {
             "neutral": "#047857",
+            "amanimile": "#047857",
             "comet": "#047857",
             "ocean": "#047857"
           }
@@ -197,6 +221,7 @@
           "name": "color/green/950",
           "values": {
             "neutral": "#022c22",
+            "amanimile": "#022c22",
             "comet": "#022c22",
             "ocean": "#022c22"
           }
@@ -205,6 +230,7 @@
           "name": "color/amber/50",
           "values": {
             "neutral": "#fffbeb",
+            "amanimile": "#fffbeb",
             "comet": "#fffbeb",
             "ocean": "#fffbeb"
           }
@@ -213,6 +239,7 @@
           "name": "color/amber/400",
           "values": {
             "neutral": "#fbbf24",
+            "amanimile": "#fbbf24",
             "comet": "#fbbf24",
             "ocean": "#fbbf24"
           }
@@ -221,6 +248,7 @@
           "name": "color/amber/500",
           "values": {
             "neutral": "#f59e0b",
+            "amanimile": "#f59e0b",
             "comet": "#f59e0b",
             "ocean": "#f59e0b"
           }
@@ -229,6 +257,7 @@
           "name": "color/amber/700",
           "values": {
             "neutral": "#b45309",
+            "amanimile": "#b45309",
             "comet": "#b45309",
             "ocean": "#b45309"
           }
@@ -237,14 +266,61 @@
           "name": "color/amber/950",
           "values": {
             "neutral": "#451a03",
+            "amanimile": "#451a03",
             "comet": "#451a03",
             "ocean": "#451a03"
+          }
+        },
+        {
+          "name": "color/sky/50",
+          "values": {
+            "neutral": "#f0f9ff",
+            "amanimile": "#f0f9ff",
+            "comet": "#f0f9ff",
+            "ocean": "#f0f9ff"
+          }
+        },
+        {
+          "name": "color/sky/400",
+          "values": {
+            "neutral": "#38bdf8",
+            "amanimile": "#38bdf8",
+            "comet": "#38bdf8",
+            "ocean": "#38bdf8"
+          }
+        },
+        {
+          "name": "color/sky/600",
+          "values": {
+            "neutral": "#0284c7",
+            "amanimile": "#0284c7",
+            "comet": "#0284c7",
+            "ocean": "#0284c7"
+          }
+        },
+        {
+          "name": "color/sky/700",
+          "values": {
+            "neutral": "#0369a1",
+            "amanimile": "#0369a1",
+            "comet": "#0369a1",
+            "ocean": "#0369a1"
+          }
+        },
+        {
+          "name": "color/sky/950",
+          "values": {
+            "neutral": "#082f49",
+            "amanimile": "#082f49",
+            "comet": "#082f49",
+            "ocean": "#082f49"
           }
         },
         {
           "name": "space/xs",
           "values": {
             "neutral": "0.25rem",
+            "amanimile": "0.25rem",
             "comet": "0.25rem",
             "ocean": "0.25rem"
           }
@@ -253,6 +329,7 @@
           "name": "space/sm",
           "values": {
             "neutral": "0.5rem",
+            "amanimile": "0.5rem",
             "comet": "0.5rem",
             "ocean": "0.5rem"
           }
@@ -261,6 +338,7 @@
           "name": "space/md",
           "values": {
             "neutral": "1rem",
+            "amanimile": "1rem",
             "comet": "1rem",
             "ocean": "1rem"
           }
@@ -269,6 +347,7 @@
           "name": "space/lg",
           "values": {
             "neutral": "1.5rem",
+            "amanimile": "1.5rem",
             "comet": "1.5rem",
             "ocean": "1.5rem"
           }
@@ -277,6 +356,7 @@
           "name": "space/xl",
           "values": {
             "neutral": "2rem",
+            "amanimile": "2rem",
             "comet": "2rem",
             "ocean": "2rem"
           }
@@ -285,6 +365,7 @@
           "name": "space/xxl",
           "values": {
             "neutral": "3rem",
+            "amanimile": "3rem",
             "comet": "3rem",
             "ocean": "3rem"
           }
@@ -293,14 +374,25 @@
           "name": "space/xxxl",
           "values": {
             "neutral": "4rem",
+            "amanimile": "4rem",
             "comet": "4rem",
             "ocean": "4rem"
+          }
+        },
+        {
+          "name": "space/card",
+          "values": {
+            "neutral": "1.25rem",
+            "amanimile": "1.25rem",
+            "comet": "1.25rem",
+            "ocean": "1.25rem"
           }
         },
         {
           "name": "icon/xs",
           "values": {
             "neutral": "1rem",
+            "amanimile": "1rem",
             "comet": "1rem",
             "ocean": "1rem"
           }
@@ -309,6 +401,7 @@
           "name": "icon/sm",
           "values": {
             "neutral": "1.25rem",
+            "amanimile": "1.25rem",
             "comet": "1.25rem",
             "ocean": "1.25rem"
           }
@@ -317,6 +410,7 @@
           "name": "icon/md",
           "values": {
             "neutral": "1.5rem",
+            "amanimile": "1.5rem",
             "comet": "1.5rem",
             "ocean": "1.5rem"
           }
@@ -325,6 +419,7 @@
           "name": "icon/lg",
           "values": {
             "neutral": "2rem",
+            "amanimile": "2rem",
             "comet": "2rem",
             "ocean": "2rem"
           }
@@ -333,6 +428,7 @@
           "name": "radius/round",
           "values": {
             "neutral": "9999px",
+            "amanimile": "9999px",
             "comet": "9999px",
             "ocean": "9999px"
           }
@@ -341,6 +437,7 @@
           "name": "font-weight/regular",
           "values": {
             "neutral": "400",
+            "amanimile": "400",
             "comet": "400",
             "ocean": "400"
           }
@@ -349,6 +446,7 @@
           "name": "font-weight/medium",
           "values": {
             "neutral": "500",
+            "amanimile": "500",
             "comet": "500",
             "ocean": "500"
           }
@@ -357,6 +455,7 @@
           "name": "font-weight/semibold",
           "values": {
             "neutral": "600",
+            "amanimile": "600",
             "comet": "600",
             "ocean": "600"
           }
@@ -365,6 +464,7 @@
           "name": "font-weight/bold",
           "values": {
             "neutral": "700",
+            "amanimile": "700",
             "comet": "700",
             "ocean": "700"
           }
@@ -373,6 +473,7 @@
           "name": "font-base",
           "values": {
             "neutral": "1rem",
+            "amanimile": "1rem",
             "comet": "1rem",
             "ocean": "1rem"
           }
@@ -381,6 +482,7 @@
           "name": "text/2xs",
           "values": {
             "neutral": "0.625rem",
+            "amanimile": "0.625rem",
             "comet": "0.625rem",
             "ocean": "0.625rem"
           }
@@ -389,6 +491,7 @@
           "name": "text/xs",
           "values": {
             "neutral": "0.75rem",
+            "amanimile": "0.75rem",
             "comet": "0.75rem",
             "ocean": "0.75rem"
           }
@@ -397,6 +500,7 @@
           "name": "text/sm",
           "values": {
             "neutral": "0.875rem",
+            "amanimile": "0.875rem",
             "comet": "0.875rem",
             "ocean": "0.875rem"
           }
@@ -405,6 +509,7 @@
           "name": "text/base",
           "values": {
             "neutral": "1rem",
+            "amanimile": "1rem",
             "comet": "1rem",
             "ocean": "1rem"
           }
@@ -413,6 +518,7 @@
           "name": "text/lg",
           "values": {
             "neutral": "1.125rem",
+            "amanimile": "1.125rem",
             "comet": "1.125rem",
             "ocean": "1.125rem"
           }
@@ -421,6 +527,7 @@
           "name": "text/xl",
           "values": {
             "neutral": "1.25rem",
+            "amanimile": "1.25rem",
             "comet": "1.25rem",
             "ocean": "1.25rem"
           }
@@ -429,6 +536,7 @@
           "name": "text/2xl",
           "values": {
             "neutral": "1.5rem",
+            "amanimile": "1.5rem",
             "comet": "1.5rem",
             "ocean": "1.5rem"
           }
@@ -437,6 +545,7 @@
           "name": "text/3xl",
           "values": {
             "neutral": "2rem",
+            "amanimile": "2rem",
             "comet": "2rem",
             "ocean": "2rem"
           }
@@ -445,6 +554,7 @@
           "name": "text/4xl",
           "values": {
             "neutral": "2.5rem",
+            "amanimile": "2.5rem",
             "comet": "2.5rem",
             "ocean": "2.5rem"
           }
@@ -453,6 +563,7 @@
           "name": "text/5xl",
           "values": {
             "neutral": "3rem",
+            "amanimile": "3rem",
             "comet": "3rem",
             "ocean": "3rem"
           }
@@ -461,6 +572,7 @@
           "name": "text/6xl",
           "values": {
             "neutral": "4rem",
+            "amanimile": "4rem",
             "comet": "4rem",
             "ocean": "4rem"
           }
@@ -469,6 +581,7 @@
           "name": "text/7xl",
           "values": {
             "neutral": "5rem",
+            "amanimile": "5rem",
             "comet": "5rem",
             "ocean": "5rem"
           }
@@ -477,6 +590,7 @@
           "name": "lh/tight",
           "values": {
             "neutral": "1.2",
+            "amanimile": "1.2",
             "comet": "1.2",
             "ocean": "1.2"
           }
@@ -485,6 +599,7 @@
           "name": "lh/base",
           "values": {
             "neutral": "1.5",
+            "amanimile": "1.5",
             "comet": "1.5",
             "ocean": "1.5"
           }
@@ -493,6 +608,7 @@
           "name": "lh/relaxed",
           "values": {
             "neutral": "1.6",
+            "amanimile": "1.6",
             "comet": "1.6",
             "ocean": "1.6"
           }
@@ -501,6 +617,7 @@
           "name": "lh/loose",
           "values": {
             "neutral": "1.8",
+            "amanimile": "1.8",
             "comet": "1.8",
             "ocean": "1.8"
           }
@@ -509,6 +626,7 @@
           "name": "tracking/tighter",
           "values": {
             "neutral": "-0.02em",
+            "amanimile": "-0.02em",
             "comet": "-0.02em",
             "ocean": "-0.02em"
           }
@@ -517,6 +635,7 @@
           "name": "tracking/tight",
           "values": {
             "neutral": "-0.01em",
+            "amanimile": "-0.01em",
             "comet": "-0.01em",
             "ocean": "-0.01em"
           }
@@ -525,6 +644,7 @@
           "name": "tracking/normal",
           "values": {
             "neutral": "0em",
+            "amanimile": "0em",
             "comet": "0em",
             "ocean": "0em"
           }
@@ -533,6 +653,7 @@
           "name": "tracking/wide",
           "values": {
             "neutral": "0.01em",
+            "amanimile": "0.01em",
             "comet": "0.01em",
             "ocean": "0.01em"
           }
@@ -541,6 +662,7 @@
           "name": "tracking/wider",
           "values": {
             "neutral": "0.02em",
+            "amanimile": "0.02em",
             "comet": "0.02em",
             "ocean": "0.02em"
           }
@@ -549,6 +671,7 @@
           "name": "z/base",
           "values": {
             "neutral": "0",
+            "amanimile": "0",
             "comet": "0",
             "ocean": "0"
           }
@@ -557,6 +680,7 @@
           "name": "z/dropdown",
           "values": {
             "neutral": "100",
+            "amanimile": "100",
             "comet": "100",
             "ocean": "100"
           }
@@ -565,6 +689,7 @@
           "name": "z/sticky",
           "values": {
             "neutral": "200",
+            "amanimile": "200",
             "comet": "200",
             "ocean": "200"
           }
@@ -573,6 +698,7 @@
           "name": "z/fixed",
           "values": {
             "neutral": "300",
+            "amanimile": "300",
             "comet": "300",
             "ocean": "300"
           }
@@ -581,6 +707,7 @@
           "name": "z/overlay",
           "values": {
             "neutral": "400",
+            "amanimile": "400",
             "comet": "400",
             "ocean": "400"
           }
@@ -589,6 +716,7 @@
           "name": "z/modal",
           "values": {
             "neutral": "500",
+            "amanimile": "500",
             "comet": "500",
             "ocean": "500"
           }
@@ -597,6 +725,7 @@
           "name": "z/popover",
           "values": {
             "neutral": "600",
+            "amanimile": "600",
             "comet": "600",
             "ocean": "600"
           }
@@ -605,6 +734,7 @@
           "name": "z/toast",
           "values": {
             "neutral": "700",
+            "amanimile": "700",
             "comet": "700",
             "ocean": "700"
           }
@@ -613,6 +743,7 @@
           "name": "z/tooltip",
           "values": {
             "neutral": "800",
+            "amanimile": "800",
             "comet": "800",
             "ocean": "800"
           }
@@ -621,6 +752,7 @@
           "name": "h/btn",
           "values": {
             "neutral": "2.5rem",
+            "amanimile": "2.5rem",
             "comet": "2.5rem",
             "ocean": "2.5rem"
           }
@@ -629,6 +761,7 @@
           "name": "h/header",
           "values": {
             "neutral": "4.5rem",
+            "amanimile": "4.5rem",
             "comet": "4.5rem",
             "ocean": "4.5rem"
           }
@@ -637,6 +770,7 @@
           "name": "w/sidebar",
           "values": {
             "neutral": "17.5rem",
+            "amanimile": "17.5rem",
             "comet": "17.5rem",
             "ocean": "17.5rem"
           }
@@ -645,6 +779,7 @@
           "name": "grid/max",
           "values": {
             "neutral": "90rem",
+            "amanimile": "90rem",
             "comet": "90rem",
             "ocean": "90rem"
           }
@@ -653,6 +788,7 @@
           "name": "grid-cols/1",
           "values": {
             "neutral": "repeat(1, minmax(0, 1fr))",
+            "amanimile": "repeat(1, minmax(0, 1fr))",
             "comet": "repeat(1, minmax(0, 1fr))",
             "ocean": "repeat(1, minmax(0, 1fr))"
           }
@@ -661,6 +797,7 @@
           "name": "grid-cols/2",
           "values": {
             "neutral": "repeat(2, minmax(0, 1fr))",
+            "amanimile": "repeat(2, minmax(0, 1fr))",
             "comet": "repeat(2, minmax(0, 1fr))",
             "ocean": "repeat(2, minmax(0, 1fr))"
           }
@@ -669,6 +806,7 @@
           "name": "grid-cols/3",
           "values": {
             "neutral": "repeat(3, minmax(0, 1fr))",
+            "amanimile": "repeat(3, minmax(0, 1fr))",
             "comet": "repeat(3, minmax(0, 1fr))",
             "ocean": "repeat(3, minmax(0, 1fr))"
           }
@@ -677,6 +815,7 @@
           "name": "grid-cols/4",
           "values": {
             "neutral": "repeat(4, minmax(0, 1fr))",
+            "amanimile": "repeat(4, minmax(0, 1fr))",
             "comet": "repeat(4, minmax(0, 1fr))",
             "ocean": "repeat(4, minmax(0, 1fr))"
           }
@@ -685,6 +824,7 @@
           "name": "grid-cols/5",
           "values": {
             "neutral": "repeat(5, minmax(0, 1fr))",
+            "amanimile": "repeat(5, minmax(0, 1fr))",
             "comet": "repeat(5, minmax(0, 1fr))",
             "ocean": "repeat(5, minmax(0, 1fr))"
           }
@@ -693,6 +833,7 @@
           "name": "grid-cols/6",
           "values": {
             "neutral": "repeat(6, minmax(0, 1fr))",
+            "amanimile": "repeat(6, minmax(0, 1fr))",
             "comet": "repeat(6, minmax(0, 1fr))",
             "ocean": "repeat(6, minmax(0, 1fr))"
           }
@@ -701,6 +842,7 @@
           "name": "grid-cols/7",
           "values": {
             "neutral": "repeat(7, minmax(0, 1fr))",
+            "amanimile": "repeat(7, minmax(0, 1fr))",
             "comet": "repeat(7, minmax(0, 1fr))",
             "ocean": "repeat(7, minmax(0, 1fr))"
           }
@@ -709,6 +851,7 @@
           "name": "grid-cols/8",
           "values": {
             "neutral": "repeat(8, minmax(0, 1fr))",
+            "amanimile": "repeat(8, minmax(0, 1fr))",
             "comet": "repeat(8, minmax(0, 1fr))",
             "ocean": "repeat(8, minmax(0, 1fr))"
           }
@@ -717,6 +860,7 @@
           "name": "grid-cols/9",
           "values": {
             "neutral": "repeat(9, minmax(0, 1fr))",
+            "amanimile": "repeat(9, minmax(0, 1fr))",
             "comet": "repeat(9, minmax(0, 1fr))",
             "ocean": "repeat(9, minmax(0, 1fr))"
           }
@@ -725,6 +869,7 @@
           "name": "grid-cols/10",
           "values": {
             "neutral": "repeat(10, minmax(0, 1fr))",
+            "amanimile": "repeat(10, minmax(0, 1fr))",
             "comet": "repeat(10, minmax(0, 1fr))",
             "ocean": "repeat(10, minmax(0, 1fr))"
           }
@@ -733,6 +878,7 @@
           "name": "grid-cols/11",
           "values": {
             "neutral": "repeat(11, minmax(0, 1fr))",
+            "amanimile": "repeat(11, minmax(0, 1fr))",
             "comet": "repeat(11, minmax(0, 1fr))",
             "ocean": "repeat(11, minmax(0, 1fr))"
           }
@@ -741,6 +887,7 @@
           "name": "grid-cols/12",
           "values": {
             "neutral": "repeat(12, minmax(0, 1fr))",
+            "amanimile": "repeat(12, minmax(0, 1fr))",
             "comet": "repeat(12, minmax(0, 1fr))",
             "ocean": "repeat(12, minmax(0, 1fr))"
           }
@@ -749,6 +896,7 @@
           "name": "breakpoint/sm",
           "values": {
             "neutral": "40rem",
+            "amanimile": "40rem",
             "comet": "40rem",
             "ocean": "40rem"
           }
@@ -757,6 +905,7 @@
           "name": "breakpoint/md",
           "values": {
             "neutral": "48rem",
+            "amanimile": "48rem",
             "comet": "48rem",
             "ocean": "48rem"
           }
@@ -765,6 +914,7 @@
           "name": "breakpoint/lg",
           "values": {
             "neutral": "64rem",
+            "amanimile": "64rem",
             "comet": "64rem",
             "ocean": "64rem"
           }
@@ -773,6 +923,7 @@
           "name": "breakpoint/xl",
           "values": {
             "neutral": "80rem",
+            "amanimile": "80rem",
             "comet": "80rem",
             "ocean": "80rem"
           }
@@ -781,6 +932,7 @@
           "name": "color/brand/50",
           "values": {
             "neutral": "#fafafa",
+            "amanimile": "#eef7fd",
             "comet": "#f5f3ff",
             "ocean": "#f0f9ff"
           }
@@ -789,6 +941,7 @@
           "name": "color/brand/100",
           "values": {
             "neutral": "#f4f4f5",
+            "amanimile": "#d9ecf9",
             "comet": "#ede9fe",
             "ocean": "#e0f2fe"
           }
@@ -797,6 +950,7 @@
           "name": "color/brand/200",
           "values": {
             "neutral": "#e4e4e7",
+            "amanimile": "#b5daf3",
             "comet": "#ddd6fe",
             "ocean": "#bae6fd"
           }
@@ -805,6 +959,7 @@
           "name": "color/brand/300",
           "values": {
             "neutral": "#d4d4d8",
+            "amanimile": "#6db2e3",
             "comet": "#c4b5fd",
             "ocean": "#7dd3fc"
           }
@@ -813,6 +968,7 @@
           "name": "color/brand/400",
           "values": {
             "neutral": "#a1a1aa",
+            "amanimile": "#2890d0",
             "comet": "#a78bfa",
             "ocean": "#38bdf8"
           }
@@ -821,6 +977,7 @@
           "name": "color/brand/500",
           "values": {
             "neutral": "#71717a",
+            "amanimile": "#1d78b4",
             "comet": "#8b5cf6",
             "ocean": "#0369a1"
           }
@@ -829,6 +986,7 @@
           "name": "color/brand/600",
           "values": {
             "neutral": "#52525b",
+            "amanimile": "#186aa0",
             "comet": "#7c3aed",
             "ocean": "#075985"
           }
@@ -837,6 +995,7 @@
           "name": "color/brand/700",
           "values": {
             "neutral": "#3f3f46",
+            "amanimile": "#135985",
             "comet": "#6d28d9",
             "ocean": "#0c4a6e"
           }
@@ -845,6 +1004,7 @@
           "name": "color/brand/800",
           "values": {
             "neutral": "#27272a",
+            "amanimile": "#0f4869",
             "comet": "#5b21b6",
             "ocean": "#0a3d5c"
           }
@@ -853,6 +1013,7 @@
           "name": "color/brand/900",
           "values": {
             "neutral": "#18181b",
+            "amanimile": "#0c3a55",
             "comet": "#4c1d95",
             "ocean": "#082f49"
           }
@@ -861,6 +1022,7 @@
           "name": "color/brand/950",
           "values": {
             "neutral": "#09090b",
+            "amanimile": "#072436",
             "comet": "#2e1065",
             "ocean": "#04202f"
           }
@@ -869,6 +1031,7 @@
           "name": "color/accent",
           "values": {
             "neutral": "#52525b",
+            "amanimile": "#b84a06",
             "comet": "#0891b2",
             "ocean": "#b45309"
           }
@@ -877,6 +1040,7 @@
           "name": "color/primary/light",
           "values": {
             "neutral": "#18181b",
+            "amanimile": "#1d78b4",
             "comet": "#7c3aed",
             "ocean": "#0369a1"
           }
@@ -885,6 +1049,7 @@
           "name": "color/primary/dark",
           "values": {
             "neutral": "#fafafa",
+            "amanimile": "#1d78b4",
             "comet": "#7c3aed",
             "ocean": "#0369a1"
           }
@@ -893,6 +1058,7 @@
           "name": "color/primary-hover/light",
           "values": {
             "neutral": "#27272a",
+            "amanimile": "#186aa0",
             "comet": "#6d28d9",
             "ocean": "#075985"
           }
@@ -901,6 +1067,7 @@
           "name": "color/primary-hover/dark",
           "values": {
             "neutral": "#e4e4e7",
+            "amanimile": "#186aa0",
             "comet": "#6d28d9",
             "ocean": "#075985"
           }
@@ -909,6 +1076,7 @@
           "name": "color/primary-foreground/light",
           "values": {
             "neutral": "#fafafa",
+            "amanimile": "#ffffff",
             "comet": "#ffffff",
             "ocean": "#ffffff"
           }
@@ -917,6 +1085,7 @@
           "name": "color/primary-foreground/dark",
           "values": {
             "neutral": "#18181b",
+            "amanimile": "#ffffff",
             "comet": "#ffffff",
             "ocean": "#ffffff"
           }
@@ -925,6 +1094,7 @@
           "name": "color/ring/light",
           "values": {
             "neutral": "#18181b",
+            "amanimile": "#1d78b4",
             "comet": "#8b5cf6",
             "ocean": "#0369a1"
           }
@@ -933,6 +1103,7 @@
           "name": "color/ring/dark",
           "values": {
             "neutral": "#fafafa",
+            "amanimile": "#5aa9dd",
             "comet": "#a78bfa",
             "ocean": "#38bdf8"
           }
@@ -941,6 +1112,7 @@
           "name": "font-family/default",
           "values": {
             "neutral": "\"Plus Jakarta Sans\", sans-serif",
+            "amanimile": "\"Inter\", sans-serif",
             "comet": "\"Plus Jakarta Sans\", sans-serif",
             "ocean": "\"DM Sans\", sans-serif"
           }
@@ -949,6 +1121,7 @@
           "name": "font-family/heading",
           "values": {
             "neutral": "\"Plus Jakarta Sans\", sans-serif",
+            "amanimile": "\"Plus Jakarta Sans\", sans-serif",
             "comet": "\"Plus Jakarta Sans\", sans-serif",
             "ocean": "\"Fraunces\", serif"
           }
@@ -957,6 +1130,7 @@
           "name": "font-family/mono",
           "values": {
             "neutral": "\"Ui-Monospace\", \"SF Mono\", monospace",
+            "amanimile": "\"Ui-Monospace\", \"SF Mono\", monospace",
             "comet": "\"Ui-Monospace\", \"SF Mono\", monospace",
             "ocean": "\"Ui-Monospace\", \"SF Mono\", monospace"
           }
@@ -965,6 +1139,7 @@
           "name": "radius/base",
           "values": {
             "neutral": "0.625rem",
+            "amanimile": "0.75rem",
             "comet": "0.625rem",
             "ocean": "0.375rem"
           }
@@ -1199,6 +1374,110 @@
             "Dark": "{color.amber.400}"
           },
           "description": "Warning text on warning-subtle or surface"
+        },
+        {
+          "name": "info",
+          "values": {
+            "Light": "{color.sky.600}",
+            "Dark": "{color.sky.600}"
+          },
+          "description": "Info fill / dot"
+        },
+        {
+          "name": "info-subtle",
+          "values": {
+            "Light": "{color.sky.50}",
+            "Dark": "{color.sky.950}"
+          }
+        },
+        {
+          "name": "info-subtle-foreground",
+          "values": {
+            "Light": "{color.sky.700}",
+            "Dark": "{color.sky.400}"
+          },
+          "description": "Info text on info-subtle or surface"
+        },
+        {
+          "name": "chart-1",
+          "values": {
+            "Light": "#084e70",
+            "Dark": "#0e85b8"
+          },
+          "description": "Chart series 1-8. Color-blind safe (checked under deuteranopia, protanopia, tritanopia) and each series has its own lightness, so they stay apart in grayscale. 3:1 or better on surface. Fixed across brands."
+        },
+        {
+          "name": "chart-2",
+          "values": {
+            "Light": "#c36f4c",
+            "Dark": "#febaa5"
+          }
+        },
+        {
+          "name": "chart-3",
+          "values": {
+            "Light": "#037149",
+            "Dark": "#0db475"
+          }
+        },
+        {
+          "name": "chart-4",
+          "values": {
+            "Light": "#61188b",
+            "Dark": "#8a55cd"
+          }
+        },
+        {
+          "name": "chart-5",
+          "values": {
+            "Light": "#9f9133",
+            "Dark": "#e5d98a"
+          }
+        },
+        {
+          "name": "chart-6",
+          "values": {
+            "Light": "#a5263b",
+            "Dark": "#f05f63"
+          }
+        },
+        {
+          "name": "chart-7",
+          "values": {
+            "Light": "#048399",
+            "Dark": "#0ec8ed"
+          }
+        },
+        {
+          "name": "chart-8",
+          "values": {
+            "Light": "#686d71",
+            "Dark": "#a0abb5"
+          }
+        },
+        {
+          "name": "media",
+          "values": {
+            "Light": "{color.slate.900}",
+            "Dark": "{color.slate.800}"
+          },
+          "description": "Dark surface for video and camera panels in both themes"
+        },
+        {
+          "name": "media-foreground",
+          "values": {
+            "Light": "{color.white}",
+            "Dark": "{color.slate.50}"
+          },
+          "description": "Text and icons on media"
+        },
+        {
+          "name": "media-muted-foreground",
+          "values": {
+            "Light": "{color.slate.300}",
+            "Dark": "{color.slate.300}"
+          },
+          "description": "Secondary text on media"
         },
         {
           "name": "overlay",

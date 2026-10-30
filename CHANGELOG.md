@@ -2,6 +2,19 @@
 
 Versions follow semantic versioning. A deprecated name stays as an alias for at least one minor release before it is removed, and every release gets an entry here.
 
+## 1.3.0
+
+### Added
+- **Brand:** `amanimile` (biru `#1d78b4`, aksen oranye `#b84a06`, radius 12px, Inter + Plus Jakarta Sans), lolos cek kontras di light dan dark.
+- **Tokens:** `info`, `info-subtle`, `info-subtle-foreground`; `chart-1` sampai `chart-8` (aman untuk buta warna, >= 3:1 terhadap surface); `media`, `media-foreground`, `media-muted-foreground`; primitive `sky`; `space.card` (20px). Pasangan kontras baru di `tokens/contrast.json`.
+- **Badge:** `cu-badge-md`, `cu-badge-warning`, `-info`, `-accent`, `-destructive-subtle`.
+- **Card:** `cu-card-compact`, `cu-card-header/-title/-subtitle/-actions/-body`, `cu-card-scroll`.
+- **Components:** `cu-stat-compact`, `cu-status` + `cu-status-dot` (running, waiting, stopped, offline; beda bentuk, bukan hanya warna), `cu-legend`, `cu-stepper` (horizontal dan vertical), `cu-chart` (wrapper, fill/stroke 1-8, tooltip), `cu-gauge`, `cu-overlay-panel` + `cu-map-frame`, `cu-video-panel` (live, weak-signal, no-device, no-access), `cu-pill-navbar`, `cu-brand-band`, `cu-select-inverse`, `cu-icon-btn`, `cu-count-badge`.
+- **Docs:** bagian baru dengan Preview, Code, dan catatan a11y untuk tiap komponen; halaman contoh `docs/examples/amanimile.html`.
+
+### Changed
+- Semua perubahan bersifat additive; varian lama tidak berubah.
+
 ## 1.2.0
 
 ### Added

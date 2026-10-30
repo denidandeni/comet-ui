@@ -1,0 +1,121 @@
+/* Molecule: Chart wrapper (for headless chart libraries such as TanStack-based ones)
+   Comet UI styles the frame; the library draws the marks.
+   <div class="cu-chart">
+     <div class="cu-chart-header">
+       <h3 class="cu-chart-title">Volume Kirim</h3>
+       <ul class="cu-legend" aria-label="Seri"> ...cu-legend-item + cu-legend-swatch-N... </ul>
+     </div>
+     <div class="cu-chart-area" role="img" aria-label="Ringkasan data dalam kalimat">
+       <svg>...</svg>
+       <div class="cu-chart-tooltip" role="tooltip" hidden> ... </div>
+     </div>
+   </div>
+   Series colors: --cu-chart-1 .. --cu-chart-8. On SVG marks use .cu-chart-fill-N or .cu-chart-stroke-N. */
+
+.cu-chart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-md);
+  height: 100%;
+  min-height: 0;
+  font-family: inherit;
+}
+
+.cu-chart-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--cu-space-sm) var(--cu-space-md);
+}
+
+.cu-chart-title {
+  font-family: var(--cu-font-family-heading);
+  font-size: var(--cu-text-base);
+  font-weight: var(--cu-font-weight-bold);
+  line-height: var(--cu-lh-tight);
+  letter-spacing: var(--cu-tracking-tight);
+  color: var(--cu-foreground);
+}
+
+/* Fills the rest of the card. The library should size itself to this box. */
+.cu-chart-area {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.cu-chart-area > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Axis and grid helpers for SVG */
+.cu-chart-axis {
+  fill: var(--cu-muted-foreground);
+  font-size: var(--cu-text-xs);
+  font-family: inherit;
+}
+
+.cu-chart-gridline {
+  stroke: var(--cu-border);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+/* Series on SVG marks */
+.cu-chart-fill-1 { fill: var(--cu-chart-1); }
+.cu-chart-fill-2 { fill: var(--cu-chart-2); }
+.cu-chart-fill-3 { fill: var(--cu-chart-3); }
+.cu-chart-fill-4 { fill: var(--cu-chart-4); }
+.cu-chart-fill-5 { fill: var(--cu-chart-5); }
+.cu-chart-fill-6 { fill: var(--cu-chart-6); }
+.cu-chart-fill-7 { fill: var(--cu-chart-7); }
+.cu-chart-fill-8 { fill: var(--cu-chart-8); }
+
+.cu-chart-stroke-1 { stroke: var(--cu-chart-1); fill: none; stroke-width: 2; }
+.cu-chart-stroke-2 { stroke: var(--cu-chart-2); fill: none; stroke-width: 2; }
+.cu-chart-stroke-3 { stroke: var(--cu-chart-3); fill: none; stroke-width: 2; }
+.cu-chart-stroke-4 { stroke: var(--cu-chart-4); fill: none; stroke-width: 2; }
+.cu-chart-stroke-5 { stroke: var(--cu-chart-5); fill: none; stroke-width: 2; }
+.cu-chart-stroke-6 { stroke: var(--cu-chart-6); fill: none; stroke-width: 2; }
+.cu-chart-stroke-7 { stroke: var(--cu-chart-7); fill: none; stroke-width: 2; }
+.cu-chart-stroke-8 { stroke: var(--cu-chart-8); fill: none; stroke-width: 2; }
+
+/* Tooltip. The library sets left/top; Comet UI sets the look. */
+.cu-chart-tooltip {
+  position: absolute;
+  z-index: var(--cu-z-tooltip);
+  min-width: 9rem;
+  padding: var(--cu-space-sm) var(--cu-space-md);
+  border-radius: var(--cu-radius-md);
+  background-color: var(--cu-inverse);
+  color: var(--cu-inverse-foreground);
+  box-shadow: var(--cu-shd-pop);
+  font-size: var(--cu-text-xs);
+  line-height: var(--cu-lh-base);
+  pointer-events: none;
+}
+
+.cu-chart-tooltip[hidden] {
+  display: none;
+}
+
+.cu-chart-tooltip-title {
+  margin-bottom: var(--cu-space-xs);
+  font-weight: var(--cu-font-weight-bold);
+}
+
+.cu-chart-tooltip-row {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-sm);
+}
+
+.cu-chart-tooltip-value {
+  margin-left: auto;
+  padding-left: var(--cu-space-md);
+  font-weight: var(--cu-font-weight-bold);
+  font-variant-numeric: tabular-nums;
+}

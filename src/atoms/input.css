@@ -91,3 +91,28 @@
   font-size: var(--cu-text-xs);
   color: var(--cu-destructive-subtle-foreground);
 }
+
+/* Select on a dark / brand band (see .cu-brand-band). Fill is --cu-primary-hover,
+   which is contrast-checked against --cu-primary-foreground. */
+.cu-select-inverse {
+  border-color: color-mix(in srgb, var(--cu-primary-foreground) 70%, transparent);
+  background-color: var(--cu-primary-hover);
+  color: var(--cu-primary-foreground);
+}
+
+.cu-select-inverse:hover {
+  border-color: var(--cu-primary-foreground);
+}
+
+.cu-select-inverse:focus,
+.cu-select-inverse:focus-visible {
+  border-color: var(--cu-primary-foreground);
+  box-shadow: none;
+  outline: 2px solid var(--cu-primary-foreground);
+  outline-offset: 2px;
+}
+
+.cu-select-inverse option {
+  background-color: var(--cu-surface);
+  color: var(--cu-foreground);
+}

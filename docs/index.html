@@ -37,6 +37,7 @@
                         <option value="neutral">Neutral</option>
                         <option value="comet">Comet</option>
                         <option value="ocean">Ocean</option>
+                        <option value="amanimile">AmaniMile</option>
                     </select>
                 </label>
                 <label class="docs-switcher">
@@ -104,6 +105,15 @@
                     <a href="#radio" class="docs-nav-item">Radio</a>
                     <a href="#cards" class="docs-nav-item">Card</a>
                     <a href="#dividers" class="docs-nav-item">Divider</a>
+                    <a href="#gauge" class="docs-nav-item">Gauge <span class="docs-nav-badge">New</span></a>
+                    <a href="#video-panel" class="docs-nav-item">Video panel <span class="docs-nav-badge">New</span></a>
+                    <a href="#overlay-panel" class="docs-nav-item">Overlay panel <span class="docs-nav-badge">New</span></a>
+                    <a href="#chart" class="docs-nav-item">Chart wrapper &amp; tokens <span class="docs-nav-badge">New</span></a>
+                    <a href="#stepper" class="docs-nav-item">Stepper &amp; timeline <span class="docs-nav-badge">New</span></a>
+                    <a href="#status-dot" class="docs-nav-item">Status dot &amp; legend <span class="docs-nav-badge">New</span></a>
+                    <a href="#stat-compact" class="docs-nav-item">Compact stat <span class="docs-nav-badge">New</span></a>
+                    <a href="#brand-band" class="docs-nav-item">Pill navbar &amp; brand band <span class="docs-nav-badge">New</span></a>
+                    <a href="#card-layout" class="docs-nav-item">Card layout <span class="docs-nav-badge">New</span></a>
                     <a href="#tooltips" class="docs-nav-item">Tooltip</a>
                     <a href="#checkbox" class="docs-nav-item">Checkbox</a>
                     <a href="#spinner" class="docs-nav-item">Spinner</a>
@@ -130,6 +140,7 @@
                     <a href="examples/dashboard.html" class="docs-nav-item">App shell: KAI dashboard</a>
                     <a href="examples/auth.html" class="docs-nav-item">Auth</a>
                     <a href="examples/settings.html" class="docs-nav-item">Settings</a>
+                    <a href="examples/amanimile.html" class="docs-nav-item">AmaniMile overview</a>
                 </div>
             </nav>
         </aside>
@@ -745,6 +756,17 @@
                     </div>
 
                     <div class="cu-divider"></div>
+                    <div class="component-label cu-mb-sm">Soft status (md, sentence case)</div>
+                    <div class="cu-flex cu-gap-md cu-items-center cu-flex-wrap">
+                        <span class="cu-badge cu-badge-md cu-badge-success">Tiba</span>
+                        <span class="cu-badge cu-badge-md cu-badge-warning">Menunggu</span>
+                        <span class="cu-badge cu-badge-md cu-badge-info">Dalam perjalanan</span>
+                        <span class="cu-badge cu-badge-md cu-badge-accent">Prioritas</span>
+                        <span class="cu-badge cu-badge-md cu-badge-destructive-subtle">Terlambat</span>
+                        <span class="cu-badge cu-badge-md cu-badge-brand">Baru</span>
+                    </div>
+
+                    <div class="cu-divider"></div>
                     <div class="component-label cu-mb-sm">Modifiers</div>
                     <div class="cu-flex cu-gap-md cu-items-center cu-flex-wrap">
                         <span class="cu-badge cu-badge-outline cu-badge-dot">Dot Badge</span>
@@ -758,8 +780,11 @@
                 <div class="docs-code-box">
                     <span class="docs-code-tag">&lt;span</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-badge cu-badge-brand"</span><span class="docs-code-tag">&gt;</span>New<span class="docs-code-tag">&lt;/span&gt;</span><br>
                     <span class="docs-code-tag">&lt;span</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-badge cu-badge-destructive"</span><span class="docs-code-tag">&gt;</span>Destructive<span class="docs-code-tag">&lt;/span&gt;</span><br>
-                    <span class="docs-code-tag">&lt;span</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-badge cu-badge-outline cu-badge-dot"</span><span class="docs-code-tag">&gt;</span>Status<span class="docs-code-tag">&lt;/span&gt;</span>
+                    <span class="docs-code-tag">&lt;span</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-badge cu-badge-outline cu-badge-dot"</span><span class="docs-code-tag">&gt;</span>Status<span class="docs-code-tag">&lt;/span&gt;</span><br>
+                    <span class="docs-code-comment">&lt;!-- md size + soft variants: warning, info, accent, destructive-subtle --&gt;</span><br>
+                    <span class="docs-code-tag">&lt;span</span> <span class="docs-code-attr">class</span>=<span class="docs-code-string">"cu-badge cu-badge-md cu-badge-warning"</span><span class="docs-code-tag">&gt;</span>Menunggu<span class="docs-code-tag">&lt;/span&gt;</span>
                 </div>
+                <p class="cu-paragraph cu-mt-md"><strong>Accessibility.</strong> A badge is plain text, so it needs no role. Never rely on its color alone: always keep a text label (&ldquo;Terlambat&rdquo;, not just a red pill). For a live count that changes, put the badge inside an element with <code>aria-live="polite"</code>. Text colors on the soft variants are contrast-checked (4.5:1) for every brand and theme.</p>
             </section>
 
             <!-- Dialog Section -->
@@ -1705,6 +1730,272 @@ searchInput.addEventListener(<span class="docs-code-string">'input'</span>, (e) 
                         <p class="cu-text-sm cu-text-subtle">Add <code>.cu-card-interactive</code> for the hover lift.</p>
                     </div>
                 </div>
+            </section>
+
+                        <!-- Card layout Section -->
+            <section id="card-layout" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Card layout</h2>
+                    <p class="cu-paragraph cu-mt-sm">Header, title, subtitle, actions and a body that fills the remaining height. <code>.cu-card-compact</code> sets 20px padding. Add <code>.cu-card-scroll</code> to the body when its content can overflow.</p>
+                </div>
+                <div class="docs-preview-box ">
+<div class="cu-card cu-card-compact" style="width:360px;height:260px"><div class="cu-card-header"><div><h3 class="cu-card-title">Pengiriman Hari Ini</h3><p class="cu-card-subtitle">Diperbarui 5 menit lalu</p></div><div class="cu-card-actions"><button type="button" class="cu-btn cu-btn-ghost cu-btn-sm">Lihat semua</button></div></div><div class="cu-card-body cu-card-scroll" tabindex="0" role="region" aria-label="Daftar pengiriman hari ini"><p class="cu-text-sm" style="padding:6px 0;border-bottom:1px solid var(--cu-border)">KRM-1040 &middot; Gudang Cikarang &rarr; Surabaya</p><p class="cu-text-sm" style="padding:6px 0;border-bottom:1px solid var(--cu-border)">KRM-1041 &middot; Gudang Cikarang &rarr; Surabaya</p><p class="cu-text-sm" style="padding:6px 0;border-bottom:1px solid var(--cu-border)">KRM-1042 &middot; Gudang Cikarang &rarr; Surabaya</p><p class="cu-text-sm" style="padding:6px 0;border-bottom:1px solid var(--cu-border)">KRM-1043 &middot; Gudang Cikarang &rarr; Surabaya</p><p class="cu-text-sm" style="padding:6px 0;border-bottom:1px solid var(--cu-border)">KRM-1044 &middot; Gudang Cikarang &rarr; Surabaya</p><p class="cu-text-sm" style="padding:6px 0;border-bottom:1px solid var(--cu-border)">KRM-1045 &middot; Gudang Cikarang &rarr; Surabaya</p><p class="cu-text-sm" style="padding:6px 0;border-bottom:1px solid var(--cu-border)">KRM-1046 &middot; Gudang Cikarang &rarr; Surabaya</p><p class="cu-text-sm" style="padding:6px 0;border-bottom:1px solid var(--cu-border)">KRM-1047 &middot; Gudang Cikarang &rarr; Surabaya</p></div></div>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-card cu-card-compact&quot; style=&quot;height:260px&quot;&gt;
+  &lt;div class=&quot;cu-card-header&quot;&gt;
+    &lt;div&gt;
+      &lt;h3 class=&quot;cu-card-title&quot;&gt;Pengiriman Hari Ini&lt;/h3&gt;
+      &lt;p class=&quot;cu-card-subtitle&quot;&gt;Diperbarui 5 menit lalu&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cu-card-actions&quot;&gt;
+      &lt;button type=&quot;button&quot; class=&quot;cu-btn cu-btn-ghost cu-btn-sm&quot;&gt;Lihat semua&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cu-card-body cu-card-scroll&quot; tabindex=&quot;0&quot; role=&quot;region&quot; aria-label=&quot;Daftar pengiriman hari ini&quot;&gt;
+    ... isi yang bisa di-scroll ...
+  &lt;/div&gt;
+&lt;/div&gt;</pre></div>
+                <p class="cu-paragraph cu-mt-md"><strong>Accessibility.</strong> A scrolling body must be focusable (<code>tabindex="0"</code>) and named (<code>role="region"</code> + <code>aria-label</code>), otherwise keyboard users cannot scroll it. The focus ring uses <code>:focus-visible</code> and the <code>--cu-ring</code> token. Use a real heading element for <code>.cu-card-title</code>.</p>
+            </section>
+
+                        <!-- Compact stat Section -->
+            <section id="stat-compact" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Compact stat</h2>
+                    <p class="cu-paragraph cu-mt-sm">Fixed 120px KPI tile: label and tag on the first row, value and hint on one line below. No sparkline. Pairs with <code>.cu-badge-md</code>.</p>
+                </div>
+                <div class="docs-preview-box ">
+<div class="cu-grid cu-grid-cols-3 cu-gap-lg" style="width:100%"><div class="cu-stat-compact"><div class="cu-stat-compact-top"><span class="cu-stat-compact-label">Total Kiriman</span><span class="cu-badge cu-badge-md cu-badge-success">+8%</span></div><div class="cu-stat-compact-bottom"><span class="cu-stat-compact-value">1.284</span><span class="cu-stat-compact-hint">vs kemarin</span></div></div><div class="cu-stat-compact"><div class="cu-stat-compact-top"><span class="cu-stat-compact-label">Armada Aktif</span><span class="cu-badge cu-badge-md cu-badge-info">Live</span></div><div class="cu-stat-compact-bottom"><span class="cu-stat-compact-value">86</span><span class="cu-stat-compact-hint">dari 112 unit</span></div></div><div class="cu-stat-compact"><div class="cu-stat-compact-top"><span class="cu-stat-compact-label">Terlambat</span><span class="cu-badge cu-badge-md cu-badge-destructive-subtle">Perlu tindakan</span></div><div class="cu-stat-compact-bottom"><span class="cu-stat-compact-value">14</span><span class="cu-stat-compact-hint">kiriman hari ini</span></div></div></div>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-stat-compact&quot;&gt;
+  &lt;div class=&quot;cu-stat-compact-top&quot;&gt;
+    &lt;span class=&quot;cu-stat-compact-label&quot;&gt;Total Kiriman&lt;/span&gt;
+    &lt;span class=&quot;cu-badge cu-badge-md cu-badge-success&quot;&gt;+8%&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cu-stat-compact-bottom&quot;&gt;
+    &lt;span class=&quot;cu-stat-compact-value&quot;&gt;1.284&lt;/span&gt;
+    &lt;span class=&quot;cu-stat-compact-hint&quot;&gt;vs kemarin&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre></div>
+                <p class="cu-paragraph cu-mt-md"><strong>Accessibility.</strong> The tile is plain text, so screen readers read label, tag, value and hint in order. Keep the tag text meaningful (&ldquo;Perlu tindakan&rdquo;), because color alone must not carry the status. For a value that updates live, wrap the value in <code>aria-live="polite"</code>.</p>
+            </section>
+
+                        <!-- Status dot &amp; legend Section -->
+            <section id="status-dot" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Status dot &amp; legend</h2>
+                    <p class="cu-paragraph cu-mt-sm">Fleet status markers. Each state has its own shape (circle, diamond, square, ring) and a visible label, so status is readable without color. The Offline ring is at least 3:1 against the surface.</p>
+                </div>
+                <div class="docs-preview-box ">
+<div class="cu-flex-col cu-gap-lg" style="align-items:flex-start"><div class="cu-flex cu-gap-lg cu-flex-wrap"><span class="cu-status"><span class="cu-status-dot cu-status-dot-running" aria-hidden="true"></span>Berjalan</span><span class="cu-status"><span class="cu-status-dot cu-status-dot-waiting" aria-hidden="true"></span>Menunggu</span><span class="cu-status"><span class="cu-status-dot cu-status-dot-stopped" aria-hidden="true"></span>Berhenti</span><span class="cu-status"><span class="cu-status-dot cu-status-dot-offline" aria-hidden="true"></span>Offline</span></div><div class="cu-divider"></div><ul class="cu-legend" aria-label="Status armada"><li class="cu-legend-item"><span class="cu-status-dot cu-status-dot-running" aria-hidden="true"></span>Berjalan <span class="cu-legend-count">42</span></li><li class="cu-legend-item"><span class="cu-status-dot cu-status-dot-waiting" aria-hidden="true"></span>Menunggu <span class="cu-legend-count">9</span></li><li class="cu-legend-item"><span class="cu-status-dot cu-status-dot-stopped" aria-hidden="true"></span>Berhenti <span class="cu-legend-count">5</span></li><li class="cu-legend-item"><span class="cu-status-dot cu-status-dot-offline" aria-hidden="true"></span>Offline <span class="cu-legend-count">3</span></li></ul></div>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;!-- Status: shape + label, never color alone --&gt;
+&lt;span class=&quot;cu-status&quot;&gt;
+  &lt;span class=&quot;cu-status-dot cu-status-dot-running&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Berjalan
+&lt;/span&gt;
+&lt;!-- states: running | waiting | stopped | offline --&gt;
+
+&lt;!-- Legend --&gt;
+&lt;ul class=&quot;cu-legend&quot; aria-label=&quot;Status armada&quot;&gt;
+  &lt;li class=&quot;cu-legend-item&quot;&gt;
+    &lt;span class=&quot;cu-status-dot cu-status-dot-stopped&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    Berhenti &lt;span class=&quot;cu-legend-count&quot;&gt;5&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- .cu-legend-vertical stacks the items --&gt;</pre></div>
+                <p class="cu-paragraph cu-mt-md"><strong>Accessibility.</strong> Mark the dot <code>aria-hidden="true"</code> and always render the label as text next to it. Do not use the dot as the only content of a cell or button. The legend is a real list (<code>ul</code>) with an <code>aria-label</code>; it is not interactive, so it needs no keyboard handling.</p>
+            </section>
+
+                        <!-- Stepper &amp; timeline Section -->
+            <section id="stepper" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Stepper &amp; timeline</h2>
+                    <p class="cu-paragraph cu-mt-sm">Five delivery stages (Pesanan Dibuat, Dikemas, Memuat, Berangkat, Tiba) with done, current and upcoming states. Horizontal for &ldquo;Progres Kirim&rdquo;, vertical for &ldquo;Lacak Kirim&rdquo;.</p>
+                </div>
+                <div class="docs-preview-box ">
+<div class="cu-flex-col cu-gap-xl" style="width:100%"><ol class="cu-stepper" aria-label="Progres Kirim"><li class="cu-stepper-item is-done"><span class="cu-stepper-marker" aria-hidden="true"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><div class="cu-stepper-content"><span class="cu-stepper-title">Pesanan Dibuat</span><span class="cu-stepper-meta"><span class="cu-sr-only">Selesai. </span>12 Nov, 08:10</span></div></li><li class="cu-stepper-item is-done"><span class="cu-stepper-marker" aria-hidden="true"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><div class="cu-stepper-content"><span class="cu-stepper-title">Dikemas</span><span class="cu-stepper-meta"><span class="cu-sr-only">Selesai. </span>12 Nov, 10:45</span></div></li><li class="cu-stepper-item is-current" aria-current="step"><span class="cu-stepper-marker" aria-hidden="true"></span><div class="cu-stepper-content"><span class="cu-stepper-title">Memuat</span><span class="cu-stepper-meta"><span class="cu-sr-only">Sedang berjalan. </span>12 Nov, 13:20</span></div></li><li class="cu-stepper-item"><span class="cu-stepper-marker" aria-hidden="true">4</span><div class="cu-stepper-content"><span class="cu-stepper-title">Berangkat</span><span class="cu-stepper-meta"><span class="cu-sr-only">Belum dimulai. </span>Estimasi 12 Nov, 15:00</span></div></li><li class="cu-stepper-item"><span class="cu-stepper-marker" aria-hidden="true">5</span><div class="cu-stepper-content"><span class="cu-stepper-title">Tiba</span><span class="cu-stepper-meta"><span class="cu-sr-only">Belum dimulai. </span>Estimasi 14 Nov</span></div></li></ol><div class="cu-divider"></div><ol class="cu-stepper cu-stepper-vertical" aria-label="Lacak Kirim"><li class="cu-stepper-item is-done"><span class="cu-stepper-marker" aria-hidden="true"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><div class="cu-stepper-content"><span class="cu-stepper-title">Pesanan Dibuat</span><span class="cu-stepper-meta"><span class="cu-sr-only">Selesai. </span>12 Nov, 08:10</span></div></li><li class="cu-stepper-item is-done"><span class="cu-stepper-marker" aria-hidden="true"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><div class="cu-stepper-content"><span class="cu-stepper-title">Dikemas</span><span class="cu-stepper-meta"><span class="cu-sr-only">Selesai. </span>12 Nov, 10:45</span></div></li><li class="cu-stepper-item is-current" aria-current="step"><span class="cu-stepper-marker" aria-hidden="true"></span><div class="cu-stepper-content"><span class="cu-stepper-title">Memuat</span><span class="cu-stepper-meta"><span class="cu-sr-only">Sedang berjalan. </span>12 Nov, 13:20</span></div></li><li class="cu-stepper-item"><span class="cu-stepper-marker" aria-hidden="true">4</span><div class="cu-stepper-content"><span class="cu-stepper-title">Berangkat</span><span class="cu-stepper-meta"><span class="cu-sr-only">Belum dimulai. </span>Estimasi 12 Nov, 15:00</span></div></li><li class="cu-stepper-item"><span class="cu-stepper-marker" aria-hidden="true">5</span><div class="cu-stepper-content"><span class="cu-stepper-title">Tiba</span><span class="cu-stepper-meta"><span class="cu-sr-only">Belum dimulai. </span>Estimasi 14 Nov</span></div></li></ol></div>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;ol class=&quot;cu-stepper&quot; aria-label=&quot;Progres Kirim&quot;&gt;
+  &lt;li class=&quot;cu-stepper-item is-done&quot;&gt;
+    &lt;span class=&quot;cu-stepper-marker&quot; aria-hidden=&quot;true&quot;&gt;(check icon)&lt;/span&gt;
+    &lt;div class=&quot;cu-stepper-content&quot;&gt;
+      &lt;span class=&quot;cu-stepper-title&quot;&gt;Pesanan Dibuat&lt;/span&gt;
+      &lt;span class=&quot;cu-stepper-meta&quot;&gt;&lt;span class=&quot;cu-sr-only&quot;&gt;Selesai. &lt;/span&gt;12 Nov, 08:10&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;cu-stepper-item is-current&quot; aria-current=&quot;step&quot;&gt;
+    &lt;span class=&quot;cu-stepper-marker&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    ...
+  &lt;/li&gt;
+  &lt;li class=&quot;cu-stepper-item&quot;&gt;
+    &lt;span class=&quot;cu-stepper-marker&quot; aria-hidden=&quot;true&quot;&gt;4&lt;/span&gt;
+    ...
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- Timeline: add .cu-stepper-vertical --&gt;</pre></div>
+                <p class="cu-paragraph cu-mt-md"><strong>Accessibility.</strong> Use an ordered list so the order is announced. The current step carries <code>aria-current="step"</code>; the markers are <code>aria-hidden</code> and each step has a <code>.cu-sr-only</code> status (&ldquo;Selesai&rdquo;, &ldquo;Belum dimulai&rdquo;). State is also shown by marker shape (check, ring with dot, number) and connector style (solid or dashed), not only by color. The stepper is not interactive, so there is nothing to tab to. If you make steps links, give them the standard <code>:focus-visible</code> ring.</p>
+            </section>
+
+                        <!-- Chart wrapper &amp; tokens Section -->
+            <section id="chart" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Chart wrapper &amp; tokens</h2>
+                    <p class="cu-paragraph cu-mt-sm">A frame for TanStack (headless) charts: title, legend, an area that fills the card height, and a tooltip. Series use <code>--cu-chart-1</code> to <code>--cu-chart-8</code>, which are color-blind safe and differ in lightness as well as hue.</p>
+                </div>
+                <div class="docs-preview-box ">
+<div class="cu-flex-col cu-gap-lg" style="width:100%;align-items:flex-start"><div class="cu-card cu-card-compact" style="width:100%;max-width:620px;height:320px"><div class="cu-chart"><div class="cu-chart-header"><h3 class="cu-chart-title">Volume Kirim Mingguan</h3><ul class="cu-legend" aria-label="Seri"><li class="cu-legend-item"><span class="cu-legend-swatch cu-legend-swatch-1"></span>Terkirim</li><li class="cu-legend-item"><span class="cu-legend-swatch cu-legend-swatch-2"></span>Tertunda</li></ul></div><div class="cu-chart-area" role="img" aria-label="Terkirim tertinggi pada Kamis (80), terendah pada Minggu (32). Tertunda paling banyak pada Kamis (15)."><svg viewBox="0 0 480 200" preserveAspectRatio="none" aria-hidden="true"><line class="cu-chart-gridline" x1="36" x2="480" y1="174" y2="174"/><text class="cu-chart-axis" x="30" y="178" text-anchor="end">0</text><line class="cu-chart-gridline" x1="36" x2="480" y1="133" y2="133"/><text class="cu-chart-axis" x="30" y="137" text-anchor="end">25</text><line class="cu-chart-gridline" x1="36" x2="480" y1="92" y2="92"/><text class="cu-chart-axis" x="30" y="96" text-anchor="end">50</text><line class="cu-chart-gridline" x1="36" x2="480" y1="51" y2="51"/><text class="cu-chart-axis" x="30" y="55" text-anchor="end">75</text><line class="cu-chart-gridline" x1="36" x2="480" y1="10" y2="10"/><text class="cu-chart-axis" x="30" y="14" text-anchor="end">100</text><rect class="cu-chart-fill-1" x="48.7" y="72.3" width="17.8" height="101.7" rx="3"/><rect class="cu-chart-fill-2" x="69.4" y="160.9" width="17.8" height="13.1" rx="3"/><text class="cu-chart-axis" x="68" y="192" text-anchor="middle">Sen</text><rect class="cu-chart-fill-1" x="112.1" y="59.2" width="17.8" height="114.8" rx="3"/><rect class="cu-chart-fill-2" x="132.9" y="154.3" width="17.8" height="19.7" rx="3"/><text class="cu-chart-axis" x="131" y="192" text-anchor="middle">Sel</text><rect class="cu-chart-fill-1" x="175.5" y="78.9" width="17.8" height="95.1" rx="3"/><rect class="cu-chart-fill-2" x="196.3" y="159.2" width="17.8" height="14.8" rx="3"/><text class="cu-chart-axis" x="195" y="192" text-anchor="middle">Rab</text><rect class="cu-chart-fill-1" x="239.0" y="42.8" width="17.8" height="131.2" rx="3"/><rect class="cu-chart-fill-2" x="259.7" y="149.4" width="17.8" height="24.6" rx="3"/><text class="cu-chart-axis" x="258" y="192" text-anchor="middle">Kam</text><rect class="cu-chart-fill-1" x="302.4" y="52.6" width="17.8" height="121.4" rx="3"/><rect class="cu-chart-fill-2" x="323.2" y="157.6" width="17.8" height="16.4" rx="3"/><text class="cu-chart-axis" x="321" y="192" text-anchor="middle">Jum</text><rect class="cu-chart-fill-1" x="365.8" y="108.4" width="17.8" height="65.6" rx="3"/><rect class="cu-chart-fill-2" x="386.6" y="164.2" width="17.8" height="9.8" rx="3"/><text class="cu-chart-axis" x="385" y="192" text-anchor="middle">Sab</text><rect class="cu-chart-fill-1" x="429.3" y="121.5" width="17.8" height="52.5" rx="3"/><rect class="cu-chart-fill-2" x="450.0" y="167.4" width="17.8" height="6.6" rx="3"/><text class="cu-chart-axis" x="448" y="192" text-anchor="middle">Min</text></svg><div class="cu-chart-tooltip" role="tooltip" style="left:150px;top:6px"><div class="cu-chart-tooltip-title">Rabu</div><div class="cu-chart-tooltip-row"><span class="cu-legend-swatch cu-legend-swatch-1"></span>Terkirim<span class="cu-chart-tooltip-value">58</span></div><div class="cu-chart-tooltip-row"><span class="cu-legend-swatch cu-legend-swatch-2"></span>Tertunda<span class="cu-chart-tooltip-value">9</span></div></div></div></div></div><ul class="cu-legend" aria-label="Palet seri chart"><li class="cu-legend-item"><span class="cu-legend-swatch cu-legend-swatch-1"></span>--cu-chart-1</li><li class="cu-legend-item"><span class="cu-legend-swatch cu-legend-swatch-2"></span>--cu-chart-2</li><li class="cu-legend-item"><span class="cu-legend-swatch cu-legend-swatch-3"></span>--cu-chart-3</li><li class="cu-legend-item"><span class="cu-legend-swatch cu-legend-swatch-4"></span>--cu-chart-4</li><li class="cu-legend-item"><span class="cu-legend-swatch cu-legend-swatch-5"></span>--cu-chart-5</li><li class="cu-legend-item"><span class="cu-legend-swatch cu-legend-swatch-6"></span>--cu-chart-6</li><li class="cu-legend-item"><span class="cu-legend-swatch cu-legend-swatch-7"></span>--cu-chart-7</li><li class="cu-legend-item"><span class="cu-legend-swatch cu-legend-swatch-8"></span>--cu-chart-8</li></ul></div>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-card cu-card-compact&quot; style=&quot;height:320px&quot;&gt;
+  &lt;div class=&quot;cu-chart&quot;&gt;
+    &lt;div class=&quot;cu-chart-header&quot;&gt;
+      &lt;h3 class=&quot;cu-chart-title&quot;&gt;Volume Kirim Mingguan&lt;/h3&gt;
+      &lt;ul class=&quot;cu-legend&quot; aria-label=&quot;Seri&quot;&gt;
+        &lt;li class=&quot;cu-legend-item&quot;&gt;&lt;span class=&quot;cu-legend-swatch cu-legend-swatch-1&quot;&gt;&lt;/span&gt;Terkirim&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cu-chart-area&quot; role=&quot;img&quot; aria-label=&quot;Ringkasan data dalam satu kalimat&quot;&gt;
+      &lt;svg viewBox=&quot;0 0 480 200&quot;&gt;
+        &lt;line class=&quot;cu-chart-gridline&quot; .../&gt;
+        &lt;text class=&quot;cu-chart-axis&quot; ...&gt;Sen&lt;/text&gt;
+        &lt;rect class=&quot;cu-chart-fill-1&quot; .../&gt;      &lt;!-- series 1 --&gt;
+        &lt;path class=&quot;cu-chart-stroke-2&quot; d=&quot;...&quot;/&gt; &lt;!-- line series 2 --&gt;
+      &lt;/svg&gt;
+      &lt;div class=&quot;cu-chart-tooltip&quot; role=&quot;tooltip&quot; hidden&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+/* In JS, read the series colors straight from the tokens: */
+getComputedStyle(el).getPropertyValue(&#x27;--cu-chart-1&#x27;)
+
+/* Info status color (badge, alert, marker): */
+--cu-info  --cu-info-subtle  --cu-info-subtle-foreground</pre></div>
+                <p class="cu-paragraph cu-mt-md"><strong>Accessibility.</strong> A chart drawn with SVG or canvas is invisible to screen readers, so give <code>.cu-chart-area</code> <code>role="img"</code> and an <code>aria-label</code> that states the finding in one sentence, and offer the same data as a table (<code>cu-table</code>) for anyone who needs the numbers. Do not carry meaning by color alone: use the legend labels, direct value labels, or a different mark per series. All 8 series are at least 3:1 against the surface in light and dark. The tooltip is <code>pointer-events: none</code> and supplementary only; the data must not exist only in a hover.</p>
+            </section>
+
+                        <!-- Pill navbar &amp; brand band Section -->
+            <section id="brand-band" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Pill navbar &amp; brand band</h2>
+                    <p class="cu-paragraph cu-mt-sm">A floating pill navbar over a band in the brand color. The band ends at the vertical middle of the KPI row. <code>.cu-select-inverse</code> is the filter style for use on the band. The notification counter is <code>.cu-count-badge</code>, a round badge separate from <code>.cu-badge</code>.</p>
+                </div>
+                <div class="docs-preview-box ">
+<header class="cu-brand-band" style="width:100%"><div class="cu-brand-band-inner"><nav class="cu-pill-navbar" aria-label="Utama"><a class="cu-topbar-brand" href="#"><div class="cu-topbar-brand-icon">AM</div><div class="cu-topbar-brand-text"><span class="cu-topbar-brand-name">AmaniMile</span></div></a><div class="cu-pill-navbar-nav"><a class="cu-pill-navbar-link is-active" href="#" aria-current="page">Overview</a><a class="cu-pill-navbar-link" href="#">Warehouse</a><a class="cu-pill-navbar-link" href="#">Fleet</a></div><div class="cu-pill-navbar-search"><div class="cu-searchbar"><svg class="cu-icon cu-searchbar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input type="search" class="cu-input cu-searchbar-input" placeholder="Cari kiriman" aria-label="Cari kiriman"></div></div><div class="cu-pill-navbar-actions"><button type="button" class="cu-icon-btn" aria-label="Notifikasi, 3 belum dibaca"><svg class="cu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span class="cu-count-badge" aria-hidden="true">3</span></button><div class="cu-avatar">BP</div></div></nav><div class="cu-brand-band-head"><div><h1 class="cu-brand-band-title">Overview</h1><p class="cu-brand-band-subtitle">Ringkasan operasional hari ini</p></div><div class="cu-brand-band-filters"><select class="cu-select cu-select-inverse" aria-label="Periode"><option>Hari ini</option><option>7 hari</option><option>30 hari</option></select><select class="cu-select cu-select-inverse" aria-label="Gudang"><option>Semua gudang</option><option>Cikarang</option><option>Surabaya</option></select></div></div><div class="cu-brand-band-overlap cu-grid cu-grid-cols-4 cu-gap-lg"><div class="cu-stat-compact"><div class="cu-stat-compact-top"><span class="cu-stat-compact-label">Total Kiriman</span><span class="cu-badge cu-badge-md cu-badge-success">+8%</span></div><div class="cu-stat-compact-bottom"><span class="cu-stat-compact-value">1.284</span><span class="cu-stat-compact-hint">vs kemarin</span></div></div><div class="cu-stat-compact"><div class="cu-stat-compact-top"><span class="cu-stat-compact-label">Armada Aktif</span><span class="cu-badge cu-badge-md cu-badge-info">Live</span></div><div class="cu-stat-compact-bottom"><span class="cu-stat-compact-value">86</span><span class="cu-stat-compact-hint">dari 112 unit</span></div></div><div class="cu-stat-compact"><div class="cu-stat-compact-top"><span class="cu-stat-compact-label">Tepat Waktu</span><span class="cu-badge cu-badge-md cu-badge-success">Baik</span></div><div class="cu-stat-compact-bottom"><span class="cu-stat-compact-value">94%</span><span class="cu-stat-compact-hint">target 92%</span></div></div><div class="cu-stat-compact"><div class="cu-stat-compact-top"><span class="cu-stat-compact-label">Terlambat</span><span class="cu-badge cu-badge-md cu-badge-destructive-subtle">Perlu tindakan</span></div><div class="cu-stat-compact-bottom"><span class="cu-stat-compact-value">14</span><span class="cu-stat-compact-hint">kiriman</span></div></div></div></div></header>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;header class=&quot;cu-brand-band&quot;&gt;
+  &lt;div class=&quot;cu-brand-band-inner&quot;&gt;
+    &lt;nav class=&quot;cu-pill-navbar&quot; aria-label=&quot;Utama&quot;&gt;
+      &lt;a class=&quot;cu-topbar-brand&quot; href=&quot;#&quot;&gt;...logo...&lt;/a&gt;
+      &lt;div class=&quot;cu-pill-navbar-nav&quot;&gt;
+        &lt;a class=&quot;cu-pill-navbar-link is-active&quot; href=&quot;#&quot; aria-current=&quot;page&quot;&gt;Overview&lt;/a&gt;
+        &lt;a class=&quot;cu-pill-navbar-link&quot; href=&quot;#&quot;&gt;Warehouse&lt;/a&gt;
+        &lt;a class=&quot;cu-pill-navbar-link&quot; href=&quot;#&quot;&gt;Fleet&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;cu-pill-navbar-search&quot;&gt;&lt;div class=&quot;cu-searchbar&quot;&gt;...&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;cu-pill-navbar-actions&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;cu-icon-btn&quot; aria-label=&quot;Notifikasi, 3 belum dibaca&quot;&gt;
+          &lt;svg class=&quot;cu-icon&quot;&gt;...&lt;/svg&gt;
+          &lt;span class=&quot;cu-count-badge&quot; aria-hidden=&quot;true&quot;&gt;3&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class=&quot;cu-avatar&quot;&gt;BP&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+    &lt;div class=&quot;cu-brand-band-head&quot;&gt;
+      &lt;div&gt;&lt;h1 class=&quot;cu-brand-band-title&quot;&gt;Overview&lt;/h1&gt;...&lt;/div&gt;
+      &lt;div class=&quot;cu-brand-band-filters&quot;&gt;
+        &lt;select class=&quot;cu-select cu-select-inverse&quot; aria-label=&quot;Periode&quot;&gt;...&lt;/select&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- The band ends at the vertical middle of this row (60px for 120px cards) --&gt;
+    &lt;div class=&quot;cu-brand-band-overlap cu-grid cu-grid-cols-4 cu-gap-lg&quot;&gt;
+      &lt;div class=&quot;cu-stat-compact&quot;&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</pre></div>
+                <p class="cu-paragraph cu-mt-md"><strong>Accessibility.</strong> Wrap the navbar in <code>nav</code> with an <code>aria-label</code>; mark the current page with <code>aria-current="page"</code> (it also gets the active style). Every link and button has a <code>:focus-visible</code> ring. The notification button needs an <code>aria-label</code> that includes the count (&ldquo;Notifikasi, 3 belum dibaca&rdquo;) and the badge itself is <code>aria-hidden</code>, so the count is read once. Text on the band is <code>--cu-primary-foreground</code> on <code>--cu-primary</code>, and the select fill is <code>--cu-primary-hover</code>; both pairs are contrast-checked (4.5:1) for every brand and theme. The band has no keyboard behaviour of its own.</p>
+            </section>
+
+                        <!-- Overlay panel Section -->
+            <section id="overlay-panel" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Overlay panel</h2>
+                    <p class="cu-paragraph cu-mt-sm">A legend and zoom buttons that float over a map. <code>.cu-map-frame</code> is the positioned host for the map library.</p>
+                </div>
+                <div class="docs-preview-box ">
+<div class="cu-map-frame" style="width:100%;height:260px"><div class="cu-overlay-panel cu-overlay-panel-top-right" role="group" aria-label="Zoom peta"><div class="cu-overlay-zoom"><button type="button" class="cu-icon-btn" aria-label="Perbesar"><svg class="cu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button><button type="button" class="cu-icon-btn" aria-label="Perkecil"><svg class="cu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/></svg></button></div></div><div class="cu-overlay-panel cu-overlay-panel-bottom-left" role="group" aria-label="Legenda peta"><p class="cu-overlay-panel-title">Status armada</p><ul class="cu-legend cu-legend-vertical"><li class="cu-legend-item"><span class="cu-status-dot cu-status-dot-running" aria-hidden="true"></span>Berjalan <span class="cu-legend-count">42</span></li><li class="cu-legend-item"><span class="cu-status-dot cu-status-dot-waiting" aria-hidden="true"></span>Menunggu <span class="cu-legend-count">9</span></li><li class="cu-legend-item"><span class="cu-status-dot cu-status-dot-stopped" aria-hidden="true"></span>Berhenti <span class="cu-legend-count">5</span></li><li class="cu-legend-item"><span class="cu-status-dot cu-status-dot-offline" aria-hidden="true"></span>Offline <span class="cu-legend-count">3</span></li></ul></div></div>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-map-frame&quot;&gt;
+  ...peta dari library peta...
+  &lt;div class=&quot;cu-overlay-panel cu-overlay-panel-top-right&quot; role=&quot;group&quot; aria-label=&quot;Zoom peta&quot;&gt;
+    &lt;div class=&quot;cu-overlay-zoom&quot;&gt;
+      &lt;button type=&quot;button&quot; class=&quot;cu-icon-btn&quot; aria-label=&quot;Perbesar&quot;&gt;+&lt;/button&gt;
+      &lt;button type=&quot;button&quot; class=&quot;cu-icon-btn&quot; aria-label=&quot;Perkecil&quot;&gt;-&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cu-overlay-panel cu-overlay-panel-bottom-left&quot; role=&quot;group&quot; aria-label=&quot;Legenda peta&quot;&gt;
+    &lt;p class=&quot;cu-overlay-panel-title&quot;&gt;Status armada&lt;/p&gt;
+    &lt;ul class=&quot;cu-legend cu-legend-vertical&quot;&gt;...&lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- positions: -top-left | -top-right | -bottom-left | -bottom-right --&gt;</pre></div>
+                <p class="cu-paragraph cu-mt-md"><strong>Accessibility.</strong> Zoom buttons are real <code>button</code> elements with an <code>aria-label</code> (&ldquo;Perbesar&rdquo;, &ldquo;Perkecil&rdquo;) and a <code>:focus-visible</code> ring, reachable with Tab. Group each panel with <code>role="group"</code> and a label. The legend follows the status-dot rule: shape plus text. A map is hard to use without a mouse, so provide the same fleet data in a table or list as well.</p>
+            </section>
+
+                        <!-- Video panel Section -->
+            <section id="video-panel" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Video panel</h2>
+                    <p class="cu-paragraph cu-mt-sm">A 16:9 camera view with four states: live, weak signal, no device, and no access. The panel is always dark (<code>--cu-media</code>) in light and dark themes.</p>
+                </div>
+                <div class="docs-preview-box ">
+<div class="cu-grid cu-grid-cols-2 cu-gap-lg" style="width:100%"><div class="cu-video-panel cu-video-panel-live" role="group" aria-label="Kamera Gudang A, Dock 2"><div class="cu-video-panel-media"></div><div class="cu-video-panel-bar"><span class="cu-video-panel-name">Gudang A - Dock 2</span><span class="cu-status"><span class="cu-status-dot cu-status-dot-running" aria-hidden="true"></span>Live</span></div></div><div class="cu-video-panel cu-video-panel-weak-signal" role="group" aria-label="Kamera Gudang A, Dock 2"><div class="cu-video-panel-media"></div><div class="cu-video-panel-bar"><span class="cu-video-panel-name">Gudang A - Dock 2</span><span class="cu-status"><span class="cu-status-dot cu-status-dot-waiting" aria-hidden="true"></span>Sinyal lemah</span></div><div class="cu-video-panel-warning" role="status"><svg class="cu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>Sinyal lemah. Gambar mungkin tersendat.</div></div><div class="cu-video-panel cu-video-panel-no-device" role="group" aria-label="Kamera Gudang A, Dock 2"><div class="cu-video-panel-bar"><span class="cu-video-panel-name">Gudang A - Dock 2</span><span class="cu-status"><span class="cu-status-dot cu-status-dot-offline" aria-hidden="true"></span>Offline</span></div><div class="cu-video-panel-message" role="status"><svg class="cu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.66 5H14a2 2 0 0 1 2 2v2.34l1 1L22 8v8"/><path d="M16 16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2l10 10Z"/><path d="m2 2 20 20"/></svg><p class="cu-video-panel-message-title">Tidak ada perangkat</p><p class="cu-video-panel-message-text">Belum ada kamera yang terhubung ke lokasi ini.</p><button type="button" class="cu-btn cu-btn-secondary cu-btn-sm">Hubungkan perangkat</button></div></div><div class="cu-video-panel cu-video-panel-no-access" role="group" aria-label="Kamera Gudang A, Dock 2"><div class="cu-video-panel-bar"><span class="cu-video-panel-name">Gudang A - Dock 2</span><span class="cu-status"><span class="cu-status-dot cu-status-dot-stopped" aria-hidden="true"></span>Terkunci</span></div><div class="cu-video-panel-message" role="status"><svg class="cu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><p class="cu-video-panel-message-title">Tidak ada akses</p><p class="cu-video-panel-message-text">Anda tidak memiliki izin untuk melihat kamera ini. Hubungi administrator.</p></div></div></div>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-video-panel cu-video-panel-live&quot; role=&quot;group&quot; aria-label=&quot;Kamera Gudang A, Dock 2&quot;&gt;
+  &lt;div class=&quot;cu-video-panel-media&quot;&gt;&lt;video autoplay muted playsinline&gt;&lt;/video&gt;&lt;/div&gt;
+  &lt;div class=&quot;cu-video-panel-bar&quot;&gt;
+    &lt;span class=&quot;cu-video-panel-name&quot;&gt;Gudang A - Dock 2&lt;/span&gt;
+    &lt;span class=&quot;cu-status&quot;&gt;&lt;span class=&quot;cu-status-dot cu-status-dot-running&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Live&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- States: cu-video-panel-live | -weak-signal | -no-device | -no-access --&gt;
+&lt;!-- Weak signal adds: &lt;div class=&quot;cu-video-panel-warning&quot; role=&quot;status&quot;&gt;(icon) Sinyal lemah...&lt;/div&gt; --&gt;
+&lt;!-- No device / no access add: &lt;div class=&quot;cu-video-panel-message&quot; role=&quot;status&quot;&gt;
+       (icon) &lt;p class=&quot;cu-video-panel-message-title&quot;&gt;...&lt;/p&gt;&lt;p class=&quot;cu-video-panel-message-text&quot;&gt;...&lt;/p&gt; &lt;/div&gt; --&gt;</pre></div>
+                <p class="cu-paragraph cu-mt-md"><strong>Accessibility.</strong> Each state has an icon, a title and a text message, so state is never only a color. The message and the warning bar use <code>role="status"</code>, so a change from live to weak signal is announced politely. Give the group an <code>aria-label</code> with the camera name. Add <code>muted</code> and <code>playsinline</code> to autoplaying video, and do not autoplay with sound. Buttons inside the panel (such as &ldquo;Hubungkan perangkat&rdquo;) use the normal <code>:focus-visible</code> ring. Text on the panel is checked at 4.5:1 against <code>--cu-media</code>.</p>
+            </section>
+
+                        <!-- Gauge Section -->
+            <section id="gauge" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Gauge</h2>
+                    <p class="cu-paragraph cu-mt-sm">A half-circle meter for a single percentage. The fill length is an SVG attribute (<code>stroke-dasharray</code> with <code>pathLength="100"</code>), so it needs no custom CSS or script.</p>
+                </div>
+                <div class="docs-preview-box ">
+<div class="cu-flex cu-gap-xl cu-flex-wrap" style="width:100%;justify-content:space-around"><div class="cu-gauge" role="meter" aria-label="Muatan gudang" aria-valuemin="0" aria-valuemax="100" aria-valuenow="48" aria-valuetext="48 persen, normal"><svg class="cu-gauge-svg" viewBox="0 0 100 58" aria-hidden="true"><path class="cu-gauge-track" d="M 10 50 A 40 40 0 0 1 90 50" pathLength="100"/><path class="cu-gauge-fill" d="M 10 50 A 40 40 0 0 1 90 50" pathLength="100" stroke-dasharray="48 100"/></svg><div class="cu-gauge-readout"><span class="cu-gauge-value">48%</span><span class="cu-gauge-state">Normal</span></div><p class="cu-gauge-label">Muatan gudang</p></div><div class="cu-gauge cu-gauge-success" role="meter" aria-label="Tepat waktu" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72" aria-valuetext="72 persen, baik"><svg class="cu-gauge-svg" viewBox="0 0 100 58" aria-hidden="true"><path class="cu-gauge-track" d="M 10 50 A 40 40 0 0 1 90 50" pathLength="100"/><path class="cu-gauge-fill" d="M 10 50 A 40 40 0 0 1 90 50" pathLength="100" stroke-dasharray="72 100"/></svg><div class="cu-gauge-readout"><span class="cu-gauge-value">72%</span><span class="cu-gauge-state">Baik</span></div><p class="cu-gauge-label">Tepat waktu</p></div><div class="cu-gauge cu-gauge-warning" role="meter" aria-label="Kapasitas terpakai" aria-valuemin="0" aria-valuemax="100" aria-valuenow="86" aria-valuetext="86 persen, waspada"><svg class="cu-gauge-svg" viewBox="0 0 100 58" aria-hidden="true"><path class="cu-gauge-track" d="M 10 50 A 40 40 0 0 1 90 50" pathLength="100"/><path class="cu-gauge-fill" d="M 10 50 A 40 40 0 0 1 90 50" pathLength="100" stroke-dasharray="86 100"/></svg><div class="cu-gauge-readout"><span class="cu-gauge-value">86%</span><span class="cu-gauge-state">Waspada</span></div><p class="cu-gauge-label">Kapasitas terpakai</p></div><div class="cu-gauge cu-gauge-destructive" role="meter" aria-label="Bahan bakar terpakai" aria-valuemin="0" aria-valuemax="100" aria-valuenow="95" aria-valuetext="95 persen, kritis"><svg class="cu-gauge-svg" viewBox="0 0 100 58" aria-hidden="true"><path class="cu-gauge-track" d="M 10 50 A 40 40 0 0 1 90 50" pathLength="100"/><path class="cu-gauge-fill" d="M 10 50 A 40 40 0 0 1 90 50" pathLength="100" stroke-dasharray="95 100"/></svg><div class="cu-gauge-readout"><span class="cu-gauge-value">95%</span><span class="cu-gauge-state">Kritis</span></div><p class="cu-gauge-label">Bahan bakar terpakai</p></div></div>
+                </div>
+
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-gauge cu-gauge-warning&quot; role=&quot;meter&quot; aria-label=&quot;Kapasitas terpakai&quot;
+     aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-valuenow=&quot;86&quot; aria-valuetext=&quot;86 persen, waspada&quot;&gt;
+  &lt;svg class=&quot;cu-gauge-svg&quot; viewBox=&quot;0 0 100 58&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;path class=&quot;cu-gauge-track&quot; d=&quot;M 10 50 A 40 40 0 0 1 90 50&quot; pathLength=&quot;100&quot;/&gt;
+    &lt;path class=&quot;cu-gauge-fill&quot; d=&quot;M 10 50 A 40 40 0 0 1 90 50&quot; pathLength=&quot;100&quot; stroke-dasharray=&quot;86 100&quot;/&gt;
+  &lt;/svg&gt;
+  &lt;div class=&quot;cu-gauge-readout&quot;&gt;
+    &lt;span class=&quot;cu-gauge-value&quot;&gt;86%&lt;/span&gt;&lt;span class=&quot;cu-gauge-state&quot;&gt;Waspada&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;p class=&quot;cu-gauge-label&quot;&gt;Kapasitas terpakai&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- Set the value in stroke-dasharray (&quot;&lt;value&gt; 100&quot;). Variants: cu-gauge-success | -warning | -destructive --&gt;</pre></div>
+                <p class="cu-paragraph cu-mt-md"><strong>Accessibility.</strong> The container has <code>role="meter"</code> with <code>aria-valuemin</code>, <code>aria-valuemax</code>, <code>aria-valuenow</code> and a readable <code>aria-valuetext</code> that includes the state; the drawing is <code>aria-hidden</code>. State is written as text under the number (Normal, Baik, Waspada, Kritis), not only as the stroke color. The fill colors are at least 3:1 against the surface. The gauge is not interactive.</p>
             </section>
 
             <!-- Divider Section -->

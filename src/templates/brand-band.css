@@ -1,0 +1,80 @@
+/* Template: Brand band
+   A band in the brand color behind the pill navbar, title and filters. It stops at
+   the vertical middle of the KPI row, which overlaps it (60px for a 120px
+   .cu-stat-compact). Text on the band uses --cu-primary-foreground (4.5:1 checked).
+   <header class="cu-brand-band">
+     <div class="cu-brand-band-inner">
+       <nav class="cu-pill-navbar">...</nav>
+       <div class="cu-brand-band-head">
+         <div><h1 class="cu-brand-band-title">Overview</h1><p class="cu-brand-band-subtitle">...</p></div>
+         <div class="cu-brand-band-filters"><select class="cu-select cu-select-inverse" aria-label="Periode">...</select></div>
+       </div>
+       <div class="cu-brand-band-overlap cu-grid cu-grid-cols-4 cu-gap-lg"> ...4 x .cu-stat-compact... </div>
+     </div>
+   </header> */
+
+.cu-brand-band {
+  position: relative;
+  width: 100%;
+  font-family: inherit;
+}
+
+.cu-brand-band::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 3.75rem 0; /* ends at the middle of a 120px KPI card */
+  background-color: var(--cu-primary);
+}
+
+.cu-brand-band-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-lg);
+  width: 100%;
+  max-width: var(--cu-grid-max);
+  margin: 0 auto;
+  padding: var(--cu-space-md) var(--cu-space-lg) 0;
+}
+
+.cu-brand-band-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--cu-space-md);
+  color: var(--cu-primary-foreground);
+}
+
+.cu-brand-band-title {
+  font-family: var(--cu-font-family-heading);
+  font-size: var(--cu-text-2xl);
+  font-weight: var(--cu-font-weight-bold);
+  line-height: var(--cu-lh-tight);
+  letter-spacing: var(--cu-tracking-tight);
+  color: var(--cu-primary-foreground);
+}
+
+.cu-brand-band-subtitle {
+  margin-top: var(--cu-space-xs);
+  font-size: var(--cu-text-sm);
+  color: var(--cu-primary-foreground);
+}
+
+.cu-brand-band-filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--cu-space-sm);
+}
+
+.cu-brand-band-filters .cu-select {
+  width: auto;
+  min-width: 9rem;
+}
+
+/* The KPI row sits above the band edge. */
+.cu-brand-band-overlap {
+  position: relative;
+  z-index: 1;
+}

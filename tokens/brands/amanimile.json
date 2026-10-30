@@ -1,0 +1,94 @@
+{
+  "$description": "AmaniMile logistics dashboard brand (Konimex pitch). Blue anchored on #2890D0, orange accent, Inter body, Plus Jakarta Sans headings, 12px radius.",
+  "name": "amanimile",
+  "color": {
+    "brand": {
+      "50": {
+        "$value": "#eef7fd"
+      },
+      "100": {
+        "$value": "#d9ecf9"
+      },
+      "200": {
+        "$value": "#b5daf3"
+      },
+      "300": {
+        "$value": "#6db2e3"
+      },
+      "400": {
+        "$value": "#2890d0"
+      },
+      "500": {
+        "$value": "#1d78b4"
+      },
+      "600": {
+        "$value": "#186aa0"
+      },
+      "700": {
+        "$value": "#135985"
+      },
+      "800": {
+        "$value": "#0f4869"
+      },
+      "900": {
+        "$value": "#0c3a55"
+      },
+      "950": {
+        "$value": "#072436"
+      }
+    },
+    "accent": {
+      "$value": "#b84a06"
+    },
+    "primary": {
+      "light": {
+        "$value": "#1d78b4"
+      },
+      "dark": {
+        "$value": "#1d78b4"
+      }
+    },
+    "primary-hover": {
+      "light": {
+        "$value": "#186aa0"
+      },
+      "dark": {
+        "$value": "#186aa0"
+      }
+    },
+    "primary-foreground": {
+      "light": {
+        "$value": "#ffffff"
+      },
+      "dark": {
+        "$value": "#ffffff"
+      }
+    },
+    "ring": {
+      "light": {
+        "$value": "#1d78b4"
+      },
+      "dark": {
+        "$value": "#5aa9dd"
+      }
+    }
+  },
+  "font-family": {
+    "default": {
+      "$value": "\"Inter\", sans-serif"
+    },
+    "heading": {
+      "$value": "\"Plus Jakarta Sans\", sans-serif"
+    },
+    "mono": {
+      "$value": "\"Ui-Monospace\", \"SF Mono\", monospace"
+    }
+  },
+  "radius": {
+    "base": {
+      "$value": "0.75rem",
+      "$name": "radius",
+      "$description": "The one radius knob. sm, md and lg derive from it"
+    }
+  }
+}

@@ -95,6 +95,23 @@
       "950": {
         "$value": "#451a03"
       }
+    },
+    "sky": {
+      "50": {
+        "$value": "#f0f9ff"
+      },
+      "400": {
+        "$value": "#38bdf8"
+      },
+      "600": {
+        "$value": "#0284c7"
+      },
+      "700": {
+        "$value": "#0369a1"
+      },
+      "950": {
+        "$value": "#082f49"
+      }
     }
   },
   "space": {
@@ -118,6 +135,10 @@
     },
     "xxxl": {
       "$value": "4rem"
+    },
+    "card": {
+      "$value": "1.25rem",
+      "$description": "Card padding for dense dashboards (20px)"
     }
   },
   "icon": {

@@ -25,3 +25,65 @@
   outline: 2px solid var(--cu-ring);
   outline-offset: 2px;
 }
+
+/* Dense padding (20px) for dashboards. */
+.cu-card-compact {
+  padding: var(--cu-space-card);
+}
+
+/* Structured card: header + body. A card that holds a .cu-card-body becomes a
+   column, so the body can fill whatever height the card is given. */
+.cu-card:has(> .cu-card-body) {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-md);
+  min-height: 0;
+}
+
+.cu-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--cu-space-md);
+}
+
+.cu-card-title {
+  font-family: var(--cu-font-family-heading);
+  font-size: var(--cu-text-base);
+  font-weight: var(--cu-font-weight-bold);
+  line-height: var(--cu-lh-tight);
+  letter-spacing: var(--cu-tracking-tight);
+  color: var(--cu-foreground);
+}
+
+.cu-card-subtitle {
+  margin-top: var(--cu-space-xs);
+  font-size: var(--cu-text-xs);
+  line-height: var(--cu-lh-base);
+  color: var(--cu-muted-foreground);
+}
+
+.cu-card-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-sm);
+  flex-shrink: 0;
+}
+
+.cu-card-body {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+/* Scrollable body. Needs tabindex="0" role="region" aria-label="..." so
+   keyboard users can focus it and scroll with the arrow keys. */
+.cu-card-scroll {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: var(--cu-radius-sm);
+}
+
+.cu-card-scroll:focus-visible {
+  outline: 2px solid var(--cu-ring);
+  outline-offset: 2px;
+}

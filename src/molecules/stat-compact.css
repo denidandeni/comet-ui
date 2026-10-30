@@ -1,0 +1,63 @@
+/* Molecule: Compact stat (fixed 120px KPI tile, no sparkline)
+   <div class="cu-stat-compact">
+     <div class="cu-stat-compact-top"><span class="cu-stat-compact-label">Total Kiriman</span><span class="cu-badge cu-badge-md cu-badge-success">+8%</span></div>
+     <div class="cu-stat-compact-bottom"><span class="cu-stat-compact-value">1.284</span><span class="cu-stat-compact-hint">vs kemarin</span></div>
+   </div> */
+
+.cu-stat-compact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 7.5rem; /* 120px */
+  padding: var(--cu-space-card);
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-lg);
+  background-color: var(--cu-surface);
+  box-shadow: var(--cu-shd-btn);
+  font-family: inherit;
+}
+
+.cu-stat-compact-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--cu-space-sm);
+  min-width: 0;
+}
+
+.cu-stat-compact-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--cu-text-sm);
+  font-weight: var(--cu-font-weight-medium);
+  color: var(--cu-muted-foreground);
+}
+
+.cu-stat-compact-bottom {
+  display: flex;
+  align-items: baseline;
+  gap: var(--cu-space-sm);
+  min-width: 0;
+}
+
+.cu-stat-compact-value {
+  flex-shrink: 0;
+  font-family: var(--cu-font-family-heading);
+  font-size: var(--cu-text-3xl);
+  font-weight: var(--cu-font-weight-bold);
+  line-height: var(--cu-lh-tight);
+  letter-spacing: var(--cu-tracking-tighter);
+  font-variant-numeric: tabular-nums;
+  color: var(--cu-foreground);
+}
+
+.cu-stat-compact-hint {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--cu-text-xs);
+  color: var(--cu-muted-foreground);
+}

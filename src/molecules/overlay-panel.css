@@ -1,0 +1,58 @@
+/* Molecule: Overlay panel (legend and zoom controls on top of a map)
+   The map itself comes from a map library; .cu-map-frame is only its positioned host.
+   <div class="cu-map-frame">
+     ...map...
+     <div class="cu-overlay-panel cu-overlay-panel-top-right" role="group" aria-label="Zoom peta">
+       <div class="cu-overlay-zoom">
+         <button type="button" class="cu-icon-btn" aria-label="Perbesar">+</button>
+         <button type="button" class="cu-icon-btn" aria-label="Perkecil">-</button>
+       </div>
+     </div>
+     <div class="cu-overlay-panel cu-overlay-panel-bottom-left" role="group" aria-label="Legenda peta">
+       <p class="cu-overlay-panel-title">Status armada</p>
+       <ul class="cu-legend cu-legend-vertical">...</ul>
+     </div>
+   </div> */
+
+.cu-map-frame {
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-lg);
+  background-color: var(--cu-muted);
+}
+
+.cu-overlay-panel {
+  position: absolute;
+  z-index: var(--cu-z-sticky);
+  padding: var(--cu-space-sm) var(--cu-space-md);
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-md);
+  background-color: var(--cu-surface);
+  box-shadow: var(--cu-shd-pop);
+  font-family: inherit;
+}
+
+.cu-overlay-panel-top-left { top: var(--cu-space-md); left: var(--cu-space-md); }
+.cu-overlay-panel-top-right { top: var(--cu-space-md); right: var(--cu-space-md); }
+.cu-overlay-panel-bottom-left { bottom: var(--cu-space-md); left: var(--cu-space-md); }
+.cu-overlay-panel-bottom-right { bottom: var(--cu-space-md); right: var(--cu-space-md); }
+
+.cu-overlay-panel-title {
+  margin-bottom: var(--cu-space-sm);
+  font-size: var(--cu-text-xs);
+  font-weight: var(--cu-font-weight-bold);
+  color: var(--cu-foreground);
+}
+
+/* Zoom control: two stacked icon buttons */
+.cu-overlay-zoom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-xs);
+}
+
+.cu-overlay-panel:has(> .cu-overlay-zoom) {
+  padding: var(--cu-space-xs);
+}

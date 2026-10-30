@@ -84,6 +84,86 @@
       "fg": "warning-subtle-foreground",
       "bg": "surface",
       "min": 4.5
+    },
+    {
+      "fg": "info-subtle-foreground",
+      "bg": "info-subtle",
+      "min": 4.5
+    },
+    {
+      "fg": "info-subtle-foreground",
+      "bg": "surface",
+      "min": 4.5
+    },
+    {
+      "fg": "success",
+      "bg": "surface",
+      "min": 3
+    },
+    {
+      "fg": "destructive",
+      "bg": "surface",
+      "min": 3
+    },
+    {
+      "fg": "primary",
+      "bg": "surface",
+      "min": 3
+    },
+    {
+      "fg": "chart-1",
+      "bg": "surface",
+      "min": 3
+    },
+    {
+      "fg": "chart-2",
+      "bg": "surface",
+      "min": 3
+    },
+    {
+      "fg": "chart-3",
+      "bg": "surface",
+      "min": 3
+    },
+    {
+      "fg": "chart-4",
+      "bg": "surface",
+      "min": 3
+    },
+    {
+      "fg": "chart-5",
+      "bg": "surface",
+      "min": 3
+    },
+    {
+      "fg": "chart-6",
+      "bg": "surface",
+      "min": 3
+    },
+    {
+      "fg": "chart-7",
+      "bg": "surface",
+      "min": 3
+    },
+    {
+      "fg": "chart-8",
+      "bg": "surface",
+      "min": 3
+    },
+    {
+      "fg": "media-foreground",
+      "bg": "media",
+      "min": 4.5
+    },
+    {
+      "fg": "media-muted-foreground",
+      "bg": "media",
+      "min": 4.5
+    },
+    {
+      "fg": "success",
+      "bg": "media",
+      "min": 3
     }
   ]
 }

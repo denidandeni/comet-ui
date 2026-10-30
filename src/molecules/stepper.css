@@ -1,0 +1,152 @@
+/* Molecule: Stepper / timeline ("Lacak Kirim", "Progres Kirim")
+   Horizontal by default, .cu-stepper-vertical for a timeline.
+   State is shown three ways, not by color alone:
+     selesai   filled marker with a check, solid connector, sr-only "Selesai"
+     berjalan  ring with an inner dot, bold title, aria-current="step"
+     belum     hollow marker with the step number, dashed connector
+   <ol class="cu-stepper" aria-label="Progres Kirim">
+     <li class="cu-stepper-item is-done">
+       <span class="cu-stepper-marker" aria-hidden="true"><svg class="cu-icon cu-icon-xs" ...check.../></span>
+       <div class="cu-stepper-content">
+         <span class="cu-stepper-title">Pesanan Dibuat</span>
+         <span class="cu-stepper-meta"><span class="cu-sr-only">Selesai. </span>12 Nov, 08:10</span>
+       </div>
+     </li>
+     <li class="cu-stepper-item is-current" aria-current="step"> ... <span class="cu-stepper-marker" aria-hidden="true"></span> ...
+     <li class="cu-stepper-item"> ... <span class="cu-stepper-marker" aria-hidden="true">4</span> ...
+   </ol> */
+
+.cu-stepper {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: inherit;
+}
+
+.cu-stepper-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  gap: var(--cu-space-sm);
+  min-width: 0;
+}
+
+.cu-stepper-marker {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 2px solid var(--cu-subtle-foreground);
+  border-radius: var(--cu-radius-round);
+  background-color: var(--cu-surface);
+  font-size: var(--cu-text-xs);
+  font-weight: var(--cu-font-weight-bold);
+  line-height: 1;
+  color: var(--cu-muted-foreground);
+}
+
+.cu-stepper-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding-right: var(--cu-space-sm);
+}
+
+.cu-stepper-title {
+  font-size: var(--cu-text-sm);
+  font-weight: var(--cu-font-weight-medium);
+  line-height: var(--cu-lh-tight);
+  color: var(--cu-muted-foreground);
+}
+
+.cu-stepper-meta {
+  font-size: var(--cu-text-xs);
+  line-height: var(--cu-lh-base);
+  color: var(--cu-muted-foreground);
+}
+
+/* Connector to the next step (horizontal) */
+.cu-stepper-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 0.8125rem;
+  left: calc(1.75rem + var(--cu-space-sm));
+  right: var(--cu-space-sm);
+  border-top: 2px dashed var(--cu-subtle-foreground);
+}
+
+/* Done */
+.cu-stepper-item.is-done .cu-stepper-marker {
+  border-color: var(--cu-primary);
+  background-color: var(--cu-primary);
+  color: var(--cu-primary-foreground);
+}
+
+.cu-stepper-item.is-done .cu-stepper-title {
+  color: var(--cu-foreground);
+}
+
+.cu-stepper-item.is-done:not(:last-child)::after {
+  border-top-style: solid;
+  border-top-color: var(--cu-primary);
+}
+
+/* Current */
+.cu-stepper-item.is-current .cu-stepper-marker {
+  border-color: var(--cu-primary);
+  box-shadow: 0 0 0 4px var(--cu-brand-subtle);
+}
+
+.cu-stepper-item.is-current .cu-stepper-marker::before {
+  content: '';
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: var(--cu-radius-round);
+  background-color: var(--cu-primary);
+}
+
+.cu-stepper-item.is-current .cu-stepper-title {
+  font-weight: var(--cu-font-weight-bold);
+  color: var(--cu-foreground);
+}
+
+/* Vertical timeline */
+.cu-stepper-vertical {
+  flex-direction: column;
+}
+
+.cu-stepper-vertical .cu-stepper-item {
+  flex: none;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--cu-space-md);
+  padding-bottom: var(--cu-space-lg);
+}
+
+.cu-stepper-vertical .cu-stepper-item:last-child {
+  padding-bottom: 0;
+}
+
+.cu-stepper-vertical .cu-stepper-content {
+  padding-top: 0.25rem;
+  padding-right: 0;
+}
+
+.cu-stepper-vertical .cu-stepper-item:not(:last-child)::after {
+  top: calc(1.75rem + 4px);
+  bottom: 4px;
+  left: calc(0.875rem - 1px);
+  right: auto;
+  border-top: 0;
+  border-left: 2px dashed var(--cu-subtle-foreground);
+}
+
+.cu-stepper-vertical .cu-stepper-item.is-done:not(:last-child)::after {
+  border-left-style: solid;
+  border-left-color: var(--cu-primary);
+}

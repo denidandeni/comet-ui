@@ -1,0 +1,33 @@
+/* GENERATED from tokens/brands/amanimile.json. Do not edit by hand. */
+/* AmaniMile logistics dashboard brand (Konimex pitch). Blue anchored on #2890D0, orange accent, Inter body, Plus Jakarta Sans headings, 12px radius. */
+[data-cu-brand="amanimile"] {
+  --cu-brand-50: #eef7fd;
+  --cu-brand-100: #d9ecf9;
+  --cu-brand-200: #b5daf3;
+  --cu-brand-300: #6db2e3;
+  --cu-brand-400: #2890d0;
+  --cu-brand-500: #1d78b4;
+  --cu-brand-600: #186aa0;
+  --cu-brand-700: #135985;
+  --cu-brand-800: #0f4869;
+  --cu-brand-900: #0c3a55;
+  --cu-brand-950: #072436;
+  --cu-accent: #b84a06;
+  --cu-primary-light: #1d78b4;
+  --cu-primary-dark: #1d78b4;
+  --cu-primary-hover-light: #186aa0;
+  --cu-primary-hover-dark: #186aa0;
+  --cu-primary-foreground-light: #ffffff;
+  --cu-primary-foreground-dark: #ffffff;
+  --cu-ring-light: #1d78b4;
+  --cu-ring-dark: #5aa9dd;
+  --cu-font-family-default: "Inter", sans-serif;
+  --cu-font-family-heading: "Plus Jakarta Sans", sans-serif;
+  --cu-font-family-mono: "Ui-Monospace", "SF Mono", monospace;
+  --cu-radius: 0.75rem;
+
+  /* derived from the radius knob */
+  --cu-radius-sm: calc(var(--cu-radius) * 0.6);
+  --cu-radius-md: var(--cu-radius);
+  --cu-radius-lg: calc(var(--cu-radius) * 1.6);
+}

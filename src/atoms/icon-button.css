@@ -1,0 +1,36 @@
+/* Atom: Icon button (round, icon only)
+   Always give it an aria-label. A .cu-count-badge inside is pinned to the corner.
+   <button type="button" class="cu-icon-btn" aria-label="Notifikasi"><svg class="cu-icon">...</svg></button> */
+
+.cu-icon-btn {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: var(--cu-h-btn);
+  height: var(--cu-h-btn);
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--cu-radius-round);
+  background-color: transparent;
+  color: var(--cu-muted-foreground);
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.cu-icon-btn:hover {
+  background-color: var(--cu-muted);
+  color: var(--cu-foreground);
+}
+
+.cu-icon-btn:focus-visible {
+  outline: 2px solid var(--cu-ring);
+  outline-offset: 2px;
+}
+
+.cu-icon-btn .cu-count-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+}

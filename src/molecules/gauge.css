@@ -1,0 +1,82 @@
+/* Molecule: Gauge (half circle)
+   The fill length is an SVG attribute, so no custom CSS is needed:
+   pathLength="100" and stroke-dasharray="<value> 100".
+   The state is also written as text (.cu-gauge-state), never color alone.
+   <div class="cu-gauge cu-gauge-warning" role="meter" aria-label="Utilisasi armada"
+        aria-valuemin="0" aria-valuemax="100" aria-valuenow="72" aria-valuetext="72 persen, waspada">
+     <svg class="cu-gauge-svg" viewBox="0 0 100 58" aria-hidden="true">
+       <path class="cu-gauge-track" d="M 10 50 A 40 40 0 0 1 90 50" pathLength="100"/>
+       <path class="cu-gauge-fill" d="M 10 50 A 40 40 0 0 1 90 50" pathLength="100" stroke-dasharray="72 100"/>
+     </svg>
+     <div class="cu-gauge-readout">
+       <span class="cu-gauge-value">72%</span><span class="cu-gauge-state">Waspada</span>
+     </div>
+     <p class="cu-gauge-label">Utilisasi armada</p>
+   </div>
+   Variants: cu-gauge-success | cu-gauge-warning | cu-gauge-destructive (default is the brand primary). */
+
+.cu-gauge {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  max-width: 12rem;
+  font-family: inherit;
+}
+
+/* The drawing and the readout share one grid cell, so the readout sits in the arch. */
+.cu-gauge-svg {
+  display: block;
+  grid-area: 1 / 1;
+  width: 100%;
+  height: auto;
+}
+
+.cu-gauge-track,
+.cu-gauge-fill {
+  fill: none;
+  stroke-width: 10;
+  stroke-linecap: round;
+}
+
+.cu-gauge-track {
+  stroke: var(--cu-muted);
+}
+
+.cu-gauge-fill {
+  stroke: var(--cu-primary);
+}
+
+.cu-gauge-success .cu-gauge-fill { stroke: var(--cu-success); }
+.cu-gauge-warning .cu-gauge-fill { stroke: var(--cu-warning-subtle-foreground); }
+.cu-gauge-destructive .cu-gauge-fill { stroke: var(--cu-destructive); }
+
+.cu-gauge-readout {
+  grid-area: 1 / 1;
+  align-self: end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: var(--cu-lh-tight);
+}
+
+.cu-gauge-value {
+  font-family: var(--cu-font-family-heading);
+  font-size: var(--cu-text-2xl);
+  font-weight: var(--cu-font-weight-bold);
+  letter-spacing: var(--cu-tracking-tight);
+  font-variant-numeric: tabular-nums;
+  color: var(--cu-foreground);
+}
+
+.cu-gauge-state {
+  font-size: var(--cu-text-xs);
+  font-weight: var(--cu-font-weight-medium);
+  color: var(--cu-muted-foreground);
+}
+
+.cu-gauge-label {
+  margin-top: var(--cu-space-sm);
+  text-align: center;
+  font-size: var(--cu-text-sm);
+  color: var(--cu-muted-foreground);
+}

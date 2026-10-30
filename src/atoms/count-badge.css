@@ -1,0 +1,23 @@
+/* Atom: Count badge
+   Round notification counter. Separate from .cu-badge (a pill label): this one is
+   a circle that grows into a pill only when the number has several digits.
+   <button class="cu-icon-btn" aria-label="Notifikasi, 3 belum dibaca">
+     <svg class="cu-icon">...</svg><span class="cu-count-badge" aria-hidden="true">3</span>
+   </button> */
+
+.cu-count-badge {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.125rem;
+  height: 1.125rem;
+  padding: 0 0.25rem;
+  border: 2px solid var(--cu-surface);
+  box-sizing: content-box;
+  border-radius: var(--cu-radius-round);
+  background-color: var(--cu-destructive);
+  color: var(--cu-destructive-foreground);
+  font-size: 0.6875rem; /* 11px */
+  font-weight: var(--cu-font-weight-bold);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}

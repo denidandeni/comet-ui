@@ -1,0 +1,129 @@
+/* Molecule: Video panel (camera view) with 4 states
+     .cu-video-panel-live         video is playing
+     .cu-video-panel-weak-signal  video is dimmed and a warning bar explains why
+     .cu-video-panel-no-device    no camera connected  (message, no video)
+     .cu-video-panel-no-access    user may not view it (message, no video)
+   Every state has an icon and a text message, so none depends on color alone.
+   <div class="cu-video-panel cu-video-panel-live" role="group" aria-label="Kamera Gudang A">
+     <div class="cu-video-panel-media"><video ...></video></div>
+     <div class="cu-video-panel-bar">
+       <span class="cu-video-panel-name">Gudang A - Dock 2</span>
+       <span class="cu-status"><span class="cu-status-dot cu-status-dot-running" aria-hidden="true"></span>Live</span>
+     </div>
+   </div>
+   Non-live states add: <div class="cu-video-panel-message" role="status"> icon + title + text + optional button </div> */
+
+.cu-video-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-lg);
+  background-color: var(--cu-media);
+  color: var(--cu-media-foreground);
+  font-family: inherit;
+}
+
+.cu-video-panel-media {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--cu-media), color-mix(in srgb, var(--cu-primary) 35%, var(--cu-media)));
+}
+
+.cu-video-panel-media > video,
+.cu-video-panel-media > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cu-video-panel-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--cu-space-sm);
+  padding: var(--cu-space-sm) var(--cu-space-md);
+  background: color-mix(in srgb, var(--cu-media) 75%, transparent);
+  font-size: var(--cu-text-xs);
+}
+
+.cu-video-panel-bar .cu-status {
+  color: inherit;
+  font-size: var(--cu-text-xs);
+}
+
+.cu-video-panel-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: var(--cu-font-weight-bold);
+}
+
+.cu-video-panel-message {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--cu-space-sm);
+  padding: var(--cu-space-md);
+  text-align: center;
+}
+
+.cu-video-panel-message .cu-icon {
+  width: var(--cu-icon-lg);
+  height: var(--cu-icon-lg);
+  color: var(--cu-media-muted-foreground);
+}
+
+.cu-video-panel-message-title {
+  font-size: var(--cu-text-sm);
+  font-weight: var(--cu-font-weight-bold);
+  color: var(--cu-media-foreground);
+}
+
+.cu-video-panel-message-text {
+  max-width: 22rem;
+  font-size: var(--cu-text-xs);
+  line-height: var(--cu-lh-base);
+  color: var(--cu-media-muted-foreground);
+}
+
+/* Weak signal: dim the picture, show a warning bar at the bottom. */
+.cu-video-panel-weak-signal .cu-video-panel-media {
+  opacity: 0.55;
+}
+
+.cu-video-panel-warning {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-sm);
+  margin-top: auto;
+  padding: var(--cu-space-sm) var(--cu-space-md);
+  background-color: var(--cu-warning-subtle);
+  color: var(--cu-warning-subtle-foreground);
+  font-size: var(--cu-text-xs);
+  font-weight: var(--cu-font-weight-medium);
+}
+
+.cu-video-panel-warning .cu-icon {
+  width: var(--cu-icon-xs);
+  height: var(--cu-icon-xs);
+}
+
+/* Live: full-brightness picture (weak-signal dims it). */
+.cu-video-panel-live .cu-video-panel-media {
+  opacity: 1;
+}
+
+/* No device / no access: there is no picture, so the top bar needs no scrim. */
+.cu-video-panel-no-device .cu-video-panel-bar,
+.cu-video-panel-no-access .cu-video-panel-bar {
+  background: transparent;
+}

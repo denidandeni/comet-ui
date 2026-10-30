@@ -193,6 +193,96 @@
     },
     "$description": "Warning text on warning-subtle or surface"
   },
+  "info": {
+    "$value": {
+      "light": "{color.sky.600}",
+      "dark": "{color.sky.600}"
+    },
+    "$description": "Info fill / dot"
+  },
+  "info-subtle": {
+    "$value": {
+      "light": "{color.sky.50}",
+      "dark": "{color.sky.950}"
+    }
+  },
+  "info-subtle-foreground": {
+    "$value": {
+      "light": "{color.sky.700}",
+      "dark": "{color.sky.400}"
+    },
+    "$description": "Info text on info-subtle or surface"
+  },
+  "chart-1": {
+    "$value": {
+      "light": "#084e70",
+      "dark": "#0e85b8"
+    },
+    "$description": "Chart series 1-8. Color-blind safe (checked under deuteranopia, protanopia, tritanopia) and each series has its own lightness, so they stay apart in grayscale. 3:1 or better on surface. Fixed across brands."
+  },
+  "chart-2": {
+    "$value": {
+      "light": "#c36f4c",
+      "dark": "#febaa5"
+    }
+  },
+  "chart-3": {
+    "$value": {
+      "light": "#037149",
+      "dark": "#0db475"
+    }
+  },
+  "chart-4": {
+    "$value": {
+      "light": "#61188b",
+      "dark": "#8a55cd"
+    }
+  },
+  "chart-5": {
+    "$value": {
+      "light": "#9f9133",
+      "dark": "#e5d98a"
+    }
+  },
+  "chart-6": {
+    "$value": {
+      "light": "#a5263b",
+      "dark": "#f05f63"
+    }
+  },
+  "chart-7": {
+    "$value": {
+      "light": "#048399",
+      "dark": "#0ec8ed"
+    }
+  },
+  "chart-8": {
+    "$value": {
+      "light": "#686d71",
+      "dark": "#a0abb5"
+    }
+  },
+  "media": {
+    "$value": {
+      "light": "{color.slate.900}",
+      "dark": "{color.slate.800}"
+    },
+    "$description": "Dark surface for video and camera panels in both themes"
+  },
+  "media-foreground": {
+    "$value": {
+      "light": "{color.white}",
+      "dark": "{color.slate.50}"
+    },
+    "$description": "Text and icons on media"
+  },
+  "media-muted-foreground": {
+    "$value": {
+      "light": "{color.slate.300}",
+      "dark": "{color.slate.300}"
+    },
+    "$description": "Secondary text on media"
+  },
   "overlay": {
     "$value": {
       "light": "rgba(2, 6, 23, 0.4)",

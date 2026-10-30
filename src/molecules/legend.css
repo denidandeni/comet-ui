@@ -1,0 +1,60 @@
+/* Molecule: Legend
+   <ul class="cu-legend">
+     <li class="cu-legend-item"><span class="cu-status-dot cu-status-dot-running" aria-hidden="true"></span>Berjalan <span class="cu-legend-count">42</span></li>
+   </ul>
+   Use with .cu-status-dot (status) or a .cu-legend-swatch (chart series). */
+
+.cu-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--cu-space-sm) var(--cu-space-md);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--cu-text-xs);
+  line-height: var(--cu-lh-tight);
+  color: var(--cu-muted-foreground);
+}
+
+.cu-legend-vertical {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cu-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cu-space-sm);
+}
+
+.cu-legend-count {
+  font-weight: var(--cu-font-weight-bold);
+  font-variant-numeric: tabular-nums;
+  color: var(--cu-foreground);
+}
+
+/* Chart series swatch. Colors come from --cu-chart-1..8. */
+.cu-legend-swatch {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 2px;
+  background-color: var(--cu-chart-1);
+}
+
+.cu-legend-swatch-line {
+  width: 1rem;
+  height: 3px;
+  border-radius: var(--cu-radius-round);
+}
+
+.cu-legend-swatch-1 { background-color: var(--cu-chart-1); }
+.cu-legend-swatch-2 { background-color: var(--cu-chart-2); }
+.cu-legend-swatch-3 { background-color: var(--cu-chart-3); }
+.cu-legend-swatch-4 { background-color: var(--cu-chart-4); }
+.cu-legend-swatch-5 { background-color: var(--cu-chart-5); }
+.cu-legend-swatch-6 { background-color: var(--cu-chart-6); }
+.cu-legend-swatch-7 { background-color: var(--cu-chart-7); }
+.cu-legend-swatch-8 { background-color: var(--cu-chart-8); }
