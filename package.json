@@ -13,7 +13,9 @@
     "build:docs": "esbuild docs/assets/chart-demo.src.js --bundle --minify --format=iife --target=es2020 --outfile=docs/assets/chart-demo.js",
     "build:dist": "node scripts/build-dist.mjs",
     "build": "npm run build:tokens && npm run build:dist",
-    "prepublishOnly": "npm test"
+    "prepublishOnly": "npm test",
+    "build:site": "node scripts/build-site.mjs",
+    "deploy:docs": "npm run build && npm run build:docs && npm run build:site && wrangler deploy"
   },
   "repository": {
     "type": "git",
@@ -47,12 +49,15 @@
     "@tanstack/charts": "^1.5.0"
   },
   "peerDependenciesMeta": {
-    "@tanstack/charts": { "optional": true }
+    "@tanstack/charts": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@tanstack/charts": "^1.5.0",
     "esbuild": "^0.28.2",
-    "lightningcss": "^1.33.0"
+    "lightningcss": "^1.33.0",
+    "wrangler": "^4.159.0"
   },
   "type": "commonjs",
   "bin": {
