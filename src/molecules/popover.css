@@ -1,0 +1,35 @@
+/* Molecule: Popover and Menu, both on the native popover API (light dismiss and Esc for free).
+   <button class="cu-btn cu-btn-outline" popovertarget="pop-1">Open</button>
+   <div class="cu-popover" id="pop-1" popover>...any content...</div>
+
+   comet.js places it next to its trigger. Placement: data-cu-placement="bottom-start" (default),
+   "bottom-end", "top-start" or "top-end". It flips when there is no room.
+
+   Menu surface, shared by Context menu and Menubar:
+   <div class="cu-menu" id="menu-1" popover role="menu">
+     <button class="cu-dropdown-item" role="menuitem">Rename <kbd class="cu-menu-shortcut">F2</kbd></button>
+     <div class="cu-dropdown-divider"></div>
+   </div> */
+
+.cu-popover,
+.cu-menu {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-surface);
+  color: var(--cu-foreground);
+  box-shadow: var(--cu-shd-pop);
+  font-family: var(--cu-font-family-default);
+  font-size: var(--cu-text-sm);
+}
+
+.cu-popover { width: 18rem; max-width: calc(100vw - 1rem); padding: var(--cu-space-md); }
+.cu-menu { min-width: 12rem; padding: var(--cu-space-xs); overflow: hidden; }
+.cu-menu .cu-dropdown-item { border-radius: var(--cu-radius-sm); padding: var(--cu-space-sm) var(--cu-space-sm); }
+.cu-menu-label { padding: var(--cu-space-xs) var(--cu-space-sm); font-size: var(--cu-text-xs); color: var(--cu-subtle-foreground); }
+.cu-menu-shortcut { margin-left: auto; font-family: inherit; font-size: var(--cu-text-xs); color: var(--cu-subtle-foreground); }
+
+.cu-popover-title { margin: 0 0 var(--cu-space-xs); font-size: var(--cu-text-sm); font-weight: var(--cu-font-weight-bold); }
+.cu-popover-description { margin: 0 0 var(--cu-space-md); color: var(--cu-muted-foreground); }

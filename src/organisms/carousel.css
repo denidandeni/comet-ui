@@ -1,0 +1,70 @@
+/* Organism: Carousel on CSS scroll snap, so swipe and trackpad work natively.
+   <section class="cu-carousel" data-cu-carousel aria-roledescription="carousel" aria-label="Featured">
+     <div class="cu-carousel-viewport" tabindex="0">
+       <div class="cu-carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 3">...</div>
+       ...
+     </div>
+     <button type="button" class="cu-carousel-btn cu-carousel-prev" data-cu-carousel-prev aria-label="Previous slide">...</button>
+     <button type="button" class="cu-carousel-btn cu-carousel-next" data-cu-carousel-next aria-label="Next slide">...</button>
+     <div class="cu-carousel-dots"></div>
+   </section>
+   comet.js wires the buttons, disables them at the ends and builds the dots. Several slides per view:
+   set --cu-carousel-slide, e.g. style="--cu-carousel-slide: 50%". Event: cu:slide. */
+
+.cu-carousel { --cu-carousel-slide: 100%; position: relative; font-family: inherit; }
+
+.cu-carousel-viewport {
+  display: flex;
+  gap: var(--cu-space-md);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  border-radius: var(--cu-radius-lg);
+}
+.cu-carousel-viewport::-webkit-scrollbar { display: none; }
+.cu-carousel-viewport:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: 2px; }
+
+.cu-carousel-slide {
+  flex: 0 0 var(--cu-carousel-slide);
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.cu-carousel-btn {
+  position: absolute;
+  top: calc(50% - 1.75rem);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-round);
+  background: var(--cu-surface);
+  color: var(--cu-foreground);
+  box-shadow: var(--cu-shd-xs);
+  cursor: pointer;
+}
+.cu-carousel-prev { left: var(--cu-space-sm); }
+.cu-carousel-next { right: var(--cu-space-sm); }
+.cu-carousel-btn:hover { background: var(--cu-muted); }
+.cu-carousel-btn:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: 2px; }
+.cu-carousel-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.cu-carousel-dots { display: flex; justify-content: center; gap: var(--cu-space-xs); margin-top: var(--cu-space-sm); min-height: 1.5rem; align-items: center; }
+.cu-carousel-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: var(--cu-radius-round);
+  background: var(--cu-border-strong);
+  cursor: pointer;
+}
+.cu-carousel-dot[aria-current="true"] { background: var(--cu-primary); width: 1.25rem; }
+.cu-carousel-dot:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cu-carousel-viewport { scroll-behavior: auto; }
+}

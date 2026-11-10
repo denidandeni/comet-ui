@@ -1,0 +1,83 @@
+/* Organism: Command. A searchable list of actions (command palette).
+   <div class="cu-command" data-cu-command>
+     <div class="cu-command-search">
+       <svg class="cu-icon">...</svg>
+       <input class="cu-command-input" placeholder="Type a command or search" aria-label="Command">
+     </div>
+     <div class="cu-command-list" role="listbox" aria-label="Commands">
+       <p class="cu-command-group">Suggestions</p>
+       <button type="button" class="cu-command-item" role="option" data-value="calendar">Calendar <kbd class="cu-menu-shortcut">Ctrl C</kbd></button>
+       <p class="cu-command-empty" hidden>No results found.</p>
+     </div>
+   </div>
+   Typing filters the items; Arrow keys move, Enter runs the active item and fires cu:command with its data-value.
+   As a palette: put it in <dialog class="cu-dialog cu-command-dialog" id="palette" data-cu-hotkey="k">.
+   data-cu-hotkey="k" opens that dialog with Ctrl+K or Cmd+K. */
+
+.cu-command {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-surface);
+  color: var(--cu-foreground);
+  font-family: var(--cu-font-family-default);
+  overflow: hidden;
+}
+
+.cu-command-search {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-sm);
+  padding: 0 var(--cu-space-md);
+  border-bottom: 1px solid var(--cu-border);
+  color: var(--cu-subtle-foreground);
+}
+
+.cu-command-input {
+  flex: 1;
+  height: 2.75rem;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--cu-foreground);
+  font: inherit;
+  font-size: var(--cu-text-sm);
+}
+.cu-command-input::placeholder { color: var(--cu-subtle-foreground); }
+.cu-command-search:focus-within { box-shadow: inset 0 -2px 0 var(--cu-ring); }
+
+.cu-command-list { max-height: 18rem; overflow-y: auto; padding: var(--cu-space-xs); }
+
+.cu-command-group {
+  margin: 0;
+  padding: var(--cu-space-sm) var(--cu-space-sm) var(--cu-space-xs);
+  font-size: var(--cu-text-xs);
+  color: var(--cu-subtle-foreground);
+}
+
+.cu-command-item {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-sm);
+  width: 100%;
+  padding: var(--cu-space-sm);
+  border: 0;
+  border-radius: var(--cu-radius-sm);
+  background: transparent;
+  color: var(--cu-foreground);
+  font: inherit;
+  font-size: var(--cu-text-sm);
+  text-align: left;
+  cursor: pointer;
+}
+.cu-command-item[hidden], .cu-command-group[hidden] { display: none; }
+.cu-command-item:hover,
+.cu-command-item[aria-selected="true"] { background: var(--cu-muted); }
+.cu-command-item:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.cu-command-empty { margin: 0; padding: var(--cu-space-lg); text-align: center; font-size: var(--cu-text-sm); color: var(--cu-muted-foreground); }
+
+dialog.cu-dialog.cu-command-dialog { padding: 0; gap: 0; max-width: 32rem; margin-top: 15vh; }
+.cu-command-dialog > .cu-command { border: 0; }

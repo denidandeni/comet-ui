@@ -129,12 +129,28 @@ Progress bar
 Radio
 ```
 
+### atom: scroll-area
+
+```
+Scroll area. A scroll container with a thin themed scrollbar.
+   <div class="cu-scroll-area" style="max-height: 12rem" tabindex="0">...long content...</div>
+   Horizontal: add .cu-scroll-area-x. Keep tabindex="0" so keyboard users can scroll it.
+```
+
 ### atom: skeleton
 
 ```
 Skeleton
    Placeholder shapes while content loads. Mark the loading region aria-busy="true".
    <div class="cu-skeleton cu-skeleton-text"></div>
+```
+
+### atom: slider
+
+```
+Slider (native range input)
+   <input type="range" class="cu-slider" min="0" max="100" value="40" aria-label="Volume">
+   comet.js keeps the filled part in sync. Without it the track is plain.
 ```
 
 ### atom: spinner
@@ -150,6 +166,20 @@ Spinner
 
 ```
 Switch
+```
+
+### atom: toggle
+
+```
+Toggle (a button that stays pressed) and Toggle group
+   <button type="button" class="cu-toggle" data-cu-toggle aria-pressed="false" aria-label="Bold">B</button>
+
+   <div class="cu-toggle-group" role="group" aria-label="Text style" data-cu-toggle-group="multiple">
+     <button type="button" class="cu-toggle" aria-pressed="true">Bold</button>
+     <button type="button" class="cu-toggle" aria-pressed="false">Italic</button>
+   </div>
+   data-cu-toggle-group="single" keeps one pressed at most; "multiple" lets each one toggle.
+   Variants: .cu-toggle-outline, sizes .cu-toggle-sm and .cu-toggle-lg. Event: cu:toggle.
 ```
 
 ### atom: tooltip
@@ -196,6 +226,32 @@ Button group
 
 ```
 Card
+```
+
+### molecule: code-block
+
+```
+Code block with a copy button.
+   <div class="cu-code-block">
+     <div class="cu-code-block-header">
+       <span class="cu-code-block-title">index.html</span>
+       <button type="button" class="cu-code-block-copy" data-cu-copy>Copy</button>
+     </div>
+     <pre class="cu-code-block-pre" tabindex="0"><code>...escaped code...</code></pre>
+   </div>
+   data-cu-copy copies the <pre> in the same block. data-cu-copy="#id" copies another element's text.
+   Inline code: <code class="cu-code">npm install</code>.
+```
+
+### molecule: collapsible
+
+```
+Collapsible. One show/hide region on native <details>, so it works without JavaScript.
+   <details class="cu-collapsible">
+     <summary class="cu-collapsible-trigger">3 repositories <svg class="cu-icon cu-icon-xs">...</svg></summary>
+     <div class="cu-collapsible-content">...</div>
+   </details>
+   For a set of sections where one closes the others, use the Accordion.
 ```
 
 ### molecule: combobox
@@ -264,10 +320,37 @@ File upload
    comet.js validates type, size and count, renders the list and keeps input.files in sync.
 ```
 
+### molecule: hover-card
+
+```
+Hover card. A preview that opens when a link is hovered or focused. CSS only.
+   <span class="cu-hover-card">
+     <a class="cu-hover-card-trigger" href="#">@deni</a>
+     <span class="cu-hover-card-content" role="note">...avatar, name, bio...</span>
+   </span>
+   The content is extra: never put something there that people cannot reach another way.
+```
+
 ### molecule: input-affix
 
 ```
 Input with prefix / suffix
+```
+
+### molecule: item
+
+```
+Item. One row of media + text + actions, for lists and settings.
+   <div class="cu-item cu-item-outline">
+     <div class="cu-item-media">...icon or avatar...</div>
+     <div class="cu-item-content">
+       <p class="cu-item-title">Two-factor authentication</p>
+       <p class="cu-item-description">Verify with an email code.</p>
+     </div>
+     <div class="cu-item-actions"><button class="cu-btn cu-btn-outline cu-btn-sm">Enable</button></div>
+   </div>
+   Variants: .cu-item-outline, .cu-item-muted. As a link or button, use <a class="cu-item"> for hover and focus.
+   Stack several inside .cu-item-group to get dividers.
 ```
 
 ### molecule: otp-input
@@ -280,6 +363,23 @@ OTP input
 
 ```
 Pagination
+```
+
+### molecule: popover
+
+```
+Popover and Menu, both on the native popover API (light dismiss and Esc for free).
+   <button class="cu-btn cu-btn-outline" popovertarget="pop-1">Open</button>
+   <div class="cu-popover" id="pop-1" popover>...any content...</div>
+
+   comet.js places it next to its trigger. Placement: data-cu-placement="bottom-start" (default),
+   "bottom-end", "top-start" or "top-end". It flips when there is no room.
+
+   Menu surface, shared by Context menu and Menubar:
+   <div class="cu-menu" id="menu-1" popover role="menu">
+     <button class="cu-dropdown-item" role="menuitem">Rename <kbd class="cu-menu-shortcut">F2</kbd></button>
+     <div class="cu-dropdown-divider"></div>
+   </div>
 ```
 
 ### molecule: quantity-input
@@ -329,6 +429,43 @@ Stat card
    </div>
 ```
 
+### organism: carousel
+
+```
+Carousel on CSS scroll snap, so swipe and trackpad work natively.
+   <section class="cu-carousel" data-cu-carousel aria-roledescription="carousel" aria-label="Featured">
+     <div class="cu-carousel-viewport" tabindex="0">
+       <div class="cu-carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 3">...</div>
+       ...
+     </div>
+     <button type="button" class="cu-carousel-btn cu-carousel-prev" data-cu-carousel-prev aria-label="Previous slide">...</button>
+     <button type="button" class="cu-carousel-btn cu-carousel-next" data-cu-carousel-next aria-label="Next slide">...</button>
+     <div class="cu-carousel-dots"></div>
+   </section>
+   comet.js wires the buttons, disables them at the ends and builds the dots. Several slides per view:
+   set --cu-carousel-slide, e.g. style="--cu-carousel-slide: 50%". Event: cu:slide.
+```
+
+### organism: command
+
+```
+Command. A searchable list of actions (command palette).
+   <div class="cu-command" data-cu-command>
+     <div class="cu-command-search">
+       <svg class="cu-icon">...</svg>
+       <input class="cu-command-input" placeholder="Type a command or search" aria-label="Command">
+     </div>
+     <div class="cu-command-list" role="listbox" aria-label="Commands">
+       <p class="cu-command-group">Suggestions</p>
+       <button type="button" class="cu-command-item" role="option" data-value="calendar">Calendar <kbd class="cu-menu-shortcut">Ctrl C</kbd></button>
+       <p class="cu-command-empty" hidden>No results found.</p>
+     </div>
+   </div>
+   Typing filters the items; Arrow keys move, Enter runs the active item and fires cu:command with its data-value.
+   As a palette: put it in <dialog class="cu-dialog cu-command-dialog" id="palette" data-cu-hotkey="k">.
+   data-cu-hotkey="k" opens that dialog with Ctrl+K or Cmd+K.
+```
+
 ### organism: dialog-variants
 
 ```
@@ -353,6 +490,51 @@ Drawer (slide-in panel)
      <div class="cu-drawer-footer">...</div>
    </dialog>
    Open: <button data-cu-open="filters">. Sides: default right, .cu-drawer-left, .cu-drawer-bottom.
+```
+
+### organism: menubar
+
+```
+Menubar. A row of menus, like a desktop app.
+   <div class="cu-menubar" role="menubar" aria-label="Editor" data-cu-menubar>
+     <button type="button" class="cu-menubar-trigger" role="menuitem" popovertarget="mb-file">File</button>
+     <div class="cu-menu" id="mb-file" popover role="menu">
+       <button class="cu-dropdown-item" role="menuitem">New tab <kbd class="cu-menu-shortcut">Ctrl T</kbd></button>
+     </div>
+     ...
+   </div>
+   Left and Right move between menus, Down opens one, Esc closes. Once one is open, hovering another opens it.
+```
+
+### organism: navigation-menu
+
+```
+Navigation menu. Site navigation with rich dropdown panels.
+   <nav class="cu-nav-menu" aria-label="Main">
+     <ul class="cu-nav-menu-list">
+       <li><button type="button" class="cu-nav-menu-trigger" popovertarget="nav-products">Products <svg class="cu-icon cu-icon-xs">...</svg></button>
+         <div class="cu-popover cu-nav-menu-content" id="nav-products" popover>
+           <a class="cu-nav-menu-link" href="#"><span class="cu-nav-menu-link-title">Analytics</span><span class="cu-nav-menu-link-description">Understand your traffic.</span></a>
+         </div>
+       </li>
+       <li><a class="cu-nav-menu-trigger" href="#">Pricing</a></li>
+     </ul>
+   </nav>
+   Current page: aria-current="page" on the link.
+```
+
+### organism: resizable
+
+```
+Resizable panels. Two panels with a draggable divider.
+   <div class="cu-resizable" data-cu-resizable style="height: 16rem">
+     <div class="cu-resizable-panel" style="flex-basis: 35%">...</div>
+     <div class="cu-resizable-handle" role="separator" tabindex="0" aria-orientation="vertical" aria-label="Resize panels"></div>
+     <div class="cu-resizable-panel">...</div>
+   </div>
+   Drag the handle, or focus it and use the Arrow keys (Home and End jump to the limits).
+   Limits: data-cu-min="15" data-cu-max="85" (percent of the first panel). Stacked: add .cu-resizable-vertical
+   and aria-orientation="horizontal" on the handle. Event: cu:resize.
 ```
 
 ### organism: sidebar

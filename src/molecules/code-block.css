@@ -1,0 +1,63 @@
+/* Molecule: Code block with a copy button.
+   <div class="cu-code-block">
+     <div class="cu-code-block-header">
+       <span class="cu-code-block-title">index.html</span>
+       <button type="button" class="cu-code-block-copy" data-cu-copy>Copy</button>
+     </div>
+     <pre class="cu-code-block-pre" tabindex="0"><code>...escaped code...</code></pre>
+   </div>
+   data-cu-copy copies the <pre> in the same block. data-cu-copy="#id" copies another element's text.
+   Inline code: <code class="cu-code">npm install</code>. */
+
+.cu-code-block {
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-muted);
+  color: var(--cu-foreground);
+  overflow: hidden;
+}
+
+.cu-code-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--cu-space-md);
+  padding: var(--cu-space-xs) var(--cu-space-sm) var(--cu-space-xs) var(--cu-space-md);
+  border-bottom: 1px solid var(--cu-border);
+  font-family: var(--cu-font-family-default);
+  font-size: var(--cu-text-xs);
+  color: var(--cu-muted-foreground);
+}
+
+.cu-code-block-title { font-weight: var(--cu-font-weight-bold); }
+
+.cu-code-block-copy {
+  padding: var(--cu-space-xs) var(--cu-space-sm);
+  border: 0;
+  border-radius: var(--cu-radius-sm);
+  background: transparent;
+  color: var(--cu-muted-foreground);
+  font: inherit;
+  cursor: pointer;
+}
+.cu-code-block-copy:hover { background: var(--cu-surface); color: var(--cu-foreground); }
+.cu-code-block-copy:focus-visible { outline: 2px solid var(--cu-ring); }
+
+.cu-code-block-pre {
+  margin: 0;
+  padding: var(--cu-space-md);
+  overflow-x: auto;
+  font-family: var(--cu-font-family-mono);
+  font-size: var(--cu-text-sm);
+  line-height: 1.6;
+  tab-size: 2;
+}
+.cu-code-block-pre:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: -2px; }
+
+.cu-code {
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--cu-radius-sm);
+  background: var(--cu-muted);
+  font-family: var(--cu-font-family-mono);
+  font-size: 0.875em;
+}

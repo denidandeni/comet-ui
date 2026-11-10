@@ -27,9 +27,9 @@ With a bundler: `import 'comet-ui/comet.min.css'; import 'comet-ui/comet.min.js'
 
 | File | What it is | Size (min / gzip) |
 | --- | --- | --- |
-| `comet.min.css` | Everything: tokens, components, utilities | 88 kB / 13 kB |
+| `comet.min.css` | Everything: tokens, components, utilities | 103 kB / 15 kB |
 | `core.min.css` | Foundation only: tokens, reset, typography, layout, utilities. Budget 30 kB | 24 kB / 4 kB |
-| `components.min.css` | Components and templates only | 53 kB / 8 kB |
+| `components.min.css` | Components and templates only | 68 kB / 10 kB |
 | `brands/<name>.css` | One brand each (already inside `comet.min.css`) | 1 kB |
 | `comet.min.js` | Behaviour (table, toast, datepicker, tabs...) | 26 kB |
 | `tailwind.css` | Tailwind v4 preset: `@import "comet-ui/tailwind.css"` | 3 kB |
@@ -78,9 +78,27 @@ Most components are CSS only. These need `src/comet.js` (no dependencies, no bui
 | File upload | `data-cu-file-upload` | Type, size and count validation, file list |
 | Drawer, Dialog | `data-cu-open`, `data-cu-close` | Open and close native `<dialog>` |
 | Alert, Toast | `data-cu-dismiss` | Dismiss |
-| Checkbox, Spinner, Skeleton, Progress, Empty state, Stats card | none | CSS only |
+| Tabs | `data-cu-tabs` | Arrow keys, Home, End, roving tabindex |
+| Toggle, Toggle group | `data-cu-toggle`, `data-cu-toggle-group="single\|multiple"` | Pressed state, `cu:toggle` event |
+| Popover, Menubar, Navigation menu | `popovertarget="id"` (native) | Placement next to the trigger, flip, menu keys |
+| Context menu | `data-cu-context-menu="menu-id"` | Opens at the pointer, `cu:select` event |
+| Command | `data-cu-command`, `data-cu-hotkey="k"` on a dialog | Filter, keyboard run, Ctrl+K palette |
+| Calendar | `data-cu-datepicker data-cu-inline` | Inline calendar, `cu:date` event |
+| Carousel | `data-cu-carousel` | Buttons, dots, arrow keys, `cu:slide` event |
+| Resizable | `data-cu-resizable` | Drag and keyboard resize, `cu:resize` event |
+| Code block | `data-cu-copy` | Copy to clipboard |
+| Slider | `.cu-slider` | Keeps the filled track in sync |
+| Checkbox, Spinner, Skeleton, Progress, Empty state, Stats card, Collapsible, Hover card, Item, Scroll area, Kbd, Field | none | CSS only |
 
 Call `CometUI.init(container)` after inserting markup dynamically.
+
+## Compared with shadcn/ui
+
+Comet UI has an equivalent for 57 of the 66 components on ui.shadcn.com (checked 10 November 2026), all without React. The full mapping is on the "shadcn/ui coverage" page of the docs.
+
+Not covered: Chart (needs a charting library), Direction (RTL), and the chat components (Attachment, Bubble, Marker, Message, Message Scroller, Questionnaire, Trace).
+
+Only in Comet UI: Searchbar, Quantity input, File upload, Stats card, Radio card, Segmented control, and the App shell, Auth and Settings templates.
 
 ## Themes and brands
 

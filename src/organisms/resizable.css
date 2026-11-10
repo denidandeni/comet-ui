@@ -1,0 +1,51 @@
+/* Organism: Resizable panels. Two panels with a draggable divider.
+   <div class="cu-resizable" data-cu-resizable style="height: 16rem">
+     <div class="cu-resizable-panel" style="flex-basis: 35%">...</div>
+     <div class="cu-resizable-handle" role="separator" tabindex="0" aria-orientation="vertical" aria-label="Resize panels"></div>
+     <div class="cu-resizable-panel">...</div>
+   </div>
+   Drag the handle, or focus it and use the Arrow keys (Home and End jump to the limits).
+   Limits: data-cu-min="15" data-cu-max="85" (percent of the first panel). Stacked: add .cu-resizable-vertical
+   and aria-orientation="horizontal" on the handle. Event: cu:resize. */
+
+.cu-resizable {
+  display: flex;
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-md);
+  overflow: hidden;
+  background: var(--cu-surface);
+  color: var(--cu-foreground);
+}
+.cu-resizable-vertical { flex-direction: column; }
+
+.cu-resizable-panel { flex: 1 1 0; min-width: 0; min-height: 0; overflow: auto; }
+.cu-resizable-panel:first-child { flex: 0 0 50%; }
+
+.cu-resizable-handle {
+  position: relative;
+  flex: 0 0 1px;
+  background: var(--cu-border);
+  cursor: col-resize;
+  touch-action: none;
+}
+/* Wider invisible hit area */
+.cu-resizable-handle::before { content: ''; position: absolute; inset: 0 -5px; }
+/* Grip */
+.cu-resizable-handle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 1.5rem;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-sm);
+  background: var(--cu-muted);
+}
+.cu-resizable-handle:hover, .cu-resizable-handle.is-dragging { background: var(--cu-ring); }
+.cu-resizable-handle:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: 1px; z-index: 1; }
+
+.cu-resizable-vertical > .cu-resizable-handle { cursor: row-resize; }
+.cu-resizable-vertical > .cu-resizable-handle::before { inset: -5px 0; }
+.cu-resizable-vertical > .cu-resizable-handle::after { width: 1.5rem; height: 6px; }

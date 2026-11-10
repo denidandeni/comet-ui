@@ -7,12 +7,13 @@
  *
  * Covers: dialog + drawer (open/close), dropdown, accordion, combobox, password toggle,
  * topbar menu, app shell sidebar, dismissible alerts, searchbar, quantity input, file upload,
- * datepicker, toast, tabs, OTP input and data table (sort, filter, paginate).
+ * datepicker + calendar, toast, tabs, OTP input, data table (sort, filter, paginate), toggle,
+ * slider, popover, context menu, menubar, command palette, code copy, carousel and resizable panels.
  */
 (function () {
   'use strict';
 
-  var VERSION = '1.2.0';
+  var VERSION = '1.3.0';
 
   // Server-side rendering (Next.js, Node): export no-ops so importing the package never throws.
   if (typeof document === 'undefined') {
@@ -203,6 +204,16 @@
     var show = input.type === 'password';
     input.type = show ? 'text' : 'password';
     if (glyph) glyph.textContent = show ? 'visibility_off' : 'visibility';
+    t.setAttribute('aria-pressed', show ? 'true' : 'false');
+    t.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+    // Lucide icon (optional): swap eye / eye-off when the Lucide script is on the page.
+    var lu = q('[data-lucide]', t);
+    if (lu && window.lucide) {
+      var fresh = el('i');
+      fresh.setAttribute('data-lucide', show ? 'eye-off' : 'eye');
+      lu.replaceWith(fresh);
+      window.lucide.createIcons();
+    }
     return true;
   }
   function onTopbarToggle(e) {
@@ -485,8 +496,9 @@
         pop.appendChild(foot);
         if (focusAfter) { var f = q('.cu-datepicker-day[tabindex="0"]', pop); if (f) f.focus(); }
       }
-      function open() {
-        closeDatepickers(host);
+      var inline = host.hasAttribute('data-cu-inline');
+      function open(noFocus) {
+        if (!inline) closeDatepickers(host);
         var start = st.selected || new Date();
         if (min && start < min) start = min;
         if (max && start > max) start = max;
@@ -494,9 +506,10 @@
         st.focus = start;
         host.classList.add('is-open');
         toggle.setAttribute('aria-expanded', 'true');
-        render(true);
+        render(!noFocus);
       }
       function close(returnFocus) {
+        if (inline) { st.focus = st.selected || st.focus; render(returnFocus); return; } // a calendar never closes
         host.classList.remove('is-open');
         toggle.setAttribute('aria-expanded', 'false');
         if (returnFocus) input.focus();
@@ -518,6 +531,7 @@
       }
 
       toggle.addEventListener('click', function () { host.classList.contains('is-open') ? close(false) : open(); });
+      if (inline) open(true);
       input.addEventListener('change', function () {
         var v = input.value.trim();
         if (!v) { st.selected = null; input.removeAttribute('aria-invalid'); return; }
@@ -562,7 +576,7 @@
     });
   }
   function closeDatepickers(except) {
-    qa('[data-cu-datepicker].is-open').forEach(function (h) {
+    qa('[data-cu-datepicker].is-open:not([data-cu-inline])').forEach(function (h) {
       if (h !== except) { h.classList.remove('is-open'); var t = q('.cu-datepicker-toggle', h); if (t) t.setAttribute('aria-expanded', 'false'); }
     });
   }
@@ -863,6 +877,296 @@
     return false;
   }
 
+  // ---------- toggle + toggle group ----------
+  function onToggleClick(e) {
+    var t = e.target.closest('.cu-toggle');
+    if (!t || t.disabled) return false;
+    var group = t.closest('[data-cu-toggle-group]');
+    if (!group && !t.hasAttribute('data-cu-toggle')) return false;
+    var on = t.getAttribute('aria-pressed') !== 'true';
+    if (group && group.getAttribute('data-cu-toggle-group') === 'single' && on) {
+      qa('.cu-toggle', group).forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+    }
+    t.setAttribute('aria-pressed', on ? 'true' : 'false');
+    var host = group || t;
+    emit(host, 'cu:toggle', { pressed: on, value: t.value || t.getAttribute('data-value') || null,
+      values: group ? qa('.cu-toggle[aria-pressed="true"]', group).map(function (o) { return o.value || o.getAttribute('data-value'); }) : null });
+    return true;
+  }
+
+  // ---------- slider ----------
+  function syncSlider(input) {
+    var min = num(input.min, 0), max = num(input.max, 100), v = num(input.value, min);
+    input.style.setProperty('--cu-slider-fill', (max > min ? ((v - min) / (max - min)) * 100 : 0) + '%');
+  }
+
+  // ---------- popover + menu placement ----------
+  // The popover API opens the element; this puts it next to its trigger and keeps it on screen.
+  function placeAt(pop, x, y) {
+    var w = pop.offsetWidth, h = pop.offsetHeight, m = 8;
+    pop.style.left = Math.max(m, Math.min(x, window.innerWidth - w - m)) + 'px';
+    pop.style.top = Math.max(m, Math.min(y, window.innerHeight - h - m)) + 'px';
+  }
+  function placePopover(pop, trigger) {
+    var r = trigger.getBoundingClientRect(), gap = 6;
+    var place = pop.getAttribute('data-cu-placement') || 'bottom-start';
+    var w = pop.offsetWidth, h = pop.offsetHeight;
+    var top = place.indexOf('top') === 0;
+    if (!top && r.bottom + gap + h > window.innerHeight && r.top - gap - h > 0) top = true;
+    else if (top && r.top - gap - h < 0) top = false;
+    var x = place.slice(-3) === 'end' ? r.right - w : r.left;
+    placeAt(pop, x, top ? r.top - gap - h : r.bottom + gap);
+  }
+  function popoverTrigger(pop) {
+    return pop.id ? q('[popovertarget="' + pop.id + '"]') : null;
+  }
+  function onPopoverToggle(e) {
+    var pop = e.target;
+    if (!pop.matches || !pop.matches('.cu-popover, .cu-menu')) return;
+    var trigger = popoverTrigger(pop), open = e.newState === 'open';
+    if (trigger) trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open && trigger && !pop._cuAt) placePopover(pop, trigger);
+    if (!open) pop._cuAt = false;
+  }
+  function closeOpenPopovers() {
+    qa('.cu-popover:popover-open, .cu-menu:popover-open').forEach(function (p) { try { p.hidePopover(); } catch (err) { /* already closed */ } });
+  }
+  function menuItems(menu) { return qa('[role^="menuitem"]:not(:disabled)', menu); }
+  function onMenuClick(e) {
+    var item = e.target.closest('.cu-menu .cu-dropdown-item');
+    if (!item) return false;
+    var menu = item.closest('.cu-menu');
+    emit(menu, 'cu:select', { value: item.getAttribute('data-value') || item.textContent.trim() });
+    try { menu.hidePopover(); } catch (err) { /* not a popover */ }
+    return false; // let other handlers and the page's own listeners see the click
+  }
+  function onMenuKey(e) {
+    var menu = e.target.closest && e.target.closest('.cu-menu');
+    if (!menu || (e.key !== 'ArrowDown' && e.key !== 'ArrowUp' && e.key !== 'Home' && e.key !== 'End')) return;
+    var items = menuItems(menu), i = items.indexOf(doc.activeElement);
+    if (!items.length) return;
+    e.preventDefault();
+    if (e.key === 'Home') i = 0;
+    else if (e.key === 'End') i = items.length - 1;
+    else i = e.key === 'ArrowDown' ? (i + 1) % items.length : (i <= 0 ? items.length - 1 : i - 1);
+    items[i].focus();
+  }
+
+  // ---------- context menu ----------
+  function onContextMenu(e) {
+    var area = e.target.closest && e.target.closest('[data-cu-context-menu]');
+    if (!area) return;
+    var menu = resolveTarget(area.getAttribute('data-cu-context-menu'));
+    if (!menu || typeof menu.showPopover !== 'function') return; // old browser: keep the native menu
+    e.preventDefault();
+    closeOpenPopovers();
+    // Manual mode: with popover="auto" the browser would light-dismiss the menu on the
+    // pointerup of the very right-click that opened it. We dismiss it ourselves below.
+    menu.setAttribute('popover', 'manual');
+    menu._cuAt = true;
+    menu.showPopover();
+    placeAt(menu, e.clientX, e.clientY);
+    var first = menuItems(menu)[0];
+    if (first) first.focus();
+  }
+
+  function closeContextMenus(except) {
+    qa('.cu-menu[popover="manual"]:popover-open').forEach(function (m) { if (m !== except) m.hidePopover(); });
+  }
+
+  // ---------- menubar ----------
+  function menubarOpen(trigger, focusFirst) {
+    var menu = resolveTarget(trigger.getAttribute('popovertarget'));
+    if (!menu) return;
+    closeOpenPopovers();
+    menu.showPopover();
+    trigger.focus();
+    if (focusFirst) { var first = menuItems(menu)[0]; if (first) first.focus(); }
+  }
+  function onMenubarKey(e) {
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight' && e.key !== 'ArrowDown') return;
+    var t = e.target, bar, trigger;
+    if (t.closest && t.closest('.cu-menubar-trigger')) { trigger = t.closest('.cu-menubar-trigger'); bar = trigger.closest('[data-cu-menubar]'); }
+    else if (t.closest && t.closest('.cu-menu')) { trigger = popoverTrigger(t.closest('.cu-menu')); bar = trigger && trigger.closest('[data-cu-menubar]'); }
+    if (!bar) return;
+    var triggers = qa('.cu-menubar-trigger', bar), i = triggers.indexOf(trigger);
+    if (e.key === 'ArrowDown') { if (t === trigger) { e.preventDefault(); menubarOpen(trigger, true); } return; }
+    e.preventDefault();
+    var next = triggers[(i + (e.key === 'ArrowRight' ? 1 : -1) + triggers.length) % triggers.length];
+    var wasOpen = !!q('.cu-menu:popover-open');
+    if (wasOpen) menubarOpen(next, t !== trigger); else next.focus();
+  }
+  function onMenubarHover(e) {
+    var trigger = e.target.closest && e.target.closest('.cu-menubar-trigger');
+    if (!trigger || trigger.getAttribute('aria-expanded') === 'true') return;
+    var bar = trigger.closest('[data-cu-menubar]');
+    if (bar && q('.cu-menubar-trigger[aria-expanded="true"]', bar)) menubarOpen(trigger, false);
+  }
+
+  // ---------- copy (code block) ----------
+  function onCopyClick(e) {
+    var b = e.target.closest('[data-cu-copy]');
+    if (!b) return false;
+    var sel = b.getAttribute('data-cu-copy');
+    var src = sel ? q(sel) : q('pre', b.closest('.cu-code-block'));
+    if (!src) return true;
+    var label = b.textContent, text = src.innerText;
+    function done(ok) { b.textContent = ok ? 'Copied' : 'Press Ctrl+C'; setTimeout(function () { b.textContent = label; }, 1500); }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function () { done(true); emit(b, 'cu:copy', { text: text }); }, function () { done(false); });
+    else done(false);
+    return true;
+  }
+
+  // ---------- command ----------
+  function commandItems(cmd) { return qa('.cu-command-item', cmd).filter(function (i) { return !i.hidden && !i.disabled; }); }
+  function commandActive(cmd, item) {
+    qa('.cu-command-item[aria-selected="true"]', cmd).forEach(function (i) { i.setAttribute('aria-selected', 'false'); });
+    if (item) { item.setAttribute('aria-selected', 'true'); item.scrollIntoView({ block: 'nearest' }); }
+  }
+  function commandFilter(cmd) {
+    var input = q('.cu-command-input', cmd), term = (input ? input.value : '').toLowerCase().trim();
+    var list = q('.cu-command-list', cmd), group = null, groupHas = false, any = false;
+    Array.prototype.slice.call(list.children).forEach(function (n) {
+      if (n.classList.contains('cu-command-group')) { if (group) group.hidden = !groupHas; group = n; groupHas = false; }
+      else if (n.classList.contains('cu-command-item')) {
+        var hit = !term || (n.textContent + ' ' + (n.getAttribute('data-keywords') || '')).toLowerCase().indexOf(term) > -1;
+        n.hidden = !hit;
+        if (hit) { groupHas = true; any = true; }
+      }
+    });
+    if (group) group.hidden = !groupHas;
+    var empty = q('.cu-command-empty', cmd);
+    if (empty) empty.hidden = any;
+    commandActive(cmd, commandItems(cmd)[0]);
+  }
+  function commandRun(cmd, item) {
+    emit(cmd, 'cu:command', { value: item.getAttribute('data-value') || item.textContent.trim() });
+    var dlg = cmd.closest('dialog');
+    if (dlg && dlg.open) dlg.close();
+  }
+  function onCommandInput(e) {
+    if (e.target.matches && e.target.matches('.cu-command-input')) commandFilter(e.target.closest('.cu-command'));
+  }
+  function onCommandKey(e) {
+    if ((e.ctrlKey || e.metaKey) && !e.altKey && e.key && e.key.length === 1) {
+      var dlg = q('dialog[data-cu-hotkey="' + e.key.toLowerCase() + '"]');
+      if (dlg && typeof dlg.showModal === 'function') {
+        e.preventDefault();
+        if (dlg.open) dlg.close(); else { dlg.showModal(); var inp = q('.cu-command-input', dlg); if (inp) { inp.value = ''; commandFilter(inp.closest('.cu-command')); inp.focus(); } }
+        return;
+      }
+    }
+    if (!e.target.matches || !e.target.matches('.cu-command-input')) return;
+    var cmd = e.target.closest('.cu-command'), items = commandItems(cmd);
+    var i = items.indexOf(q('.cu-command-item[aria-selected="true"]', cmd));
+    if (e.key === 'ArrowDown') { e.preventDefault(); commandActive(cmd, items[(i + 1) % items.length]); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); commandActive(cmd, items[i <= 0 ? items.length - 1 : i - 1]); }
+    else if (e.key === 'Enter' && items[i]) { e.preventDefault(); items[i].click(); }
+  }
+  function onCommandClick(e) {
+    var item = e.target.closest('.cu-command-item');
+    if (!item || item.disabled) return false;
+    commandRun(item.closest('.cu-command'), item);
+    return false;
+  }
+
+  // ---------- carousel ----------
+  function carouselInit(root) {
+    qa('[data-cu-carousel]', root).forEach(function (c) {
+      if (c._cuCarousel) return;
+      var view = q('.cu-carousel-viewport', c);
+      if (!view) return;
+      c._cuCarousel = true;
+      var slides = qa('.cu-carousel-slide', view);
+      var prev = q('[data-cu-carousel-prev]', c), next = q('[data-cu-carousel-next]', c), dots = q('.cu-carousel-dots', c);
+      var last = -1;
+      function index() {
+        var best = 0, dist = Infinity, left = view.getBoundingClientRect().left;
+        slides.forEach(function (s, i) { var d = Math.abs(s.getBoundingClientRect().left - left); if (d < dist) { dist = d; best = i; } });
+        return best;
+      }
+      function go(i) {
+        i = Math.max(0, Math.min(slides.length - 1, i));
+        view.scrollTo({ left: slides[i].offsetLeft - slides[0].offsetLeft, behavior: reducedMotion() ? 'auto' : 'smooth' });
+      }
+      function sync() {
+        var i = index(), atEnd = view.scrollLeft + view.clientWidth >= view.scrollWidth - 2;
+        if (prev) prev.disabled = view.scrollLeft <= 1;
+        if (next) next.disabled = atEnd;
+        if (dots) qa('.cu-carousel-dot', dots).forEach(function (d, k) { if (k === i) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current'); });
+        if (i !== last) { last = i; emit(c, 'cu:slide', { index: i }); }
+      }
+      if (dots) {
+        dots.innerHTML = '';
+        slides.forEach(function (s, i) {
+          var d = el('button', 'cu-carousel-dot');
+          d.type = 'button';
+          d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+          d.addEventListener('click', function () { go(i); });
+          dots.appendChild(d);
+        });
+      }
+      if (prev) prev.addEventListener('click', function () { go(index() - 1); });
+      if (next) next.addEventListener('click', function () { go(index() + 1); });
+      view.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); go(index() - 1); }
+        else if (e.key === 'ArrowRight') { e.preventDefault(); go(index() + 1); }
+      });
+      var raf = 0;
+      view.addEventListener('scroll', function () { cancelAnimationFrame(raf); raf = requestAnimationFrame(sync); });
+      sync();
+    });
+  }
+
+  // ---------- resizable panels ----------
+  function resizeTo(wrap, handle, pct) {
+    var min = num(wrap.getAttribute('data-cu-min'), 10), max = num(wrap.getAttribute('data-cu-max'), 90);
+    pct = Math.round(Math.max(min, Math.min(max, pct)) * 10) / 10;
+    var panel = handle.previousElementSibling;
+    panel.style.flexBasis = pct + '%';
+    handle.setAttribute('aria-valuenow', String(Math.round(pct)));
+    handle.setAttribute('aria-valuemin', String(min));
+    handle.setAttribute('aria-valuemax', String(max));
+    emit(wrap, 'cu:resize', { size: pct });
+  }
+  function resizePct(wrap, handle) {
+    var vertical = wrap.classList.contains('cu-resizable-vertical');
+    var a = handle.previousElementSibling.getBoundingClientRect(), w = wrap.getBoundingClientRect();
+    return vertical ? (a.height / w.height) * 100 : (a.width / w.width) * 100;
+  }
+  function onResizeDown(e) {
+    var handle = e.target.closest && e.target.closest('[data-cu-resizable] > .cu-resizable-handle');
+    if (!handle) return;
+    var wrap = handle.parentElement, vertical = wrap.classList.contains('cu-resizable-vertical');
+    e.preventDefault();
+    handle.classList.add('is-dragging');
+    try { handle.setPointerCapture(e.pointerId); } catch (err) { /* synthetic event */ }
+    function move(ev) {
+      var r = wrap.getBoundingClientRect();
+      resizeTo(wrap, handle, vertical ? ((ev.clientY - r.top) / r.height) * 100 : ((ev.clientX - r.left) / r.width) * 100);
+    }
+    function up() {
+      handle.classList.remove('is-dragging');
+      handle.removeEventListener('pointermove', move);
+      handle.removeEventListener('pointerup', up);
+      handle.removeEventListener('pointercancel', up);
+    }
+    handle.addEventListener('pointermove', move);
+    handle.addEventListener('pointerup', up);
+    handle.addEventListener('pointercancel', up);
+  }
+  function onResizeKey(e) {
+    var handle = e.target.closest && e.target.closest('[data-cu-resizable] > .cu-resizable-handle');
+    if (!handle) return;
+    var wrap = handle.parentElement, vertical = wrap.classList.contains('cu-resizable-vertical');
+    var cur = resizePct(wrap, handle), step = e.shiftKey ? 10 : 2, n = null;
+    if (e.key === (vertical ? 'ArrowUp' : 'ArrowLeft')) n = cur - step;
+    else if (e.key === (vertical ? 'ArrowDown' : 'ArrowRight')) n = cur + step;
+    else if (e.key === 'Home') n = 0;
+    else if (e.key === 'End') n = 100;
+    if (n !== null) { e.preventDefault(); resizeTo(wrap, handle, n); }
+  }
+
   // ---------- init + event wiring ----------
   function init(root) {
     root = root || doc;
@@ -878,6 +1182,19 @@
     dpInit(root);
     tableInit(root);
     tabsInit(root);
+    carouselInit(root);
+    qa('.cu-slider', root).forEach(syncSlider);
+    qa('.cu-command', root).forEach(function (c) { commandActive(c, commandItems(c)[0]); });
+    qa('[data-cu-resizable] > .cu-resizable-handle', root).forEach(function (h) {
+      if (!h.hasAttribute('aria-valuenow')) h.setAttribute('aria-valuenow', String(Math.round(resizePct(h.parentElement, h))));
+    });
+    qa('[popovertarget]', root).forEach(function (t) {
+      var pop = resolveTarget(t.getAttribute('popovertarget'));
+      if (pop && pop.matches('.cu-popover, .cu-menu') && !t.hasAttribute('aria-expanded')) {
+        t.setAttribute('aria-expanded', 'false');
+        if (pop.matches('.cu-menu')) t.setAttribute('aria-haspopup', 'menu');
+      }
+    });
   }
 
   doc.addEventListener('click', function (e) {
@@ -890,18 +1207,36 @@
     if (onTopbarToggle(e)) return;
     if (onTabClick(e)) return;
     if (onShellClick(e)) return;
+    if (onToggleClick(e)) return;
+    if (onCopyClick(e)) return;
+    onMenuClick(e);
+    onCommandClick(e);
     onAccordionClick(e);
     onDropdownClick(e);
     onComboboxClick(e);
     if (!e.target.closest('[data-cu-datepicker]')) closeDatepickers(null);
   });
-  doc.addEventListener('input', function (e) { onSearchbarInput(e); onComboboxInput(e); onOtpInput(e); });
+  doc.addEventListener('input', function (e) {
+    onSearchbarInput(e); onComboboxInput(e); onOtpInput(e); onCommandInput(e);
+    if (e.target.matches && e.target.matches('.cu-slider')) syncSlider(e.target);
+  });
   doc.addEventListener('change', function (e) { onQuantityChange(e); onFileChange(e); });
   doc.addEventListener('keydown', function (e) {
     onDropdownKey(e); onSearchbarKey(e); onTabKey(e); onOtpKey(e);
+    onMenuKey(e); onMenubarKey(e); onCommandKey(e); onResizeKey(e);
+    if (e.key === 'Escape') closeContextMenus(null);
     if (e.key === 'Escape') qa('[data-cu-shell].is-open').forEach(function (s) { setShell(s, false); });
   });
   doc.addEventListener('paste', onOtpPaste);
+  doc.addEventListener('toggle', onPopoverToggle, true); // toggle does not bubble
+  doc.addEventListener('contextmenu', onContextMenu);
+  doc.addEventListener('pointerdown', function (e) { if (e.button === 0) closeContextMenus(e.target.closest && e.target.closest('.cu-menu')); });
+  window.addEventListener('scroll', function () { closeContextMenus(null); }, true);
+  window.addEventListener('blur', function () { closeContextMenus(null); });
+  doc.addEventListener('mouseover', onMenubarHover);
+  doc.addEventListener('pointerdown', onResizeDown);
+  // An alert dialog (data-cu-static) must be answered: Esc does not dismiss it.
+  doc.addEventListener('cancel', function (e) { if (e.target.hasAttribute && e.target.hasAttribute('data-cu-static')) e.preventDefault(); }, true);
   ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(function (t) { doc.addEventListener(t, onFileDrag); });
 
   if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', function () { init(doc); });

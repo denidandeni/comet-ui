@@ -57,6 +57,10 @@
                         <i data-lucide="house"></i>
                         Getting started
                     </a>
+                    <a href="#shadcn" class="docs-nav-item">
+                        <i data-lucide="list-checks"></i>
+                        shadcn/ui coverage
+                    </a>
                 </div>
 
                 <div class="docs-nav-group">
@@ -90,7 +94,7 @@
                 <div class="docs-nav-group">
                     <div class="docs-nav-title">Components</div>
                     <a href="#buttons" class="docs-nav-item">Button</a>
-                    <a href="#inputs" class="docs-nav-item">Input <span class="docs-nav-badge">New</span></a>
+                    <a href="#inputs" class="docs-nav-item">Input</a>
                     <a href="#textareas" class="docs-nav-item">Textarea</a>
                     <a href="#dropdowns" class="docs-nav-item">Dropdown</a>
                     <a href="#dialogs" class="docs-nav-item">Dialog</a>
@@ -110,19 +114,35 @@
                     <a href="#searchbar" class="docs-nav-item">Searchbar</a>
                     <a href="#quantity" class="docs-nav-item">Quantity input</a>
                     <a href="#file-upload" class="docs-nav-item">File upload</a>
-                    <a href="#datepicker" class="docs-nav-item">Datepicker <span class="docs-nav-badge">New</span></a>
+                    <a href="#datepicker" class="docs-nav-item">Datepicker</a>
                     <a href="#alert" class="docs-nav-item">Alert</a>
                     <a href="#skeleton" class="docs-nav-item">Skeleton</a>
                     <a href="#progress" class="docs-nav-item">Progress bar</a>
                     <a href="#empty-state" class="docs-nav-item">Empty state</a>
                     <a href="#stat-card" class="docs-nav-item">Stats card</a>
-                    <a href="#toast" class="docs-nav-item">Toast <span class="docs-nav-badge">New</span></a>
+                    <a href="#toast" class="docs-nav-item">Toast</a>
                     <a href="#drawer" class="docs-nav-item">Drawer</a>
-                    <a href="#table" class="docs-nav-item">Table <span class="docs-nav-badge">New</span></a>
+                    <a href="#table" class="docs-nav-item">Table</a>
                     <a href="#kbd" class="docs-nav-item">Kbd</a>
                     <a href="#field" class="docs-nav-item">Field</a>
-                    <a href="#tabs" class="docs-nav-item">Tabs <span class="docs-nav-badge">New</span></a>
-                    <a href="#sidebar" class="docs-nav-item">Sidebar <span class="docs-nav-badge">New</span></a>
+                    <a href="#tabs" class="docs-nav-item">Tabs</a>
+                    <a href="#sidebar" class="docs-nav-item">Sidebar</a>
+                    <a href="#toggle" class="docs-nav-item">Toggle <span class="docs-nav-badge">New</span></a>
+                    <a href="#slider" class="docs-nav-item">Slider <span class="docs-nav-badge">New</span></a>
+                    <a href="#scroll-area" class="docs-nav-item">Scroll area <span class="docs-nav-badge">New</span></a>
+                    <a href="#collapsible" class="docs-nav-item">Collapsible <span class="docs-nav-badge">New</span></a>
+                    <a href="#popover" class="docs-nav-item">Popover <span class="docs-nav-badge">New</span></a>
+                    <a href="#hover-card" class="docs-nav-item">Hover card <span class="docs-nav-badge">New</span></a>
+                    <a href="#item" class="docs-nav-item">Item <span class="docs-nav-badge">New</span></a>
+                    <a href="#calendar" class="docs-nav-item">Calendar <span class="docs-nav-badge">New</span></a>
+                    <a href="#code-block" class="docs-nav-item">Code block <span class="docs-nav-badge">New</span></a>
+                    <a href="#context-menu" class="docs-nav-item">Context menu <span class="docs-nav-badge">New</span></a>
+                    <a href="#menubar" class="docs-nav-item">Menubar <span class="docs-nav-badge">New</span></a>
+                    <a href="#navigation-menu" class="docs-nav-item">Navigation menu <span class="docs-nav-badge">New</span></a>
+                    <a href="#command" class="docs-nav-item">Command <span class="docs-nav-badge">New</span></a>
+                    <a href="#carousel" class="docs-nav-item">Carousel <span class="docs-nav-badge">New</span></a>
+                    <a href="#resizable" class="docs-nav-item">Resizable <span class="docs-nav-badge">New</span></a>
+                    <a href="#alert-dialog" class="docs-nav-item">Alert dialog <span class="docs-nav-badge">New</span></a>
                 </div>
 
                 <div class="docs-nav-group">
@@ -140,20 +160,36 @@
             <section id="getting-started" class="docs-section">
                 <div class="docs-section-header">
                     <h1 class="cu-h1">Getting started</h1>
-                    <p class="cu-paragraph cu-mt-sm">Welcome to Comet UI. A premium, light-mode focused design system built for speed and beauty.</p>
+                    <p class="cu-paragraph cu-mt-sm">Comet UI is a plain CSS design system with light and dark themes, swappable brands and one small script for behaviour. No framework needed.</p>
                 </div>
                 
                 <div class="docs-preview-box cu-flex-col cu-items-start cu-gap-lg">
                     <h3 class="cu-h3">Installation</h3>
-                    <p class="cu-body">To get started, include our core stylesheets in your project's head:</p>
-                    <div class="docs-code-box" style="width: 100%;">
-                        <span class="docs-code-tag">&lt;link</span> <span class="docs-code-attr">rel</span>=<span class="docs-code-string">"stylesheet"</span> <span class="docs-code-attr">href</span>=<span class="docs-code-string">"comet-ui/src/variables.css"</span><span class="docs-code-tag">&gt;</span><br>
-                        <span class="docs-code-tag">&lt;link</span> <span class="docs-code-attr">rel</span>=<span class="docs-code-string">"stylesheet"</span> <span class="docs-code-attr">href</span>=<span class="docs-code-string">"comet-ui/src/base.css"</span><span class="docs-code-tag">&gt;</span><br>
-                        <span class="docs-code-tag">&lt;link</span> <span class="docs-code-attr">rel</span>=<span class="docs-code-string">"stylesheet"</span> <span class="docs-code-attr">href</span>=<span class="docs-code-string">"comet-ui/src/typography.css"</span><span class="docs-code-tag">&gt;</span><br>
-                        <span class="docs-code-tag">&lt;link</span> <span class="docs-code-attr">rel</span>=<span class="docs-code-string">"stylesheet"</span> <span class="docs-code-attr">href</span>=<span class="docs-code-string">"comet-ui/src/components.css"</span><span class="docs-code-tag">&gt;</span>
-                    </div>
+                    <p class="cu-body">Install the package, then load one stylesheet and one script. Theme and brand are attributes on any element:</p>
+                    <div class="docs-code-box" style="width: 100%;"><pre style="margin:0;font:inherit;white-space:pre">npm install git+https://github.com/denidandeni/comet-ui.git
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;node_modules/comet-ui/dist/comet.min.css&quot;&gt;
+&lt;script src=&quot;node_modules/comet-ui/dist/comet.min.js&quot; defer&gt;&lt;/script&gt;
+
+&lt;html data-cu-theme=&quot;light&quot; data-cu-brand=&quot;neutral&quot;&gt;</pre></div>
                 </div>
             </section>
+
+            <section id="shadcn" class="docs-section">
+                <div class="docs-section-header">
+                    <h1 class="cu-h1">shadcn/ui coverage</h1>
+                    <p class="cu-paragraph cu-mt-sm">Comet UI covers 57 of the 66 components listed on ui.shadcn.com (checked 10 November 2026). Comet UI is plain CSS with one small script, so every component works without React.</p>
+                </div>
+                <div class="cu-table-wrap" data-cu-table data-cu-page-size="100" style="width:100%">
+                <div class="cu-table-toolbar"><div class="cu-searchbar" style="max-width:280px"><svg class="cu-icon cu-searchbar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input type="search" class="cu-input cu-searchbar-input" placeholder="Filter components" aria-label="Filter components" data-cu-table-filter><button type="button" class="cu-searchbar-clear" aria-label="Clear search"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div></div>
+                <div class="cu-table-scroll"><table class="cu-table"><thead><tr><th>shadcn/ui</th><th>Comet UI</th><th>Status</th></tr></thead><tbody><tr><td>Accordion</td><td><a href="#accordion" data-docs-link="accordion">Accordion</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Alert</td><td><a href="#alert" data-docs-link="alert">Alert</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Alert Dialog</td><td><a href="#alert-dialog" data-docs-link="alert-dialog">Alert dialog</a></td><td><span class="cu-badge">New</span></td></tr><tr><td>Aspect Ratio</td><td><a href="#aspect-ratio" data-docs-link="aspect-ratio">Aspect ratio utilities (.cu-ratio16-9...)</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Avatar</td><td><a href="#avatars" data-docs-link="avatars">Avatar</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Badge</td><td><a href="#badges" data-docs-link="badges">Badge</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Breadcrumb</td><td><a href="#breadcrumbs" data-docs-link="breadcrumbs">Breadcrumbs</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Button</td><td><a href="#buttons" data-docs-link="buttons">Button</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Button Group</td><td><a href="#buttons" data-docs-link="buttons">Button group</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Calendar</td><td><a href="#calendar" data-docs-link="calendar">Calendar</a></td><td><span class="cu-badge">New</span></td></tr><tr><td>Card</td><td><a href="#cards" data-docs-link="cards">Card</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Carousel</td><td><a href="#carousel" data-docs-link="carousel">Carousel</a></td><td><span class="cu-badge">New</span></td></tr><tr><td>Checkbox</td><td><a href="#checkbox" data-docs-link="checkbox">Checkbox</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Code Block</td><td><a href="#code-block" data-docs-link="code-block">Code block</a></td><td><span class="cu-badge">New</span></td></tr><tr><td>Collapsible</td><td><a href="#collapsible" data-docs-link="collapsible">Collapsible</a></td><td><span class="cu-badge">New</span></td></tr><tr><td>Combobox</td><td><a href="#combobox" data-docs-link="combobox">Combobox</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Command</td><td><a href="#command" data-docs-link="command">Command</a></td><td><span class="cu-badge">New</span></td></tr><tr><td>Context Menu</td><td><a href="#context-menu" data-docs-link="context-menu">Context menu</a></td><td><span class="cu-badge">New</span></td></tr><tr><td>Data Table</td><td><a href="#table" data-docs-link="table">Table (sort, filter, paginate)</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Date Picker</td><td><a href="#datepicker" data-docs-link="datepicker">Datepicker</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Dialog</td><td><a href="#dialogs" data-docs-link="dialogs">Dialog</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Drawer</td><td><a href="#drawer" data-docs-link="drawer">Drawer (bottom)</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Dropdown Menu</td><td><a href="#dropdowns" data-docs-link="dropdowns">Dropdown</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Empty</td><td><a href="#empty-state" data-docs-link="empty-state">Empty state</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Field</td><td><a href="#field" data-docs-link="field">Field</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Hover Card</td><td><a href="#hover-card" data-docs-link="hover-card">Hover card</a></td><td><span class="cu-badge">New</span></td></tr><tr><td>Input</td><td><a href="#inputs" data-docs-link="inputs">Input</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Input Group</td><td><a href="#inputs" data-docs-link="inputs">Input with prefix and suffix</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Input OTP</td><td><a href="#dialogs" data-docs-link="dialogs">OTP input</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Item</td><td><a href="#item" data-docs-link="item">Item</a></td><td><span class="cu-badge">New</span></td></tr><tr><td>Kbd</td><td><a href="#kbd" data-docs-link="kbd">Kbd</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Label</td><td><a href="#field" data-docs-link="field">Label (.cu-label)</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Menubar</td><td><a href="#menubar" data-docs-link="menubar">Menubar</a></td><td><span class="cu-badge">New</span></td></tr><tr><td>Native Select</td><td><a href="#inputs" data-docs-link="inputs">Select (.cu-select)</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Navigation Menu</td><td><a href="#navigation-menu" data-docs-link="navigation-menu">Navigation menu</a></td><td><span class="cu-badge">New</span></td></tr><tr><td>Pagination</td><td><a href="#pagination" data-docs-link="pagination">Pagination</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Popover</td><td><a href="#popover" data-docs-link="popover">Popover</a></td><td><span class="cu-badge">New</span></td></tr><tr><td>Progress</td><td><a href="#progress" data-docs-link="progress">Progress bar</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Radio Group</td><td><a href="#radio" data-docs-link="radio">Radio and Radio card</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Resizable</td><td><a href="#resizable" data-docs-link="resizable">Resizable</a></td><td><span class="cu-badge">New</span></td></tr><tr><td>Scroll Area</td><td><a href="#scroll-area" data-docs-link="scroll-area">Scroll area</a></td><td><span class="cu-badge">New</span></td></tr><tr><td>Select</td><td><a href="#dropdowns" data-docs-link="dropdowns">Dropdown as select, Combobox</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Separator</td><td><a href="#dividers" data-docs-link="dividers">Divider</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Sheet</td><td><a href="#drawer" data-docs-link="drawer">Drawer (left, right)</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Sidebar</td><td><a href="#sidebar" data-docs-link="sidebar">Sidebar</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Skeleton</td><td><a href="#skeleton" data-docs-link="skeleton">Skeleton</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Slider</td><td><a href="#slider" data-docs-link="slider">Slider</a></td><td><span class="cu-badge">New</span></td></tr><tr><td>Spinner</td><td><a href="#spinner" data-docs-link="spinner">Spinner</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Switch</td><td><a href="#toggles" data-docs-link="toggles">Switch</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Table</td><td><a href="#table" data-docs-link="table">Table</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Tabs</td><td><a href="#tabs" data-docs-link="tabs">Tabs</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Textarea</td><td><a href="#textareas" data-docs-link="textareas">Textarea</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Toast</td><td><a href="#toast" data-docs-link="toast">Toast</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Toggle</td><td><a href="#toggle" data-docs-link="toggle">Toggle</a></td><td><span class="cu-badge">New</span></td></tr><tr><td>Toggle Group</td><td><a href="#toggle" data-docs-link="toggle">Toggle group, Segmented control</a></td><td><span class="cu-badge">New</span></td></tr><tr><td>Tooltip</td><td><a href="#tooltips" data-docs-link="tooltips">Tooltip</a></td><td><span class="cu-badge">Ready</span></td></tr><tr><td>Typography</td><td><a href="#typography" data-docs-link="typography">Typography</a></td><td><span class="cu-badge">Ready</span></td></tr></tbody></table></div>
+                <div class="cu-table-footer"><span data-cu-table-summary></span><nav class="cu-pagination" data-cu-table-pagination aria-label="Pagination"></nav></div>
+                </div>
+                <h3 class="cu-h3 cu-mt-lg cu-mb-md">Not covered</h3>
+                <div class="cu-table-wrap" style="width:100%"><div class="cu-table-scroll"><table class="cu-table"><thead><tr><th>shadcn/ui</th><th>Why</th></tr></thead><tbody><tr><td>Chart</td><td>Needs a charting library. Comet UI stays dependency-free; use the tokens (<code>var(--cu-primary)</code>) to colour any chart library.</td></tr><tr><td>Direction</td><td>A React provider for right-to-left text. Comet UI has no RTL styles yet.</td></tr><tr><td>Attachment, Bubble, Marker, Message, Message Scroller, Questionnaire, Trace</td><td>Chat and AI-assistant components. Not built yet.</td></tr></tbody></table></div></div>
+                <p class="cu-paragraph cu-mt-lg">Only in Comet UI: Searchbar, Quantity input, File upload, Stats card, Radio card, Segmented control, and the App shell, Auth and Settings templates.</p>
+            </section>
+
             <!-- Tokens Section -->
             <section id="tokens" class="docs-section">
                 <div class="docs-section-header">
@@ -1270,6 +1306,381 @@ el.addEventListener(&#x27;cu:tab&#x27;, e =&gt; console.log(e.detail.id));</pre>
 &lt;/aside&gt;</pre></div>
             </section>
 
+            <section id="toggle" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Toggle</h2>
+                    <p class="cu-paragraph cu-mt-sm">A button that stays pressed. Group them for single or multiple choice.</p>
+                </div>
+                <div class="docs-preview-box">
+<div class="cu-flex-col cu-gap-lg" style="align-items:center">
+<div class="cu-flex cu-gap-md" style="align-items:center">
+<button type="button" class="cu-toggle" data-cu-toggle aria-pressed="false" aria-label="Bold"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8"/></svg></button>
+<button type="button" class="cu-toggle cu-toggle-outline" data-cu-toggle aria-pressed="true"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 4h-9M14 20H5M15 4 9 20"/></svg> Italic</button>
+<button type="button" class="cu-toggle" data-cu-toggle aria-pressed="false" disabled>Disabled</button>
+</div>
+<div class="cu-toggle-group cu-toggle-group-joined" role="group" aria-label="Text style" data-cu-toggle-group="multiple">
+<button type="button" class="cu-toggle" aria-pressed="true" value="bold" aria-label="Bold"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8"/></svg></button>
+<button type="button" class="cu-toggle" aria-pressed="false" value="italic" aria-label="Italic"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 4h-9M14 20H5M15 4 9 20"/></svg></button>
+<button type="button" class="cu-toggle" aria-pressed="false" value="underline" aria-label="Underline"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4v6a6 6 0 0 0 12 0V4M4 20h16"/></svg></button>
+</div>
+<div class="cu-toggle-group" role="group" aria-label="View" data-cu-toggle-group="single">
+<button type="button" class="cu-toggle cu-toggle-outline" aria-pressed="true" value="day">Day</button>
+<button type="button" class="cu-toggle cu-toggle-outline" aria-pressed="false" value="week">Week</button>
+<button type="button" class="cu-toggle cu-toggle-outline" aria-pressed="false" value="month">Month</button>
+</div>
+</div>
+                </div>
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;button type=&quot;button&quot; class=&quot;cu-toggle&quot; data-cu-toggle aria-pressed=&quot;false&quot; aria-label=&quot;Bold&quot;&gt;...&lt;/button&gt;
+
+&lt;div class=&quot;cu-toggle-group&quot; role=&quot;group&quot; aria-label=&quot;View&quot; data-cu-toggle-group=&quot;single&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;cu-toggle cu-toggle-outline&quot; aria-pressed=&quot;true&quot; value=&quot;day&quot;&gt;Day&lt;/button&gt;
+  &lt;button type=&quot;button&quot; class=&quot;cu-toggle cu-toggle-outline&quot; aria-pressed=&quot;false&quot; value=&quot;week&quot;&gt;Week&lt;/button&gt;
+&lt;/div&gt;
+&lt;!-- data-cu-toggle-group=&quot;single&quot; | &quot;multiple&quot;. Add .cu-toggle-group-joined for a joined bar. --&gt;
+group.addEventListener(&#x27;cu:toggle&#x27;, e =&gt; console.log(e.detail.values));</pre></div>
+            </section>
+
+            <section id="slider" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Slider</h2>
+                    <p class="cu-paragraph cu-mt-sm">Native range input with a themed track and thumb. Keyboard and touch work out of the box.</p>
+                </div>
+                <div class="docs-preview-box">
+<div class="cu-flex-col cu-gap-lg" style="width:100%;max-width:360px">
+<div class="cu-field"><label class="cu-label" for="sl1">Volume</label><input type="range" class="cu-slider" id="sl1" min="0" max="100" value="40"></div>
+<div class="cu-field"><label class="cu-label" for="sl2">Steps of 25</label><input type="range" class="cu-slider" id="sl2" min="0" max="100" step="25" value="75"></div>
+<div class="cu-field"><label class="cu-label" for="sl3">Disabled</label><input type="range" class="cu-slider" id="sl3" value="30" disabled></div>
+</div>
+                </div>
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;input type=&quot;range&quot; class=&quot;cu-slider&quot; min=&quot;0&quot; max=&quot;100&quot; value=&quot;40&quot; aria-label=&quot;Volume&quot;&gt;</pre></div>
+            </section>
+
+            <section id="scroll-area" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Scroll area</h2>
+                    <p class="cu-paragraph cu-mt-sm">Scroll container with a thin scrollbar that follows the theme.</p>
+                </div>
+                <div class="docs-preview-box">
+<div class="cu-scroll-area" tabindex="0" aria-label="Versions" style="max-height:12rem;width:14rem;border:1px solid var(--cu-border)"><div class="cu-item" style="padding:var(--cu-space-sm) var(--cu-space-md)"><span class="cu-text-sm">v1.12.0</span></div><div class="cu-item" style="padding:var(--cu-space-sm) var(--cu-space-md)"><span class="cu-text-sm">v1.11.0</span></div><div class="cu-item" style="padding:var(--cu-space-sm) var(--cu-space-md)"><span class="cu-text-sm">v1.10.0</span></div><div class="cu-item" style="padding:var(--cu-space-sm) var(--cu-space-md)"><span class="cu-text-sm">v1.9.0</span></div><div class="cu-item" style="padding:var(--cu-space-sm) var(--cu-space-md)"><span class="cu-text-sm">v1.8.0</span></div><div class="cu-item" style="padding:var(--cu-space-sm) var(--cu-space-md)"><span class="cu-text-sm">v1.7.0</span></div><div class="cu-item" style="padding:var(--cu-space-sm) var(--cu-space-md)"><span class="cu-text-sm">v1.6.0</span></div><div class="cu-item" style="padding:var(--cu-space-sm) var(--cu-space-md)"><span class="cu-text-sm">v1.5.0</span></div><div class="cu-item" style="padding:var(--cu-space-sm) var(--cu-space-md)"><span class="cu-text-sm">v1.4.0</span></div><div class="cu-item" style="padding:var(--cu-space-sm) var(--cu-space-md)"><span class="cu-text-sm">v1.3.0</span></div><div class="cu-item" style="padding:var(--cu-space-sm) var(--cu-space-md)"><span class="cu-text-sm">v1.2.0</span></div><div class="cu-item" style="padding:var(--cu-space-sm) var(--cu-space-md)"><span class="cu-text-sm">v1.1.0</span></div></div>
+                </div>
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-scroll-area&quot; style=&quot;max-height: 12rem&quot; tabindex=&quot;0&quot; aria-label=&quot;Versions&quot;&gt;
+  ...long content...
+&lt;/div&gt;</pre></div>
+            </section>
+
+            <section id="collapsible" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Collapsible</h2>
+                    <p class="cu-paragraph cu-mt-sm">One show/hide region on native <code>&lt;details&gt;</code>. Works without JavaScript.</p>
+                </div>
+                <div class="docs-preview-box">
+<details class="cu-collapsible" style="width:100%;max-width:360px">
+<summary class="cu-collapsible-trigger">@deni starred 3 repositories <svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+<div class="cu-collapsible-content cu-flex-col cu-gap-sm">
+<div class="cu-item cu-item-outline" style="padding:var(--cu-space-sm) var(--cu-space-md)"><span class="cu-text-sm">denidandeni/comet-ui</span></div>
+<div class="cu-item cu-item-outline" style="padding:var(--cu-space-sm) var(--cu-space-md)"><span class="cu-text-sm">shadcn-ui/ui</span></div>
+<div class="cu-item cu-item-outline" style="padding:var(--cu-space-sm) var(--cu-space-md)"><span class="cu-text-sm">designersayap/rover</span></div>
+</div>
+</details>
+                </div>
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;details class=&quot;cu-collapsible&quot;&gt;
+  &lt;summary class=&quot;cu-collapsible-trigger&quot;&gt;3 repositories &lt;svg class=&quot;cu-icon cu-icon-xs&quot;&gt;...&lt;/svg&gt;&lt;/summary&gt;
+  &lt;div class=&quot;cu-collapsible-content&quot;&gt;...&lt;/div&gt;
+&lt;/details&gt;</pre></div>
+            </section>
+
+            <section id="popover" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Popover</h2>
+                    <p class="cu-paragraph cu-mt-sm">Floating panel on the native popover API: click outside or press Esc to close. comet.js places it by its trigger and flips it when there is no room.</p>
+                </div>
+                <div class="docs-preview-box">
+<div class="cu-flex cu-gap-md">
+<button type="button" class="cu-btn cu-btn-outline" popovertarget="demo-pop">Open popover</button>
+<div class="cu-popover" id="demo-pop" popover>
+<p class="cu-popover-title">Dimensions</p>
+<p class="cu-popover-description">Set the size of the layer.</p>
+<div class="cu-flex-col cu-gap-sm">
+<div class="cu-field"><label class="cu-label" for="pw">Width</label><input class="cu-input" id="pw" value="100%"></div>
+<div class="cu-field"><label class="cu-label" for="ph">Height</label><input class="cu-input" id="ph" value="25px"></div>
+</div>
+</div>
+<button type="button" class="cu-btn cu-btn-outline" popovertarget="demo-pop-top">Opens above</button>
+<div class="cu-popover" id="demo-pop-top" popover data-cu-placement="top-end"><p class="cu-popover-title">Placement</p><p class="cu-popover-description" style="margin:0">top-end, with automatic flip.</p></div>
+</div>
+                </div>
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;button class=&quot;cu-btn cu-btn-outline&quot; popovertarget=&quot;pop-1&quot;&gt;Open popover&lt;/button&gt;
+
+&lt;div class=&quot;cu-popover&quot; id=&quot;pop-1&quot; popover data-cu-placement=&quot;bottom-start&quot;&gt;
+  &lt;p class=&quot;cu-popover-title&quot;&gt;Dimensions&lt;/p&gt;
+  &lt;p class=&quot;cu-popover-description&quot;&gt;Set the size of the layer.&lt;/p&gt;
+  ...
+&lt;/div&gt;
+&lt;!-- data-cu-placement: bottom-start (default) | bottom-end | top-start | top-end --&gt;</pre></div>
+            </section>
+
+            <section id="hover-card" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Hover card</h2>
+                    <p class="cu-paragraph cu-mt-sm">Preview that opens when a link is hovered or focused. CSS only.</p>
+                </div>
+                <div class="docs-preview-box">
+<p class="cu-paragraph" style="padding-bottom:7rem">Design system by <span class="cu-hover-card"><a class="cu-hover-card-trigger" href="#hover-card">@deni</a>
+<span class="cu-hover-card-content" role="note"><span class="cu-flex cu-gap-md"><span class="cu-avatar">DK</span><span><strong>Deni Kurniawan</strong><br><span style="color:var(--cu-muted-foreground)">UI/UX designer. Building Comet UI.</span></span></span></span></span>.</p>
+                </div>
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;span class=&quot;cu-hover-card&quot;&gt;
+  &lt;a class=&quot;cu-hover-card-trigger&quot; href=&quot;/deni&quot;&gt;@deni&lt;/a&gt;
+  &lt;span class=&quot;cu-hover-card-content&quot; role=&quot;note&quot;&gt;...avatar, name, bio...&lt;/span&gt;
+&lt;/span&gt;</pre></div>
+            </section>
+
+            <section id="item" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Item</h2>
+                    <p class="cu-paragraph cu-mt-sm">One row of media, text and actions. The building block for lists and settings.</p>
+                </div>
+                <div class="docs-preview-box">
+<div class="cu-flex-col cu-gap-md" style="width:100%;max-width:480px">
+<div class="cu-item cu-item-outline"><div class="cu-item-media"><svg class="cu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></div><div class="cu-item-content"><p class="cu-item-title">Two-factor authentication</p><p class="cu-item-description">Verify with an email code.</p></div><div class="cu-item-actions"><button class="cu-btn cu-btn-outline cu-btn-sm">Enable</button></div></div>
+<div class="cu-item-group">
+<a class="cu-item" href="#item"><div class="cu-item-media"><svg class="cu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div><div class="cu-item-content"><p class="cu-item-title">Notifications</p><p class="cu-item-description">Email and push settings.</p></div><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+<a class="cu-item" href="#item"><div class="cu-item-media"><svg class="cu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></div><div class="cu-item-content"><p class="cu-item-title">Security</p><p class="cu-item-description">Password and sessions.</p></div><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+</div>
+</div>
+                </div>
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-item cu-item-outline&quot;&gt;
+  &lt;div class=&quot;cu-item-media&quot;&gt;&lt;svg class=&quot;cu-icon&quot;&gt;...&lt;/svg&gt;&lt;/div&gt;
+  &lt;div class=&quot;cu-item-content&quot;&gt;
+    &lt;p class=&quot;cu-item-title&quot;&gt;Two-factor authentication&lt;/p&gt;
+    &lt;p class=&quot;cu-item-description&quot;&gt;Verify with an email code.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cu-item-actions&quot;&gt;&lt;button class=&quot;cu-btn cu-btn-outline cu-btn-sm&quot;&gt;Enable&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Variants: .cu-item-outline, .cu-item-muted. Wrap several in .cu-item-group for dividers. --&gt;</pre></div>
+            </section>
+
+            <section id="calendar" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Calendar</h2>
+                    <p class="cu-paragraph cu-mt-sm">The datepicker calendar shown inline. The value lives in a hidden input, so it submits with a form.</p>
+                </div>
+                <div class="docs-preview-box">
+<div class="cu-datepicker cu-calendar" data-cu-datepicker data-cu-inline id="demo-calendar"><input type="hidden" name="date" value="2026-11-10"></div>
+                </div>
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-datepicker cu-calendar&quot; data-cu-datepicker data-cu-inline&gt;
+  &lt;input type=&quot;hidden&quot; name=&quot;date&quot; value=&quot;2026-11-10&quot;&gt;
+&lt;/div&gt;
+
+el.addEventListener(&#x27;cu:date&#x27;, e =&gt; console.log(e.detail.value));
+&lt;!-- Limits: data-cu-min / data-cu-max. Week start: data-cu-week-start=&quot;0&quot; (Sunday) to &quot;6&quot;. --&gt;</pre></div>
+            </section>
+
+            <section id="code-block" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Code block</h2>
+                    <p class="cu-paragraph cu-mt-sm">Code with a title and a copy button. <code class="cu-code">.cu-code</code> styles inline code.</p>
+                </div>
+                <div class="docs-preview-box">
+<div class="cu-code-block" style="width:100%;max-width:520px">
+<div class="cu-code-block-header"><span class="cu-code-block-title">Terminal</span><button type="button" class="cu-code-block-copy" data-cu-copy>Copy</button></div>
+<pre class="cu-code-block-pre" tabindex="0"><code>npm install comet-ui
+npx comet-ui brand create acme --primary "#0f766e"</code></pre>
+</div>
+                </div>
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-code-block&quot;&gt;
+  &lt;div class=&quot;cu-code-block-header&quot;&gt;
+    &lt;span class=&quot;cu-code-block-title&quot;&gt;Terminal&lt;/span&gt;
+    &lt;button type=&quot;button&quot; class=&quot;cu-code-block-copy&quot; data-cu-copy&gt;Copy&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;pre class=&quot;cu-code-block-pre&quot; tabindex=&quot;0&quot;&gt;&lt;code&gt;npm install comet-ui&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+Inline: &lt;code class=&quot;cu-code&quot;&gt;npm run build&lt;/code&gt;</pre></div>
+            </section>
+
+            <section id="context-menu" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Context menu</h2>
+                    <p class="cu-paragraph cu-mt-sm">Right-click menu (long-press on touch). Arrow keys move, Esc closes.</p>
+                </div>
+                <div class="docs-preview-box">
+<div data-cu-context-menu="demo-ctx" style="display:grid;place-items:center;width:100%;max-width:360px;height:9rem;border:1px dashed var(--cu-border-strong);border-radius:var(--cu-radius-md)"><span class="cu-text-sm">Right-click here</span></div>
+<div class="cu-menu" id="demo-ctx" popover role="menu">
+<button class="cu-dropdown-item" role="menuitem" data-value="back">Back <kbd class="cu-menu-shortcut">Alt ←</kbd></button>
+<button class="cu-dropdown-item" role="menuitem" data-value="reload">Reload <kbd class="cu-menu-shortcut">Ctrl R</kbd></button>
+<button class="cu-dropdown-item" role="menuitem" disabled>Forward</button>
+<div class="cu-dropdown-divider"></div>
+<button class="cu-dropdown-item cu-dropdown-item-danger" role="menuitem" data-value="delete">Delete</button>
+</div>
+                </div>
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div data-cu-context-menu=&quot;file-menu&quot;&gt;Right-click here&lt;/div&gt;
+
+&lt;div class=&quot;cu-menu&quot; id=&quot;file-menu&quot; popover role=&quot;menu&quot;&gt;
+  &lt;button class=&quot;cu-dropdown-item&quot; role=&quot;menuitem&quot; data-value=&quot;reload&quot;&gt;Reload &lt;kbd class=&quot;cu-menu-shortcut&quot;&gt;Ctrl R&lt;/kbd&gt;&lt;/button&gt;
+  &lt;div class=&quot;cu-dropdown-divider&quot;&gt;&lt;/div&gt;
+  &lt;button class=&quot;cu-dropdown-item cu-dropdown-item-danger&quot; role=&quot;menuitem&quot; data-value=&quot;delete&quot;&gt;Delete&lt;/button&gt;
+&lt;/div&gt;
+
+menu.addEventListener(&#x27;cu:select&#x27;, e =&gt; console.log(e.detail.value));</pre></div>
+            </section>
+
+            <section id="menubar" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Menubar</h2>
+                    <p class="cu-paragraph cu-mt-sm">A row of menus, like a desktop app. Left and Right move between menus, Down opens one.</p>
+                </div>
+                <div class="docs-preview-box">
+<div class="cu-menubar" role="menubar" aria-label="Editor" data-cu-menubar style="margin-bottom:9rem"><button type="button" class="cu-menubar-trigger" role="menuitem" popovertarget="mb-file">File</button><div class="cu-menu" id="mb-file" popover role="menu"><button class="cu-dropdown-item" role="menuitem">New tab <kbd class="cu-menu-shortcut">Ctrl T</kbd></button><button class="cu-dropdown-item" role="menuitem">New window <kbd class="cu-menu-shortcut">Ctrl N</kbd></button><div class="cu-dropdown-divider"></div><button class="cu-dropdown-item" role="menuitem">Print <kbd class="cu-menu-shortcut">Ctrl P</kbd></button></div><button type="button" class="cu-menubar-trigger" role="menuitem" popovertarget="mb-edit">Edit</button><div class="cu-menu" id="mb-edit" popover role="menu"><button class="cu-dropdown-item" role="menuitem">Undo <kbd class="cu-menu-shortcut">Ctrl Z</kbd></button><button class="cu-dropdown-item" role="menuitem">Redo <kbd class="cu-menu-shortcut">Ctrl Y</kbd></button><div class="cu-dropdown-divider"></div><button class="cu-dropdown-item" role="menuitem">Find <kbd class="cu-menu-shortcut">Ctrl F</kbd></button></div><button type="button" class="cu-menubar-trigger" role="menuitem" popovertarget="mb-view">View</button><div class="cu-menu" id="mb-view" popover role="menu"><button class="cu-dropdown-item" role="menuitem">Reload <kbd class="cu-menu-shortcut">Ctrl R</kbd></button><button class="cu-dropdown-item" role="menuitem">Full screen <kbd class="cu-menu-shortcut">F11</kbd></button></div></div>
+                </div>
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-menubar&quot; role=&quot;menubar&quot; aria-label=&quot;Editor&quot; data-cu-menubar&gt;
+  &lt;button type=&quot;button&quot; class=&quot;cu-menubar-trigger&quot; role=&quot;menuitem&quot; popovertarget=&quot;mb-file&quot;&gt;File&lt;/button&gt;
+  &lt;div class=&quot;cu-menu&quot; id=&quot;mb-file&quot; popover role=&quot;menu&quot;&gt;
+    &lt;button class=&quot;cu-dropdown-item&quot; role=&quot;menuitem&quot;&gt;New tab &lt;kbd class=&quot;cu-menu-shortcut&quot;&gt;Ctrl T&lt;/kbd&gt;&lt;/button&gt;
+    &lt;div class=&quot;cu-dropdown-divider&quot;&gt;&lt;/div&gt;
+    &lt;button class=&quot;cu-dropdown-item&quot; role=&quot;menuitem&quot;&gt;Print&lt;/button&gt;
+  &lt;/div&gt;
+  ...
+&lt;/div&gt;</pre></div>
+            </section>
+
+            <section id="navigation-menu" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Navigation menu</h2>
+                    <p class="cu-paragraph cu-mt-sm">Site navigation with rich dropdown panels.</p>
+                </div>
+                <div class="docs-preview-box">
+<nav class="cu-nav-menu" aria-label="Demo" style="margin-bottom:10rem">
+<ul class="cu-nav-menu-list">
+<li><button type="button" class="cu-nav-menu-trigger" popovertarget="nav-products">Products <svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+<div class="cu-popover cu-nav-menu-content" id="nav-products" popover><a class="cu-nav-menu-link" href="#navigation-menu"><span class="cu-nav-menu-link-title">Analytics</span><span class="cu-nav-menu-link-description">Understand your traffic.</span></a><a class="cu-nav-menu-link" href="#navigation-menu"><span class="cu-nav-menu-link-title">Automation</span><span class="cu-nav-menu-link-description">Run tasks on a schedule.</span></a><a class="cu-nav-menu-link" href="#navigation-menu"><span class="cu-nav-menu-link-title">Reports</span><span class="cu-nav-menu-link-description">Share results with your team.</span></a><a class="cu-nav-menu-link" href="#navigation-menu"><span class="cu-nav-menu-link-title">Integrations</span><span class="cu-nav-menu-link-description">Connect the tools you use.</span></a></div></li>
+<li><button type="button" class="cu-nav-menu-trigger" popovertarget="nav-docs">Docs <svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+<div class="cu-popover cu-nav-menu-content" id="nav-docs" popover style="width:16rem"><a class="cu-nav-menu-link" href="#navigation-menu"><span class="cu-nav-menu-link-title">Getting started</span><span class="cu-nav-menu-link-description">Install and first steps.</span></a><a class="cu-nav-menu-link" href="#navigation-menu"><span class="cu-nav-menu-link-title">Tokens</span><span class="cu-nav-menu-link-description">Colors, type and spacing.</span></a></div></li>
+<li><a class="cu-nav-menu-trigger" href="#navigation-menu">Pricing</a></li>
+</ul>
+</nav>
+                </div>
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;nav class=&quot;cu-nav-menu&quot; aria-label=&quot;Main&quot;&gt;
+  &lt;ul class=&quot;cu-nav-menu-list&quot;&gt;
+    &lt;li&gt;
+      &lt;button type=&quot;button&quot; class=&quot;cu-nav-menu-trigger&quot; popovertarget=&quot;nav-products&quot;&gt;Products &lt;svg class=&quot;cu-icon cu-icon-xs&quot;&gt;...&lt;/svg&gt;&lt;/button&gt;
+      &lt;div class=&quot;cu-popover cu-nav-menu-content&quot; id=&quot;nav-products&quot; popover&gt;
+        &lt;a class=&quot;cu-nav-menu-link&quot; href=&quot;/analytics&quot;&gt;
+          &lt;span class=&quot;cu-nav-menu-link-title&quot;&gt;Analytics&lt;/span&gt;
+          &lt;span class=&quot;cu-nav-menu-link-description&quot;&gt;Understand your traffic.&lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a class=&quot;cu-nav-menu-trigger&quot; href=&quot;/pricing&quot;&gt;Pricing&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</pre></div>
+            </section>
+
+            <section id="command" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Command</h2>
+                    <p class="cu-paragraph cu-mt-sm">Searchable list of actions. Use it inline or as a palette that opens with Ctrl+K (Cmd+K on Mac).</p>
+                </div>
+                <div class="docs-preview-box">
+<div class="cu-flex-col cu-gap-md" style="width:100%;max-width:440px;align-items:center">
+<div class="cu-command" data-cu-command id="demo-command"><div class="cu-command-search"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input class="cu-command-input" placeholder="Type a command or search" aria-label="Command"></div><div class="cu-command-list" role="listbox" aria-label="Commands"><p class="cu-command-group">Suggestions</p><button type="button" class="cu-command-item" role="option" data-value="calendar">Calendar</button><button type="button" class="cu-command-item" role="option" data-value="search">Search components</button><button type="button" class="cu-command-item" role="option" data-value="toast">Show a toast</button><p class="cu-command-group">Settings</p><button type="button" class="cu-command-item" role="option" data-value="profile">Profile <kbd class="cu-menu-shortcut">Ctrl P</kbd></button><button type="button" class="cu-command-item" role="option" data-value="billing">Billing <kbd class="cu-menu-shortcut">Ctrl B</kbd></button><button type="button" class="cu-command-item" role="option" data-value="theme">Toggle dark theme <kbd class="cu-menu-shortcut">Ctrl D</kbd></button><p class="cu-command-empty" hidden>No results found.</p></div></div>
+<button type="button" class="cu-btn cu-btn-outline" data-cu-open="demo-palette">Open palette <kbd class="cu-kbd">Ctrl</kbd><kbd class="cu-kbd">K</kbd></button>
+</div>
+<dialog class="cu-dialog cu-command-dialog" id="demo-palette" data-cu-hotkey="k" aria-label="Command palette"><div class="cu-command" data-cu-command ><div class="cu-command-search"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input class="cu-command-input" placeholder="Type a command or search" aria-label="Command"></div><div class="cu-command-list" role="listbox" aria-label="Commands"><p class="cu-command-group">Suggestions</p><button type="button" class="cu-command-item" role="option" data-value="calendar">Calendar</button><button type="button" class="cu-command-item" role="option" data-value="search">Search components</button><button type="button" class="cu-command-item" role="option" data-value="toast">Show a toast</button><p class="cu-command-group">Settings</p><button type="button" class="cu-command-item" role="option" data-value="profile">Profile <kbd class="cu-menu-shortcut">Ctrl P</kbd></button><button type="button" class="cu-command-item" role="option" data-value="billing">Billing <kbd class="cu-menu-shortcut">Ctrl B</kbd></button><button type="button" class="cu-command-item" role="option" data-value="theme">Toggle dark theme <kbd class="cu-menu-shortcut">Ctrl D</kbd></button><p class="cu-command-empty" hidden>No results found.</p></div></div></dialog>
+                </div>
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-command&quot; data-cu-command&gt;
+  &lt;div class=&quot;cu-command-search&quot;&gt;
+    &lt;svg class=&quot;cu-icon cu-icon-xs&quot;&gt;...&lt;/svg&gt;
+    &lt;input class=&quot;cu-command-input&quot; placeholder=&quot;Type a command or search&quot; aria-label=&quot;Command&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cu-command-list&quot; role=&quot;listbox&quot; aria-label=&quot;Commands&quot;&gt;
+    &lt;p class=&quot;cu-command-group&quot;&gt;Suggestions&lt;/p&gt;
+    &lt;button type=&quot;button&quot; class=&quot;cu-command-item&quot; role=&quot;option&quot; data-value=&quot;calendar&quot;&gt;Calendar&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;cu-command-item&quot; role=&quot;option&quot; data-value=&quot;profile&quot;&gt;Profile &lt;kbd class=&quot;cu-menu-shortcut&quot;&gt;Ctrl P&lt;/kbd&gt;&lt;/button&gt;
+    &lt;p class=&quot;cu-command-empty&quot; hidden&gt;No results found.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- As a palette: Ctrl+K / Cmd+K opens it --&gt;
+&lt;dialog class=&quot;cu-dialog cu-command-dialog&quot; id=&quot;palette&quot; data-cu-hotkey=&quot;k&quot; aria-label=&quot;Command palette&quot;&gt;
+  ...the same .cu-command...
+&lt;/dialog&gt;
+
+el.addEventListener(&#x27;cu:command&#x27;, e =&gt; console.log(e.detail.value));</pre></div>
+            </section>
+
+            <section id="carousel" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Carousel</h2>
+                    <p class="cu-paragraph cu-mt-sm">Slides on CSS scroll snap, so swipe and trackpad scrolling are native. Buttons, dots and arrow keys are wired by comet.js.</p>
+                </div>
+                <div class="docs-preview-box">
+<section class="cu-carousel" data-cu-carousel aria-roledescription="carousel" aria-label="Demo" style="width:100%;max-width:420px">
+<div class="cu-carousel-viewport" tabindex="0"><div class="cu-carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 5"><div class="cu-card" style="display:grid;place-items:center;height:10rem"><span class="cu-h2">1</span></div></div><div class="cu-carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 5"><div class="cu-card" style="display:grid;place-items:center;height:10rem"><span class="cu-h2">2</span></div></div><div class="cu-carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 5"><div class="cu-card" style="display:grid;place-items:center;height:10rem"><span class="cu-h2">3</span></div></div><div class="cu-carousel-slide" role="group" aria-roledescription="slide" aria-label="4 of 5"><div class="cu-card" style="display:grid;place-items:center;height:10rem"><span class="cu-h2">4</span></div></div><div class="cu-carousel-slide" role="group" aria-roledescription="slide" aria-label="5 of 5"><div class="cu-card" style="display:grid;place-items:center;height:10rem"><span class="cu-h2">5</span></div></div></div>
+<button type="button" class="cu-carousel-btn cu-carousel-prev" data-cu-carousel-prev aria-label="Previous slide"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+<button type="button" class="cu-carousel-btn cu-carousel-next" data-cu-carousel-next aria-label="Next slide"><svg class="cu-icon cu-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+<div class="cu-carousel-dots"></div>
+</section>
+                </div>
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;section class=&quot;cu-carousel&quot; data-cu-carousel aria-roledescription=&quot;carousel&quot; aria-label=&quot;Featured&quot;&gt;
+  &lt;div class=&quot;cu-carousel-viewport&quot; tabindex=&quot;0&quot;&gt;
+    &lt;div class=&quot;cu-carousel-slide&quot; role=&quot;group&quot; aria-roledescription=&quot;slide&quot; aria-label=&quot;1 of 3&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;cu-carousel-slide&quot; role=&quot;group&quot; aria-roledescription=&quot;slide&quot; aria-label=&quot;2 of 3&quot;&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button type=&quot;button&quot; class=&quot;cu-carousel-btn cu-carousel-prev&quot; data-cu-carousel-prev aria-label=&quot;Previous slide&quot;&gt;...&lt;/button&gt;
+  &lt;button type=&quot;button&quot; class=&quot;cu-carousel-btn cu-carousel-next&quot; data-cu-carousel-next aria-label=&quot;Next slide&quot;&gt;...&lt;/button&gt;
+  &lt;div class=&quot;cu-carousel-dots&quot;&gt;&lt;/div&gt;
+&lt;/section&gt;
+&lt;!-- Two slides per view: style=&quot;--cu-carousel-slide: 50%&quot; on .cu-carousel --&gt;</pre></div>
+            </section>
+
+            <section id="resizable" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Resizable</h2>
+                    <p class="cu-paragraph cu-mt-sm">Two panels with a draggable divider. Focus the handle and use the Arrow keys to resize from the keyboard.</p>
+                </div>
+                <div class="docs-preview-box">
+<div class="cu-resizable" data-cu-resizable data-cu-min="20" data-cu-max="80" style="height:12rem;width:100%;max-width:520px">
+<div class="cu-resizable-panel" style="flex-basis:35%;display:grid;place-items:center"><span class="cu-text-sm">Sidebar</span></div>
+<div class="cu-resizable-handle" role="separator" tabindex="0" aria-orientation="vertical" aria-label="Resize panels"></div>
+<div class="cu-resizable-panel" style="display:grid;place-items:center"><span class="cu-text-sm">Content</span></div>
+</div>
+                </div>
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;div class=&quot;cu-resizable&quot; data-cu-resizable data-cu-min=&quot;20&quot; data-cu-max=&quot;80&quot; style=&quot;height: 16rem&quot;&gt;
+  &lt;div class=&quot;cu-resizable-panel&quot; style=&quot;flex-basis: 35%&quot;&gt;Sidebar&lt;/div&gt;
+  &lt;div class=&quot;cu-resizable-handle&quot; role=&quot;separator&quot; tabindex=&quot;0&quot; aria-orientation=&quot;vertical&quot; aria-label=&quot;Resize panels&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;cu-resizable-panel&quot;&gt;Content&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Stacked: add .cu-resizable-vertical and aria-orientation=&quot;horizontal&quot; --&gt;</pre></div>
+            </section>
+
+            <section id="alert-dialog" class="docs-section">
+                <div class="docs-section-header">
+                    <h2 class="cu-h2">Alert dialog</h2>
+                    <p class="cu-paragraph cu-mt-sm">A dialog that must be answered. <code>role="alertdialog"</code> plus <code>data-cu-static</code>: clicking outside and Esc do not dismiss it.</p>
+                </div>
+                <div class="docs-preview-box">
+<button type="button" class="cu-btn cu-btn-outline" data-cu-open="demo-alert-dialog">Delete project</button>
+<dialog class="cu-dialog" id="demo-alert-dialog" role="alertdialog" data-cu-static aria-labelledby="ad-title" aria-describedby="ad-desc">
+<div class="cu-dialog-header"><h2 class="cu-h3" id="ad-title">Delete this project?</h2><p class="cu-paragraph" id="ad-desc">This removes the project and its data. You cannot undo it.</p></div>
+<div class="cu-dialog-footer"><button type="button" class="cu-btn cu-btn-ghost" data-cu-close>Cancel</button><button type="button" class="cu-btn cu-btn-danger" data-cu-close>Delete project</button></div>
+</dialog>
+                </div>
+                <div class="docs-code-box"><pre style="margin:0;font:inherit;white-space:pre">&lt;button class=&quot;cu-btn cu-btn-outline&quot; data-cu-open=&quot;confirm-delete&quot;&gt;Delete project&lt;/button&gt;
+
+&lt;dialog class=&quot;cu-dialog&quot; id=&quot;confirm-delete&quot; role=&quot;alertdialog&quot; data-cu-static
+        aria-labelledby=&quot;cd-title&quot; aria-describedby=&quot;cd-desc&quot;&gt;
+  &lt;div class=&quot;cu-dialog-header&quot;&gt;
+    &lt;h2 class=&quot;cu-h3&quot; id=&quot;cd-title&quot;&gt;Delete this project?&lt;/h2&gt;
+    &lt;p class=&quot;cu-paragraph&quot; id=&quot;cd-desc&quot;&gt;This removes the project and its data. You cannot undo it.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cu-dialog-footer&quot;&gt;
+    &lt;button class=&quot;cu-btn cu-btn-ghost&quot; data-cu-close&gt;Cancel&lt;/button&gt;
+    &lt;button class=&quot;cu-btn cu-btn-danger&quot; data-cu-close&gt;Delete project&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/dialog&gt;</pre></div>
+            </section>
+
+
 
 
             <!-- Textarea Section -->
@@ -1845,6 +2256,12 @@ searchInput.addEventListener(<span class="docs-code-string">'input'</span>, (e) 
             }
         }
 
+        // Links in the coverage table open their section
+        document.addEventListener('click', (e) => {
+            const link = e.target.closest('[data-docs-link]');
+            if (link) { e.preventDefault(); showSection(link.getAttribute('data-docs-link')); }
+        });
+
         // Handle sidebar clicks
         document.querySelectorAll('.docs-nav-item').forEach(item => {
             item.addEventListener('click', (e) => {
@@ -1928,5 +2345,7 @@ searchInput.addEventListener(<span class="docs-code-string">'input'</span>, (e) 
         });
     });
 </script>
+<script src="https://unpkg.com/lucide@1.70.0/dist/umd/lucide.min.js"></script>
+<script>if (window.lucide) lucide.createIcons();</script>
 </body>
 </html>

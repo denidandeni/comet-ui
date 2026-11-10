@@ -238,3 +238,7 @@
 .docs-example > .docs-preview-box,
 .docs-example > .docs-code-box { margin: 0; border: 0; border-radius: 0; }
 .docs-example > [hidden] { display: none; }
+
+/* Lucide icons (docs only): size with the text, like the icon font they replaced. */
+svg.lucide { width: 1.25em; height: 1.25em; flex-shrink: 0; vertical-align: -0.2em; }
+.docs-nav-item svg.lucide { width: 1.125rem; height: 1.125rem; }

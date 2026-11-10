@@ -15,8 +15,16 @@
 @import url('./atoms/skeleton.css');
 @import url('./atoms/progress.css');
 @import url('./atoms/kbd.css');
+@import url('./atoms/toggle.css');
+@import url('./atoms/slider.css');
+@import url('./atoms/scroll-area.css');
 @import url('./molecules/card.css');
 @import url('./molecules/field.css');
+@import url('./molecules/collapsible.css');
+@import url('./molecules/popover.css');
+@import url('./molecules/hover-card.css');
+@import url('./molecules/item.css');
+@import url('./molecules/code-block.css');
 @import url('./molecules/input-affix.css');
 @import url('./molecules/button-group.css');
 @import url('./molecules/dropdown.css');
@@ -42,6 +50,11 @@
 @import url('./organisms/table.css');
 @import url('./organisms/tabs.css');
 @import url('./organisms/sidebar.css');
+@import url('./organisms/command.css');
+@import url('./organisms/menubar.css');
+@import url('./organisms/navigation-menu.css');
+@import url('./organisms/carousel.css');
+@import url('./organisms/resizable.css');
 
 /* Templates: page-level layouts built from the pieces above. */
 @import url('./templates/app-shell.css');
