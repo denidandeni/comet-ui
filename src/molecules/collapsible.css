@@ -1,0 +1,28 @@
+/* Molecule: Collapsible. One show/hide region on native <details>, so it works without JavaScript.
+   <details class="cu-collapsible">
+     <summary class="cu-collapsible-trigger">3 repositories <svg class="cu-icon cu-icon-xs">...</svg></summary>
+     <div class="cu-collapsible-content">...</div>
+   </details>
+   For a set of sections where one closes the others, use the Accordion. */
+
+.cu-collapsible { font-family: inherit; color: var(--cu-foreground); }
+
+.cu-collapsible-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--cu-space-md);
+  padding: var(--cu-space-sm) var(--cu-space-md);
+  border-radius: var(--cu-radius-md);
+  font-size: var(--cu-text-sm);
+  font-weight: var(--cu-font-weight-bold);
+  cursor: pointer;
+  list-style: none;
+}
+.cu-collapsible-trigger::-webkit-details-marker { display: none; }
+.cu-collapsible-trigger:hover { background: var(--cu-muted); }
+.cu-collapsible-trigger:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: 2px; }
+.cu-collapsible-trigger .cu-icon { transition: transform 0.2s; }
+.cu-collapsible[open] > .cu-collapsible-trigger .cu-icon { transform: rotate(180deg); }
+
+.cu-collapsible-content { padding: var(--cu-space-sm) var(--cu-space-md); }

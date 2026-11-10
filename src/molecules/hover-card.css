@@ -1,0 +1,41 @@
+/* Molecule: Hover card. A preview that opens when a link is hovered or focused. CSS only.
+   <span class="cu-hover-card">
+     <a class="cu-hover-card-trigger" href="#">@deni</a>
+     <span class="cu-hover-card-content" role="note">...avatar, name, bio...</span>
+   </span>
+   The content is extra: never put something there that people cannot reach another way. */
+
+.cu-hover-card { position: relative; display: inline-block; }
+
+.cu-hover-card-trigger { color: var(--cu-foreground); font-weight: var(--cu-font-weight-bold); text-underline-offset: 3px; }
+
+.cu-hover-card-content {
+  position: absolute;
+  top: calc(100% + 6px);
+  inset-inline-start: 0;
+  z-index: var(--cu-z-popover);
+  display: block;
+  width: 18rem;
+  padding: var(--cu-space-md);
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-surface);
+  color: var(--cu-foreground);
+  box-shadow: var(--cu-shd-pop);
+  font-size: var(--cu-text-sm);
+  font-weight: var(--cu-font-weight-regular);
+  text-align: start;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s, visibility 0.15s;
+}
+
+/* Bridge so the pointer can travel from the link to the card */
+.cu-hover-card-content::before { content: ''; position: absolute; inset: -6px 0 auto 0; height: 6px; }
+
+.cu-hover-card:hover .cu-hover-card-content,
+.cu-hover-card:focus-within .cu-hover-card-content {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.3s;
+}

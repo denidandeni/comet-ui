@@ -2,6 +2,39 @@
 
 Versions follow semantic versioning. A deprecated name stays as an alias for at least one minor release before it is removed, and every release gets an entry here.
 
+## 1.4.0
+
+All 66 shadcn/ui components now have a Comet UI equivalent.
+
+### Added
+- **Chart:** `.cu-chart` themes [TanStack Charts](https://tanstack.com/charts) with six new `--cu-chart-1..6` semantic tokens (light, dark and brand aware). `@tanstack/charts` is an optional peer dependency and is never bundled.
+- **Chat components:** Bubble, Message, Attachment, Marker, Trace, Message scroller (follows new messages, keeps position when older ones load, `CometUI.scroller()`) and Questionnaire (one question at a time, validation, skip, letter or number shortcuts, `cu:questionnaire` event).
+- **Utilities:** `.cu-shimmer`, `.cu-scroll-fade`, `.cu-scroll-fade-x`.
+- **Direction:** full RTL support. Components use logical properties and `:dir(rtl)`; tabs, carousel, menubar, resizable and popover keyboard handling follows `dir`.
+- Docs: Chart (live demos), chat components, Direction (live toggle). The coverage page lists 66 of 66.
+
+### Changed
+- Physical CSS properties (`margin-left`, `padding-right`, ...) replaced by logical ones across all components. No visual change in LTR (checked on 61 pages).
+
+## 1.3.0
+
+Closes the gap with shadcn/ui: 57 of its 66 components now have a Comet UI equivalent.
+
+### Added
+- **Atoms:** Toggle and Toggle group, Slider, Scroll area.
+- **Molecules:** Collapsible, Popover, Hover card, Item, Code block (with copy), Calendar (inline datepicker), shared `cu-menu` surface.
+- **Organisms:** Command (inline and Ctrl+K palette), Context menu, Menubar, Navigation menu, Carousel, Resizable panels.
+- **Alert dialog:** `role="alertdialog"` with `data-cu-static` now also ignores Esc, so it must be answered.
+- **comet.js:** popover placement with flip, menu keyboard navigation, `data-cu-copy`, `data-cu-hotkey`, and the events `cu:toggle`, `cu:select`, `cu:command`, `cu:slide`, `cu:resize`, `cu:copy`.
+- **Docs:** a section for each new component, a "shadcn/ui coverage" page with the full mapping, and current install instructions on the Getting started page.
+
+### Fixed
+- Docs icons: the pages used `data-lucide` icons but never loaded Lucide, so no icon was drawn. The script is now loaded (pinned to 1.70.0).
+- Password toggle swaps a Lucide eye icon as well as the icon font, and sets `aria-pressed` and its label.
+
+### Not included
+- Chart (needs a charting library), Direction (RTL), and the chat components (Attachment, Bubble, Marker, Message, Message Scroller, Questionnaire, Trace).
+
 ## 1.2.0
 
 ### Added

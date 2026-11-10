@@ -1,0 +1,17 @@
+/* Atom: Scroll area. A scroll container with a thin themed scrollbar.
+   <div class="cu-scroll-area" style="max-height: 12rem" tabindex="0">...long content...</div>
+   Horizontal: add .cu-scroll-area-x. Keep tabindex="0" so keyboard users can scroll it. */
+
+.cu-scroll-area {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cu-border-strong) transparent;
+  border-radius: var(--cu-radius-md);
+}
+
+.cu-scroll-area-x { overflow-x: auto; overflow-y: hidden; }
+
+.cu-scroll-area::-webkit-scrollbar { width: 8px; height: 8px; }
+.cu-scroll-area::-webkit-scrollbar-track { background: transparent; }
+.cu-scroll-area::-webkit-scrollbar-thumb { background: var(--cu-border-strong); border-radius: var(--cu-radius-round); }
+.cu-scroll-area:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: 2px; }

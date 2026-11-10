@@ -47,7 +47,8 @@
   display: flex;
   align-items: center;
   gap: var(--cu-space-md);
-  padding: var(--cu-space-md) var(--cu-space-md) var(--cu-space-md) 0.875rem;
+  padding-block: var(--cu-space-md);
+  padding-inline: 0.875rem var(--cu-space-md);
   border: 1px solid color-mix(in srgb, var(--cu-toast-tone) 22%, var(--cu-border));
   border-radius: var(--cu-radius-lg);
   background-color: var(--cu-surface);
@@ -143,7 +144,8 @@
   flex-shrink: 0;
   width: 1.5rem;
   height: 1.5rem;
-  margin: -0.125rem -0.25rem 0 0;
+  margin: -0.125rem 0 0;
+  margin-inline-end: -0.25rem;
   border: 0;
   border-radius: var(--cu-radius-sm);
   background: transparent;

@@ -1,0 +1,35 @@
+/* Organism: Menubar. A row of menus, like a desktop app.
+   <div class="cu-menubar" role="menubar" aria-label="Editor" data-cu-menubar>
+     <button type="button" class="cu-menubar-trigger" role="menuitem" popovertarget="mb-file">File</button>
+     <div class="cu-menu" id="mb-file" popover role="menu">
+       <button class="cu-dropdown-item" role="menuitem">New tab <kbd class="cu-menu-shortcut">Ctrl T</kbd></button>
+     </div>
+     ...
+   </div>
+   Left and Right move between menus, Down opens one, Esc closes. Once one is open, hovering another opens it. */
+
+.cu-menubar {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cu-space-xs);
+  padding: var(--cu-space-xs);
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-surface);
+  font-family: var(--cu-font-family-default);
+}
+
+.cu-menubar-trigger {
+  padding: var(--cu-space-xs) var(--cu-space-sm);
+  border: 0;
+  border-radius: var(--cu-radius-sm);
+  background: transparent;
+  color: var(--cu-foreground);
+  font: inherit;
+  font-size: var(--cu-text-sm);
+  font-weight: var(--cu-font-weight-bold);
+  cursor: pointer;
+}
+.cu-menubar-trigger:hover,
+.cu-menubar-trigger[aria-expanded="true"] { background: var(--cu-muted); }
+.cu-menubar-trigger:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: 1px; }

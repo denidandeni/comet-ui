@@ -1,0 +1,65 @@
+/* Organism: Navigation menu. Site navigation with rich dropdown panels.
+   <nav class="cu-nav-menu" aria-label="Main">
+     <ul class="cu-nav-menu-list">
+       <li><button type="button" class="cu-nav-menu-trigger" popovertarget="nav-products">Products <svg class="cu-icon cu-icon-xs">...</svg></button>
+         <div class="cu-popover cu-nav-menu-content" id="nav-products" popover>
+           <a class="cu-nav-menu-link" href="#"><span class="cu-nav-menu-link-title">Analytics</span><span class="cu-nav-menu-link-description">Understand your traffic.</span></a>
+         </div>
+       </li>
+       <li><a class="cu-nav-menu-trigger" href="#">Pricing</a></li>
+     </ul>
+   </nav>
+   Current page: aria-current="page" on the link. */
+
+.cu-nav-menu { font-family: var(--cu-font-family-default); }
+
+.cu-nav-menu-list {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cu-nav-menu-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cu-space-xs);
+  padding: var(--cu-space-sm) var(--cu-space-md);
+  border: 0;
+  border-radius: var(--cu-radius-md);
+  background: transparent;
+  color: var(--cu-foreground);
+  font: inherit;
+  font-size: var(--cu-text-sm);
+  font-weight: var(--cu-font-weight-bold);
+  text-decoration: none;
+  cursor: pointer;
+}
+.cu-nav-menu-trigger:hover,
+.cu-nav-menu-trigger[aria-expanded="true"],
+.cu-nav-menu-trigger[aria-current="page"] { background: var(--cu-muted); }
+.cu-nav-menu-trigger:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: 1px; }
+.cu-nav-menu-trigger .cu-icon { transition: transform 0.2s; }
+.cu-nav-menu-trigger[aria-expanded="true"] .cu-icon { transform: rotate(180deg); }
+
+.cu-popover.cu-nav-menu-content {
+  width: 28rem;
+  padding: var(--cu-space-sm);
+}
+.cu-nav-menu-content:popover-open { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: var(--cu-space-xs); }
+
+.cu-nav-menu-link {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--cu-space-sm);
+  border-radius: var(--cu-radius-sm);
+  color: var(--cu-foreground);
+  text-decoration: none;
+}
+.cu-nav-menu-link:hover { background: var(--cu-muted); }
+.cu-nav-menu-link:focus-visible { outline: 2px solid var(--cu-ring); }
+.cu-nav-menu-link-title { font-size: var(--cu-text-sm); font-weight: var(--cu-font-weight-bold); }
+.cu-nav-menu-link-description { font-size: var(--cu-text-sm); color: var(--cu-muted-foreground); }

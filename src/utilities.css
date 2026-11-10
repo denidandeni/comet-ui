@@ -171,3 +171,38 @@
 .cu-font-extrabold{ font-weight: 800; }
 
 .cu-font-mono { font-family: var(--cu-font-family-mono); }
+
+/* Shimmer: moving highlight on text that reports live work ("Thinking", "Generating"). Stops for reduced motion. */
+@keyframes cu-shimmer { from { background-position: 100% 0; } to { background-position: -100% 0; } }
+.cu-shimmer {
+  color: transparent;
+  background: linear-gradient(90deg, var(--cu-muted-foreground) 35%, var(--cu-foreground) 50%, var(--cu-muted-foreground) 65%) 0 0 / 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: cu-shimmer 1.6s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cu-shimmer { animation: none; color: var(--cu-muted-foreground); background: none; }
+}
+
+/* Scroll fade: fades the edges of a scroll container where more content is hidden. No script, no overlay.
+   Vertical: .cu-scroll-fade. Horizontal: .cu-scroll-fade-x. Browsers without scroll-driven animations show no fade. */
+@property --cu-fade-start { syntax: '<length>'; inherits: false; initial-value: 0px; }
+@property --cu-fade-end { syntax: '<length>'; inherits: false; initial-value: 0px; }
+@keyframes cu-fade-start { from { --cu-fade-start: 0px; } to { --cu-fade-start: 1.5rem; } }
+@keyframes cu-fade-end { from { --cu-fade-end: 1.5rem; } to { --cu-fade-end: 0px; } }
+@supports (animation-timeline: scroll()) {
+  .cu-scroll-fade,
+  .cu-scroll-fade-x {
+    --cu-fade-start: 0px;
+    --cu-fade-end: 0px;
+    animation: cu-fade-start linear both, cu-fade-end linear both;
+    animation-timeline: scroll(self block), scroll(self block);
+    animation-range: 0 2rem, calc(100% - 2rem) 100%;
+    mask-image: linear-gradient(to bottom, transparent, #000 var(--cu-fade-start), #000 calc(100% - var(--cu-fade-end)), transparent);
+  }
+  .cu-scroll-fade-x {
+    animation-timeline: scroll(self inline), scroll(self inline);
+    mask-image: linear-gradient(to right, transparent, #000 var(--cu-fade-start), #000 calc(100% - var(--cu-fade-end)), transparent);
+  }
+}

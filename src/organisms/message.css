@@ -1,0 +1,35 @@
+/* Organism: Message. The row around a bubble: avatar, sender, time and actions.
+   <div class="cu-message">
+     <div class="cu-message-avatar"><span class="cu-avatar">AL</span></div>
+     <div class="cu-message-content">
+       <div class="cu-message-header">Ayu Lestari</div>
+       <div class="cu-bubble cu-bubble-secondary"><div class="cu-bubble-content">Hi!</div></div>
+       <div class="cu-message-footer">09:41</div>
+     </div>
+   </div>
+   The sender's own messages: add .cu-message-end (avatar, bubbles and footer move to the end side).
+   Several messages from one sender: wrap in .cu-message-group and leave .cu-message-avatar empty on all but the last. */
+
+.cu-message {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--cu-space-sm);
+  font-family: var(--cu-font-family-default);
+  color: var(--cu-foreground);
+}
+.cu-message-end { flex-direction: row-reverse; }
+
+.cu-message-avatar { flex: 0 0 2rem; width: 2rem; }
+.cu-message-avatar > * { width: 2rem; height: 2rem; font-size: var(--cu-text-xs); }
+
+.cu-message-content { display: flex; flex-direction: column; gap: var(--cu-space-xs); flex: 1; min-width: 0; }
+.cu-message-end .cu-message-content { align-items: flex-end; }
+.cu-message-end .cu-bubble { align-self: flex-end; }
+
+.cu-message-header { align-self: flex-start; font-size: var(--cu-text-xs); font-weight: var(--cu-font-weight-bold); color: var(--cu-muted-foreground); }
+.cu-message-footer { display: flex; align-items: center; gap: var(--cu-space-xs); font-size: var(--cu-text-xs); color: var(--cu-subtle-foreground); }
+
+/* With a footer, lift the avatar so it lines up with the bubble, not the footer */
+.cu-message:has(.cu-message-footer) > .cu-message-avatar { margin-bottom: 1.375rem; }
+
+.cu-message-group { display: flex; flex-direction: column; gap: var(--cu-space-xs); }

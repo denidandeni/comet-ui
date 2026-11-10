@@ -1,0 +1,46 @@
+/* Atom: Toggle (a button that stays pressed) and Toggle group
+   <button type="button" class="cu-toggle" data-cu-toggle aria-pressed="false" aria-label="Bold">B</button>
+
+   <div class="cu-toggle-group" role="group" aria-label="Text style" data-cu-toggle-group="multiple">
+     <button type="button" class="cu-toggle" aria-pressed="true">Bold</button>
+     <button type="button" class="cu-toggle" aria-pressed="false">Italic</button>
+   </div>
+   data-cu-toggle-group="single" keeps one pressed at most; "multiple" lets each one toggle.
+   Variants: .cu-toggle-outline, sizes .cu-toggle-sm and .cu-toggle-lg. Event: cu:toggle. */
+
+.cu-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--cu-space-sm);
+  min-width: var(--cu-h-btn);
+  height: var(--cu-h-btn);
+  padding: 0 var(--cu-space-sm);
+  border: 1px solid transparent;
+  border-radius: var(--cu-radius-md);
+  background: transparent;
+  color: var(--cu-muted-foreground);
+  font: inherit;
+  font-size: var(--cu-text-sm);
+  font-weight: var(--cu-font-weight-bold);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cu-toggle:hover { background: var(--cu-muted); color: var(--cu-foreground); }
+.cu-toggle[aria-pressed="true"] { background: var(--cu-muted); color: var(--cu-foreground); }
+.cu-toggle:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: 2px; }
+.cu-toggle:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.cu-toggle-outline { border-color: var(--cu-border); }
+.cu-toggle-sm { min-width: 2rem; height: 2rem; font-size: var(--cu-text-xs); }
+.cu-toggle-lg { min-width: 3rem; height: 3rem; padding: 0 var(--cu-space-md); }
+
+.cu-toggle-group { display: inline-flex; gap: var(--cu-space-xs); }
+
+/* Joined look: outline toggles share borders */
+.cu-toggle-group-joined { gap: 0; }
+.cu-toggle-group-joined .cu-toggle { border-color: var(--cu-border); border-radius: 0; margin-inline-start: -1px; }
+.cu-toggle-group-joined .cu-toggle:first-child { margin-inline-start: 0; border-start-start-radius: var(--cu-radius-md); border-end-start-radius: var(--cu-radius-md); }
+.cu-toggle-group-joined .cu-toggle:last-child { border-start-end-radius: var(--cu-radius-md); border-end-end-radius: var(--cu-radius-md); }
+.cu-toggle-group-joined .cu-toggle:focus-visible { position: relative; z-index: 1; }

@@ -1,0 +1,50 @@
+/* Molecule: Item. One row of media + text + actions, for lists and settings.
+   <div class="cu-item cu-item-outline">
+     <div class="cu-item-media">...icon or avatar...</div>
+     <div class="cu-item-content">
+       <p class="cu-item-title">Two-factor authentication</p>
+       <p class="cu-item-description">Verify with an email code.</p>
+     </div>
+     <div class="cu-item-actions"><button class="cu-btn cu-btn-outline cu-btn-sm">Enable</button></div>
+   </div>
+   Variants: .cu-item-outline, .cu-item-muted. As a link or button, use <a class="cu-item"> for hover and focus.
+   Stack several inside .cu-item-group to get dividers. */
+
+.cu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-md);
+  padding: var(--cu-space-md);
+  border: 1px solid transparent;
+  border-radius: var(--cu-radius-md);
+  color: var(--cu-foreground);
+  font-family: inherit;
+  text-decoration: none;
+}
+
+.cu-item-outline { border-color: var(--cu-border); }
+.cu-item-muted { background: var(--cu-muted); }
+a.cu-item:hover, button.cu-item:hover { background: var(--cu-muted); }
+a.cu-item:focus-visible, button.cu-item:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: 2px; }
+
+.cu-item-media {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-muted);
+  color: var(--cu-muted-foreground);
+}
+.cu-item-muted .cu-item-media { background: var(--cu-surface); }
+
+.cu-item-content { flex: 1; min-width: 0; }
+.cu-item-title { margin: 0; font-size: var(--cu-text-sm); font-weight: var(--cu-font-weight-bold); }
+.cu-item-description { margin: 2px 0 0; font-size: var(--cu-text-sm); color: var(--cu-muted-foreground); }
+.cu-item-actions { display: flex; align-items: center; gap: var(--cu-space-sm); flex-shrink: 0; }
+
+.cu-item-group { display: flex; flex-direction: column; border: 1px solid var(--cu-border); border-radius: var(--cu-radius-md); overflow: hidden; }
+.cu-item-group > .cu-item { border-radius: 0; border-width: 0; }
+.cu-item-group > .cu-item + .cu-item { border-top: 1px solid var(--cu-border); }

@@ -1,0 +1,111 @@
+/* Molecule: Attachment. A file or image with its name, details, actions and upload state.
+   <div class="cu-attachment" data-state="done">
+     <div class="cu-attachment-media"><svg class="cu-icon">...</svg></div>
+     <div class="cu-attachment-content">
+       <span class="cu-attachment-title">report.pdf</span>
+       <span class="cu-attachment-description">PDF, 2.4 MB</span>
+     </div>
+     <div class="cu-attachment-actions">
+       <button type="button" class="cu-attachment-action" aria-label="Remove report.pdf">...</button>
+     </div>
+     <button type="button" class="cu-attachment-trigger" aria-label="Open report.pdf"></button>
+   </div>
+   data-state: idle | uploading | processing | error | done. Uploading and processing shimmer the title;
+   error turns it destructive (also say why in the description). Sizes: .cu-attachment-sm, .cu-attachment-xs.
+   Image: .cu-attachment-media-image with an <img>; stack it above the text with .cu-attachment-vertical.
+   The trigger covers the whole card; actions stay clickable above it.
+   Row of attachments: .cu-attachment-group (scrolls sideways and snaps). */
+
+.cu-attachment {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-sm);
+  min-width: 0;
+  padding: var(--cu-space-sm);
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-surface);
+  color: var(--cu-foreground);
+  font-family: var(--cu-font-family-default);
+}
+.cu-attachment:has(.cu-attachment-trigger:hover) { background: var(--cu-muted); }
+
+.cu-attachment-media {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--cu-radius-sm);
+  background: var(--cu-muted);
+  color: var(--cu-muted-foreground);
+  overflow: hidden;
+}
+.cu-attachment-media-image > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.cu-attachment-content { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.cu-attachment-title { font-size: var(--cu-text-sm); font-weight: var(--cu-font-weight-bold); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cu-attachment-description { font-size: var(--cu-text-xs); color: var(--cu-muted-foreground); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.cu-attachment-actions { position: relative; z-index: 1; display: flex; align-items: center; gap: 2px; margin-inline-start: auto; }
+.cu-attachment-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 0;
+  border-radius: var(--cu-radius-sm);
+  background: transparent;
+  color: var(--cu-muted-foreground);
+  cursor: pointer;
+}
+.cu-attachment-action:hover { background: var(--cu-border); color: var(--cu-foreground); }
+.cu-attachment-action:focus-visible { outline: 2px solid var(--cu-ring); }
+
+.cu-attachment-trigger {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+.cu-attachment-trigger:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: 2px; }
+
+/* States */
+.cu-attachment[data-state="uploading"] .cu-attachment-title,
+.cu-attachment[data-state="processing"] .cu-attachment-title { color: var(--cu-muted-foreground); }
+.cu-attachment[data-state="error"] { border-color: var(--cu-destructive); }
+.cu-attachment[data-state="error"] .cu-attachment-media { background: var(--cu-destructive-subtle); color: var(--cu-destructive-subtle-foreground); }
+.cu-attachment[data-state="error"] .cu-attachment-description { color: var(--cu-destructive-subtle-foreground); }
+
+/* Sizes */
+.cu-attachment-sm { padding: var(--cu-space-xs); }
+.cu-attachment-sm .cu-attachment-media { width: 2rem; height: 2rem; }
+.cu-attachment-xs { padding: 2px var(--cu-space-xs); gap: var(--cu-space-xs); }
+.cu-attachment-xs .cu-attachment-media { width: 1.25rem; height: 1.25rem; background: transparent; }
+.cu-attachment-xs .cu-attachment-description { display: none; }
+
+/* Vertical: image on top */
+.cu-attachment-vertical { flex-direction: column; align-items: stretch; width: 11rem; padding: 0; overflow: hidden; }
+.cu-attachment-vertical .cu-attachment-media { width: 100%; height: 6.5rem; border-radius: 0; }
+.cu-attachment-vertical .cu-attachment-content { padding: 0 var(--cu-space-sm) var(--cu-space-sm); }
+.cu-attachment-vertical .cu-attachment-actions { position: absolute; top: var(--cu-space-xs); inset-inline-end: var(--cu-space-xs); }
+.cu-attachment-vertical .cu-attachment-action { background: var(--cu-surface); }
+
+.cu-attachment-group {
+  display: flex;
+  gap: var(--cu-space-sm);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  padding: 2px;
+}
+.cu-attachment-group::-webkit-scrollbar { display: none; }
+.cu-attachment-group > .cu-attachment { flex: 0 0 auto; scroll-snap-align: start; }
+.cu-attachment-group > .cu-attachment:not(.cu-attachment-vertical):not(.cu-attachment-xs) { width: 15rem; }
+.cu-attachment-group:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: 2px; }

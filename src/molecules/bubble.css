@@ -1,0 +1,78 @@
+/* Molecule: Bubble. The surface of one chat message. Layout around it (avatar, name, time) is the Message.
+   <div class="cu-bubble cu-bubble-secondary">
+     <div class="cu-bubble-content">Can you send the report?</div>
+     <div class="cu-bubble-reactions" role="img" aria-label="2 thumbs up">...</div>
+   </div>
+   Variants: default (primary, the current user), -secondary, -muted, -tinted, -outline, -ghost (no frame,
+   full width, for assistant text), -destructive. Align to the end with .cu-bubble-end.
+   Reactions sit on the bottom end edge; .cu-bubble-reactions-top and .cu-bubble-reactions-start move them.
+   Clickable bubble: use <button class="cu-bubble-content"> or <a class="cu-bubble-content">.
+   Consecutive bubbles from one sender: wrap in .cu-bubble-group. */
+
+.cu-bubble {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  width: fit-content;
+  max-width: 80%;
+  font-family: inherit;
+}
+.cu-bubble-end { align-self: flex-end; }
+
+.cu-bubble-content {
+  padding: var(--cu-space-sm) var(--cu-space-md);
+  border: 1px solid transparent;
+  border-radius: var(--cu-radius-lg);
+  background: var(--cu-primary);
+  color: var(--cu-primary-foreground);
+  font: inherit;
+  font-size: var(--cu-text-sm);
+  line-height: 1.5;
+  text-align: start;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+button.cu-bubble-content, a.cu-bubble-content { cursor: pointer; }
+button.cu-bubble-content:hover, a.cu-bubble-content:hover { filter: brightness(0.96); }
+.cu-bubble-content:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: 2px; }
+
+.cu-bubble-secondary > .cu-bubble-content { background: var(--cu-muted); color: var(--cu-foreground); }
+.cu-bubble-muted > .cu-bubble-content { background: color-mix(in srgb, var(--cu-muted) 55%, transparent); color: var(--cu-muted-foreground); }
+.cu-bubble-tinted > .cu-bubble-content { background: var(--cu-brand-subtle); color: var(--cu-brand-subtle-foreground); }
+.cu-bubble-outline > .cu-bubble-content { background: var(--cu-surface); border-color: var(--cu-border); color: var(--cu-foreground); }
+.cu-bubble-destructive > .cu-bubble-content { background: var(--cu-destructive-subtle); color: var(--cu-destructive-subtle-foreground); }
+.cu-bubble-ghost { max-width: none; width: auto; }
+.cu-bubble-ghost > .cu-bubble-content { padding: 0; background: transparent; color: var(--cu-foreground); border-radius: 0; }
+
+.cu-bubble-reactions {
+  position: absolute;
+  bottom: -0.75rem;
+  inset-inline-end: var(--cu-space-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 1px var(--cu-space-xs);
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-round);
+  background: var(--cu-surface);
+  color: var(--cu-foreground);
+  font-size: var(--cu-text-xs);
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.cu-bubble-reactions-top { bottom: auto; top: -0.75rem; }
+.cu-bubble-reactions-start { inset-inline-end: auto; inset-inline-start: var(--cu-space-sm); }
+.cu-bubble-reactions button {
+  padding: 0 2px;
+  border: 0;
+  border-radius: var(--cu-radius-round);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.cu-bubble-reactions button:hover { background: var(--cu-muted); }
+.cu-bubble-reactions button:focus-visible { outline: 2px solid var(--cu-ring); }
+
+.cu-bubble-group { display: flex; flex-direction: column; gap: 2px; }

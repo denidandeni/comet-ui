@@ -22,7 +22,8 @@
 
 .cu-app-shell > .cu-sidebar {
   position: fixed;
-  inset: 0 auto 0 0;
+  inset-block: 0;
+  inset-inline: 0 auto;
   z-index: var(--cu-z-fixed);
   transform: translateX(-100%);
   transition: transform 0.25s ease;
@@ -73,4 +74,9 @@
 
 @media (prefers-reduced-motion: reduce) {
   .cu-app-shell > .cu-sidebar { transition: none; }
+}
+
+/* Right-to-left: the sidebar comes in from the right */
+@media (max-width: 47.99rem) {
+  .cu-app-shell:not(.is-open) > .cu-sidebar:dir(rtl) { transform: translateX(100%); }
 }

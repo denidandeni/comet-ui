@@ -45,7 +45,7 @@
 .cu-combobox-popover {
   position: absolute;
   top: calc(100% + var(--cu-space-xs));
-  left: 0;
+  inset-inline-start: 0;
   width: 100%;
   background-color: var(--cu-surface);
   border: 1px solid var(--cu-border);

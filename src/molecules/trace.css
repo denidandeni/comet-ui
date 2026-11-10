@@ -1,0 +1,78 @@
+/* Molecule: Trace. The steps an agent took: reasoning, tool calls, sources, plans.
+   <div class="cu-trace">
+     <span class="cu-trace-line">
+       <span class="cu-trace-icon" aria-hidden="true">...</span>
+       <span class="cu-trace-title">Ran npm install</span>
+       <span class="cu-trace-description">4.2s</span>
+     </span>
+     <details class="cu-trace-collapsible">
+       <summary class="cu-trace-trigger">
+         <span class="cu-trace-line" data-status="running">
+           <span class="cu-trace-icon" aria-hidden="true">...</span>
+           <span class="cu-trace-title">Reading 3 files</span>
+         </span>
+       </summary>
+       <div class="cu-trace-content">...detail...</div>
+     </details>
+   </div>
+   data-status on a line: none (done), "running" (title shimmers), "error", "pending" (not started).
+   A line can also sit inside <a> or a button that opens a dialog, drawer or popover. */
+
+.cu-trace {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-xs);
+  font-family: var(--cu-font-family-default);
+  font-size: var(--cu-text-sm);
+  color: var(--cu-muted-foreground);
+}
+
+.cu-trace-line { display: flex; align-items: center; gap: var(--cu-space-sm); min-width: 0; }
+.cu-trace-icon { display: inline-flex; flex-shrink: 0; }
+.cu-trace-title { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--cu-foreground); }
+.cu-trace-description { flex-shrink: 0; font-size: var(--cu-text-xs); color: var(--cu-subtle-foreground); }
+
+.cu-trace-line[data-status="pending"] .cu-trace-title { color: var(--cu-subtle-foreground); }
+.cu-trace-line[data-status="error"] .cu-trace-title,
+.cu-trace-line[data-status="error"] .cu-trace-icon { color: var(--cu-destructive-subtle-foreground); }
+.cu-trace-line[data-status="running"] .cu-trace-title {
+  color: transparent;
+  background: linear-gradient(90deg, var(--cu-muted-foreground) 35%, var(--cu-foreground) 50%, var(--cu-muted-foreground) 65%) 0 0 / 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: cu-shimmer 1.6s linear infinite;
+}
+
+.cu-trace a, .cu-trace button:not(.cu-btn) { display: block; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-align: start; text-decoration: none; cursor: pointer; }
+.cu-trace a:hover .cu-trace-title, .cu-trace button:hover .cu-trace-title, .cu-trace-trigger:hover .cu-trace-title { text-decoration: underline; text-underline-offset: 3px; }
+.cu-trace a:focus-visible, .cu-trace button:focus-visible, .cu-trace-trigger:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: 2px; border-radius: var(--cu-radius-sm); }
+
+.cu-trace-trigger { display: flex; align-items: center; gap: var(--cu-space-xs); cursor: pointer; list-style: none; }
+.cu-trace-trigger::-webkit-details-marker { display: none; }
+.cu-trace-trigger::after {
+  content: '';
+  flex-shrink: 0;
+  width: 0.375rem;
+  height: 0.375rem;
+  border-inline-end: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.2s;
+}
+.cu-trace-collapsible[open] > .cu-trace-trigger::after { transform: rotate(45deg); }
+
+.cu-trace-content {
+  margin-block: var(--cu-space-xs);
+  margin-inline: 0.5rem 0;
+  padding-inline-start: var(--cu-space-md);
+  border-inline-start: 1px solid var(--cu-border);
+  color: var(--cu-muted-foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cu-trace-line[data-status="running"] .cu-trace-title { animation: none; color: var(--cu-foreground); background: none; }
+}
+
+/* Right-to-left: the closed chevron points left */
+.cu-trace-trigger:dir(rtl)::after { transform: rotate(135deg); }
+.cu-trace-collapsible[open] > .cu-trace-trigger:dir(rtl)::after { transform: rotate(45deg); }

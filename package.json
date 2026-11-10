@@ -1,6 +1,6 @@
 {
   "name": "comet-ui",
-  "version": "1.2.0",
+  "version": "1.4.0",
   "description": "Comet UI Design System - A modern, high-contrast, lightweight CSS component library.",
   "main": "./dist/comet.min.js",
   "style": "./dist/comet.min.css",
@@ -10,6 +10,7 @@
     "lint:brands": "node scripts/check-brands.mjs",
     "check:generated": "node scripts/build-tokens.mjs --check",
     "test": "npm run check:generated && npm run lint:tokens && npm run lint:brands && npm run build:dist",
+    "build:docs": "esbuild docs/assets/chart-demo.src.js --bundle --minify --format=iife --target=es2020 --outfile=docs/assets/chart-demo.js",
     "build:dist": "node scripts/build-dist.mjs",
     "build": "npm run build:tokens && npm run build:dist",
     "prepublishOnly": "npm test"
@@ -42,7 +43,14 @@
     "llms.txt",
     "CHANGELOG.md"
   ],
+  "peerDependencies": {
+    "@tanstack/charts": "^1.5.0"
+  },
+  "peerDependenciesMeta": {
+    "@tanstack/charts": { "optional": true }
+  },
   "devDependencies": {
+    "@tanstack/charts": "^1.5.0",
     "esbuild": "^0.28.2",
     "lightningcss": "^1.33.0"
   },

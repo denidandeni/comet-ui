@@ -20,8 +20,8 @@
   padding: 0 var(--cu-space-md);
 }
 
-.cu-input-suffix { right: 0; }
-.cu-input.cu-has-suffix { padding-right: 40px; }
+.cu-input-suffix { inset-inline-end: 0; }
+.cu-input.cu-has-suffix { padding-inline-end: 40px; }
 
 /* Interactive Affix (like Password Toggle) */
 .cu-password-toggle {
