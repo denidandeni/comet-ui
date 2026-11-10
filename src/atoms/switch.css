@@ -22,7 +22,7 @@
 .cu-switch-thumb {
   position: absolute;
   top: 3px;
-  left: 3px;
+  inset-inline-start: 3px;
   width: 16px;
   height: 16px;
   background-color: var(--cu-white);
@@ -44,3 +44,6 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+/* Right-to-left: the thumb travels the other way */
+.cu-switch-input:checked + .cu-switch-track .cu-switch-thumb:dir(rtl) { transform: translateX(-18px); }

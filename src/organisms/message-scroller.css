@@ -1,0 +1,59 @@
+/* Organism: Message scroller. The scroll container of a conversation.
+   <div class="cu-message-scroller" data-cu-message-scroller data-cu-start="end" style="height: 24rem">
+     <div class="cu-message-scroller-viewport" role="region" aria-label="Messages" tabindex="0">
+       <div class="cu-message-scroller-content" role="log" aria-relevant="additions">
+         <div class="cu-message-scroller-item" data-message-id="m1">...a .cu-message or .cu-marker...</div>
+       </div>
+     </div>
+     <button type="button" class="cu-message-scroller-button" aria-label="Scroll to latest message">...</button>
+   </div>
+   It needs a fixed height (or a flex parent that gives it one).
+   comet.js: follows new and streaming content while the reader is at the bottom, stops following when they
+   scroll up, keeps their place when older messages are added on top, and shows the button when there is
+   more below. data-cu-start: "end" (default) | "start" | "last-anchor" (the last item with data-cu-anchor).
+   Script API: CometUI.scroller(element) returns { scrollToEnd, scrollToStart, scrollToMessage(id) }.
+   Set aria-busy="true" on the content while a reply streams so screen readers wait for the full message.
+   It does not store messages or talk to a model: your code adds and removes the items. */
+
+.cu-message-scroller {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  font-family: var(--cu-font-family-default);
+}
+
+.cu-message-scroller-viewport {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cu-border-strong) transparent;
+}
+.cu-message-scroller-viewport:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: -2px; }
+
+.cu-message-scroller-item { min-width: 0; }
+.cu-message-scroller-content { display: flex; flex-direction: column; gap: var(--cu-space-md); padding: var(--cu-space-md); }
+
+.cu-message-scroller-button {
+  position: absolute;
+  bottom: var(--cu-space-md);
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-round);
+  background: var(--cu-surface);
+  color: var(--cu-foreground);
+  box-shadow: var(--cu-shd-pop);
+  cursor: pointer;
+  transition: opacity 0.15s, visibility 0.15s;
+}
+.cu-message-scroller-button:hover { background: var(--cu-muted); }
+.cu-message-scroller-button:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: 2px; }
+.cu-message-scroller-button[data-active="false"] { opacity: 0; visibility: hidden; }

@@ -15,7 +15,7 @@
   flex-direction: column;
   width: var(--cu-w-sidebar);
   background: var(--cu-surface);
-  border-right: 1px solid var(--cu-border);
+  border-inline-end: 1px solid var(--cu-border);
   font-family: var(--cu-font-family-default);
   color: var(--cu-foreground);
 }
@@ -57,7 +57,7 @@
   font-size: var(--cu-text-sm);
   font-weight: var(--cu-font-weight-bold);
   text-decoration: none;
-  text-align: left;
+  text-align: start;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
@@ -66,7 +66,7 @@
 .cu-sidebar-link[aria-current="page"] { background: var(--cu-muted); color: var(--cu-foreground); }
 .cu-sidebar-link:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: -2px; }
 .cu-sidebar-badge {
-  margin-left: auto;
+  margin-inline-start: auto;
   padding: 0 var(--cu-space-sm);
   border-radius: var(--cu-radius-round);
   background: var(--cu-primary);

@@ -1,0 +1,33 @@
+/* Molecule: Marker. A line of status or system information inside a conversation.
+   <div class="cu-marker" role="status">
+     <span class="cu-marker-icon"><span class="cu-spinner"></span></span>
+     <span class="cu-marker-content cu-shimmer">Searching the docs</span>
+   </div>
+   Variants: .cu-marker-border (line under the row), .cu-marker-separator (centred label between two lines,
+   for date breaks). Use role="status" only on markers that update while the person waits.
+   As a link or button: <a class="cu-marker"> or <button class="cu-marker">. */
+
+.cu-marker {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-sm);
+  border: 0;
+  background: transparent;
+  color: var(--cu-muted-foreground);
+  font-family: var(--cu-font-family-default);
+  font-size: var(--cu-text-sm);
+  text-align: start;
+  text-decoration: none;
+}
+a.cu-marker, button.cu-marker { cursor: pointer; padding: 0; }
+a.cu-marker:hover, button.cu-marker:hover { color: var(--cu-foreground); }
+a.cu-marker:focus-visible, button.cu-marker:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: 2px; border-radius: var(--cu-radius-sm); }
+
+.cu-marker-icon { display: inline-flex; flex-shrink: 0; }
+.cu-marker-content { min-width: 0; }
+
+.cu-marker-border { padding-bottom: var(--cu-space-sm); border-bottom: 1px solid var(--cu-border); }
+
+.cu-marker-separator { justify-content: center; gap: var(--cu-space-md); font-size: var(--cu-text-xs); }
+.cu-marker-separator::before,
+.cu-marker-separator::after { content: ''; flex: 1; height: 1px; background: var(--cu-border); }

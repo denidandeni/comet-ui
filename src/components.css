@@ -25,6 +25,10 @@
 @import url('./molecules/hover-card.css');
 @import url('./molecules/item.css');
 @import url('./molecules/code-block.css');
+@import url('./molecules/bubble.css');
+@import url('./molecules/attachment.css');
+@import url('./molecules/marker.css');
+@import url('./molecules/trace.css');
 @import url('./molecules/input-affix.css');
 @import url('./molecules/button-group.css');
 @import url('./molecules/dropdown.css');
@@ -55,6 +59,10 @@
 @import url('./organisms/navigation-menu.css');
 @import url('./organisms/carousel.css');
 @import url('./organisms/resizable.css');
+@import url('./organisms/message.css');
+@import url('./organisms/message-scroller.css');
+@import url('./organisms/questionnaire.css');
+@import url('./organisms/chart.css');
 
 /* Templates: page-level layouts built from the pieces above. */
 @import url('./templates/app-shell.css');

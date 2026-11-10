@@ -12,10 +12,10 @@
 .cu-container {
   width: 100%;
   max-width: var(--cu-grid-max);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--cu-space-md);
-  padding-right: var(--cu-space-md);
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  padding-inline-start: var(--cu-space-md);
+  padding-inline-end: var(--cu-space-md);
 }
 
 /* Grid */

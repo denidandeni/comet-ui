@@ -15,7 +15,7 @@
 
 .cu-searchbar-icon {
   position: absolute;
-  left: 0.75rem;
+  inset-inline-start: 0.75rem;
   width: var(--cu-icon-xs);
   height: var(--cu-icon-xs);
   color: var(--cu-subtle-foreground);
@@ -23,8 +23,8 @@
 }
 
 .cu-searchbar-input {
-  padding-left: 2.25rem;
-  padding-right: 2.25rem;
+  padding-inline-start: 2.25rem;
+  padding-inline-end: 2.25rem;
 }
 
 .cu-searchbar-input::-webkit-search-cancel-button,
@@ -35,7 +35,7 @@
 
 .cu-searchbar-clear {
   position: absolute;
-  right: 0.375rem;
+  inset-inline-end: 0.375rem;
   display: none;
   align-items: center;
   justify-content: center;

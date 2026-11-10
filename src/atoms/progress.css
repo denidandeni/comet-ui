@@ -46,3 +46,6 @@
   font-size: var(--cu-text-sm);
   color: var(--cu-muted-foreground);
 }
+
+/* Right-to-left: the indeterminate bar runs the other way */
+.cu-progress-indeterminate:dir(rtl) { transform: scaleX(-1); }

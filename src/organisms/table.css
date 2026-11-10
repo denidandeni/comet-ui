@@ -58,7 +58,7 @@
 .cu-table th,
 .cu-table td {
   padding: 0.75rem 1rem;
-  text-align: left;
+  text-align: start;
   vertical-align: middle;
   border-bottom: 1px solid var(--cu-border);
 }
@@ -95,7 +95,7 @@
 }
 
 .cu-table .cu-table-num {
-  text-align: right;
+  text-align: end;
   font-variant-numeric: tabular-nums;
 }
 
@@ -136,8 +136,8 @@
 .cu-table-sort-icon::before,
 .cu-table-sort-icon::after {
   content: '';
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
+  border-inline-start: 4px solid transparent;
+  border-inline-end: 4px solid transparent;
   opacity: 0.35;
 }
 

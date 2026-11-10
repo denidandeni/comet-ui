@@ -26,7 +26,7 @@
 .cu-avatar-indicator {
   position: absolute;
   bottom: 0;
-  right: 0;
+  inset-inline-end: 0;
   width: 12px;
   height: 12px;
   border-radius: var(--cu-radius-round);

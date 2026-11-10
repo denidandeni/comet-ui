@@ -11,7 +11,7 @@
   display: none;
   position: absolute;
   top: calc(100% + 4px);
-  left: 0;
+  inset-inline-start: 0;
   background: var(--cu-surface);
   border: 1px solid var(--cu-border);
   border-radius: var(--cu-radius-md);
@@ -26,8 +26,8 @@
   content: '';
   position: absolute;
   top: -4px;
-  left: 0;
-  right: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
   height: 4px;
 }
 
@@ -72,7 +72,7 @@ button.cu-dropdown-item {
   border: 0;
   background: transparent;
   font-family: inherit;
-  text-align: left;
+  text-align: start;
 }
 
 .cu-dropdown-item:focus-visible {

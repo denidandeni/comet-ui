@@ -1,0 +1,84 @@
+/* Organism: Questionnaire. Questions asked one at a time: agent clarifying questions, onboarding, surveys.
+   <form class="cu-questionnaire" data-cu-questionnaire data-cu-shortcuts="letters">
+     <p class="cu-questionnaire-progress"></p>
+     <fieldset class="cu-questionnaire-item" data-required>
+       <legend class="cu-questionnaire-title">Which plan fits your team?</legend>
+       <p class="cu-questionnaire-description">You can change it later.</p>
+       <div class="cu-questionnaire-choices">
+         <label class="cu-questionnaire-choice"><input type="radio" name="plan" value="starter"><span>Starter</span></label>
+         <label class="cu-questionnaire-choice"><input type="radio" name="plan" value="team"><span>Team</span></label>
+         <input class="cu-input cu-questionnaire-input" name="plan_other" placeholder="Something else" aria-label="Other plan">
+       </div>
+       <p class="cu-questionnaire-error" role="alert" hidden>Choose an answer to continue.</p>
+     </fieldset>
+     ...more fieldsets...
+     <div class="cu-questionnaire-actions">
+       <button type="button" class="cu-btn cu-btn-ghost" data-cu-q="prev">Back</button>
+       <button type="button" class="cu-btn cu-btn-ghost" data-cu-q="skip">Skip</button>
+       <button type="button" class="cu-btn cu-btn-primary" data-cu-q="next">Next</button>
+       <button type="submit" class="cu-btn cu-btn-primary" data-cu-q="submit">Submit</button>
+     </div>
+   </form>
+   Radios for one answer, checkboxes for several. data-required makes an item mandatory; items without it get Skip.
+   data-cu-shortcuts="letters" (A, B, C) or "numbers" (1, 2, 3) adds a key for each choice.
+   comet.js shows one item at a time, fills the progress line, validates before moving on and fires
+   cu:questionnaire with { answers } on a valid submit. The form still submits natively: call
+   event.preventDefault() in your own submit listener to handle it in script. */
+
+.cu-questionnaire {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-md);
+  font-family: var(--cu-font-family-default);
+  color: var(--cu-foreground);
+}
+
+.cu-questionnaire-progress { margin: 0; font-size: var(--cu-text-xs); color: var(--cu-muted-foreground); }
+
+.cu-questionnaire-item { display: flex; flex-direction: column; gap: var(--cu-space-sm); min-width: 0; margin: 0; padding: 0; border: 0; }
+.cu-questionnaire-item[hidden] { display: none; }
+.cu-questionnaire-item:focus { outline: none; }
+
+.cu-questionnaire-title { padding: 0; font-size: var(--cu-text-base); font-weight: var(--cu-font-weight-bold); }
+.cu-questionnaire-description { margin: 0; font-size: var(--cu-text-sm); color: var(--cu-muted-foreground); }
+
+.cu-questionnaire-choices { display: flex; flex-direction: column; gap: var(--cu-space-sm); }
+
+.cu-questionnaire-choice {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-sm);
+  padding: var(--cu-space-sm) var(--cu-space-md);
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-surface);
+  font-size: var(--cu-text-sm);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.cu-questionnaire-choice:hover { background: var(--cu-muted); }
+.cu-questionnaire-choice:has(input:checked) { border-color: var(--cu-primary); box-shadow: inset 0 0 0 1px var(--cu-primary); }
+.cu-questionnaire-choice:has(input:focus-visible) { outline: 2px solid var(--cu-ring); outline-offset: 2px; }
+.cu-questionnaire-choice > input { margin: 0; accent-color: var(--cu-primary); }
+
+.cu-questionnaire-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.375rem;
+  height: 1.375rem;
+  margin-inline-start: auto;
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-sm);
+  background: var(--cu-muted);
+  color: var(--cu-muted-foreground);
+  font-family: var(--cu-font-family-mono);
+  font-size: var(--cu-text-xs);
+}
+
+.cu-questionnaire-error { margin: 0; font-size: var(--cu-text-sm); color: var(--cu-destructive-subtle-foreground); }
+.cu-questionnaire-error[hidden] { display: none; }
+
+.cu-questionnaire-actions { display: flex; align-items: center; justify-content: flex-end; gap: var(--cu-space-sm); }
+.cu-questionnaire-actions [data-cu-q="prev"] { margin-inline-end: auto; }
+.cu-questionnaire-actions [hidden] { display: none; }

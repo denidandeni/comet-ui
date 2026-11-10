@@ -52,3 +52,8 @@
 .cu-slider:focus-visible::-webkit-slider-thumb { outline: 2px solid var(--cu-ring); outline-offset: 2px; }
 .cu-slider:focus-visible::-moz-range-thumb { outline: 2px solid var(--cu-ring); outline-offset: 2px; }
 .cu-slider:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Right-to-left: fill from the right */
+.cu-slider:dir(rtl)::-webkit-slider-runnable-track {
+  background: linear-gradient(to left, var(--cu-primary) var(--cu-slider-fill), var(--cu-muted) var(--cu-slider-fill));
+}

@@ -40,7 +40,7 @@
 
 /* Joined look: outline toggles share borders */
 .cu-toggle-group-joined { gap: 0; }
-.cu-toggle-group-joined .cu-toggle { border-color: var(--cu-border); border-radius: 0; margin-left: -1px; }
-.cu-toggle-group-joined .cu-toggle:first-child { margin-left: 0; border-radius: var(--cu-radius-md) 0 0 var(--cu-radius-md); }
-.cu-toggle-group-joined .cu-toggle:last-child { border-radius: 0 var(--cu-radius-md) var(--cu-radius-md) 0; }
+.cu-toggle-group-joined .cu-toggle { border-color: var(--cu-border); border-radius: 0; margin-inline-start: -1px; }
+.cu-toggle-group-joined .cu-toggle:first-child { margin-inline-start: 0; border-start-start-radius: var(--cu-radius-md); border-end-start-radius: var(--cu-radius-md); }
+.cu-toggle-group-joined .cu-toggle:last-child { border-start-end-radius: var(--cu-radius-md); border-end-end-radius: var(--cu-radius-md); }
 .cu-toggle-group-joined .cu-toggle:focus-visible { position: relative; z-index: 1; }

@@ -22,7 +22,8 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--cu-space-md);
-  padding: var(--cu-space-xs) var(--cu-space-sm) var(--cu-space-xs) var(--cu-space-md);
+  padding-block: var(--cu-space-xs);
+  padding-inline: var(--cu-space-md) var(--cu-space-sm);
   border-bottom: 1px solid var(--cu-border);
   font-family: var(--cu-font-family-default);
   font-size: var(--cu-text-xs);

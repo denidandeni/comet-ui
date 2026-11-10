@@ -193,6 +193,48 @@
     },
     "$description": "Warning text on warning-subtle or surface"
   },
+  "chart-1": {
+    "$value": {
+      "light": "{color.primary.light}",
+      "dark": "{color.primary.dark}"
+    },
+    "$description": "Chart series 1. Follows the brand primary"
+  },
+  "chart-2": {
+    "$value": {
+      "light": "{color.green.600}",
+      "dark": "{color.green.400}"
+    },
+    "$description": "Chart series 2"
+  },
+  "chart-3": {
+    "$value": {
+      "light": "{color.amber.500}",
+      "dark": "{color.amber.400}"
+    },
+    "$description": "Chart series 3"
+  },
+  "chart-4": {
+    "$value": {
+      "light": "{color.red.500}",
+      "dark": "{color.red.400}"
+    },
+    "$description": "Chart series 4"
+  },
+  "chart-5": {
+    "$value": {
+      "light": "{color.slate.500}",
+      "dark": "{color.slate.400}"
+    },
+    "$description": "Chart series 5"
+  },
+  "chart-6": {
+    "$value": {
+      "light": "{color.brand.400}",
+      "dark": "{color.brand.600}"
+    },
+    "$description": "Chart series 6. A second brand tone"
+  },
   "overlay": {
     "$value": {
       "light": "rgba(2, 6, 23, 0.4)",

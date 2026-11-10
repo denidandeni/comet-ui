@@ -143,6 +143,12 @@
   --cu-warning: var(--cu-amber-500);
   --cu-warning-subtle: var(--cu-amber-50);
   --cu-warning-subtle-foreground: var(--cu-amber-700);
+  --cu-chart-1: var(--cu-primary-light);
+  --cu-chart-2: var(--cu-green-600);
+  --cu-chart-3: var(--cu-amber-500);
+  --cu-chart-4: var(--cu-red-500);
+  --cu-chart-5: var(--cu-slate-500);
+  --cu-chart-6: var(--cu-brand-400);
   --cu-overlay: rgba(2, 6, 23, 0.4);
   --cu-shd-xs: 0 1px 3px rgba(0, 0, 0, 0.1);
   --cu-shd-btn: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
@@ -201,6 +207,12 @@
   --cu-warning: var(--cu-amber-500);
   --cu-warning-subtle: var(--cu-amber-950);
   --cu-warning-subtle-foreground: var(--cu-amber-400);
+  --cu-chart-1: var(--cu-primary-dark);
+  --cu-chart-2: var(--cu-green-400);
+  --cu-chart-3: var(--cu-amber-400);
+  --cu-chart-4: var(--cu-red-400);
+  --cu-chart-5: var(--cu-slate-400);
+  --cu-chart-6: var(--cu-brand-600);
   --cu-overlay: rgba(0, 0, 0, 0.6);
   --cu-shd-xs: 0 1px 3px rgba(0, 0, 0, 0.4);
   --cu-shd-btn: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.4);
@@ -259,6 +271,12 @@
   --cu-warning: var(--cu-amber-500);
   --cu-warning-subtle: var(--cu-amber-50);
   --cu-warning-subtle-foreground: var(--cu-amber-700);
+  --cu-chart-1: var(--cu-primary-light);
+  --cu-chart-2: var(--cu-green-600);
+  --cu-chart-3: var(--cu-amber-500);
+  --cu-chart-4: var(--cu-red-500);
+  --cu-chart-5: var(--cu-slate-500);
+  --cu-chart-6: var(--cu-brand-400);
   --cu-overlay: rgba(2, 6, 23, 0.4);
   --cu-shd-xs: 0 1px 3px rgba(0, 0, 0, 0.1);
   --cu-shd-btn: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);

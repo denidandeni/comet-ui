@@ -46,8 +46,8 @@
   box-shadow: var(--cu-shd-xs);
   cursor: pointer;
 }
-.cu-carousel-prev { left: var(--cu-space-sm); }
-.cu-carousel-next { right: var(--cu-space-sm); }
+.cu-carousel-prev { inset-inline-start: var(--cu-space-sm); }
+.cu-carousel-next { inset-inline-end: var(--cu-space-sm); }
 .cu-carousel-btn:hover { background: var(--cu-muted); }
 .cu-carousel-btn:focus-visible { outline: 2px solid var(--cu-ring); outline-offset: 2px; }
 .cu-carousel-btn:disabled { opacity: 0.4; cursor: not-allowed; }
@@ -68,3 +68,6 @@
 @media (prefers-reduced-motion: reduce) {
   .cu-carousel-viewport { scroll-behavior: auto; }
 }
+
+/* Right-to-left: mirror the arrows */
+.cu-carousel-btn:dir(rtl) > svg { transform: scaleX(-1); }

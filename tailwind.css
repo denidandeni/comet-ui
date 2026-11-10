@@ -32,6 +32,12 @@
   --color-warning: var(--cu-warning);
   --color-warning-subtle: var(--cu-warning-subtle);
   --color-warning-subtle-foreground: var(--cu-warning-subtle-foreground);
+  --color-chart-1: var(--cu-chart-1);
+  --color-chart-2: var(--cu-chart-2);
+  --color-chart-3: var(--cu-chart-3);
+  --color-chart-4: var(--cu-chart-4);
+  --color-chart-5: var(--cu-chart-5);
+  --color-chart-6: var(--cu-chart-6);
   --color-brand-50: var(--cu-brand-50);
   --color-brand-100: var(--cu-brand-100);
   --color-brand-200: var(--cu-brand-200);

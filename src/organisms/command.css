@@ -69,7 +69,7 @@
   color: var(--cu-foreground);
   font: inherit;
   font-size: var(--cu-text-sm);
-  text-align: left;
+  text-align: start;
   cursor: pointer;
 }
 .cu-command-item[hidden], .cu-command-group[hidden] { display: none; }

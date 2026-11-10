@@ -27,11 +27,11 @@ With a bundler: `import 'comet-ui/comet.min.css'; import 'comet-ui/comet.min.js'
 
 | File | What it is | Size (min / gzip) |
 | --- | --- | --- |
-| `comet.min.css` | Everything: tokens, components, utilities | 103 kB / 15 kB |
-| `core.min.css` | Foundation only: tokens, reset, typography, layout, utilities. Budget 30 kB | 24 kB / 4 kB |
-| `components.min.css` | Components and templates only | 68 kB / 10 kB |
+| `comet.min.css` | Everything: tokens, components, utilities | 120 kB / 18 kB |
+| `core.min.css` | Foundation only: tokens, reset, typography, layout, utilities. Budget 30 kB | 26 kB / 5 kB |
+| `components.min.css` | Components and templates only | 83 kB / 12 kB |
 | `brands/<name>.css` | One brand each (already inside `comet.min.css`) | 1 kB |
-| `comet.min.js` | Behaviour (table, toast, datepicker, tabs, command...) | 38 kB |
+| `comet.min.js` | Behaviour (table, toast, datepicker, tabs, command...) | 43 kB |
 | `tailwind.css` | Tailwind v4 preset: `@import "comet-ui/tailwind.css"` | 3 kB |
 | `llms.txt` | Guide for AI agents, generated from the tokens | 16 kB |
 
@@ -94,9 +94,9 @@ Call `CometUI.init(container)` after inserting markup dynamically.
 
 ## Compared with shadcn/ui
 
-Comet UI has an equivalent for 57 of the 66 components on ui.shadcn.com (checked 10 November 2026), all without React. The full mapping is on the "shadcn/ui coverage" page of the docs.
+Comet UI has an equivalent for all 66 components on ui.shadcn.com (checked 10 November 2026), all without React. The full mapping is on the "shadcn/ui coverage" page of the docs.
 
-Not covered: Chart (needs a charting library), Direction (RTL), and the chat components (Attachment, Bubble, Marker, Message, Message Scroller, Questionnaire, Trace).
+Chart uses [TanStack Charts](https://tanstack.com/charts) (optional, `npm install @tanstack/charts`) themed by `.cu-chart`; Direction is the `dir` attribute.
 
 Only in Comet UI: Searchbar, Quantity input, File upload, Stats card, Radio card, Segmented control, and the App shell, Auth and Settings templates.
 

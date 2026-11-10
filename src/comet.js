@@ -8,17 +8,18 @@
  * Covers: dialog + drawer (open/close), dropdown, accordion, combobox, password toggle,
  * topbar menu, app shell sidebar, dismissible alerts, searchbar, quantity input, file upload,
  * datepicker + calendar, toast, tabs, OTP input, data table (sort, filter, paginate), toggle,
- * slider, popover, context menu, menubar, command palette, code copy, carousel and resizable panels.
+ * slider, popover, context menu, menubar, command palette, code copy, carousel, resizable panels,
+ * message scroller and questionnaire. Right-to-left: set dir="rtl" on any element.
  */
 (function () {
   'use strict';
 
-  var VERSION = '1.3.0';
+  var VERSION = '1.4.0';
 
   // Server-side rendering (Next.js, Node): export no-ops so importing the package never throws.
   if (typeof document === 'undefined') {
     var noop = function () {};
-    var stub = { version: VERSION, init: noop, toast: Object.assign(function () { return { dismiss: noop }; }, { position: noop, clear: noop }) };
+    var stub = { version: VERSION, init: noop, scroller: function () { return null; }, toast: Object.assign(function () { return { dismiss: noop }; }, { position: noop, clear: noop }) };
     if (typeof module !== 'undefined' && module.exports) module.exports = stub;
     return;
   }
@@ -37,6 +38,7 @@
     if (text != null) n.textContent = text;
     return n;
   }
+  function isRtl(node) { return getComputedStyle(node).direction === 'rtl'; }
   function reducedMotion() { return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
 
   var ICONS = {
@@ -818,8 +820,9 @@
     if (!tab) return;
     var wrap = tab.closest('[data-cu-tabs]');
     var tabs = qa('[role="tab"]:not(:disabled)', wrap), i = tabs.indexOf(tab), n = null;
-    if (e.key === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
-    else if (e.key === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+    var fwd = isRtl(wrap) ? 'ArrowLeft' : 'ArrowRight', back = isRtl(wrap) ? 'ArrowRight' : 'ArrowLeft';
+    if (e.key === fwd) n = tabs[(i + 1) % tabs.length];
+    else if (e.key === back) n = tabs[(i - 1 + tabs.length) % tabs.length];
     else if (e.key === 'Home') n = tabs[0];
     else if (e.key === 'End') n = tabs[tabs.length - 1];
     if (n) { e.preventDefault(); tabSelect(wrap, n, true); }
@@ -914,7 +917,9 @@
     var top = place.indexOf('top') === 0;
     if (!top && r.bottom + gap + h > window.innerHeight && r.top - gap - h > 0) top = true;
     else if (top && r.top - gap - h < 0) top = false;
-    var x = place.slice(-3) === 'end' ? r.right - w : r.left;
+    var atEnd = place.slice(-3) === 'end';
+    if (isRtl(trigger)) atEnd = !atEnd; // start and end follow the text direction
+    var x = atEnd ? r.right - w : r.left;
     placeAt(pop, x, top ? r.top - gap - h : r.bottom + gap);
   }
   function popoverTrigger(pop) {
@@ -992,7 +997,8 @@
     var triggers = qa('.cu-menubar-trigger', bar), i = triggers.indexOf(trigger);
     if (e.key === 'ArrowDown') { if (t === trigger) { e.preventDefault(); menubarOpen(trigger, true); } return; }
     e.preventDefault();
-    var next = triggers[(i + (e.key === 'ArrowRight' ? 1 : -1) + triggers.length) % triggers.length];
+    var step = (e.key === 'ArrowRight') !== isRtl(bar) ? 1 : -1; // Left and Right swap in right-to-left
+    var next = triggers[(i + step + triggers.length) % triggers.length];
     var wasOpen = !!q('.cu-menu:popover-open');
     if (wasOpen) menubarOpen(next, t !== trigger); else next.focus();
   }
@@ -1081,8 +1087,8 @@
       var prev = q('[data-cu-carousel-prev]', c), next = q('[data-cu-carousel-next]', c), dots = q('.cu-carousel-dots', c);
       var last = -1;
       function index() {
-        var best = 0, dist = Infinity, left = view.getBoundingClientRect().left;
-        slides.forEach(function (s, i) { var d = Math.abs(s.getBoundingClientRect().left - left); if (d < dist) { dist = d; best = i; } });
+        var rtl = isRtl(view), vr = view.getBoundingClientRect(), edge = rtl ? vr.right : vr.left, best = 0, dist = Infinity;
+        slides.forEach(function (s, i) { var r = s.getBoundingClientRect(), d = Math.abs((rtl ? r.right : r.left) - edge); if (d < dist) { dist = d; best = i; } });
         return best;
       }
       function go(i) {
@@ -1090,8 +1096,8 @@
         view.scrollTo({ left: slides[i].offsetLeft - slides[0].offsetLeft, behavior: reducedMotion() ? 'auto' : 'smooth' });
       }
       function sync() {
-        var i = index(), atEnd = view.scrollLeft + view.clientWidth >= view.scrollWidth - 2;
-        if (prev) prev.disabled = view.scrollLeft <= 1;
+        var i = index(), atEnd = Math.abs(view.scrollLeft) + view.clientWidth >= view.scrollWidth - 2;
+        if (prev) prev.disabled = Math.abs(view.scrollLeft) <= 1;
         if (next) next.disabled = atEnd;
         if (dots) qa('.cu-carousel-dot', dots).forEach(function (d, k) { if (k === i) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current'); });
         if (i !== last) { last = i; emit(c, 'cu:slide', { index: i }); }
@@ -1109,8 +1115,9 @@
       if (prev) prev.addEventListener('click', function () { go(index() - 1); });
       if (next) next.addEventListener('click', function () { go(index() + 1); });
       view.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowLeft') { e.preventDefault(); go(index() - 1); }
-        else if (e.key === 'ArrowRight') { e.preventDefault(); go(index() + 1); }
+        var fwd = isRtl(view) ? 'ArrowLeft' : 'ArrowRight', back = isRtl(view) ? 'ArrowRight' : 'ArrowLeft';
+        if (e.key === back) { e.preventDefault(); go(index() - 1); }
+        else if (e.key === fwd) { e.preventDefault(); go(index() + 1); }
       });
       var raf = 0;
       view.addEventListener('scroll', function () { cancelAnimationFrame(raf); raf = requestAnimationFrame(sync); });
@@ -1143,7 +1150,8 @@
     try { handle.setPointerCapture(e.pointerId); } catch (err) { /* synthetic event */ }
     function move(ev) {
       var r = wrap.getBoundingClientRect();
-      resizeTo(wrap, handle, vertical ? ((ev.clientY - r.top) / r.height) * 100 : ((ev.clientX - r.left) / r.width) * 100);
+      var x = isRtl(wrap) ? r.right - ev.clientX : ev.clientX - r.left;
+      resizeTo(wrap, handle, vertical ? ((ev.clientY - r.top) / r.height) * 100 : (x / r.width) * 100);
     }
     function up() {
       handle.classList.remove('is-dragging');
@@ -1160,11 +1168,192 @@
     if (!handle) return;
     var wrap = handle.parentElement, vertical = wrap.classList.contains('cu-resizable-vertical');
     var cur = resizePct(wrap, handle), step = e.shiftKey ? 10 : 2, n = null;
-    if (e.key === (vertical ? 'ArrowUp' : 'ArrowLeft')) n = cur - step;
-    else if (e.key === (vertical ? 'ArrowDown' : 'ArrowRight')) n = cur + step;
+    var rtl = !vertical && isRtl(wrap);
+    if (e.key === (vertical ? 'ArrowUp' : rtl ? 'ArrowRight' : 'ArrowLeft')) n = cur - step;
+    else if (e.key === (vertical ? 'ArrowDown' : rtl ? 'ArrowLeft' : 'ArrowRight')) n = cur + step;
     else if (e.key === 'Home') n = 0;
     else if (e.key === 'End') n = 100;
     if (n !== null) { e.preventDefault(); resizeTo(wrap, handle, n); }
+  }
+
+  // ---------- message scroller ----------
+  function scrollerInit(root) {
+    qa('[data-cu-message-scroller]', root).forEach(function (host) {
+      if (host._cuScroller) return;
+      var view = q('.cu-message-scroller-viewport', host), content = q('.cu-message-scroller-content', host);
+      if (!view || !content) return;
+      var btn = q('.cu-message-scroller-button', host);
+      var follow = true, lastHeight = content.scrollHeight, lastFirst = content.firstElementChild, auto = false;
+      function gap() { return view.scrollHeight - view.clientHeight - view.scrollTop; }
+      function atEnd() { return gap() <= 24; }
+      function state() {
+        var scrollable = view.scrollHeight > view.clientHeight + 1;
+        host.setAttribute('data-scrollable', scrollable ? 'true' : 'false');
+        host.setAttribute('data-at-end', atEnd() ? 'true' : 'false');
+        if (btn) {
+          var active = scrollable && !atEnd();
+          btn.setAttribute('data-active', active ? 'true' : 'false');
+          btn.tabIndex = active ? 0 : -1;
+          if (active) btn.removeAttribute('inert'); else btn.setAttribute('inert', '');
+        }
+      }
+      function jump(top, smooth) {
+        auto = true;
+        view.scrollTo({ top: top, behavior: smooth && !reducedMotion() ? 'smooth' : 'auto' });
+        setTimeout(function () { auto = false; state(); }, smooth ? 450 : 0);
+      }
+      var api = {
+        scrollToEnd: function (smooth) { follow = true; jump(view.scrollHeight, smooth !== false); },
+        scrollToStart: function (smooth) { follow = false; jump(0, smooth !== false); },
+        scrollToMessage: function (id, smooth) {
+          var item = q('[data-message-id="' + String(id).replace(/"/g, '\\"') + '"]', content);
+          if (!item) return false;
+          follow = false;
+          jump(item.offsetTop - content.offsetTop, smooth !== false);
+          return true;
+        }
+      };
+      host._cuScroller = api;
+      // Content changed: new message, streamed text, or older messages added on top.
+      function changed() {
+        var h = content.scrollHeight, grew = h - lastHeight;
+        var first = content.firstElementChild;
+        if (grew > 0 && first !== lastFirst && lastFirst && content.contains(lastFirst) && !follow) {
+          view.scrollTop += grew; // history was prepended: keep the reader's place
+        } else if (follow) {
+          view.scrollTop = view.scrollHeight;
+        }
+        lastHeight = h; lastFirst = first;
+        state();
+      }
+      view.addEventListener('scroll', function () {
+        if (!auto) follow = atEnd(); // the reader scrolled: follow only while they stay at the bottom
+        state();
+      });
+      if (btn) btn.addEventListener('click', function () { api.scrollToEnd(true); view.focus({ preventScroll: true }); });
+      if (window.MutationObserver) new MutationObserver(changed).observe(content, { childList: true, subtree: true, characterData: true });
+      if (window.ResizeObserver) new ResizeObserver(changed).observe(content);
+      // Opening position
+      var start = host.getAttribute('data-cu-start') || 'end';
+      var anchors = qa('[data-cu-anchor]', content), anchor = anchors[anchors.length - 1];
+      if (start === 'start') { follow = false; view.scrollTop = 0; }
+      else if (start === 'last-anchor' && anchor && content.scrollHeight - (anchor.offsetTop - content.offsetTop) > view.clientHeight) {
+        follow = false; view.scrollTop = anchor.offsetTop - content.offsetTop;
+      } else view.scrollTop = view.scrollHeight;
+      state();
+    });
+  }
+
+  // ---------- questionnaire ----------
+  function qInit(root) {
+    qa('[data-cu-questionnaire]', root).forEach(function (form) {
+      if (form._cuQ) return;
+      var items = qa('.cu-questionnaire-item', form);
+      if (!items.length) return;
+      var st = { index: 0 };
+      form._cuQ = st;
+      form.setAttribute('novalidate', '');
+      var progress = q('.cu-questionnaire-progress', form);
+      var mode = form.getAttribute('data-cu-shortcuts');
+      if (progress) { progress.setAttribute('role', 'progressbar'); progress.setAttribute('aria-valuemin', '1'); progress.setAttribute('aria-valuemax', String(items.length)); }
+      function choices(item) { return qa('.cu-questionnaire-choice input', item); }
+      function keyFor(i) { return mode === 'numbers' ? String(i + 1) : String.fromCharCode(65 + i); }
+      if (mode === 'letters' || mode === 'numbers') {
+        items.forEach(function (item) {
+          qa('.cu-questionnaire-choice', item).forEach(function (label, i) {
+            if (q('.cu-questionnaire-key', label) || i > (mode === 'numbers' ? 8 : 25)) return;
+            var k = el('kbd', 'cu-questionnaire-key', keyFor(i));
+            k.setAttribute('aria-hidden', 'true');
+            label.appendChild(k);
+          });
+        });
+      }
+      function answered(item) {
+        if (choices(item).some(function (c) { return c.checked; })) return true;
+        return qa('.cu-questionnaire-input, textarea', item).some(function (i) { return i.value.trim() !== ''; });
+      }
+      function setError(item, on) {
+        var err = q('.cu-questionnaire-error', item);
+        if (err) err.hidden = !on;
+        if (on) item.setAttribute('aria-invalid', 'true'); else item.removeAttribute('aria-invalid');
+      }
+      function valid(item) {
+        var ok = !item.hasAttribute('data-required') || answered(item);
+        setError(item, !ok);
+        if (!ok) { var first = q('input, textarea', item); if (first) first.focus(); }
+        return ok;
+      }
+      function show(i, focus) {
+        st.index = Math.max(0, Math.min(items.length - 1, i));
+        items.forEach(function (item, k) {
+          var on = k === st.index;
+          item.hidden = !on;
+          if (on) item.removeAttribute('inert'); else item.setAttribute('inert', '');
+        });
+        var cur = items[st.index], last = st.index === items.length - 1;
+        if (progress) {
+          progress.textContent = 'Question ' + (st.index + 1) + ' of ' + items.length;
+          progress.setAttribute('aria-valuenow', String(st.index + 1));
+          progress.setAttribute('aria-valuetext', progress.textContent);
+        }
+        function vis(name, on) { qa('[data-cu-q="' + name + '"]', form).forEach(function (b) { b.hidden = !on; }); }
+        vis('prev', st.index > 0);
+        vis('next', !last);
+        vis('submit', last);
+        vis('skip', !cur.hasAttribute('data-required'));
+        if (focus) { var target = q('input:checked', cur) || q('input, textarea', cur); if (target) target.focus(); }
+        emit(form, 'cu:question', { index: st.index, total: items.length });
+      }
+      function answers() {
+        var out = {};
+        new FormData(form).forEach(function (v, k) {
+          if (v === '') return;
+          if (out[k] === undefined) out[k] = v; else out[k] = [].concat(out[k], v);
+        });
+        return out;
+      }
+      function trySubmit() {
+        for (var i = 0; i < items.length; i++) { if (!valid(items[i])) { show(i, false); valid(items[i]); return false; } }
+        return true;
+      }
+      form.addEventListener('click', function (e) {
+        var b = e.target.closest('[data-cu-q]');
+        if (!b) return;
+        var act = b.getAttribute('data-cu-q'), cur = items[st.index];
+        if (act === 'prev') show(st.index - 1, true);
+        else if (act === 'next') { if (valid(cur)) show(st.index + 1, true); }
+        else if (act === 'skip') {
+          choices(cur).forEach(function (c) { c.checked = false; });
+          qa('.cu-questionnaire-input, textarea', cur).forEach(function (i) { i.value = ''; });
+          setError(cur, false);
+          if (st.index < items.length - 1) show(st.index + 1, true);
+          else if (typeof form.requestSubmit === 'function') form.requestSubmit();
+        }
+      });
+      form.addEventListener('change', function (e) { var item = e.target.closest('.cu-questionnaire-item'); if (item) setError(item, false); });
+      form.addEventListener('keydown', function (e) {
+        if (e.ctrlKey || e.metaKey || e.altKey) return;
+        var typing = e.target.matches('input[type="text"], input:not([type]), textarea, .cu-questionnaire-input');
+        if (e.key === 'Enter' && !e.target.matches('textarea, button')) {
+          // Enter moves on instead of submitting half a form
+          if (st.index < items.length - 1) { e.preventDefault(); if (valid(items[st.index])) show(st.index + 1, true); }
+          return;
+        }
+        if (typing || !mode || e.key.length !== 1) return;
+        var list = choices(items[st.index]);
+        var i = mode === 'numbers' ? parseInt(e.key, 10) - 1 : e.key.toUpperCase().charCodeAt(0) - 65;
+        if (isNaN(i) || i < 0 || i >= list.length) return;
+        e.preventDefault();
+        list[i].checked = list[i].type === 'checkbox' ? !list[i].checked : true;
+        list[i].focus();
+        list[i].dispatchEvent(new Event('change', { bubbles: true }));
+      });
+      form.addEventListener('submit', function (e) {
+        if (!trySubmit()) { e.preventDefault(); e.stopImmediatePropagation(); return; }
+        emit(form, 'cu:questionnaire', { answers: answers() });
+      }, true);
+      show(0, false);
+    });
   }
 
   // ---------- init + event wiring ----------
@@ -1183,6 +1372,8 @@
     tableInit(root);
     tabsInit(root);
     carouselInit(root);
+    scrollerInit(root);
+    qInit(root);
     qa('.cu-slider', root).forEach(syncSlider);
     qa('.cu-command', root).forEach(function (c) { commandActive(c, commandItems(c)[0]); });
     qa('[data-cu-resizable] > .cu-resizable-handle', root).forEach(function (h) {
@@ -1242,7 +1433,7 @@
   if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', function () { init(doc); });
   else init(doc);
 
-  var api = { version: VERSION, init: init, toast: toast };
+  var api = { version: VERSION, init: init, toast: toast, scroller: function (node) { return node && node._cuScroller ? node._cuScroller : null; } };
   window.CometUI = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })();

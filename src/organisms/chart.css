@@ -1,0 +1,58 @@
+/* Organism: Chart. A themed container for TanStack Charts (@tanstack/charts, an optional peer dependency).
+   Comet UI does not draw charts itself: TanStack Charts renders, this file makes it follow the theme and brand.
+
+   <figure class="cu-chart">
+     <figcaption class="cu-chart-header">
+       <span class="cu-chart-title">Monthly revenue</span>
+       <span class="cu-chart-description">January to June 2026</span>
+     </figcaption>
+     <div class="cu-chart-canvas" id="revenue"></div>
+   </figure>
+
+   import { defineChart, barY, mountChart } from '@tanstack/charts'
+   mountChart(document.getElementById('revenue'), { definition, height: 280, ariaLabel: 'Monthly revenue' })
+
+   Series colours come from --cu-chart-1 to --cu-chart-6 (semantic tokens, light and dark). Leave `fill` and
+   `stroke` unset, or use 'var(--cu-chart-2)', so charts restyle when the theme or brand changes with no rebuild.
+   Axis text and grid lines use currentColor. The tooltip uses the popover surface tokens.
+   .cu-chart-plain removes the card frame. */
+
+.cu-chart {
+  margin: 0;
+  padding: var(--cu-space-lg);
+  border: 1px solid var(--cu-border);
+  border-radius: var(--cu-radius-lg);
+  background: var(--cu-surface);
+  color: var(--cu-muted-foreground);
+  font-family: var(--cu-font-family-default);
+  font-size: var(--cu-text-xs);
+
+  --ts-chart-1: var(--cu-chart-1);
+  --ts-chart-2: var(--cu-chart-2);
+  --ts-chart-3: var(--cu-chart-3);
+  --ts-chart-4: var(--cu-chart-4);
+  --ts-chart-5: var(--cu-chart-5);
+  --ts-chart-6: var(--cu-chart-6);
+  --ts-chart-tooltip-background: var(--cu-surface);
+  --ts-chart-tooltip-color: var(--cu-foreground);
+  --ts-chart-tooltip-border: 1px solid var(--cu-border);
+  --ts-chart-tooltip-border-radius: var(--cu-radius-md);
+  --ts-chart-tooltip-shadow: var(--cu-shd-pop);
+  --ts-chart-tooltip-padding: var(--cu-space-sm) var(--cu-space-md);
+  --ts-chart-tooltip-active-row-background: var(--cu-muted);
+  --ts-chart-focus-fill: var(--cu-surface);
+}
+
+.cu-chart-plain { padding: 0; border: 0; background: transparent; }
+
+.cu-chart-header { display: flex; flex-direction: column; gap: 2px; margin-bottom: var(--cu-space-md); }
+.cu-chart-title { color: var(--cu-foreground); font-size: var(--cu-text-base); font-weight: var(--cu-font-weight-bold); }
+.cu-chart-description { font-size: var(--cu-text-sm); }
+
+.cu-chart-canvas { width: 100%; min-width: 0; }
+.cu-chart-canvas svg { display: block; max-width: 100%; }
+
+/* Hand-written legend, for charts that do not use TanStack's colorLegend */
+.cu-chart-legend { display: flex; flex-wrap: wrap; gap: var(--cu-space-md); margin-top: var(--cu-space-md); font-size: var(--cu-text-sm); }
+.cu-chart-legend-item { display: inline-flex; align-items: center; gap: var(--cu-space-xs); }
+.cu-chart-legend-swatch { width: 0.625rem; height: 0.625rem; border-radius: 2px; background: currentColor; }
