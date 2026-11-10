@@ -31,7 +31,7 @@ With a bundler: `import 'comet-ui/comet.min.css'; import 'comet-ui/comet.min.js'
 | `core.min.css` | Foundation only: tokens, reset, typography, layout, utilities. Budget 30 kB | 24 kB / 4 kB |
 | `components.min.css` | Components and templates only | 68 kB / 10 kB |
 | `brands/<name>.css` | One brand each (already inside `comet.min.css`) | 1 kB |
-| `comet.min.js` | Behaviour (table, toast, datepicker, tabs...) | 26 kB |
+| `comet.min.js` | Behaviour (table, toast, datepicker, tabs, command...) | 38 kB |
 | `tailwind.css` | Tailwind v4 preset: `@import "comet-ui/tailwind.css"` | 3 kB |
 | `llms.txt` | Guide for AI agents, generated from the tokens | 16 kB |
 
